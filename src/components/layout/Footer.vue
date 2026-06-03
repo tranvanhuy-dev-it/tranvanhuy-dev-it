@@ -49,7 +49,7 @@
           class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
           id="back-to-top"
         >
-          <span>Lên đầu trang</span>
+          <span>Back to top</span>
           <span class="group-hover:-translate-y-1 transition-transform">↑</span>
         </button>
       </div>

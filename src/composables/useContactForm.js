@@ -27,19 +27,19 @@ export function useContactForm() {
     errors.message = ''
 
     if (!form.name.trim() || form.name.trim().length < 2) {
-      errors.name = 'Tên phải có ít nhất 2 ký tự'
+      errors.name = 'Name must be at least 2 characters long'
       valid = false
     }
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      errors.email = 'Email không hợp lệ'
+      errors.email = 'Please enter a valid email address'
       valid = false
     }
     if (!form.subject.trim() || form.subject.trim().length < 3) {
-      errors.subject = 'Chủ đề phải có ít nhất 3 ký tự'
+      errors.subject = 'Subject must be at least 3 characters long'
       valid = false
     }
     if (!form.message.trim() || form.message.trim().length < 10) {
-      errors.message = 'Nội dung phải có ít nhất 10 ký tự'
+      errors.message = 'Message must be at least 10 characters long'
       valid = false
     }
     return valid

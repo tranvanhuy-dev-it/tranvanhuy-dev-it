@@ -11,19 +11,19 @@ export const usePortfolioStore = defineStore("portfolio", {
         "Always Learning New Technologies",
         "Full-Stack Developer",
       ],
-      bio: `Xin chào! Tôi là sinh viên Công nghệ Thông tin với niềm đam mê phát triển các ứng dụng web hiện đại. 
-      Tôi yêu thích việc tìm hiểu và áp dụng các công nghệ từ frontend đến backend để xây dựng những sản phẩm hữu ích, 
-      đồng thời luôn chú trọng đến chất lượng mã nguồn và trải nghiệm người dùng.`,
-      bio2: `Tôi đặc biệt quan tâm đến lĩnh vực Chuyển đổi số và mong muốn ứng dụng công nghệ 
-      để giải quyết các bài toán thực tiễn trong doanh nghiệp và cộng đồng. 
-      Tôi luôn chủ động học hỏi, trau dồi kỹ năng và tích lũy kinh nghiệm thông qua các dự án cá nhân cũng như hoạt động học tập.`,
-      objective: `Trở thành Full-Stack Engineer với định hướng phát triển chuyên sâu về AI và Data Science. 
-      Tôi mong muốn được tham gia các dự án thực tế để nâng cao kỹ năng kỹ thuật, 
-      tích lũy kinh nghiệm xây dựng sản phẩm và ứng dụng công nghệ hiện đại nhằm tạo ra các giải pháp chuyển đổi số 
-      hiệu quả cho doanh nghiệp và cộng đồng.`,
-      location: "Đà Nẵng, Việt Nam",
+      bio: `Hello! I am an Information Technology student with a strong passion for developing modern web applications. 
+      I love exploring and applying technologies across the entire stack—from frontend to backend—to build meaningful products, 
+      while always prioritizing clean code quality and optimal user experiences.`,
+      bio2: `I am particularly interested in Digital Transformation and aim to leverage technology 
+      to solve real-world problems for businesses and the community. 
+      I proactively learn, continuously refine my skills, and build hands-on experience through academic work, personal projects, and self-study.`,
+      objective: `To become a professional Full-Stack Engineer with a specialization in AI and Data Science. 
+      I am eager to participate in real-world projects to enhance my technical skills, 
+      gain product development experience, and apply modern technologies to deliver effective digital transformation 
+      solutions for businesses and the community.`,
+      location: "Da Nang, Vietnam",
       email: "tranvanhuy064206@gmail.com",
-      availability: "Sẵn sàng hợp tác",
+      availability: "Available for Opportunities",
       avatar: "/avt.jpg", // thay bằng đường dẫn ảnh thật
       cv: "/cv.pdf",
       socials: {
@@ -36,10 +36,10 @@ export const usePortfolioStore = defineStore("portfolio", {
 
     // ===================== STATS =====================
     stats: [
-      { value: "AI & DS", label: "Chuyên ngành Định hướng" },
-      { value: "5+", label: "Dự án thực tế" },
-      { value: "15+", label: "Công nghệ sử dụng" },
-      { value: "100%", label: "Nhiệt huyết & Sáng tạo" },
+      { value: "AI & DS", label: "Focus Area" },
+      { value: "5+", label: "Projects Completed" },
+      { value: "15+", label: "Technologies Used" },
+      { value: "100%", label: "Passion & Creativity" },
     ],
 
     // ===================== SKILLS =====================
@@ -227,9 +227,9 @@ export const usePortfolioStore = defineStore("portfolio", {
         id: 1,
         title: "SonTra Health Management",
         description:
-          "Hệ thống quản lý các cơ sở kinh doanh và dịch vụ y tế dành cho chính quyền phường Sơn Trà.",
+          "A management system for medical service facilities and businesses designed for the Son Tra district local government.",
         longDesc:
-          "Ứng dụng hỗ trợ chính quyền địa phương quản lý, giám sát các cơ sở kinh doanh và dịch vụ liên quan đến y tế và sức khỏe tại phường Sơn Trà. Tích hợp bản đồ số thông minh giúp định vị, quản lý thông tin cấp phép, thanh tra chất lượng và hỗ trợ tìm kiếm điều hướng nhanh chóng.",
+          "A digital solution built to help local authorities monitor and manage medical and health-related establishments in Son Tra. It integrates an interactive digital map for geolocating facilities, managing licensing information, tracking quality inspections, and enabling quick navigation.",
         tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
         category: "fullstack",
         time: "05-2026",
@@ -242,9 +242,9 @@ export const usePortfolioStore = defineStore("portfolio", {
         id: 2,
         title: "StudyHub",
         description:
-          "Nền tảng chia sẻ tài liệu học tập đa phương tiện và tài nguyên học thuật dành cho sinh viên.",
+          "A multimedia learning document and academic resource sharing platform for university students.",
         longDesc:
-          "Hệ sinh thái cho phép sinh viên tải lên, chia sẻ tài liệu học tập, giáo trình, tài nguyên môn học. Hệ thống hỗ trợ phân quyền người dùng, kiểm duyệt bài đăng thông minh và chức năng tìm kiếm nâng cao.",
+          "A collaborative hub that enables students to upload and share learning materials, lecture notes, and course resources. Features user access control, smart content moderation, and advanced search functionality.",
         tags: ["Vue 3", "Spring Boot", "MySQL", "JWT", "Vite"],
         category: "fullstack",
         time: "04-2026",
@@ -257,9 +257,9 @@ export const usePortfolioStore = defineStore("portfolio", {
         id: 3,
         title: "PBL3 - Electronic E-Commerce",
         description:
-          "Trang web thương mại điện tử chuyên kinh doanh thiết bị và linh kiện điện tử trực tuyến.",
+          "An e-commerce web application specializing in electronic components and equipment sales.",
         longDesc:
-          "Dự án PBL3 xây dựng một hệ thống bán linh kiện điện tử hoàn chỉnh, tích hợp giỏ hàng, đặt hàng, quản lý đơn hàng, theo dõi lịch sử mua hàng và trang dashboard phân tích doanh thu, hàng tồn kho dành cho Admin.",
+          "A comprehensive electronics e-commerce system featuring shopping cart integration, order placement and tracking, purchase history, and an administrative dashboard for sales and inventory analytics.",
         tags: ["Vue.js", "ASP.NET Core", "SQL Server", "Entity Framework"],
         category: "fullstack",
         time: "12-2025 - 05-2026",
@@ -272,9 +272,9 @@ export const usePortfolioStore = defineStore("portfolio", {
         id: 4,
         title: "HVAC Job Management System",
         description:
-          "Hệ thống quản lý công việc và điều phối kỹ thuật viên lắp đặt/bảo trì điều hòa không khí.",
+          "A job management and technician dispatch system for HVAC installation and maintenance services.",
         longDesc:
-          "Giải pháp quản lý tổng thể cho doanh nghiệp điện lạnh gồm phần Backend quản lý trên Web và Mobile App di động cho kỹ thuật viên nhận ca, cập nhật trạng thái thi công trực tiếp tại công trình.",
+          "A complete workflow solution for refrigeration businesses, comprising a web-based administration panel and a mobile application for technicians to receive shifts and update progress directly from work sites.",
         tags: [".NET Core", "C#", "SQL Server", "Mobile App"],
         category: "fullstack",
         time: "12-2025 - 02-2026",
@@ -289,16 +289,16 @@ export const usePortfolioStore = defineStore("portfolio", {
     experiences: [
       {
         id: 1,
-        company: "Trường Đại học Bách khoa - ĐHĐN",
-        position: "Trưởng nhóm / Thành viên phát triển dự án",
-        period: "2024 – Nay",
-        duration: "Dự án học thuật",
+        company: "Da Nang University of Technology (DUT - UD)",
+        position: "Project Team Lead / Full-Stack Developer",
+        period: "2024 – Present",
+        duration: "Academic Projects",
         description: [
-          "Chủ động tìm hiểu và tiếp cận các công nghệ tiên tiến trong lĩnh vực AI, Data Science và Full-stack Web Development",
-          "Tham gia phát triển và hoàn thiện các dự án học thuật, vận dụng kiến thức chuyên ngành vào thực tiễn",
-          "Tích hợp công nghệ hiện đại như React.js, Vue 3, Python (Frappe Framework), Spring Boot và .NET Core vào các bài toán thực tế.",
-          "Quản lý mã nguồn dự án qua Git/GitHub, thực hiện phân chia công việc và làm việc nhóm hiệu quả theo mô hình Agile/Scrum.",
-          "Phân tích cơ sở dữ liệu (PostgreSQL, MySQL, SQL Server), tối ưu hóa các câu lệnh truy vấn và thiết kế API đáp ứng hiệu năng.",
+          "Proactively researched and adopted state-of-the-art technologies in AI, Data Science, and Full-stack Web Development.",
+          "Developed academic projects from concept to completion, applying computer science theories to practical engineering problems.",
+          "Integrated modern frameworks including React.js, Vue 3, Python (Frappe Framework), Spring Boot, and .NET Core into real-world business scenarios.",
+          "Managed version control via Git/GitHub, coordinated tasks, and collaborated in Agile/Scrum team environments.",
+          "Analyzed database schemas (PostgreSQL, MySQL, SQL Server), optimized SQL query performance, and designed robust APIs.",
         ],
         tech: [
           "React.js",
@@ -326,14 +326,14 @@ export const usePortfolioStore = defineStore("portfolio", {
       // },
       {
         id: 3,
-        company: "Dự án cá nhân & Đóng góp Open-Source",
-        position: "Nhà phát triển Độc lập",
-        period: "2024 – Nay",
-        duration: "Tự học & Phát triển bản thân",
+        company: "Personal Projects & Open-Source Contributions",
+        position: "Independent Developer",
+        period: "2024 – Present",
+        duration: "Self-Study & Personal Growth",
         description: [
-          "Chủ động nghiên cứu và tiếp cận các xu hướng công nghệ mới thông qua tài liệu tiếng Anh chính thống và các nền tảng tự học uy tín.",
-          "Xây dựng các dự án thực tế đầy tâm huyết để áp dụng lý thuyết vào thực hành.",
-          "Rèn luyện tư duy phân tích, giải quyết vấn đề (problem-solving) và không ngừng tối ưu hóa trải nghiệm người dùng UI/UX.",
+          "Self-studied emerging tech trends using official documentation and industry-standard educational platforms.",
+          "Built hands-on projects to implement theoretical concepts in real-world scenarios.",
+          "Sharpened analytical thinking, problem-solving skills, and UI/UX design considerations for end-user satisfaction.",
         ],
         tech: ["Frappe", "Vue 3", "Spring Boot", "PostgreSQL", "Tailwind CSS"],
         type: "self-study",
@@ -344,11 +344,11 @@ export const usePortfolioStore = defineStore("portfolio", {
     education: [
       {
         id: 1,
-        school: "Trường Đại học Bách khoa, Đại học Đà Nẵng",
-        degree: "Cử nhân Công nghệ Thông tin",
-        period: "2024 – Nay",
+        school: "Da Nang University of Technology, The University of Da Nang",
+        degree: "Bachelor of Information Technology",
+        period: "2024 – Present",
         gpa: "3.5/4.0",
-        description: "Chuyên ngành Khoa học dữ liệu và Trí tuệ nhân tạo",
+        description: "Specialization in Data Science and Artificial Intelligence",
         type: "degree",
         logo: "/dut.png",
       },

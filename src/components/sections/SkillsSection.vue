@@ -2,9 +2,9 @@
   <section id="skills" class="relative py-24 px-4" style="background: rgba(124,58,237,0.02);">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
-        title="Kỹ Năng"
+        title="Skills"
         subtitle="Tech Stack"
-        description="Các công nghệ tôi sử dụng để xây dựng sản phẩm"
+        description="The tools and technologies I use to bring ideas to life"
       />
 
       <!-- Category Tabs -->

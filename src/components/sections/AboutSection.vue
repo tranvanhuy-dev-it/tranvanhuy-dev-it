@@ -1,8 +1,8 @@
 <template>
   <section id="about" class="relative py-24 px-4">
     <div class="max-w-6xl mx-auto">
-      <SectionTitle title="Về Tôi" subtitle="About Me"
-        description="Một chút thông tin về tôi và hành trình phát triển" />
+      <SectionTitle title="About Me" subtitle="My Profile"
+        description="A brief overview of my profile and journey" />
 
       <div class="grid md:grid-cols-2 gap-12 items-center mt-4">
         <!-- Left: Avatar & decorative -->
@@ -75,17 +75,17 @@
               </a>
             </div>
             <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">Vị trí:</span>
+              <span class="text-purple-400 font-mono w-24">Location:</span>
               <span class="text-slate-300">{{ store.personal.location }}</span>
             </div>
             <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">Trạng thái:</span>
+              <span class="text-purple-400 font-mono w-24">Status:</span>
               <span class="text-green-400">{{ store.personal.availability }}</span>
             </div>
           </div>
 
           <a :href="store.personal.cv" download class="btn-primary inline-block" id="about-download-cv">
-            Tải CV của tôi ↓
+            Download My CV ↓
           </a>
         </div>
       </div>
@@ -93,7 +93,7 @@
       <!-- Career Objective -->
       <div v-if="store.personal.objective" class="mt-16 p-6 rounded-2xl border border-white/5 bg-white/[0.02] fade-up">
         <h4 class="text-white font-bold text-lg mb-3">
-          Mục tiêu nghề nghiệp
+          Career Objective
         </h4>
         <p class="text-slate-300 text-sm md:text-base leading-relaxed">
           {{ store.personal.objective }}

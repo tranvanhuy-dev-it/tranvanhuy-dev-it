@@ -2,9 +2,9 @@
   <section id="experience" class="relative py-24 px-4" style="background: rgba(6,182,212,0.02);">
     <div class="max-w-4xl mx-auto">
       <SectionTitle
-        title="Kinh Nghiệm"
+        title="Experience"
         subtitle="Work Experience"
-        description="Hành trình làm việc của tôi"
+        description="My career and development journey"
       />
 
       <!-- Timeline -->

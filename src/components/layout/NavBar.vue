@@ -37,7 +37,7 @@
         class="hidden md:block btn-primary text-sm px-5 py-2"
         @click.prevent="scrollTo('#contact')"
       >
-        Liên hệ
+        Contact
       </a>
 
       <!-- Mobile Menu Toggle -->
@@ -85,13 +85,13 @@ const mobileOpen = ref(false)
 const scrollProgress = ref(0)
 
 const navItems = [
-  { id: 'hero', label: 'Trang chủ' },
-  { id: 'about', label: 'Về tôi' },
-  { id: 'skills', label: 'Kỹ năng' },
-  { id: 'projects', label: 'Dự án' },
-  { id: 'experience', label: 'Kinh nghiệm' },
-  { id: 'education', label: 'Học vấn' },
-  { id: 'contact', label: 'Liên hệ' },
+  { id: 'hero', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 function scrollTo(selector) {

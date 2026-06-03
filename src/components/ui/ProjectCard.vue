@@ -19,7 +19,7 @@
       <!-- Premium Hover overlay with details hint -->
       <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-medium tracking-wide flex items-center gap-1.5 transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
-          🔍 Phóng to hình ảnh
+          🔍 Zoom Image
         </span>
       </div>
 
@@ -96,7 +96,7 @@
           @click="$emit('show-details', project)"
           class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1 py-1 px-2 rounded hover:bg-purple-500/10 cursor-pointer"
         >
-          Chi tiết ➜
+          Details ➜
         </button>
       </div>
     </div>

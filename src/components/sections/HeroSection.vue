@@ -19,7 +19,7 @@
 
       <!-- Name -->
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 fade-up animate-delay-100 leading-tight">
-        <span class="text-white">Xin chào, tôi là</span><br />
+        <span class="text-white">Hi, I am</span><br />
         <span class="gradient-text">{{ store.personal.name }}</span>
       </h1>
 
@@ -33,7 +33,7 @@
 
       <!-- Bio snippet -->
       <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 fade-up animate-delay-300 leading-relaxed">
-        Đam mê xây dựng các sản phẩm web hiện đại, hiệu suất cao với trải nghiệm người dùng xuất sắc.
+        Passionate about building modern, high-performance web applications with exceptional user experiences.
       </p>
 
       <!-- CTAs -->
@@ -41,11 +41,11 @@
         class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-up animate-delay-400 w-full max-w-xs sm:max-w-none mx-auto">
         <a href="#projects" @click.prevent="scrollTo('#projects')"
           class="btn-primary text-base px-8 py-3 w-full sm:w-auto text-center" id="hero-view-projects">
-          Xem dự án
+          View Projects
         </a>
         <a :href="store.personal.cv" download class="btn-outline text-base px-8 py-3 w-full sm:w-auto text-center"
           id="hero-download-cv">
-          Tải CV ↓
+          Download CV ↓
         </a>
       </div>
 

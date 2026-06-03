@@ -7,19 +7,18 @@
     </div>
 
     <div class="max-w-6xl mx-auto relative z-10">
-      <SectionTitle title="Liên Hệ" subtitle="Get In Touch"
-        description="Hãy kết nối với tôi để thảo luận công việc hoặc cơ hội hợp tác!" />
+      <SectionTitle title="Contact" subtitle="Get In Touch"
+        description="Let's connect to discuss job opportunities or collaboration!" />
 
       <div class="grid md:grid-cols-5 gap-8 mt-12 items-start">
         <!-- Column 1: Info and Socials (Span 2) -->
         <div class="md:col-span-2 space-y-6 fade-left">
           <div class="glass-card p-6 md:p-8 flex flex-col gap-6">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
-              <span class="text-purple-400"></span> Thông tin liên hệ
+              <span class="text-purple-400"></span> Contact Information
             </h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Tôi luôn sẵn sàng đón nhận những thử thách mới và cơ hội hợp tác. Hãy gửi tin nhắn hoặc kết nối trực tiếp
-              với tôi!
+              I am always open to new challenges and collaboration opportunities. Drop a message or connect with me directly!
             </p>
 
             <div class="space-y-4">
@@ -64,7 +63,7 @@
 
             <!-- Social links inside Info block -->
             <div class="border-t border-white/5 pt-6">
-              <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-4">Mạng xã hội</h4>
+              <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-4">Social Media</h4>
               <div class="flex gap-3">
                 <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener"
                   class="social-link w-11 h-11 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300"
@@ -94,21 +93,21 @@
         <div class="md:col-span-3 fade-right">
           <div class="glass-card p-6 md:p-8 relative">
             <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <span class="text-cyan-400"></span> Gửi tin nhắn
+              <span class="text-cyan-400"></span> Send a Message
             </h3>
 
             <form @submit.prevent="submit" class="space-y-5">
               <!-- Grid for Name and Email -->
               <div class="grid sm:grid-cols-2 gap-5">
                 <div class="space-y-1.5">
-                  <label for="name" class="text-xs font-mono text-slate-400">Họ và tên</label>
-                  <input v-model="form.name" type="text" id="name" placeholder="Nguyễn Văn A" class="form-input text-xs"
+                  <label for="name" class="text-xs font-mono text-slate-400">Full Name</label>
+                  <input v-model="form.name" type="text" id="name" placeholder="John Doe" class="form-input text-xs"
                     :class="errors.name ? 'border-red-500/50 focus:border-red-500' : ''" />
                   <p v-if="errors.name" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.name }}</p>
                 </div>
 
                 <div class="space-y-1.5">
-                  <label for="email" class="text-xs font-mono text-slate-400">Địa chỉ Email</label>
+                  <label for="email" class="text-xs font-mono text-slate-400">Email Address</label>
                   <input v-model="form.email" type="email" id="email" placeholder="email@example.com"
                     class="form-input text-xs" :class="errors.email ? 'border-red-500/50 focus:border-red-500' : ''" />
                   <p v-if="errors.email" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.email }}</p>
@@ -117,17 +116,17 @@
 
               <!-- Subject -->
               <div class="space-y-1.5">
-                <label for="subject" class="text-xs font-mono text-slate-400">Chủ đề</label>
+                <label for="subject" class="text-xs font-mono text-slate-400">Subject</label>
                 <input v-model="form.subject" type="text" id="subject"
-                  placeholder="Cơ hội hợp tác / Hợp đồng công việc..." class="form-input text-xs"
+                  placeholder="Collaboration Opportunity / Work Inquiry..." class="form-input text-xs"
                   :class="errors.subject ? 'border-red-500/50 focus:border-red-500' : ''" />
                 <p v-if="errors.subject" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.subject }}</p>
               </div>
 
               <!-- Message -->
               <div class="space-y-1.5">
-                <label for="message" class="text-xs font-mono text-slate-400">Nội dung tin nhắn</label>
-                <textarea v-model="form.message" id="message" rows="10" placeholder="Xin chào, tôi muốn thảo luận về..."
+                <label for="message" class="text-xs font-mono text-slate-400">Message Content</label>
+                <textarea v-model="form.message" id="message" rows="10" placeholder="Hi, I would like to discuss..."
                   class="form-input text-xs resize-none"
                   :class="errors.message ? 'border-red-500/50 focus:border-red-500' : ''"></textarea>
                 <p v-if="errors.message" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.message }}</p>
@@ -139,10 +138,10 @@
                 <div class="text-xs font-medium w-full sm:w-auto">
                   <span v-if="submitStatus === 'success'"
                     class="text-green-400 flex items-center gap-1.5 animate-pulse">
-                    ✓ Gửi tin nhắn thành công! Cảm ơn bạn.
+                    ✓ Message sent successfully! Thank you.
                   </span>
                   <span v-else-if="submitStatus === 'error'" class="text-red-400 flex items-center gap-1.5">
-                    ✗ Có lỗi xảy ra. Vui lòng thử lại sau.
+                    ✗ Something went wrong. Please try again later.
                   </span>
                 </div>
 
@@ -151,7 +150,7 @@
                   :disabled="isSubmitting">
                   <span v-if="isSubmitting"
                     class="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                  <span>{{ isSubmitting ? 'Đang gửi...' : 'Gửi tin nhắn' }}</span>
+                  <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
                   <svg v-if="!isSubmitting"
                     class="w-3.5 h-3.5 transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                     fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -177,8 +176,8 @@ const { form, errors, isSubmitting, submitStatus, submit } = useContactForm()
 
 const contactItems = [
   { label: 'Email', type: 'email', value: store.personal.email, href: `mailto:${store.personal.email}` },
-  { label: 'Vị trí', type: 'location', value: store.personal.location, href: null },
-  { label: 'Trạng thái', type: 'status', value: store.personal.availability, href: null },
+  { label: 'Location', type: 'location', value: store.personal.location, href: null },
+  { label: 'Status', type: 'status', value: store.personal.availability, href: null },
 ]
 
 const socials = [
