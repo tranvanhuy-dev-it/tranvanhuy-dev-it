@@ -14,7 +14,7 @@
         class="text-xl font-bold font-mono gradient-text hover:opacity-80 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        HuyTran.dev
+        HuyTran
       </a>
 
       <!-- Desktop Nav Links -->

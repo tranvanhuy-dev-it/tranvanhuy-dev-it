@@ -1,7 +1,7 @@
 <template>
   <div class="relative min-h-screen">
-    <!-- Particle BG -->
-    <ParticleBackground />
+    <!-- 3D WebGL BG -->
+    <ThreeDBackground />
 
     <!-- Cursor glow -->
     <div
@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import ParticleBackground from '@/components/ui/ParticleBackground.vue'
+import ThreeDBackground from '@/components/ui/ThreeDBackground.vue'
 import NavBar from '@/components/layout/NavBar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'

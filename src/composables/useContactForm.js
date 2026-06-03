@@ -1,4 +1,5 @@
 import { ref, reactive } from 'vue'
+import emailjs from '@emailjs/browser'
 
 export function useContactForm() {
   const isSubmitting = ref(false)
@@ -51,17 +52,36 @@ export function useContactForm() {
     submitStatus.value = null
 
     try {
-      // Using EmailJS - configure your service/template IDs
-      // import emailjs from '@emailjs/browser'
-      // await emailjs.send('SERVICE_ID', 'TEMPLATE_ID', {
-      //   from_name: form.name,
-      //   from_email: form.email,
-      //   subject: form.subject,
-      //   message: form.message,
-      // }, 'PUBLIC_KEY')
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      // Simulate API call for demo
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Fallback to simulation if environment variables are not configured
+      if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id') {
+        console.warn('EmailJS environment variables not configured. Running in simulation mode.')
+        // Simulate API call for demo
+        await new Promise((resolve) => setTimeout(resolve, 1500))
+      } else {
+        // Send real email via EmailJS
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            // Standard template keys
+            from_name: form.name,
+            from_email: form.email,
+            subject: form.subject,
+            message: form.message,
+            reply_to: form.email,
+
+            // Keys matching your EmailJS template screenshot
+            name: form.name,
+            email: form.email,
+            title: form.subject,
+          },
+          publicKey
+        )
+      }
 
       submitStatus.value = 'success'
       form.name = ''

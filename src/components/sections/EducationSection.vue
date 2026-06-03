@@ -1,27 +1,18 @@
 <template>
   <section id="education" class="relative py-24 px-4">
     <div class="max-w-5xl mx-auto">
-      <SectionTitle
-        title="Học Vấn"
-        subtitle="Education"
-        description="Nền tảng kiến thức và các chứng chỉ của tôi"
-      />
+      <SectionTitle title="Học Vấn" subtitle="Education" description="Nền tảng kiến thức và các chứng chỉ của tôi" />
 
       <div class="flex flex-col gap-6">
-        <div
-          v-for="(edu, i) in store.education"
-          :key="edu.id"
+        <div v-for="(edu, i) in store.education" :key="edu.id"
           class="glass-card-hover p-6 md:p-8 rounded-2xl fade-up flex flex-col md:flex-row items-start gap-6 relative overflow-hidden"
-          :class="`animate-delay-${(i + 1) * 100}`"
-        >
+          :class="`animate-delay-${(i + 1) * 100}`">
           <!-- Left side: Type Icon & Date / GPA -->
-          <div class="flex md:flex-col items-center md:items-start justify-between w-full md:w-auto md:min-w-[180px] gap-4 shrink-0">
-            <div
-              class="inline-flex items-center justify-center w-14 h-14 rounded-2xl shrink-0 overflow-hidden"
-              :style="edu.type === 'degree'
-                ? 'background: rgba(124,58,237,0.15);'
-                : 'background: rgba(6,182,212,0.15);'"
-            >
+          <div
+            class="flex md:flex-col items-center md:items-start justify-between w-full md:w-auto md:min-w-[180px] gap-4 shrink-0">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl shrink-0 overflow-hidden" :style="edu.type === 'degree'
+              ? 'background: rgba(124,58,237,0.15);'
+              : 'background: rgba(6,182,212,0.15);'">
               <img v-if="edu.logo" :src="edu.logo" alt="logo" class="w-full h-full object-contain p-1.5" />
               <span v-else class="text-3xl">{{ edu.type === 'degree' ? '🎓' : '📜' }}</span>
             </div>
