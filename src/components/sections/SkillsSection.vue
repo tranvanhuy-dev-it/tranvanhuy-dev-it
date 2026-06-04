@@ -43,9 +43,9 @@
             <div
               class="h-full rounded-full skill-bar"
               :style="{
-                width: skill.level + '%',
+                width: (barsVisible ? skill.level : 0) + '%',
                 background: 'linear-gradient(90deg, #7c3aed, #06b6d4)',
-                transition: 'width 1s ease ' + (i * 60) + 'ms',
+                transition: 'width 1.2s cubic-bezier(0.25, 1, 0.5, 1) ' + (i * 60) + 'ms',
               }"
             ></div>
           </div>
