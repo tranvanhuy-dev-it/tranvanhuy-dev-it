@@ -5,7 +5,7 @@ export const usePortfolioStore = defineStore("portfolio", {
     // ===================== PERSONAL INFO =====================
     personal: {
       name: "Trần Văn Huy",
-      title: "Full-Stack Developer",
+      title: "Information Technology student",
       taglines: [
         "Building Modern Web Applications",
         "Always Learning New Technologies",
@@ -348,7 +348,8 @@ export const usePortfolioStore = defineStore("portfolio", {
         degree: "Bachelor of Information Technology",
         period: "2024 – Present",
         gpa: "3.5/4.0",
-        description: "Specialization in Data Science and Artificial Intelligence",
+        description:
+          "Specialization in Data Science and Artificial Intelligence",
         type: "degree",
         logo: "/dut.png",
       },
