@@ -1,7 +1,12 @@
 <template>
-  <div class="glass-card project-card overflow-hidden group" :class="featured ? 'border border-purple-500/20' : ''">
+  <div class="glass-card project-card overflow-hidden group flex flex-col h-full" :class="featured ? 'border border-purple-500/20' : ''">
     <!-- Image / Placeholder -->
-    <div class="project-img-wrapper h-48 relative overflow-hidden cursor-pointer group/img" @click="project.image ? $emit('zoom-image', project.image) : $emit('show-details', project)">
+    <a
+      :href="targetLink"
+      target="_blank"
+      rel="noopener"
+      class="project-img-wrapper h-48 relative overflow-hidden block group/img"
+    >
       <img
         v-if="project.image"
         :src="project.image"
@@ -16,8 +21,12 @@
         {{ categoryEmoji }}
       </div>
 
-      <!-- Premium Hover overlay with details hint -->
-      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <!-- Premium Hover overlay with zoom hint -->
+      <div 
+        v-if="project.image"
+        class="absolute inset-0 bg-black/45 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+        @click.stop.prevent="$emit('zoom-image', project.image)"
+      >
         <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-medium tracking-wide flex items-center gap-1.5 transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
           🔍 Zoom Image
         </span>
@@ -31,12 +40,14 @@
       >
         ⭐ Featured
       </div>
-    </div>
+    </a>
 
     <!-- Content -->
-    <div class="p-5">
-      <h3 class="text-lg font-bold text-white mb-1.5 group-hover:text-purple-300 transition-colors cursor-pointer" @click="$emit('show-details', project)">
-        {{ project.title }}
+    <div class="p-5 flex flex-col flex-grow">
+      <h3 class="text-lg font-bold text-white mb-1.5 group-hover:text-purple-300 transition-colors">
+        <a :href="targetLink" target="_blank" rel="noopener" class="hover:underline">
+          {{ project.title }}
+        </a>
       </h3>
       
       <!-- Project Period / Duration -->
@@ -47,12 +58,12 @@
         <span>{{ project.time }}</span>
       </div>
 
-      <p class="text-slate-400 text-sm mb-4 line-clamp-2 leading-relaxed">
-        {{ project.description }}
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed whitespace-pre-wrap">
+        {{ project.longDesc || project.description }}
       </p>
 
       <!-- Tags -->
-      <div class="flex flex-wrap gap-2 mb-5">
+      <div class="flex flex-wrap gap-2 mb-5 mt-auto">
         <span
           v-for="tag in project.tags.slice(0, 4)"
           :key="tag"
@@ -91,13 +102,6 @@
             Live Demo
           </a>
         </div>
-        <!-- Dedicated Chi tiết link -->
-        <button 
-          @click="$emit('show-details', project)"
-          class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1 py-1 px-2 rounded hover:bg-purple-500/10 cursor-pointer"
-        >
-          Details ➜
-        </button>
       </div>
     </div>
   </div>
@@ -111,7 +115,14 @@ const props = defineProps({
   featured: { type: Boolean, default: false },
 })
 
-defineEmits(['show-details', 'zoom-image'])
+defineEmits(['zoom-image'])
+
+const targetLink = computed(() => {
+  if (props.project.demo && props.project.demo !== '#') {
+    return props.project.demo
+  }
+  return props.project.github || '#'
+})
 
 const categoryEmoji = computed(() => {
   const map = { frontend: '🎨', backend: '⚙️', fullstack: '🚀' }

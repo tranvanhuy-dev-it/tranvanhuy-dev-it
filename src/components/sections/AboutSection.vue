@@ -1,8 +1,8 @@
 <template>
   <section id="about" class="relative py-24 px-4">
     <div class="max-w-6xl mx-auto">
-      <SectionTitle title="About Me" subtitle="My Profile"
-        description="A brief overview of my profile and journey" />
+      <SectionTitle :title="store.ui.aboutTitle || 'About Me'" :subtitle="store.ui.aboutSubtitle || 'My Profile'"
+        :description="store.ui.aboutDesc || 'A brief overview of my profile and journey'" />
 
       <div class="grid md:grid-cols-2 gap-12 items-center mt-4">
         <!-- Left: Avatar & decorative -->
@@ -68,24 +68,24 @@
           <!-- Info list -->
           <div class="space-y-3 mb-8">
             <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">Email:</span>
+              <span class="text-purple-400 font-mono w-24">{{ store.ui.emailLabel || 'Email' }}:</span>
               <a :href="`mailto:${store.personal.email}`"
                 class="text-slate-300 hover:text-purple-400 transition-colors">
                 {{ store.personal.email }}
               </a>
             </div>
             <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">Location:</span>
+              <span class="text-purple-400 font-mono w-24">{{ store.ui.locationLabel || 'Location' }}:</span>
               <span class="text-slate-300">{{ store.personal.location }}</span>
             </div>
             <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">Status:</span>
+              <span class="text-purple-400 font-mono w-24">{{ store.ui.availabilityLabel || 'Status' }}:</span>
               <span class="text-green-400">{{ store.personal.availability }}</span>
             </div>
           </div>
 
           <a :href="store.personal.cv" download class="btn-primary inline-block" id="about-download-cv">
-            Download My CV ↓
+            {{ store.ui.downloadCv || 'Download My CV' }} ↓
           </a>
         </div>
       </div>
@@ -93,7 +93,7 @@
       <!-- Career Objective -->
       <div v-if="store.personal.objective" class="mt-16 p-6 rounded-2xl border border-white/5 bg-white/[0.02] fade-up">
         <h4 class="text-white font-bold text-lg mb-3">
-          Career Objective
+          {{ store.ui.objectiveLabel || 'Career Objective' }}
         </h4>
         <p class="text-slate-300 text-sm md:text-base leading-relaxed">
           {{ store.personal.objective }}

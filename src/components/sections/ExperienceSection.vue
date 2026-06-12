@@ -2,9 +2,9 @@
   <section id="experience" class="relative py-24 px-4" style="background: rgba(6,182,212,0.02);">
     <div class="max-w-4xl mx-auto">
       <SectionTitle
-        title="Experience"
-        subtitle="Work Experience"
-        description="My career and development journey"
+        :title="store.ui.expTitle || 'Experience'"
+        :subtitle="store.ui.expSubtitle || 'Work Experience'"
+        :description="store.ui.expDesc || 'My career and development journey'"
       />
 
       <!-- Timeline -->

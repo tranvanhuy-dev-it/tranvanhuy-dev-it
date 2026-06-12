@@ -1,7 +1,7 @@
 <template>
   <section id="education" class="relative py-24 px-4">
     <div class="max-w-5xl mx-auto">
-      <SectionTitle title="Education" subtitle="Education" description="My academic background and certifications" />
+      <SectionTitle :title="store.ui.eduTitle || 'Education'" :subtitle="store.ui.eduSubtitle || 'Education'" :description="store.ui.eduDesc || 'My academic background and certifications'" />
 
       <div class="flex flex-col gap-6">
         <div v-for="(edu, i) in store.education" :key="edu.id"

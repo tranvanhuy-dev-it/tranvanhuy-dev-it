@@ -2,9 +2,9 @@
   <section id="skills" class="relative py-24 px-4" style="background: rgba(124,58,237,0.02);">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
-        title="Skills"
-        subtitle="Tech Stack"
-        description="The tools and technologies I use to bring ideas to life"
+        :title="store.ui.skillsTitle || 'Skills'"
+        :subtitle="store.ui.skillsSubtitle || 'Tech Stack'"
+        :description="store.ui.skillsDesc || 'The tools and technologies I use to bring ideas to life'"
       />
 
       <!-- Category Tabs -->
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Skills Grid -->
-      <TransitionGroup name="skill-list" tag="div" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <TransitionGroup name="skill-list" tag="div" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div
           v-for="(skill, i) in store.activeSkills"
           :key="skill.name"

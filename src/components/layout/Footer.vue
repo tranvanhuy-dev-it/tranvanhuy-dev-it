@@ -49,7 +49,7 @@
           class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
           id="back-to-top"
         >
-          <span>Back to top</span>
+          <span>{{ store.ui.backToTop || 'Back to top' }}</span>
           <span class="group-hover:-translate-y-1 transition-transform">↑</span>
         </button>
       </div>
@@ -58,16 +58,17 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 
 const store = usePortfolioStore()
 
-const socials = [
+const socials = computed(() => [
   { name: 'GitHub', platform: 'github', url: store.personal.socials.github },
   { name: 'LinkedIn', platform: 'linkedin', url: store.personal.socials.linkedin },
   { name: 'Facebook', platform: 'facebook', url: store.personal.socials.facebook },
   { name: 'Email', platform: 'email', url: `mailto:${store.personal.email}` },
-]
+])
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })

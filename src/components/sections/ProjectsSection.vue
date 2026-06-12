@@ -2,9 +2,9 @@
   <section id="projects" class="relative py-24 px-4">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
-        title="Projects"
-        subtitle="My Work"
-        description="A selection of key projects I have built"
+        :title="store.ui.projectsTitle || 'Projects'"
+        :subtitle="store.ui.projectsSubtitle || 'My Work'"
+        :description="store.ui.projectsDesc || 'A selection of key projects I have built'"
       />
 
       <!-- Filter Buttons -->
@@ -26,7 +26,7 @@
       <TransitionGroup
         name="project-grid"
         tag="div"
-        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        class="grid md:grid-cols-2 gap-8 mx-auto"
       >
         <ProjectCard
           v-for="project in store.filteredProjects"
@@ -34,7 +34,6 @@
           :project="project"
           :featured="project.featured"
           class="fade-up"
-          @show-details="selectedProject = $event"
           @zoom-image="zoomImageUrl = $event"
         />
       </TransitionGroup>
@@ -46,105 +45,7 @@
       </div>
     </div>
 
-    <!-- Project Details Modal -->
-    <Transition name="modal">
-      <div v-if="selectedProject" class="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/75 backdrop-blur-md" @click="selectedProject = null"></div>
-        
-        <!-- Modal Card -->
-        <div class="relative w-full max-w-2xl bg-[#0b0b10] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col">
-          <!-- Close Button -->
-          <button 
-            @click="selectedProject = null" 
-            class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition-colors border border-white/10 z-20 text-sm"
-            aria-label="Close modal"
-          >
-            ✕
-          </button>
 
-          <!-- Image header -->
-          <div class="h-44 sm:h-64 relative overflow-hidden shrink-0 bg-slate-950 border-b border-white/5">
-            <img
-              v-if="selectedProject.image"
-              :src="selectedProject.image"
-              :alt="selectedProject.title"
-              class="w-full h-full object-cover"
-            />
-            <div v-else class="w-full h-full flex items-center justify-center text-7xl" :style="modalGradientBg">
-              🚀
-            </div>
-          </div>
-
-          <!-- Content Area -->
-          <div class="p-6 md:p-8 overflow-y-auto flex-grow text-left">
-            <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
-              <h3 class="text-2xl font-bold text-white">{{ selectedProject.title }}</h3>
-              <span class="px-3 py-1 text-xs font-mono font-bold rounded-lg uppercase tracking-wider"
-                :style="selectedProject.category === 'fullstack' ? 'background: rgba(124,58,237,0.15); color: #a855f7; border: 1px solid rgba(124,58,237,0.25);' : 'background: rgba(6,182,212,0.15); color: #06b6d4; border: 1px solid rgba(6,182,212,0.25);'"
-              >
-                {{ selectedProject.category }}
-              </span>
-            </div>
-
-            <!-- Project Period / Duration -->
-            <div v-if="selectedProject.time" class="flex items-center gap-2 text-xs sm:text-sm text-slate-400 mb-6 font-mono bg-white/5 border border-white/10 rounded-xl px-4 py-2 w-fit">
-              <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span>Project Timeline: <strong class="text-white">{{ selectedProject.time }}</strong></span>
-            </div>
-
-            <!-- Long Description -->
-            <p class="text-slate-300 text-sm leading-relaxed mb-6 whitespace-pre-wrap">
-              {{ selectedProject.longDesc || selectedProject.description }}
-            </p>
-
-            <!-- Tech tags -->
-            <div class="mb-6">
-              <h4 class="text-xs font-mono text-slate-500 uppercase tracking-wider mb-2.5">Technologies Used</h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="tag in selectedProject.tags"
-                  :key="tag"
-                  class="px-2.5 py-1 text-xs font-mono rounded-lg"
-                  style="background: rgba(6,182,212,0.08); color: #06b6d4; border: 1px solid rgba(6,182,212,0.15);"
-                >
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-
-            <!-- Action Links -->
-            <div class="flex gap-4 pt-4 border-t border-white/5">
-              <a
-                :href="selectedProject.github"
-                target="_blank"
-                rel="noopener"
-                class="flex-grow btn-outline flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold cursor-pointer"
-              >
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18(0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                View Source Code
-              </a>
-              <a
-                v-if="selectedProject.demo && selectedProject.demo !== '#'"
-                :href="selectedProject.demo"
-                target="_blank"
-                rel="noopener"
-                class="flex-grow btn-primary flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold cursor-pointer"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-                Live Demo
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Transition>
 
     <!-- Fullscreen Image Lightbox -->
     <Transition name="lightbox">
@@ -174,24 +75,13 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 
 const store = usePortfolioStore()
-const selectedProject = ref(null)
 const zoomImageUrl = ref(null)
-
-const modalGradientBg = computed(() => {
-  if (!selectedProject.value) return ''
-  const gradients = {
-    frontend: 'background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2));',
-    backend: 'background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(16,185,129,0.2));',
-    fullstack: 'background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(245,158,11,0.1));',
-  }
-  return gradients[selectedProject.value.category] || gradients.fullstack
-})
 
 const filters = [
   { value: 'all', label: 'All' },

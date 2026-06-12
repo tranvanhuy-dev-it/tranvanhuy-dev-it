@@ -19,21 +19,29 @@
 
       <!-- Name -->
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 fade-up animate-delay-100 leading-tight">
-        <span class="text-white">Hi, I am</span><br />
+        <span class="text-white">{{ store.ui.hi || 'Hi, I am' }}</span><br />
         <span class="gradient-text">{{ store.personal.name }}</span>
       </h1>
 
       <!-- Typewriter tagline -->
       <div
+        v-if="store.locale === 'en'"
         class="flex items-center justify-center gap-3 text-lg sm:text-2xl md:text-3xl font-semibold mb-8 fade-up animate-delay-200"
         style="min-height: 48px;">
-        <span class="gradient-text">{{ displayText }}</span>
+        <span class="gradient-text">{{ displayTextEn }}</span>
+        <span class="w-0.5 h-8 bg-purple-400 animate-pulse ml-0.5"></span>
+      </div>
+      <div
+        v-else
+        class="flex items-center justify-center gap-3 text-lg sm:text-2xl md:text-3xl font-semibold mb-8 fade-up animate-delay-200"
+        style="min-height: 48px;">
+        <span class="gradient-text">{{ displayTextVi }}</span>
         <span class="w-0.5 h-8 bg-purple-400 animate-pulse ml-0.5"></span>
       </div>
 
       <!-- Bio snippet -->
       <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 fade-up animate-delay-300 leading-relaxed">
-        Passionate about building modern, high-performance web applications with exceptional user experiences.
+        {{ store.personal.bio }}
       </p>
 
       <!-- CTAs -->
@@ -41,11 +49,11 @@
         class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-up animate-delay-400 w-full max-w-xs sm:max-w-none mx-auto">
         <a href="#projects" @click.prevent="scrollTo('#projects')"
           class="btn-primary text-base px-8 py-3 w-full sm:w-auto text-center" id="hero-view-projects">
-          View Projects
+          {{ store.ui.viewProjects || 'View Projects' }}
         </a>
         <a :href="store.personal.cv" download class="btn-outline text-base px-8 py-3 w-full sm:w-auto text-center"
           id="hero-download-cv">
-          Download CV ↓
+          {{ store.ui.downloadCv || 'Download CV' }} ↓
         </a>
       </div>
 
@@ -71,12 +79,6 @@
             <path
               d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
           </svg>
-          <!-- Twitter SVG -->
-          <svg v-else-if="platform === 'twitter'"
-            class="w-5 h-5 text-slate-400 hover:text-white transition-colors fill-current" viewBox="0 0 24 24">
-            <path
-              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-          </svg>
         </a>
       </div>
     </div>
@@ -96,7 +98,8 @@ import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useTypewriter } from '@/composables/useTypewriter'
 
 const store = usePortfolioStore()
-const { displayText } = useTypewriter(store.personal.taglines)
+const { displayText: displayTextEn } = useTypewriter(store.en.personal.taglines)
+const { displayText: displayTextVi } = useTypewriter(store.vi.personal.taglines)
 
 function scrollTo(selector) {
   document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth', block: 'start' })

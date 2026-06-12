@@ -17,40 +17,61 @@
         &lt;HuyTran.dev /&gt;
       </a>
 
-      <!-- Desktop Nav Links -->
-      <ul class="hidden md:flex items-center gap-1">
-        <li v-for="item in navItems" :key="item.id">
-          <a
-            :href="`#${item.id}`"
-            class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-            :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5'"
-            @click.prevent="scrollTo(`#${item.id}`)"
+      <!-- Desktop & Language Navigation Container -->
+      <div class="flex items-center gap-4">
+        <!-- Desktop Nav Links -->
+        <ul class="hidden md:flex items-center gap-1">
+          <li v-for="item in navItems" :key="item.id">
+            <a
+              :href="`#${item.id}`"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+              @click.prevent="scrollTo(`#${item.id}`)"
+            >
+              {{ store.ui[item.id] || item.label }}
+            </a>
+          </li>
+        </ul>
+
+        <!-- Language Selector -->
+        <div class="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-xl p-0.5 font-mono text-[10px]">
+          <button
+            @click="store.setLocale('en')"
+            class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
+            :class="store.locale === 'en' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 hover:text-white'"
           >
-            {{ item.label }}
-          </a>
-        </li>
-      </ul>
+            EN
+          </button>
+          <button
+            @click="store.setLocale('vi')"
+            class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
+            :class="store.locale === 'vi' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 hover:text-white'"
+          >
+            VI
+          </button>
+        </div>
 
-      <!-- CTA Button (desktop) -->
-      <a
-        href="#contact"
-        class="hidden md:block btn-primary text-sm px-5 py-2"
-        @click.prevent="scrollTo('#contact')"
-      >
-        Contact
-      </a>
+        <!-- CTA Button (desktop) -->
+        <a
+          href="#contact"
+          class="hidden md:block btn-primary text-sm px-5 py-2"
+          @click.prevent="scrollTo('#contact')"
+        >
+          {{ store.ui.contactBtn || 'Contact' }}
+        </a>
 
-      <!-- Mobile Menu Toggle -->
-      <button
-        class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
-        @click="mobileOpen = !mobileOpen"
-        aria-label="Toggle menu"
-        id="mobile-menu-toggle"
-      >
-        <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
-        <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
-        <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
-      </button>
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
+          @click="mobileOpen = !mobileOpen"
+          aria-label="Toggle menu"
+          id="mobile-menu-toggle"
+        >
+          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
+          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
+          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
@@ -64,7 +85,7 @@
               :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5'"
               @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
             >
-              {{ item.label }}
+              {{ store.ui[item.id] || item.label }}
             </a>
           </li>
         </ul>
@@ -75,11 +96,13 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { usePortfolioStore } from '@/stores/portfolioStore'
 
 const props = defineProps({
   activeSection: { type: String, default: 'hero' },
 })
 
+const store = usePortfolioStore()
 const scrolled = ref(false)
 const mobileOpen = ref(false)
 const scrollProgress = ref(0)
