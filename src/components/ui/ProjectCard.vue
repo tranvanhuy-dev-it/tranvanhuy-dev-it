@@ -44,21 +44,21 @@
 
     <!-- Content -->
     <div class="p-5 flex flex-col flex-grow">
-      <h3 class="text-lg font-bold text-white mb-1.5 group-hover:text-purple-300 transition-colors">
+      <h3 class="text-lg font-bold text-white light:text-slate-900 mb-1.5 group-hover:text-purple-300 transition-colors">
         <a :href="targetLink" target="_blank" rel="noopener" class="hover:underline">
           {{ project.title }}
         </a>
       </h3>
-      
+
       <!-- Project Period / Duration -->
-      <div v-if="project.time" class="flex items-center gap-1.5 text-xs text-slate-400/80 mb-3 font-mono">
+      <div v-if="project.time" class="flex items-center gap-1.5 text-xs text-slate-400/80 light:text-slate-700 mb-3 font-mono">
         <svg class="w-3.5 h-3.5 opacity-70 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
         </svg>
         <span>{{ project.time }}</span>
       </div>
 
-      <p class="text-slate-400 text-sm mb-4 leading-relaxed whitespace-pre-wrap">
+      <p class="text-slate-400 light:text-slate-800 text-sm mb-4 leading-relaxed whitespace-pre-wrap">
         {{ project.longDesc || project.description }}
       </p>
 
@@ -75,13 +75,13 @@
       </div>
 
       <!-- Links -->
-      <div class="flex items-center justify-between pt-3 border-t border-white/5">
+      <div class="flex items-center justify-between pt-3 border-t border-white/5 light:border-black/5">
         <div class="flex gap-3">
           <a
             :href="project.github"
             target="_blank"
             rel="noopener"
-            class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors py-1 px-2 rounded-lg hover:bg-white/5"
+            class="flex items-center gap-2 text-sm text-slate-400 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors py-1 px-2 rounded-lg hover:bg-white/5 light:hover:bg-black/5"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>

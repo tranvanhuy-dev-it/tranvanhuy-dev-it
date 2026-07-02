@@ -1,5 +1,5 @@
 <template>
-  <section id="skills" class="relative py-24 px-4" style="background: rgba(124,58,237,0.02);">
+  <section id="skills" class="relative py-24 px-4 bg-[rgba(124,58,237,0.02)] light:bg-purple-50/40">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
         :title="store.ui.skillsTitle || 'Skills'"
@@ -33,13 +33,13 @@
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2.5">
               <img v-if="skill.logo" :src="skill.logo" alt="logo" class="w-5 h-5 object-contain shrink-0" />
-              <span class="font-semibold text-white text-sm">{{ skill.name }}</span>
+              <span class="font-semibold text-white light:text-slate-900 text-sm">{{ skill.name }}</span>
             </div>
             <span class="text-xs font-mono text-purple-400">{{ skill.level }}%</span>
           </div>
 
           <!-- Progress bar -->
-          <div class="h-1.5 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);">
+          <div class="h-1.5 rounded-full overflow-hidden skill-track">
             <div
               class="h-full rounded-full skill-bar"
               :style="{

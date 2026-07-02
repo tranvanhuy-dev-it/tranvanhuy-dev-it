@@ -17,7 +17,7 @@
               <span v-else class="text-3xl">{{ edu.type === 'degree' ? '🎓' : '📜' }}</span>
             </div>
             <div class="text-right md:text-left">
-              <span class="text-xs font-mono text-slate-400 block">{{ edu.period }}</span>
+              <span class="text-xs font-mono text-slate-400 light:text-slate-800 block">{{ edu.period }}</span>
               <span v-if="edu.gpa" class="inline-block text-xs px-2.5 py-1 rounded-lg font-mono mt-1.5"
                 style="background: rgba(245,158,11,0.1); color: #f59e0b;">
                 GPA {{ edu.gpa }}
@@ -30,7 +30,7 @@
           </div>
 
           <!-- Vertical Divider in desktop -->
-          <div class="hidden md:block w-px self-stretch bg-white/5"></div>
+          <div class="hidden md:block w-px self-stretch bg-white/5 light:bg-black/5"></div>
 
           <!-- Right side: Content -->
           <div class="flex-grow w-full">
@@ -41,12 +41,12 @@
             </p>
 
             <!-- Degree -->
-            <h3 class="text-white font-bold text-lg md:text-xl mb-3 leading-snug">
+            <h3 class="text-white light:text-slate-900 font-bold text-lg md:text-xl mb-3 leading-snug">
               {{ edu.degree }}
             </h3>
 
             <!-- Description -->
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 light:text-slate-800 text-sm leading-relaxed">
               {{ edu.description }}
             </p>
           </div>

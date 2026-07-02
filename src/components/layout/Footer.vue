@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative py-12 px-4 border-t border-white/5">
+  <footer class="relative py-12 px-4 border-t border-white/5 light:border-black/5">
     <div class="max-w-6xl mx-auto">
       <!-- Top -->
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
@@ -13,7 +13,7 @@
             :href="social.url"
             target="_blank"
             rel="noopener"
-            class="w-10 h-10 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200 glass-card"
+            class="w-10 h-10 rounded-xl flex items-center justify-center text-slate-400 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-all duration-200 glass-card"
             :aria-label="social.name"
             :title="social.name"
           >
@@ -40,13 +40,13 @@
       <hr class="neon-line mb-8" />
 
       <!-- Bottom -->
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500 light:text-slate-700">
         <p>
           © {{ new Date().getFullYear() }} | Designed by Tran Van Huy
         </p>
         <button
           @click="scrollToTop"
-          class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
+          class="flex items-center gap-2 text-slate-400 hover:text-white light:text-slate-800 light:hover:text-slate-900 transition-colors group"
           id="back-to-top"
         >
           <span>{{ store.ui.backToTop || 'Back to top' }}</span>

@@ -37,11 +37,35 @@
     font-weight: 500; /* Set global base to Medium for maximum legibility */
     overflow-x: hidden;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
     background: rgba(124, 58, 237, 0.3);
     color: #ffffff;
+  }
+
+  html.light body {
+    background-color: #f8fafc; /* Clean light background */
+    color: #0f172a; /* Slate-900, near-black for maximum readability */
+  }
+
+  html.light ::selection {
+    background: rgba(124, 58, 237, 0.2);
+    color: #1e293b;
+  }
+
+  html.light {
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+  html.light ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+  }
+  html.light ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
   }
 }
 
@@ -61,6 +85,14 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
   border-color: rgba(124, 58, 237, 0.4) !important;
   box-shadow: 0 0 15px rgba(124, 58, 237, 0.35) !important;
 }
+html.light .social-link {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+html.light .social-link:hover {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: rgba(124, 58, 237, 0.35) !important;
+}
 
 /* ===================== REUSABLE COMPONENTS ===================== */
 @layer components {
@@ -74,6 +106,11 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     border-radius: 16px;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.05);
   }
+  html.light .glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.04);
+  }
 
   .glass-card-hover {
     @apply glass-card transition-all duration-300;
@@ -83,6 +120,11 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     border-color: rgba(124, 58, 237, 0.45);
     box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.25), 0 1px 3px rgba(124, 58, 237, 0.02);
     transform: translateY(-4px);
+  }
+  html.light .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.18), 0 1px 3px rgba(124, 58, 237, 0.02);
   }
 
   /* Vibrant Buttons */
@@ -111,6 +153,15 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     box-shadow: 0 8px 16px rgba(124, 58, 237, 0.2);
     color: #c084fc;
   }
+  html.light .btn-outline {
+    border-color: rgba(124, 58, 237, 0.45);
+    color: #7c3aed;
+  }
+  html.light .btn-outline:hover {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.06);
+    color: #6d28d9;
+  }
 
   /* Section wrapper */
   .section-wrapper {
@@ -126,11 +177,21 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  html.light .gradient-text {
+    background: linear-gradient(135deg, #7c3aed, #0891b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 
   .gradient-text-amber {
     background: linear-gradient(135deg, #fb923c, #f87171);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  html.light .gradient-text-amber {
+    background: linear-gradient(135deg, #ea580c, #dc2626);
+    -webkit-background-clip: text;
     background-clip: text;
   }
 
@@ -139,6 +200,9 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     height: 1px;
     background: rgba(255, 255, 255, 0.08);
     border: none;
+  }
+  html.light .neon-line {
+    background: rgba(15, 23, 42, 0.1);
   }
 
   /* Tech badge */
@@ -154,6 +218,9 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     box-shadow: 0 8px 16px rgba(124, 58, 237, 0.12);
     transform: translateY(-1px);
   }
+  html.light .tech-badge {
+    color: #7c3aed;
+  }
 
   /* Timeline item dot */
   .timeline-dot {
@@ -161,6 +228,17 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
     background: linear-gradient(135deg, #7c3aed, #06b6d4);
     border-color: #030712;
     box-shadow: 0 4px 10px rgba(124, 58, 237, 0.4);
+  }
+  html.light .timeline-dot {
+    border-color: #f8fafc;
+  }
+
+  /* Skill bar track */
+  .skill-track {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  html.light .skill-track {
+    background: rgba(15, 23, 42, 0.08);
   }
 }
 
@@ -230,6 +308,17 @@ p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-sem
   background: rgba(255, 255, 255, 0.06) !important;
   box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2) !important;
 }
+html.light .form-input {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.03) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+html.light .form-input::placeholder {
+  color: #94a3b8;
+}
+html.light .form-input:focus {
+  background: rgba(124, 58, 237, 0.04) !important;
+}
 
 /* ===================== PROJECT CARD IMAGE ===================== */
 .project-img-wrapper {
@@ -258,6 +347,19 @@ nav, header, .nav-container {
 .nav-link:hover, .nav-link-active {
   color: #a78bfa !important;
 }
+html.light .nav-link {
+  color: #1e293b !important;
+}
+html.light .nav-link:hover, html.light .nav-link-active {
+  color: #7c3aed !important;
+}
+html.light .nav-link-active {
+  background: rgba(124, 58, 237, 0.08);
+}
+html.light nav, html.light header, html.light .nav-container {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+}
 
 /* ===================== TAB BUTTONS ===================== */
 .tab-inactive {
@@ -269,6 +371,23 @@ nav, header, .nav-container {
   border-color: rgba(124, 58, 237, 0.5) !important;
   color: #a78bfa !important;
   background: rgba(124, 58, 237, 0.08) !important;
+}
+html.light .tab-inactive {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #334155 !important;
+}
+html.light .tab-active {
+  color: #6d28d9 !important;
+}
+html.light .filter-inactive {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #334155 !important;
+}
+html.light .filter-inactive:hover {
+  border-color: rgba(124, 58, 237, 0.4) !important;
+  color: #7c3aed !important;
 }
 
 /* ===================== SECTION ANIMATIONS ===================== */

@@ -14,7 +14,7 @@
         class="text-xl font-bold font-mono gradient-text hover:opacity-80 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        &lt;HuyTran.dev /&gt;
+        Tran Van Huy
       </a>
 
       <!-- Desktop & Language Navigation Container -->
@@ -25,7 +25,7 @@
             <a
               :href="`#${item.id}`"
               class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="scrollTo(`#${item.id}`)"
             >
               {{ store.ui[item.id] || item.label }}
@@ -34,22 +34,44 @@
         </ul>
 
         <!-- Language Selector -->
-        <div class="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-xl p-0.5 font-mono text-[10px]">
+        <div class="flex items-center gap-0.5 bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 rounded-xl p-0.5 font-mono text-[10px]">
           <button
             @click="store.setLocale('en')"
             class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
-            :class="store.locale === 'en' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 hover:text-white'"
+            :class="store.locale === 'en' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 light:text-slate-700 hover:text-white light:hover:text-slate-900'"
           >
             EN
           </button>
           <button
             @click="store.setLocale('vi')"
             class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
-            :class="store.locale === 'vi' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 hover:text-white'"
+            :class="store.locale === 'vi' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 light:text-slate-700 hover:text-white light:hover:text-slate-900'"
           >
             VI
           </button>
         </div>
+
+        <!-- Theme Toggle -->
+        <button
+          @click="store.toggleTheme()"
+          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 transition-all duration-200 cursor-pointer"
+          :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        >
+          <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
 
         <!-- CTA Button (desktop) -->
         <a
@@ -62,14 +84,14 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
+          class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 light:hover:bg-black/5 transition-colors"
           @click="mobileOpen = !mobileOpen"
           aria-label="Toggle menu"
           id="mobile-menu-toggle"
         >
-          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
-          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
-          <span class="w-5 h-0.5 bg-white block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
+          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
+          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
         </button>
       </div>
     </div>
@@ -82,7 +104,7 @@
             <a
               :href="`#${item.id}`"
               class="block px-4 py-3 rounded-xl text-sm font-medium transition-all"
-              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white light:text-slate-800 light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
             >
               {{ store.ui[item.id] || item.label }}

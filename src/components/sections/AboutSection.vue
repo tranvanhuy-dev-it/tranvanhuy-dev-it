@@ -15,9 +15,9 @@
               <img v-if="store.personal.avatar" :src="store.personal.avatar" :alt="store.personal.name"
                 class="w-full h-full object-cover" />
               <div v-else
-                class="w-full h-full flex flex-col items-center justify-center bg-slate-900/60 relative select-none">
+                class="w-full h-full flex flex-col items-center justify-center bg-slate-900/60 light:bg-slate-200/80 relative select-none">
                 <!-- Initials avatar -->
-                <span class="text-6xl font-bold font-mono tracking-widest text-slate-500/80">
+                <span class="text-6xl font-bold font-mono tracking-widest text-slate-500/80 light:text-slate-700">
                   {{store.personal.name.split(' ').map(n => n[0]).join('')}}
                 </span>
                 <span
@@ -40,7 +40,7 @@
           </div>
 
           <!-- Location -->
-          <p class="text-slate-400 text-sm flex items-center gap-2">
+          <p class="text-slate-400 light:text-slate-800 text-sm flex items-center gap-2">
             <svg class="w-4 h-4 text-purple-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
               viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -53,15 +53,15 @@
 
         <!-- Right: Bio & Stats -->
         <div class="fade-right">
-          <h3 class="text-2xl font-bold text-white mb-2">
+          <h3 class="text-2xl font-bold text-white light:text-slate-900 mb-2">
             {{ store.personal.name }}
           </h3>
           <p class="text-purple-400 font-mono mb-6">{{ store.personal.title }}</p>
 
-          <p class="text-slate-300 leading-relaxed mb-4">
+          <p class="text-slate-300 light:text-slate-900 leading-relaxed mb-4">
             {{ store.personal.bio }}
           </p>
-          <p class="text-slate-400 leading-relaxed mb-8">
+          <p class="text-slate-400 light:text-slate-800 leading-relaxed mb-8">
             {{ store.personal.bio2 }}
           </p>
 
@@ -70,13 +70,13 @@
             <div class="flex items-center gap-3 text-sm">
               <span class="text-purple-400 font-mono w-24">{{ store.ui.emailLabel || 'Email' }}:</span>
               <a :href="`mailto:${store.personal.email}`"
-                class="text-slate-300 hover:text-purple-400 transition-colors">
+                class="text-slate-300 light:text-slate-900 hover:text-purple-400 transition-colors">
                 {{ store.personal.email }}
               </a>
             </div>
             <div class="flex items-center gap-3 text-sm">
               <span class="text-purple-400 font-mono w-24">{{ store.ui.locationLabel || 'Location' }}:</span>
-              <span class="text-slate-300">{{ store.personal.location }}</span>
+              <span class="text-slate-300 light:text-slate-900">{{ store.personal.location }}</span>
             </div>
             <div class="flex items-center gap-3 text-sm">
               <span class="text-purple-400 font-mono w-24">{{ store.ui.availabilityLabel || 'Status' }}:</span>
@@ -91,11 +91,11 @@
       </div>
 
       <!-- Career Objective -->
-      <div v-if="store.personal.objective" class="mt-16 p-6 rounded-2xl border border-white/5 bg-white/[0.02] fade-up">
-        <h4 class="text-white font-bold text-lg mb-3">
+      <div v-if="store.personal.objective" class="mt-16 p-6 rounded-2xl border border-white/5 light:border-black/5 bg-white/[0.02] light:bg-black/[0.02] fade-up">
+        <h4 class="text-white light:text-slate-900 font-bold text-lg mb-3">
           {{ store.ui.objectiveLabel || 'Career Objective' }}
         </h4>
-        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+        <p class="text-slate-300 light:text-slate-900 text-sm md:text-base leading-relaxed">
           {{ store.personal.objective }}
         </p>
       </div>
@@ -105,7 +105,7 @@
         <div v-for="(stat, i) in store.stats" :key="stat.label" class="glass-card-hover p-6 text-center fade-up"
           :class="`animate-delay-${(i + 1) * 100}`" data-stagger>
           <div class="text-4xl font-bold gradient-text mb-2">{{ stat.value }}</div>
-          <div class="text-slate-400 text-sm">{{ stat.label }}</div>
+          <div class="text-slate-400 light:text-slate-800 text-sm">{{ stat.label }}</div>
         </div>
       </div>
     </div>

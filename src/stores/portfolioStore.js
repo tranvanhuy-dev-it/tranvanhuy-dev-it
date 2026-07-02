@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const usePortfolioStore = defineStore("portfolio", {
   state: () => ({
     locale: "vi", // default to Vietnamese
+    theme: localStorage.getItem("theme") || "dark",
     activeSection: "hero",
     projectFilter: "all",
     activeSkillCategory: "frontend",
@@ -210,7 +211,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           "To become a professional Full-Stack Engineer with a specialization in AI and Data Science. I am eager to participate in real-world projects to enhance my technical skills, gain product development experience, and apply modern technologies to deliver effective digital transformation solutions for businesses and the community.",
         location: "Da Nang, Vietnam",
         email: "tranvanhuy064206@gmail.com",
-        availability: "Intern at MakeAI",
+        availability: "Intern at DTG - MakeAI",
         avatar: "/avt.jpg",
         cv: "/cv.pdf",
         socials: {
@@ -244,8 +245,22 @@ export const usePortfolioStore = defineStore("portfolio", {
           category: "fullstack",
           time: "06-2026",
           github: "https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE.git",
-          demo: "https://nhatro.tranvanhuy.io.vn",
+          demo: "https://smart-rent.tranvanhuy.io.vn",
           image: "/qlpt.png",
+          featured: true,
+        },
+        {
+          id: 6,
+          title: "BIMspace - Technical Infrastructure Management",
+          description:
+            "A technical infrastructure management system applying interactive 3D and 2D maps to manage assets and infrastructure operations.",
+          longDesc:
+            "A digital solution built at MakeAI to manage technical infrastructure using interactive 3D and 2D maps. The system enables asset visualization and tracking on the map, and manages the operational workflows (maintenance, monitoring, inspection) related to technical infrastructure.",
+          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          category: "fullstack",
+          time: "05-2026",
+          demo: "#",
+          image: "/bimspace.png",
           featured: true,
         },
         {
@@ -296,11 +311,12 @@ export const usePortfolioStore = defineStore("portfolio", {
       experiences: [
         {
           id: 4,
-          company: "MakeAI",
+          company: "DTG - MakeAI",
           position: "Full-Stack Developer Intern",
           period: "05/2026 – Present",
           duration: "Internship",
           description: [
+            "Developed 'BIMspace', a technical infrastructure management system applying interactive 3D and 2D maps for asset management and infrastructure operations.",
             "Developed the 'SonTra Health Management' system for local authorities to monitor and locate medical establishments using Frappe, React.js, Python, and PostgreSQL.",
             "Building a multi-platform Boarding House Management System featuring Google OAuth2, real-time chat (WebSocket), reporting, and Capacitor-based mobile app.",
             "Designed database schemas, optimized SQL query performance, and implemented role-based authorization.",
@@ -452,7 +468,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           "Trở thành một Kỹ sư Full-Stack chuyên nghiệp với định hướng nghiên cứu sâu về AI và Khoa học dữ liệu. Tôi mong muốn được tham gia vào các dự án thực tế để nâng cao kỹ năng kỹ thuật, tích lũy kinh nghiệm phát triển sản phẩm và áp dụng các công nghệ hiện đại nhằm mang lại những giải pháp chuyển đổi số hiệu quả cho doanh nghiệp và cộng đồng.",
         location: "Đà Nẵng, Việt Nam",
         email: "tranvanhuy064206@gmail.com",
-        availability: "Thực tập sinh tại MakeAI",
+        availability: "Thực tập sinh tại DTG - MakeAI",
         avatar: "/avt.jpg",
         cv: "/cv.pdf",
         socials: {
@@ -486,8 +502,22 @@ export const usePortfolioStore = defineStore("portfolio", {
           category: "fullstack",
           time: "06-2026",
           github: "https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE.git",
-          demo: "https://nhatro.tranvanhuy.io.vn",
+          demo: "https://smart-rent.tranvanhuy.io.vn",
           image: "/qlpt.png",
+          featured: true,
+        },
+        {
+          id: 6,
+          title: "BIMspace - Quản lý Hạ tầng Kỹ thuật",
+          description:
+            "Hệ thống quản lý hạ tầng kỹ thuật ứng dụng bản đồ tương tác 3D và 2D để quản lý tài sản và các nghiệp vụ vận hành hạ tầng.",
+          longDesc:
+            "Giải pháp số được xây dựng tại MakeAI nhằm quản lý hạ tầng kỹ thuật thông qua bản đồ tương tác 3D và 2D. Hệ thống hỗ trợ trực quan hóa và theo dõi tài sản trên bản đồ, đồng thời quản lý các nghiệp vụ vận hành (bảo trì, giám sát, kiểm tra) liên quan đến hạ tầng kỹ thuật.",
+          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          category: "fullstack",
+          time: "05-2026",
+          demo: "#",
+          image: "/bimspace.png",
           featured: true,
         },
         {
@@ -538,11 +568,12 @@ export const usePortfolioStore = defineStore("portfolio", {
       experiences: [
         {
           id: 4,
-          company: "MakeAI",
+          company: "DTG - MakeAI",
           position: "Thực tập sinh Lập trình viên Full-Stack",
           period: "05/2026 – Hiện tại",
           duration: "Thực tập thực tế",
           description: [
+            "Phát triển 'BIMspace', hệ thống quản lý hạ tầng kỹ thuật ứng dụng bản đồ tương tác 3D và 2D để quản lý tài sản và các nghiệp vụ vận hành hạ tầng.",
             "Phát triển hệ thống 'Quản lý Y tế Quận Sơn Trà' giúp chính quyền giám sát các cơ sở y tế bằng Frappe, React.js, Python và PostgreSQL.",
             "Xây dựng Hệ thống Quản lý Phòng trọ Đa nền tảng tích hợp Google OAuth2, chat realtime (WebSocket), xuất báo cáo và đóng gói mobile bằng Capacitor.",
             "Thiết kế cơ sở dữ liệu, tối ưu hóa hiệu năng truy vấn SQL và triển khai phân quyền bảo mật vai trò.",
@@ -715,6 +746,14 @@ export const usePortfolioStore = defineStore("portfolio", {
   actions: {
     setLocale(loc) {
       this.locale = loc;
+    },
+    setTheme(mode) {
+      this.theme = mode;
+      localStorage.setItem("theme", mode);
+      document.documentElement.classList.toggle("light", mode === "light");
+    },
+    toggleTheme() {
+      this.setTheme(this.theme === "dark" ? "light" : "dark");
     },
     setProjectFilter(filter) {
       this.projectFilter = filter;

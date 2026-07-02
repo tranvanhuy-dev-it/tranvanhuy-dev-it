@@ -1,5 +1,5 @@
 <template>
-  <section id="experience" class="relative py-24 px-4" style="background: rgba(6,182,212,0.02);">
+  <section id="experience" class="relative py-24 px-4 bg-[rgba(6,182,212,0.02)] light:bg-cyan-50/40">
     <div class="max-w-4xl mx-auto">
       <SectionTitle
         :title="store.ui.expTitle || 'Experience'"
@@ -37,7 +37,7 @@
             <!-- Header -->
             <div class="flex items-start justify-between flex-wrap gap-2 mb-3">
               <div>
-                <h3 class="text-lg font-bold text-white">{{ exp.position }}</h3>
+                <h3 class="text-lg font-bold text-white light:text-slate-900">{{ exp.position }}</h3>
                 <p class="text-purple-400 font-semibold">{{ exp.company }}</p>
               </div>
               <div class="text-right">
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Description -->
-            <ul class="space-y-1.5 mb-4 text-sm text-slate-400 text-left">
+            <ul class="space-y-1.5 mb-4 text-sm text-slate-400 light:text-slate-800 text-left">
               <li
                 v-for="desc in exp.description"
                 :key="desc"

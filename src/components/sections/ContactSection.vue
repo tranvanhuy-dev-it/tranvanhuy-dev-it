@@ -14,17 +14,17 @@
         <!-- Column 1: Info and Socials (Span 2) -->
         <div class="md:col-span-2 space-y-6 fade-left">
           <div class="glass-card p-6 md:p-8 flex flex-col gap-6">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <h3 class="text-xl font-bold text-white light:text-slate-900 flex items-center gap-2">
               <span class="text-purple-400"></span> {{ store.ui.contactInfoTitle || 'Contact Information' }}
             </h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 light:text-slate-800 text-sm leading-relaxed">
               {{ store.ui.contactInfoDesc || 'I am always open to new challenges and collaboration opportunities. Drop a message or connect with me directly!' }}
             </p>
 
             <div class="space-y-4">
               <!-- Contact item card -->
               <div v-for="item in contactItems" :key="item.label"
-                class="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-purple-500/20 transition-all duration-300 group hover:bg-white/[0.04]">
+                class="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] light:bg-black/[0.02] border border-white/5 light:border-black/5 hover:border-purple-500/20 transition-all duration-300 group hover:bg-white/[0.04] light:hover:bg-black/[0.04]">
                 <div
                   class="w-11 h-11 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110"
                   :style="item.type === 'email' ? 'background: rgba(124,58,237,0.1);' : item.type === 'location' ? 'background: rgba(6,182,212,0.1);' : 'background: rgba(16,185,129,0.1);'">
@@ -51,10 +51,10 @@
                 <div class="min-w-0">
                   <p class="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-0.5">{{ item.label }}</p>
                   <a v-if="item.href" :href="item.href"
-                    class="text-sm font-semibold text-slate-200 hover:text-purple-300 transition-colors truncate block">
+                    class="text-sm font-semibold text-slate-200 light:text-slate-800 hover:text-purple-300 transition-colors truncate block">
                     {{ item.value }}
                   </a>
-                  <span v-else class="text-sm font-semibold text-slate-200 truncate block">
+                  <span v-else class="text-sm font-semibold text-slate-200 light:text-slate-800 truncate block">
                     {{ item.value }}
                   </span>
                 </div>
@@ -62,8 +62,8 @@
             </div>
 
             <!-- Social links inside Info block -->
-            <div class="border-t border-white/5 pt-6">
-              <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-4">{{ store.ui.socialMediaLabel || 'Social Media' }}</h4>
+            <div class="border-t border-white/5 light:border-black/5 pt-6">
+              <h4 class="text-xs text-slate-400 light:text-slate-800 font-bold uppercase tracking-wider mb-4">{{ store.ui.socialMediaLabel || 'Social Media' }}</h4>
               <div class="flex gap-3">
                 <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener"
                   class="social-link w-11 h-11 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300"
@@ -92,7 +92,7 @@
         <!-- Column 2: Send message form (Span 3) -->
         <div class="md:col-span-3 fade-right">
           <div class="glass-card p-6 md:p-8 relative">
-            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-6 flex items-center gap-2">
               <span class="text-cyan-400"></span> {{ store.ui.sendMessageTitle || 'Send a Message' }}
             </h3>
 
@@ -100,14 +100,14 @@
               <!-- Grid for Name and Email -->
               <div class="grid sm:grid-cols-2 gap-5">
                 <div class="space-y-1.5">
-                  <label for="name" class="text-xs font-mono text-slate-400">{{ store.ui.formName || 'Full Name' }}</label>
+                  <label for="name" class="text-xs font-mono text-slate-400 light:text-slate-800">{{ store.ui.formName || 'Full Name' }}</label>
                   <input v-model="form.name" type="text" id="name" placeholder="John Doe" class="form-input text-xs"
                     :class="errors.name ? 'border-red-500/50 focus:border-red-500' : ''" />
                   <p v-if="errors.name" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.name }}</p>
                 </div>
 
                 <div class="space-y-1.5">
-                  <label for="email" class="text-xs font-mono text-slate-400">{{ store.ui.formEmail || 'Email Address' }}</label>
+                  <label for="email" class="text-xs font-mono text-slate-400 light:text-slate-800">{{ store.ui.formEmail || 'Email Address' }}</label>
                   <input v-model="form.email" type="email" id="email" placeholder="email@example.com"
                     class="form-input text-xs" :class="errors.email ? 'border-red-500/50 focus:border-red-500' : ''" />
                   <p v-if="errors.email" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.email }}</p>
@@ -116,7 +116,7 @@
 
               <!-- Subject -->
               <div class="space-y-1.5">
-                <label for="subject" class="text-xs font-mono text-slate-400">{{ store.ui.formSubject || 'Subject' }}</label>
+                <label for="subject" class="text-xs font-mono text-slate-400 light:text-slate-800">{{ store.ui.formSubject || 'Subject' }}</label>
                 <input v-model="form.subject" type="text" id="subject"
                   placeholder="Collaboration Opportunity / Work Inquiry..." class="form-input text-xs"
                   :class="errors.subject ? 'border-red-500/50 focus:border-red-500' : ''" />
@@ -125,7 +125,7 @@
 
               <!-- Message -->
               <div class="space-y-1.5">
-                <label for="message" class="text-xs font-mono text-slate-400">{{ store.ui.formMessage || 'Message Content' }}</label>
+                <label for="message" class="text-xs font-mono text-slate-400 light:text-slate-800">{{ store.ui.formMessage || 'Message Content' }}</label>
                 <textarea v-model="form.message" id="message" rows="10" placeholder="Hi, I would like to discuss..."
                   class="form-input text-xs resize-none"
                   :class="errors.message ? 'border-red-500/50 focus:border-red-500' : ''"></textarea>
