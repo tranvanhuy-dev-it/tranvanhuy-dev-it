@@ -212,7 +212,7 @@ export const usePortfolioStore = defineStore("portfolio", {
         location: "Da Nang, Vietnam",
         email: "tranvanhuy064206@gmail.com",
         availability: "Intern at DTG - MakeAI",
-        avatar: "/avt.jpg",
+        avatar: "",
         cv: "/cv.pdf",
         socials: {
           github: "https://github.com/tranvanhuy-dev-it",
@@ -246,6 +246,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           time: "06-2026",
           github: "https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE.git",
           demo: "https://smart-rent.tranvanhuy.io.vn",
+          video:
+            "https://drive.google.com/drive/folders/1pMhWNV0MlMn5DsGgoY7uKyaGYdRp9qo3?usp=sharing",
           image: "/qlpt.png",
           featured: true,
         },
@@ -274,6 +276,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           category: "fullstack",
           time: "05-2026",
           demo: "#",
+          video:
+            "https://drive.google.com/file/d/1gP-v7GsawQFA5FAzYJVfpGRxaszoP5wy/view?usp=drive_link",
           image: "/sonTraHealth.png",
           featured: true,
         },
@@ -289,6 +293,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           time: "04-2026",
           github: "https://github.com/tranvanhuy-dev-it/StudyHub-Client",
           demo: "#",
+          video:
+            "https://drive.google.com/file/d/1F_Zerna0wK-b3lGOQwgS15-CYAVKIY25/view?usp=drive_link",
           image: "/studyHub.png",
           featured: true,
         },
@@ -469,7 +475,7 @@ export const usePortfolioStore = defineStore("portfolio", {
         location: "Đà Nẵng, Việt Nam",
         email: "tranvanhuy064206@gmail.com",
         availability: "Thực tập sinh tại DTG - MakeAI",
-        avatar: "/avt.jpg",
+        avatar: "",
         cv: "/cv.pdf",
         socials: {
           github: "https://github.com/tranvanhuy-dev-it",
@@ -503,6 +509,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           time: "06-2026",
           github: "https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE.git",
           demo: "https://smart-rent.tranvanhuy.io.vn",
+          video:
+            "https://drive.google.com/drive/folders/1pMhWNV0MlMn5DsGgoY7uKyaGYdRp9qo3?usp=sharing",
           image: "/qlpt.png",
           featured: true,
         },
@@ -531,6 +539,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           category: "fullstack",
           time: "05-2026",
           demo: "#",
+          video:
+            "https://drive.google.com/file/d/1gP-v7GsawQFA5FAzYJVfpGRxaszoP5wy/view?usp=drive_link",
           image: "/sonTraHealth.png",
           featured: true,
         },
@@ -546,6 +556,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           time: "04-2026",
           github: "https://github.com/tranvanhuy-dev-it/StudyHub-Client",
           demo: "#",
+          video:
+            "https://drive.google.com/file/d/1F_Zerna0wK-b3lGOQwgS15-CYAVKIY25/view?usp=drive_link",
           image: "/studyHub.png",
           featured: true,
         },

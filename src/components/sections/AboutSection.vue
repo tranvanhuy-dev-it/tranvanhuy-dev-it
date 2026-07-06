@@ -14,14 +14,18 @@
               style="background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2)); border: 2px solid rgba(124,58,237,0.3);">
               <img v-if="store.personal.avatar" :src="store.personal.avatar" :alt="store.personal.name"
                 class="w-full h-full object-cover" />
-              <div v-else
-                class="w-full h-full flex flex-col items-center justify-center bg-slate-900/60 light:bg-slate-200/80 relative select-none">
-                <!-- Initials avatar -->
-                <span class="text-6xl font-bold font-mono tracking-widest text-slate-500/80 light:text-slate-700">
-                  {{store.personal.name.split(' ').map(n => n[0]).join('')}}
+              <div v-else class="default-avatar w-full h-full flex flex-col items-center justify-center relative select-none">
+                <!-- Subtle dot grid backdrop -->
+                <div class="absolute inset-0 avatar-grid"></div>
+                <!-- Monogram ring -->
+                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center monogram-ring">
+                  <span class="text-4xl md:text-5xl font-bold gradient-text tracking-wider">
+                    {{ initials }}
+                  </span>
+                </div>
+                <span class="relative text-xs font-mono text-purple-400/80 light:text-purple-700/80 mt-4 tracking-[0.2em]">
+                  &lt;HuyTran.dev /&gt;
                 </span>
-                <span
-                  class="text-[10px] font-mono text-purple-400/60 mt-3.5 tracking-[0.25em] uppercase">Developer</span>
               </div>
             </div>
             <!-- Glowing orb decorations -->
@@ -66,21 +70,24 @@
           </p>
 
           <!-- Info list -->
-          <div class="space-y-3 mb-8">
-            <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">{{ store.ui.emailLabel || 'Email' }}:</span>
+          <div class="glass-card divide-y divide-white/5 light:divide-black/5 mb-8 overflow-hidden">
+            <div class="flex items-center gap-3 text-sm px-5 py-3.5">
+              <span class="text-purple-400 font-mono w-24 shrink-0">{{ store.ui.emailLabel || 'Email' }}</span>
               <a :href="`mailto:${store.personal.email}`"
-                class="text-slate-300 light:text-slate-900 hover:text-purple-400 transition-colors">
+                class="text-slate-300 light:text-slate-900 hover:text-purple-400 transition-colors truncate">
                 {{ store.personal.email }}
               </a>
             </div>
-            <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">{{ store.ui.locationLabel || 'Location' }}:</span>
+            <div class="flex items-center gap-3 text-sm px-5 py-3.5">
+              <span class="text-purple-400 font-mono w-24 shrink-0">{{ store.ui.locationLabel || 'Location' }}</span>
               <span class="text-slate-300 light:text-slate-900">{{ store.personal.location }}</span>
             </div>
-            <div class="flex items-center gap-3 text-sm">
-              <span class="text-purple-400 font-mono w-24">{{ store.ui.availabilityLabel || 'Status' }}:</span>
-              <span class="text-green-400">{{ store.personal.availability }}</span>
+            <div class="flex items-center gap-3 text-sm px-5 py-3.5">
+              <span class="text-purple-400 font-mono w-24 shrink-0">{{ store.ui.availabilityLabel || 'Status' }}</span>
+              <span class="text-green-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                {{ store.personal.availability }}
+              </span>
             </div>
           </div>
 
@@ -91,8 +98,16 @@
       </div>
 
       <!-- Career Objective -->
-      <div v-if="store.personal.objective" class="mt-16 p-6 rounded-2xl border border-white/5 light:border-black/5 bg-white/[0.02] light:bg-black/[0.02] fade-up">
-        <h4 class="text-white light:text-slate-900 font-bold text-lg mb-3">
+      <div v-if="store.personal.objective"
+        class="glass-card mt-16 p-6 md:p-8 fade-up relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1"
+          style="background: linear-gradient(180deg, #7c3aed, #06b6d4);"></div>
+        <h4 class="text-white light:text-slate-900 font-bold text-lg mb-3 flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
           {{ store.ui.objectiveLabel || 'Career Objective' }}
         </h4>
         <p class="text-slate-300 light:text-slate-900 text-sm md:text-base leading-relaxed">
@@ -113,10 +128,44 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { use3DTilt } from '@/composables/use3DTilt'
 
 const store = usePortfolioStore()
 const { elementRef: avatarRef, handleMouseMove, handleMouseLeave } = use3DTilt(15, 1.05)
+
+const initials = computed(() =>
+  store.personal.name
+    .split(' ')
+    .filter(Boolean)
+    .slice(-2)
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+)
 </script>
+
+<style scoped>
+.default-avatar {
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.85));
+}
+html.light .default-avatar {
+  background: linear-gradient(160deg, rgba(241, 245, 249, 0.95), rgba(224, 231, 255, 0.9));
+}
+
+.avatar-grid {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+}
+
+.monogram-ring {
+  background: rgba(124, 58, 237, 0.08);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.35), 0 0 30px rgba(124, 58, 237, 0.2);
+}
+</style>
