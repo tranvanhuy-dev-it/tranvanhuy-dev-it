@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-0">
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20">
     <!-- Radial glow background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
@@ -10,13 +10,6 @@
     </div>
 
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <!-- Default avatar monogram -->
-      <div class="hero-avatar mx-auto mb-6 fade-up">
-        <img v-if="store.personal.avatar" :src="store.personal.avatar" :alt="store.personal.name"
-          class="w-full h-full object-cover rounded-full" />
-        <span v-else class="gradient-text text-2xl sm:text-3xl font-bold tracking-wider">{{ initials }}</span>
-      </div>
-
       <!-- Greeting badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 fade-up"
         style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3);">
@@ -101,7 +94,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useTypewriter } from '@/composables/useTypewriter'
 
@@ -109,45 +101,12 @@ const store = usePortfolioStore()
 const { displayText: displayTextEn } = useTypewriter(store.en.personal.taglines)
 const { displayText: displayTextVi } = useTypewriter(store.vi.personal.taglines)
 
-const initials = computed(() =>
-  store.personal.name
-    .split(' ')
-    .filter(Boolean)
-    .slice(-2)
-    .map((n) => n[0])
-    .join('')
-    .toUpperCase()
-)
-
 function scrollTo(selector) {
   document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>
 
 <style scoped>
-.hero-avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(160deg, rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.85));
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.4), 0 0 35px rgba(124, 58, 237, 0.25);
-  overflow: hidden;
-  user-select: none;
-}
-html.light .hero-avatar {
-  background: linear-gradient(160deg, rgba(241, 245, 249, 0.95), rgba(224, 231, 255, 0.9));
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.35), 0 10px 30px rgba(124, 58, 237, 0.15);
-}
-@media (min-width: 640px) {
-  .hero-avatar {
-    width: 104px;
-    height: 104px;
-  }
-}
-
 .social-link {
   width: 44px;
   height: 44px;
