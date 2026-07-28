@@ -204,6 +204,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           "Building Modern Web Applications",
           "Always Learning New Technologies",
           "Full-Stack Developer",
+          "Agentic AI Engineer"
         ],
         bio: "Hello! I am an Information Technology student with a strong passion for developing modern web applications. I love exploring and applying technologies across the entire stack—from frontend to backend—to build meaningful products, while always prioritizing clean code quality and optimal user experiences.",
         bio2: "I am particularly interested in Digital Transformation and aim to leverage technology to solve real-world problems for businesses and the community. I proactively learn, continuously refine my skills, and build hands-on experience through academic work, personal projects, and self-study.",
@@ -467,6 +468,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           "Xây dựng ứng dụng Web hiện đại",
           "Luôn học hỏi công nghệ mới",
           "Lập trình viên Full-Stack",
+          "Agentic AI Engineer"
         ],
         bio: "Xin chào! Tôi là một sinh viên ngành Công nghệ Thông tin với niềm đam mê mạnh mẽ trong việc phát triển các ứng dụng web hiện đại. Tôi thích tìm tòi và áp dụng các công nghệ fullstack từ frontend đến backend để xây dựng những sản phẩm có ý nghĩa, đồng thời luôn ưu tiên chất lượng mã nguồn sạch và trải nghiệm người dùng tối ưu.",
         bio2: "Tôi đặc biệt quan tâm đến lĩnh vực Chuyển đổi Số và hướng tới việc áp dụng công nghệ để giải quyết các bài toán thực tế cho doanh nghiệp và cộng đồng. Tôi luôn chủ động học hỏi, liên tục trau dồi kỹ năng và tích lũy kinh nghiệm thực tế qua các đề án trường học, dự án cá nhân và tự nghiên cứu.",
