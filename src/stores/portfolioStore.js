@@ -192,6 +192,16 @@ export const usePortfolioStore = defineStore("portfolio", {
             level: 65,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg",
           },
+          {
+            name: "Agentic AI",
+            level: 45,
+            logo: "https://cdn.simpleicons.org/robotframework/000000",
+          },
+          {
+            name: "OpenClaw",
+            level: 40,
+            logo: "https://cdn.simpleicons.org/anthropic/D97757",
+          },
         ],
       },
     ],
@@ -202,12 +212,13 @@ export const usePortfolioStore = defineStore("portfolio", {
         title: "Information Technology Student",
         taglines: [
           "Building Modern Web Applications",
+          "Delivering Agentic AI Solutions",
           "Always Learning New Technologies",
           "Full-Stack Developer",
           "Agentic AI Engineer"
         ],
-        bio: "Hello! I am an Information Technology student with a strong passion for developing modern web applications. I love exploring and applying technologies across the entire stack—from frontend to backend—to build meaningful products, while always prioritizing clean code quality and optimal user experiences.",
-        bio2: "I am particularly interested in Digital Transformation and aim to leverage technology to solve real-world problems for businesses and the community. I proactively learn, continuously refine my skills, and build hands-on experience through academic work, personal projects, and self-study.",
+        bio: "Hello! I am an Information Technology student with a strong passion for developing modern web applications. I love exploring and applying technologies across the entire stack—from frontend to backend—to build meaningful products, while always prioritizing clean code quality and optimal user experiences. I am also interested in applying agentic AI to development workflows to automate work and boost productivity.",
+        bio2: "I am particularly interested in Digital Transformation and aim to leverage technology to solve real-world problems for businesses and the community. I proactively learn, continuously refine my skills, and build hands-on experience through academic work, personal projects, and self-study. At MakeAI, I also gained hands-on experience building agentic AI workflows (OpenClaw) to automate and digitize business processes.",
         objective:
           "To become a professional Full-Stack Engineer with a specialization in AI and Data Science. I am eager to participate in real-world projects to enhance my technical skills, gain product development experience, and apply modern technologies to deliver effective digital transformation solutions for businesses and the community.",
         location: "Da Nang, Vietnam",
@@ -325,14 +336,15 @@ export const usePortfolioStore = defineStore("portfolio", {
           description: [
             "Developed 'BIMspace', a technical infrastructure management system applying interactive 3D and 2D maps for asset management and infrastructure operations.",
             "Developed the 'SonTra Health Management' system for local authorities to monitor and locate medical establishments using Frappe, React.js, Python, and PostgreSQL.",
-            "Building a multi-platform Boarding House Management System featuring Google OAuth2, real-time chat (WebSocket), reporting, and Capacitor-based mobile app.",
+            "Built a Public Investment Management application, digitizing the 10-step public investment workflow and applying agentic AI (OpenClaw) to automate the process, cut processing time, and boost overall efficiency.",
             "Designed database schemas, optimized SQL query performance, and implemented role-based authorization.",
             "Collaborated in Agile sprint planning, daily stand-ups, and code review processes to ensure code quality.",
           ],
           tech: [
             "React.js",
             "Vue 3",
-            "Capacitor",
+            "Agentic AI",
+            "OpenClaw",
             "Java (Spring Boot)",
             "Python",
             "Frappe",
@@ -466,12 +478,13 @@ export const usePortfolioStore = defineStore("portfolio", {
         title: "Sinh viên Công nghệ thông tin",
         taglines: [
           "Xây dựng ứng dụng Web hiện đại",
+          "Cung cấp giải pháp Agentic AI",
           "Luôn học hỏi công nghệ mới",
           "Lập trình viên Full-Stack",
           "Agentic AI Engineer"
         ],
-        bio: "Xin chào! Tôi là một sinh viên ngành Công nghệ Thông tin với niềm đam mê mạnh mẽ trong việc phát triển các ứng dụng web hiện đại. Tôi thích tìm tòi và áp dụng các công nghệ fullstack từ frontend đến backend để xây dựng những sản phẩm có ý nghĩa, đồng thời luôn ưu tiên chất lượng mã nguồn sạch và trải nghiệm người dùng tối ưu.",
-        bio2: "Tôi đặc biệt quan tâm đến lĩnh vực Chuyển đổi Số và hướng tới việc áp dụng công nghệ để giải quyết các bài toán thực tế cho doanh nghiệp và cộng đồng. Tôi luôn chủ động học hỏi, liên tục trau dồi kỹ năng và tích lũy kinh nghiệm thực tế qua các đề án trường học, dự án cá nhân và tự nghiên cứu.",
+        bio: "Xin chào! Tôi là một sinh viên ngành Công nghệ Thông tin với niềm đam mê mạnh mẽ trong việc phát triển các ứng dụng web hiện đại. Tôi thích tìm tòi và áp dụng các công nghệ fullstack từ frontend đến backend để xây dựng những sản phẩm có ý nghĩa, đồng thời luôn ưu tiên chất lượng mã nguồn sạch và trải nghiệm người dùng tối ưu. Bên cạnh đó, tôi cũng quan tâm và ứng dụng agentic AI vào quy trình phát triển để tự động hóa công việc và nâng cao hiệu suất.",
+        bio2: "Tôi đặc biệt quan tâm đến lĩnh vực Chuyển đổi Số và hướng tới việc áp dụng công nghệ để giải quyết các bài toán thực tế cho doanh nghiệp và cộng đồng. Tôi luôn chủ động học hỏi, liên tục trau dồi kỹ năng và tích lũy kinh nghiệm thực tế qua các đề án trường học, dự án cá nhân và tự nghiên cứu. Tại MakeAI, tôi cũng đã có kinh nghiệm thực tế trong việc xây dựng các quy trình agentic AI (OpenClaw) để tự động hóa và số hóa nghiệp vụ.",
         objective:
           "Trở thành một Kỹ sư Full-Stack chuyên nghiệp với định hướng nghiên cứu sâu về AI và Khoa học dữ liệu. Tôi mong muốn được tham gia vào các dự án thực tế để nâng cao kỹ năng kỹ thuật, tích lũy kinh nghiệm phát triển sản phẩm và áp dụng các công nghệ hiện đại nhằm mang lại những giải pháp chuyển đổi số hiệu quả cho doanh nghiệp và cộng đồng.",
         location: "Đà Nẵng, Việt Nam",
@@ -589,14 +602,15 @@ export const usePortfolioStore = defineStore("portfolio", {
           description: [
             "Phát triển 'BIMspace', hệ thống quản lý hạ tầng kỹ thuật ứng dụng bản đồ tương tác 3D và 2D để quản lý tài sản và các nghiệp vụ vận hành hạ tầng.",
             "Phát triển hệ thống 'Quản lý Y tế Quận Sơn Trà' giúp chính quyền giám sát các cơ sở y tế bằng Frappe, React.js, Python và PostgreSQL.",
-            "Xây dựng Hệ thống Quản lý Phòng trọ Đa nền tảng tích hợp Google OAuth2, chat realtime (WebSocket), xuất báo cáo và đóng gói mobile bằng Capacitor.",
+            "Xây dựng ứng dụng Quản lý Đầu tư Công, số hóa quy trình đầu tư công 10 bước và ứng dụng agentic AI (OpenClaw) để tự động hóa quy trình, rút ngắn thời gian xử lý và nâng cao hiệu suất công việc.",
             "Thiết kế cơ sở dữ liệu, tối ưu hóa hiệu năng truy vấn SQL và triển khai phân quyền bảo mật vai trò.",
             "Cộng tác làm việc trong môi trường Agile/Scrum, báo cáo hàng ngày và kiểm duyệt mã nguồn.",
           ],
           tech: [
             "React.js",
             "Vue 3",
-            "Capacitor",
+            "Agentic AI",
+            "OpenClaw",
             "Java (Spring Boot)",
             "Python",
             "Frappe",
