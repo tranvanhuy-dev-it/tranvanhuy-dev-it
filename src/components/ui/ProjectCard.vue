@@ -62,6 +62,35 @@
         {{ project.longDesc || project.description }}
       </p>
 
+      <!-- My Role -->
+      <div
+        v-if="project.role"
+        class="rounded-xl mb-5 p-4 border border-purple-500/15 bg-purple-500/[0.04] light:bg-purple-500/[0.03]"
+      >
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-3.5 h-3.5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-purple-300">
+            {{ store.ui.myRoleLabel || 'My Role' }}
+          </span>
+        </div>
+        <p class="text-xs text-slate-400 light:text-slate-700 mb-2.5 italic leading-relaxed">
+          {{ project.role }}
+        </p>
+        <ul v-if="project.responsibilities?.length" class="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5">
+          <li
+            v-for="item in project.responsibilities"
+            :key="item"
+            class="flex items-start gap-1.5 text-xs text-slate-300 light:text-slate-800 leading-snug"
+          >
+            <span class="text-cyan-400 mt-px shrink-0">✓</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+
       <!-- Tags -->
       <div class="flex flex-wrap gap-2 mb-5 mt-auto">
         <span
@@ -76,16 +105,36 @@
 
       <!-- Links -->
       <div class="flex items-center justify-between pt-3 border-t border-white/5 light:border-black/5">
-        <div class="flex gap-3">
+        <div v-if="hasLinks" class="flex gap-3">
+          <template v-if="project.githubBackend">
+            <a
+              v-if="project.github"
+              :href="project.github"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 text-sm text-slate-400 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors py-1 px-2 rounded-lg hover:bg-white/5 light:hover:bg-black/5"
+            >
+              <IconGithub class="w-4 h-4" />
+              Frontend
+            </a>
+            <a
+              :href="project.githubBackend"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 text-sm text-slate-400 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors py-1 px-2 rounded-lg hover:bg-white/5 light:hover:bg-black/5"
+            >
+              <IconGithub class="w-4 h-4" />
+              Backend
+            </a>
+          </template>
           <a
+            v-else-if="project.github"
             :href="project.github"
             target="_blank"
             rel="noopener"
             class="flex items-center gap-2 text-sm text-slate-400 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors py-1 px-2 rounded-lg hover:bg-white/5 light:hover:bg-black/5"
           >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
+            <IconGithub class="w-4 h-4" />
             GitHub
           </a>
           <a
@@ -116,6 +165,16 @@
             Demo Video
           </a>
         </div>
+        <div
+          v-else-if="project.internal"
+          class="flex items-center gap-2 text-xs text-slate-500 light:text-slate-500 italic"
+        >
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>{{ store.ui.internalProjectNote || 'Internal MakeAI project — source & demo not public' }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -123,6 +182,10 @@
 
 <script setup>
 import { computed } from 'vue'
+import { usePortfolioStore } from '@/stores/portfolioStore'
+import IconGithub from '@/components/icons/IconGithub.vue'
+
+const store = usePortfolioStore()
 
 const props = defineProps({
   project: { type: Object, required: true },
@@ -142,6 +205,15 @@ const categoryEmoji = computed(() => {
   const map = { frontend: '🎨', backend: '⚙️', fullstack: '🚀' }
   return map[props.project.category] || '💻'
 })
+
+const hasLinks = computed(() =>
+  Boolean(
+    props.project.github ||
+      props.project.githubBackend ||
+      (props.project.demo && props.project.demo !== '#') ||
+      props.project.video
+  )
+)
 
 const gradientBg = computed(() => {
   const gradients = {
