@@ -1,0 +1,6 @@
+# Allow all web crawlers (Googlebot, Bingbot, Yahoo, DuckDuckGo)
+User-agent: *
+Allow: /
+
+# Sitemap URL for Google Search Console and Bing Webmaster Tools
+Sitemap: /sitemap.xml
