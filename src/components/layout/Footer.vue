@@ -3,7 +3,12 @@
     <div class="max-w-6xl mx-auto">
       <!-- Top -->
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-        <a href="#hero" class="text-2xl font-bold font-mono gradient-text">HuyTran</a>
+        <a href="#hero" class="flex items-center gap-3 group" @click.prevent="scrollToTop">
+          <div class="w-9 h-9 rounded-xl p-1 flex items-center justify-center bg-white shadow-md ring-1 ring-slate-200/50 dark:ring-white/20">
+            <img src="/logo.png" alt="HuyTran Logo" class="w-full h-full object-contain" />
+          </div>
+          <span class="text-xl font-bold font-mono gradient-text">HuyTran</span>
+        </a>
 
         <!-- Social links -->
         <div class="flex items-center gap-4">

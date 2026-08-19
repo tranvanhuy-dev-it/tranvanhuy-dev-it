@@ -11,10 +11,15 @@
       <!-- Logo -->
       <a
         href="#hero"
-        class="text-xl font-bold font-mono gradient-text hover:opacity-80 transition-opacity"
+        class="flex items-center gap-3 group hover:opacity-90 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        Tran Van Huy
+        <div class="w-9 h-9 rounded-xl p-1 flex items-center justify-center bg-white shadow-md ring-1 ring-slate-200/50 dark:ring-white/20 transition-all group-hover:scale-105">
+          <img src="/logo.png" alt="Tran Van Huy Logo" class="w-full h-full object-contain" />
+        </div>
+        <span class="text-lg font-bold font-mono gradient-text">
+          Tran Van Huy
+        </span>
       </a>
 
       <!-- Desktop & Language Navigation Container -->
