@@ -1,6 +1,6 @@
-# Allow all web crawlers (Googlebot, Bingbot, Yahoo, DuckDuckGo)
+# Allow all web crawlers
 User-agent: *
 Allow: /
 
-# Sitemap URL for Google Search Console and Bing Webmaster Tools
-Sitemap: /sitemap.xml
+# Sitemap URL
+Sitemap: https://portfolio.tranvanhuy.io.vn/sitemap.xml
