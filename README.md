@@ -22,6 +22,7 @@
 
 I'm a Software Developer focused on building useful, dependable products while developing deeper expertise in data and intelligent systems.
 
+- 💼 Working as a **Software Developer at Digital Twin Group**.
 - 🧑‍💻 Building practical products across **backend, web, and mobile**.
 - 🧠 Focused on **Data Science, Machine Learning, and applied AI**.
 - ⚙️ Working with **Java, Spring Boot, JavaScript, TypeScript, React, and Next.js**.
