@@ -71,7 +71,7 @@ I'm a Software Developer focused on building useful, dependable products while d
 ## 📊 GitHub Snapshot
 
 <div align="center">
-  <img width="820" src="./github-metrics.svg" alt="GitHub analytics for tranvanhuy-dev-it" />
+  <img width="600" src="./github-metrics.svg" alt="GitHub commit and pull request activity" />
 </div>
 
 ## 🔍 Code Insights

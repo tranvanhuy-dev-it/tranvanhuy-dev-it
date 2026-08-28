@@ -16,7 +16,7 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-      - name: General GitHub analytics
+      - name: Compact GitHub activity
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
@@ -25,9 +25,7 @@ jobs:
           filename: github-metrics.svg
           config_timezone: Asia/Ho_Chi_Minh
           config_display: regular
-          base: header, activity
-          repositories_forks: false
-
+          base: activity
       - name: Language analysis
         uses: lowlighter/metrics@latest
         with:
