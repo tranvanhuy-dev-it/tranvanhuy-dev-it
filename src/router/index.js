@@ -1,12 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: HomeView,
     },
   ],
@@ -14,12 +14,14 @@ const router = createRouter({
     if (to.hash) {
       return {
         el: to.hash,
-        behavior: 'smooth',
+        behavior: "smooth",
         top: 80,
-      }
+      };
     }
-    return savedPosition || { top: 0, behavior: 'smooth' }
+    return savedPosition || { top: 0, behavior: "smooth" };
   },
-})
-
-export default router
+});
+export default router;
+jgjghjhg;
+hfhfgh;
+hjtyuytfdsefsdfdfds;
