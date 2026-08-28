@@ -71,8 +71,7 @@ I'm a Software Developer focused on building useful, dependable products while d
 ## 📊 Coding Overview
 
 <div align="center">
-  <img width="49%" src="./metrics-streak.svg" alt="GitHub contribution streak" />
-  <img width="49%" src="./metrics-languages.svg" alt="Most used programming languages" />
+  <img width="49.5%" src="./metrics-streak.svg" alt="GitHub contribution streak" /><img width="49.5%" src="./metrics-languages.svg" alt="Most used programming languages" />
 </div>
 ## 🐍 Contribution Journey
 
