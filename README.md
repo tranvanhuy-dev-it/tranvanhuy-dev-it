@@ -71,7 +71,7 @@ I'm a Software Developer focused on building useful, dependable products while d
 ## 🔥 Coding Streak
 
 <div align="center">
-  <img width="700" src="https://streak-stats.demolab.com?user=tranvanhuy-dev-it&amp;theme=github-dark-blue&amp;hide_border=true&amp;date_format=M%20j%5B%2C%20Y%5D" alt="GitHub contribution streak" />
+  <img width="700" src="https://streak-stats.demolab.com/?user=tranvanhuy-dev-it&amp;theme=github-dark-blue&amp;hide_border=true" alt="GitHub contribution streak" />
 </div>
 
 ## 🧬 Language Footprint
