@@ -1,8 +1,14 @@
-<h1 align="center">
-  Hi 👋, I'm <a href="https://portfolio.tranvanhuy.io.vn" target="_blank">Trần Văn Huy</a>
-</h1>
-
-<h3 align="center">Software Developer building practical products across backend, web, mobile, and applied AI</h3>
+<div align="center">
+  <h1>Hi 👋, I'm <a href="https://portfolio.tranvanhuy.io.vn">Trần Văn Huy</a></h1>
+  <h3>Software Developer with a growing focus on Data Science and Artificial Intelligence</h3>
+  <p>
+    <img src="https://img.shields.io/static/v1?label=&message=Backend&color=2F81F7&style=flat-square&logo=springboot&logoColor=white" alt="Backend" />
+    <img src="https://img.shields.io/static/v1?label=&message=Web&color=2F81F7&style=flat-square&logo=react&logoColor=white" alt="Web" />
+    <img src="https://img.shields.io/static/v1?label=&message=Data%20Science&color=2F81F7&style=flat-square&logo=python&logoColor=white" alt="Data Science" />
+    <img src="https://img.shields.io/static/v1?label=&message=Artificial%20Intelligence&color=2F81F7&style=flat-square&logo=openai&logoColor=white" alt="Artificial Intelligence" />
+  </p>
+  <p><em>Reliable systems · Maintainable code · Thoughtful user experiences</em></p>
+</div>
 
 <p align="left">
   <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&label=Profile%20views&color=2F81F7&style=flat" alt="Profile views for tranvanhuy-dev-it" />
@@ -12,17 +18,21 @@
   <img align="right" height="300" width="400" alt="Developer animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
 </a>
 
-- 🔭 I build practical products across **backend, web, and mobile**.
+### A little about me
 
-- 🤖 I use **AI** where it creates meaningful product value.
+I'm a Software Developer who enjoys transforming ideas into products people can actually use. Alongside building backend, web, and mobile applications, I'm shaping my long-term direction around **Data Science and Artificial Intelligence**, with a focus on applying data and intelligent systems to practical problems.
 
-- 🎯 I care about **reliable systems, maintainable code, and thoughtful UX**.
+- 🧑‍💻 Building product features across **backend, web, and mobile**.
 
-- 💬 Ask me about **Java, Spring Boot, React, and Next.js**.
+- ⚙️ Working primarily with **Java, Spring Boot, JavaScript, TypeScript, React, and Next.js**.
 
-- 📫 Reach me at **tranvanhuy064206@gmail.com**.
+- 🧠 Developing my focus in **Data Science, Machine Learning, and practical AI applications**.
 
-- 🌐 See my work at [portfolio.tranvanhuy.io.vn](https://portfolio.tranvanhuy.io.vn).
+- 🧩 Interested in **API design, data modeling, system reliability, and clean architecture**.
+
+- 🎯 Turning real requirements into solutions that are **useful, maintainable, and easy to evolve**.
+
+- 📫 Reach me at **tranvanhuy064206@gmail.com** or visit [portfolio.tranvanhuy.io.vn](https://portfolio.tranvanhuy.io.vn).
 
 <br clear="both" />
 

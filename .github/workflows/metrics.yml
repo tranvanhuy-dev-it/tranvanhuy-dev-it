@@ -2,6 +2,10 @@ name: Advanced GitHub Metrics
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/metrics.yml
   schedule:
     - cron: "15 0 * * *"
 
