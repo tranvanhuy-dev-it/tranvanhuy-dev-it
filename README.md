@@ -1,18 +1,6 @@
 <div align="center">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=190&amp;color=0:020617,35:0f172a,70:164e63,100:06b6d4&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=38&amp;fontAlignY=38&amp;stroke=22d3ee&amp;strokeWidth=1&amp;animation=fadeIn" alt="Trần Văn Huy" />
-  <div>
-    <img src="https://img.shields.io/static/v1?label=&amp;message=Software%20Development&amp;color=0f172a&amp;style=flat-square&amp;logo=github&amp;logoColor=22d3ee" alt="Software Development" />
-    <img src="https://img.shields.io/static/v1?label=&amp;message=Data%20Science&amp;color=0f172a&amp;style=flat-square&amp;logo=python&amp;logoColor=22d3ee" alt="Data Science" />
-    <img src="https://img.shields.io/static/v1?label=&amp;message=Machine%20Learning&amp;color=0f172a&amp;style=flat-square&amp;logo=tensorflow&amp;logoColor=22d3ee" alt="Machine Learning" />
-    <img src="https://img.shields.io/static/v1?label=&amp;message=Applied%20AI&amp;color=0f172a&amp;style=flat-square&amp;logo=openai&amp;logoColor=22d3ee" alt="Applied AI" />
-  </div>
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=205&amp;color=0:020617,35:0f172a,70:164e63,100:06b6d4&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=38&amp;fontAlignY=36&amp;stroke=22d3ee&amp;strokeWidth=1&amp;desc=Software%20Development%20%C2%B7%20Data%20Science%20%C2%B7%20Machine%20Learning%20%C2%B7%20Applied%20AI&amp;descSize=13&amp;descAlignY=56&amp;descAlign=50&amp;descColor=22d3ee&amp;animation=fadeIn" alt="Trần Văn Huy" />
 </div>
-
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views for tranvanhuy-dev-it" />
-</p>
-
-<br />
 
 <a href="https://portfolio.tranvanhuy.io.vn" target="_blank" align="center">
   <img align="right" height="240" width="330" alt="Developer animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
@@ -89,13 +77,6 @@ I'm a Software Developer focused on building useful, dependable products while d
   <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tranvanhuy-dev-it&amp;theme=github_dark" alt="GitHub contribution overview" />
 </div>
 
-## ⏱️ Coding Activity (WakaTime)
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=tranvanhuy-dev-it&theme=github_dark&layout=compact&langs_count=8" alt="WakaTime Stats" />
-</div>
-
-
 ## 🤝 Get in Touch
 
 <div align="center">
@@ -103,6 +84,8 @@ I'm a Software Developer focused on building useful, dependable products while d
   <a href="mailto:tranvanhuy064206@gmail.com">Gmail</a> ·
   <a href="https://www.linkedin.com/in/huy-tran-van-5753b13b4?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">LinkedIn</a> ·
   <a href="https://www.facebook.com/share/1DoSNJVqv3/?mibextid=wwXIfr">Facebook</a>
+  <br /><br />
+  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views for tranvanhuy-dev-it" />
 </div>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=95&section=footer&color=0:0891b2,50:0f172a,100:020617&text=BUILD%20%E2%86%92%20LEARN%20%E2%86%92%20IMPROVE%20%E2%86%92%20REPEAT&fontColor=94a3b8&fontSize=13&fontAlignY=72&animation=fadeIn" alt="Build, learn, improve, repeat" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=85&section=footer&color=0:0891b2,50:0f172a,100:020617&animation=fadeIn" alt="Footer wave" />
