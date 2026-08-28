@@ -1,13 +1,5 @@
 <div align="center">
-  <h1>Hi 👋, I'm <a href="https://portfolio.tranvanhuy.io.vn">Trần Văn Huy</a></h1>
-  <h3>Software Developer with a growing focus on Data Science and Artificial Intelligence</h3>
-  <p>
-    <img src="https://img.shields.io/static/v1?label=&message=Backend&color=2F81F7&style=flat-square&logo=springboot&logoColor=white" alt="Backend" />
-    <img src="https://img.shields.io/static/v1?label=&message=Web&color=2F81F7&style=flat-square&logo=react&logoColor=white" alt="Web" />
-    <img src="https://img.shields.io/static/v1?label=&message=Data%20Science&color=2F81F7&style=flat-square&logo=python&logoColor=white" alt="Data Science" />
-    <img src="https://img.shields.io/static/v1?label=&message=Artificial%20Intelligence&color=2F81F7&style=flat-square&logo=openai&logoColor=white" alt="Artificial Intelligence" />
-  </p>
-  <p><em>Reliable systems · Maintainable code · Thoughtful user experiences</em></p>
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=165&amp;color=0:020617,45:0f172a,100:0891b2&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=36&amp;fontAlignY=40&amp;animation=fadeIn" alt="Trần Văn Huy" />
 </div>
 
 <p align="left">
