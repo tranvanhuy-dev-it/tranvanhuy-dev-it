@@ -68,18 +68,12 @@ I'm a Software Developer focused on building useful, dependable products while d
 
 ---
 
-## 🔥 Coding Streak
+## 📊 Coding Overview
 
 <div align="center">
-  <img width="700" src="https://streak-stats.demolab.com/?user=tranvanhuy-dev-it&amp;theme=github-dark-blue&amp;hide_border=true" alt="GitHub contribution streak" />
+  <img width="49%" src="./metrics-streak.svg" alt="GitHub contribution streak" />
+  <img width="49%" src="./metrics-languages.svg" alt="Most used programming languages" />
 </div>
-
-## 🧬 Language Footprint
-
-<div align="center">
-  <img width="700" src="./metrics-languages.svg" alt="Most used programming languages" />
-</div>
-
 ## 🐍 Contribution Journey
 
 <div align="center">
@@ -95,6 +89,7 @@ I'm a Software Developer focused on building useful, dependable products while d
 <div align="center">
   <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tranvanhuy-dev-it&amp;theme=github_dark" alt="GitHub contribution overview" />
 </div>
+
 ## ⏱️ This Week in Code
 
 <!--START_SECTION:waka-->
