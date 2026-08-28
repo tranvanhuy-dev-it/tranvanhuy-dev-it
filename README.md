@@ -89,17 +89,12 @@ I'm a Software Developer focused on building useful, dependable products while d
   <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tranvanhuy-dev-it&amp;theme=github_dark" alt="GitHub contribution overview" />
 </div>
 
-## ⏱️ This Week in Code
+## ⏱️ Coding Activity (WakaTime)
 
-<!--START_SECTION:waka-->
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=tranvanhuy-dev-it&theme=github_dark&layout=compact&langs_count=8" alt="WakaTime Stats" />
+</div>
 
-```txt
-Total Time: 0 secs
-
-No activity tracked
-```
-
-<!--END_SECTION:waka-->
 
 ## 🤝 Get in Touch
 
