@@ -1,16 +1,25 @@
 <div align="center">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=165&amp;color=0:020617,45:0f172a,100:0891b2&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=36&amp;fontAlignY=40&amp;animation=fadeIn" alt="Trần Văn Huy" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=190&amp;color=0:020617,35:0f172a,70:164e63,100:06b6d4&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=38&amp;fontAlignY=38&amp;stroke=22d3ee&amp;strokeWidth=1&amp;animation=fadeIn" alt="Trần Văn Huy" />
 </div>
 
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&label=Profile%20views&color=2F81F7&style=flat" alt="Profile views for tranvanhuy-dev-it" />
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=&amp;message=Software%20Development&amp;color=0f172a&amp;style=flat-square&amp;logo=github&amp;logoColor=22d3ee" alt="Software Development" />
+  <img src="https://img.shields.io/static/v1?label=&amp;message=Data%20Science&amp;color=0f172a&amp;style=flat-square&amp;logo=python&amp;logoColor=22d3ee" alt="Data Science" />
+  <img src="https://img.shields.io/static/v1?label=&amp;message=Machine%20Learning&amp;color=0f172a&amp;style=flat-square&amp;logo=tensorflow&amp;logoColor=22d3ee" alt="Machine Learning" />
+  <img src="https://img.shields.io/static/v1?label=&amp;message=Applied%20AI&amp;color=0f172a&amp;style=flat-square&amp;logo=openai&amp;logoColor=22d3ee" alt="Applied AI" />
 </p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views for tranvanhuy-dev-it" />
+</p>
+
+<br />
 
 <a href="https://portfolio.tranvanhuy.io.vn" target="_blank" align="center">
   <img align="right" height="240" width="330" alt="Developer animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
 </a>
 
-### A little about me
+### ✦ A little about me
 
 - 🧑‍💻 Building practical products across **backend, web, and mobile**.
 - 🧠 Focused on **Data Science, Machine Learning, and applied AI**.
@@ -20,11 +29,13 @@
 
 <h3 align="center">Connect with me 🤝</h3>
 
+<p align="center"><sub>Portfolio · Professional network · Social · Direct contact</sub></p>
+
 <div align="center">
-  <a target="_blank" href="https://portfolio.tranvanhuy.io.vn"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>
-  <a target="_blank" href="https://www.linkedin.com/in/huy-tran-van-5753b13b4?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png" alt="LinkedIn" /></a>
-  <a target="_blank" href="https://github.com/tranvanhuy-dev-it"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>
-  <a target="_blank" href="https://www.facebook.com/share/1DoSNJVqv3/?mibextid=wwXIfr"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/facebook-new.png" alt="Facebook" /></a>
+  <a target="_blank" href="https://portfolio.tranvanhuy.io.vn"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://www.linkedin.com/in/huy-tran-van-5753b13b4?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png" alt="LinkedIn" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://github.com/tranvanhuy-dev-it"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://www.facebook.com/share/1DoSNJVqv3/?mibextid=wwXIfr"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/facebook-new.png" alt="Facebook" /></a>&nbsp;&nbsp;
   <a href="mailto:tranvanhuy064206@gmail.com"><img width="40" height="40" src="https://img.icons8.com/doodle/40/000000/gmail-new.png" alt="Email" /></a>
 </div>
 
