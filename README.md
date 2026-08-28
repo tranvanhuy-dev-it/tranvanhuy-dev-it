@@ -94,7 +94,11 @@ I'm a Software Developer focused on building useful, dependable products while d
 
 <!--START_SECTION:waka-->
 
-_WakaTime statistics will appear after the workflow runs._
+```txt
+Total Time: 0 secs
+
+No activity tracked
+```
 
 <!--END_SECTION:waka-->
 
