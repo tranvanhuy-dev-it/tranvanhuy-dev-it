@@ -7,24 +7,14 @@
 </p>
 
 <a href="https://portfolio.tranvanhuy.io.vn" target="_blank" align="center">
-  <img align="right" height="300" width="400" alt="Developer animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
+  <img align="right" height="240" width="330" alt="Developer animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
 </a>
 
 ### A little about me
 
-I'm a Software Developer who enjoys transforming ideas into products people can actually use. Alongside building backend, web, and mobile applications, I'm shaping my long-term direction around **Data Science and Artificial Intelligence**, with a focus on applying data and intelligent systems to practical problems.
-
-- 🧑‍💻 Building product features across **backend, web, and mobile**.
-
-- ⚙️ Working primarily with **Java, Spring Boot, JavaScript, TypeScript, React, and Next.js**.
-
-- 🧠 Developing my focus in **Data Science, Machine Learning, and practical AI applications**.
-
-- 🧩 Interested in **API design, data modeling, system reliability, and clean architecture**.
-
-- 🎯 Turning real requirements into solutions that are **useful, maintainable, and easy to evolve**.
-
-- 📫 Reach me at **tranvanhuy064206@gmail.com** or visit [portfolio.tranvanhuy.io.vn](https://portfolio.tranvanhuy.io.vn).
+- 🧑‍💻 Building practical products across **backend, web, and mobile**.
+- 🧠 Focused on **Data Science, Machine Learning, and applied AI**.
+- ⚙️ Working with **Java, Spring Boot, JavaScript, TypeScript, React, and Next.js**.
 
 <br clear="both" />
 
