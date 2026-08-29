@@ -2,7 +2,7 @@
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;height=205&amp;color=0:020617,35:0f172a,70:164e63,100:06b6d4&amp;text=TR%E1%BA%A6N%20V%C4%82N%20HUY&amp;fontColor=e2e8f0&amp;fontSize=38&amp;fontAlignY=36&amp;stroke=22d3ee&amp;strokeWidth=1&amp;desc=Software%20Development%20%C2%B7%20Data%20Science%20%C2%B7%20Machine%20Learning%20%C2%B7%20Applied%20AI&amp;descSize=13&amp;descAlignY=56&amp;descAlign=50&amp;descColor=22d3ee&amp;animation=fadeIn" alt="Trần Văn Huy" />
 </div>
 
-<a href="https://portfolio.tranvanhuy.io.vn" target="_blank">
+<a href="https://www.tranvanhuy.io.vn" target="_blank">
   <img align="right" height="230" width="310" alt="Developer coding animation" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" />
 </a>
 
@@ -143,7 +143,7 @@ Software Developer building scalable web, backend, and mobile systems, with a gr
 ## 🤝 Connect with Me
 
 <p align="center">
-  <a target="_blank" href="https://portfolio.tranvanhuy.io.vn"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://www.tranvanhuy.io.vn"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>&nbsp;&nbsp;
   <a target="_blank" href="https://www.linkedin.com/in/huy-tran-van-5753b13b4"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png" alt="LinkedIn" /></a>&nbsp;&nbsp;
   <a target="_blank" href="https://github.com/tranvanhuy-dev-it"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>&nbsp;&nbsp;
   <a target="_blank" href="https://facebook.com/tranvanhuy260306"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/facebook-new.png" alt="Facebook" /></a>&nbsp;&nbsp;
