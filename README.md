@@ -128,18 +128,6 @@ Software Developer building scalable web, backend, and mobile systems, with a gr
   <img width="49.5%" src="./metrics-streak.svg" alt="GitHub contribution streak" /><img width="49.5%" src="./metrics-languages.svg" alt="Most used programming languages" />
 </div>
 
-## ⏱️ WakaTime Stats
-
-<!--START_SECTION:waka-->
-
-```txt
-Total Time: 0 secs
-
-No activity tracked
-```
-
-<!--END_SECTION:waka-->
-
 ## 🐍 Contribution Journey
 
 <div align="center">
