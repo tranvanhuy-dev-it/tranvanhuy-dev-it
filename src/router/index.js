@@ -22,6 +22,3 @@ const router = createRouter({
   },
 });
 export default router;
-jgjghjhg;
-hfhfgh;
-hjtyuytfdsefsdfdfds;
