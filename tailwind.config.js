@@ -28,6 +28,17 @@ export default {
           neon: '#f59e0b',
         }
       },
+      borderRadius: {
+        'none': '0',
+        'sm': '2px',
+        DEFAULT: '3px',
+        'md': '5px',
+        'lg': '7px',
+        'xl': '9px',
+        '2xl': '11px',
+        '3xl': '14px',
+        'full': '9999px',
+      },
       fontFamily: {
         sans: ['Space Grotesk', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],

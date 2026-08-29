@@ -44,61 +44,6 @@
           </div>
         </div>
       </TransitionGroup>
-
-      <!-- Clean Summary Highlights: 2 Distinct Modern Cards -->
-      <div class="mt-8 sm:mt-12 grid md:grid-cols-2 gap-4 sm:gap-6 fade-up">
-        <!-- Card 1: Backend Architecture -->
-        <div class="glass-card p-4 sm:p-6 rounded-2xl border border-slate-800/80 light:border-slate-200 hover:border-slate-700 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-sm font-bold shrink-0">
-                ⚙️
-              </span>
-              <h4 class="text-sm sm:text-base font-bold text-white light:text-slate-900 leading-snug">
-                {{ store.locale === 'vi' ? 'Kiến trúc Backend & Hệ thống' : 'Backend & System Architecture' }}
-              </h4>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-300 light:text-slate-600 leading-relaxed mb-4">
-              {{ store.locale === 'vi'
-                ? 'Thiết kế hệ thống backend mở rộng, RESTful API chuẩn mực, mô hình hóa CSDL quan hệ và tối ưu hóa hiệu năng truy vấn.'
-                : 'Designing scalable backend systems, secure RESTful APIs, relational schema modeling, and high-performance query optimization.'
-              }}
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/60 light:border-slate-200">
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20">Clean Architecture</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">RESTful API</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">Database Tuning</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">OAuth2 & JWT</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Applied AI & Automation -->
-        <div class="glass-card p-4 sm:p-6 rounded-2xl border border-slate-800/80 light:border-slate-200 hover:border-slate-700 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="w-8 h-8 rounded-lg bg-cyan-600/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold shrink-0">
-                🤖
-              </span>
-              <h4 class="text-sm sm:text-base font-bold text-white light:text-slate-900 leading-snug">
-                {{ store.locale === 'vi' ? 'Ứng dụng AI & Tự động hóa' : 'Applied AI & Automation' }}
-              </h4>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-300 light:text-slate-600 leading-relaxed mb-4">
-              {{ store.locale === 'vi'
-                ? 'Nghiên cứu ứng dụng Agentic AI (OpenClaw) và tự động hóa quy trình nghiệp vụ số doanh nghiệp trên nền tảng Python & Frappe.'
-                : 'Building intelligent workflows with Agentic AI (OpenClaw) and automating enterprise operations using Python and Frappe.'
-              }}
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/60 light:border-slate-200">
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-cyan-600/10 text-cyan-400 border border-cyan-500/20">Agentic AI Workflows</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">Process Digitization</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">Python Automation</span>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-800/80 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-700/80 light:border-slate-300">Data Analysis</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>

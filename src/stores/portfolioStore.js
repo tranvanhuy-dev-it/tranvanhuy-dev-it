@@ -21,7 +21,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           },
           {
             name: "TypeScript",
-            level: 70,
+            level: 75,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
           },
           {
@@ -80,13 +80,13 @@ export const usePortfolioStore = defineStore("portfolio", {
         skills: [
           {
             name: "React",
-            level: 75,
+            level: 80,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
           },
           {
             name: "Next.js",
             level: 75,
-            logo: "https://cdn.simpleicons.org/nextdotjs/white",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
           },
           {
             name: "Tailwind CSS",
@@ -117,7 +117,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           },
           {
             name: "SQL Server",
-            level: 85,
+            level: 80,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
           },
           {
@@ -134,7 +134,7 @@ export const usePortfolioStore = defineStore("portfolio", {
         skills: [
           {
             name: "Docker",
-            level: 70,
+            level: 75,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
           },
           {
@@ -160,34 +160,29 @@ export const usePortfolioStore = defineStore("portfolio", {
         ],
       },
       {
-        id: "ai_ds",
-        labels: { en: "AI & Data Science", vi: "AI & Khoa học dữ liệu" },
+        id: "exploring",
+        labels: { en: "Currently Exploring", vi: "Đang mở rộng & Nghiên cứu" },
         icon: "🧠",
         skills: [
           {
-            name: "Machine Learning",
-            level: 60,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
-          },
-          {
-            name: "Pandas",
+            name: "Data Science & ML",
             level: 70,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
           },
           {
-            name: "NumPy",
-            level: 70,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg",
-          },
-          {
-            name: "Agentic AI",
-            level: 65,
-            logo: "https://cdn.simpleicons.org/robotframework/000000",
-          },
-          {
-            name: "OpenClaw",
+            name: "Rust",
             level: 60,
-            logo: "https://cdn.simpleicons.org/anthropic/D97757",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg",
+          },
+          {
+            name: "Agentic AI & Automation",
+            level: 70,
+            logo: "https://cdn.simpleicons.org/openai/10A37F",
+          },
+          {
+            name: "Distributed Systems",
+            level: 65,
+            logo: "https://cdn.simpleicons.org/apachekafka/white",
           },
         ],
       },
@@ -223,6 +218,38 @@ export const usePortfolioStore = defineStore("portfolio", {
         { value: "5+", label: "Projects Completed" },
         { value: "15+", label: "Technologies Used" },
         { value: "100%", label: "Passion & Creativity" },
+      ],
+      whatIBuild: [
+        {
+          icon: "🌐",
+          title: "Full-Stack Web Applications",
+          desc: "Modern, reactive interfaces and performant frontend architectures with React, Next.js, and Vue.",
+          tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+        },
+        {
+          icon: "⚙️",
+          title: "Scalable Backend Systems",
+          desc: "RESTful APIs, authentication workflows, clean architecture, and real-time communications.",
+          tags: ["Java (Spring Boot)", "Python (Frappe)", "Node.js", "PostgreSQL", "Redis"]
+        },
+        {
+          icon: "📱",
+          title: "Cross-Platform Mobile Apps",
+          desc: "Hybrid applications packaged for responsive and high-performance mobile deployment.",
+          tags: ["Capacitor", "Vue / React", "Mobile First"]
+        },
+        {
+          icon: "🗺️",
+          title: "GIS & Digital Transformation",
+          desc: "Interactive spatial data platforms (2D/3D maps) and enterprise process automation.",
+          tags: ["2D/3D Maps", "Frappe", "Process Digitization"]
+        },
+        {
+          icon: "🤖",
+          title: "Data & AI Systems",
+          desc: "Data analysis pipelines and agentic AI-driven tools to automate enterprise workflows.",
+          tags: ["Agentic AI (OpenClaw)", "Python", "Pandas", "NumPy"]
+        }
       ],
       projects: [
         {
@@ -490,12 +517,13 @@ export const usePortfolioStore = defineStore("portfolio", {
         contact: "Contact",
         contactBtn: "Contact Me",
 
-        // Sections
-        aboutTitle: "About Me",
-        aboutSubtitle: "My Profile",
-        aboutDesc: "A brief overview of my profile and journey",
-        skillsTitle: "Skills",
-        skillsSubtitle: "Tech Stack",
+        // Section Titles
+        aboutTitle: "What I Build",
+        aboutSubtitle: "Core Solutions",
+        aboutDesc:
+          "Key software systems and practical engineering solutions I build and deliver",
+        about: "What I Build",
+        skillsTitle: "Tech Stack",
         skillsDesc: "The tools and technologies I use to bring ideas to life",
         projectsTitle: "Projects",
         projectsSubtitle: "My Work",
@@ -575,6 +603,38 @@ export const usePortfolioStore = defineStore("portfolio", {
         { value: "5+", label: "Dự án hoàn thành" },
         { value: "15+", label: "Công nghệ sử dụng" },
         { value: "100%", label: "Đam mê & Sáng tạo" },
+      ],
+      whatIBuild: [
+        {
+          icon: "🌐",
+          title: "Ứng dụng Web Full-Stack",
+          desc: "Xây dựng giao diện web hiện đại, phản hồi mượt mà và kiến trúc frontend hiệu năng cao với React, Next.js và Vue.",
+          tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+        },
+        {
+          icon: "⚙️",
+          title: "Hệ thống Backend mở rộng",
+          desc: "Thiết kế RESTful API chuẩn mực, kiến trúc Clean Architecture, luồng xác thực bảo mật và truyền thông realtime.",
+          tags: ["Java (Spring Boot)", "Python (Frappe)", "Node.js", "PostgreSQL", "Redis"]
+        },
+        {
+          icon: "📱",
+          title: "Ứng dụng Di động Đa nền tảng",
+          desc: "Phát triển và đóng gói ứng dụng di động hybrid tiện lợi, tối ưu trải nghiệm trên mọi thiết bị.",
+          tags: ["Capacitor", "Vue / React", "Mobile First"]
+        },
+        {
+          icon: "🗺️",
+          title: "GIS & Chuyển đổi số doanh nghiệp",
+          desc: "Nền tảng quản lý dữ liệu không gian tương tác bản đồ 2D/3D và số hóa tự động hóa quy trình nghiệp vụ.",
+          tags: ["Bản đồ 2D/3D", "Frappe", "Số hóa quy trình"]
+        },
+        {
+          icon: "🤖",
+          title: "Hệ thống Dữ liệu & Agentic AI",
+          desc: "Xây dựng pipeline phân tích dữ liệu và tích hợp công cụ Agentic AI tự động hóa xử lý tác vụ doanh nghiệp.",
+          tags: ["Agentic AI (OpenClaw)", "Python", "Pandas", "NumPy"]
+        }
       ],
       projects: [
         {
@@ -833,7 +893,7 @@ export const usePortfolioStore = defineStore("portfolio", {
       },
       ui: {
         home: "Trang chủ",
-        about: "Giới thiệu",
+        about: "Chuyên môn",
         skills: "Kỹ năng",
         projects: "Dự án",
         experience: "Kinh nghiệm",
@@ -842,9 +902,9 @@ export const usePortfolioStore = defineStore("portfolio", {
         contactBtn: "Liên hệ tôi",
 
         // Sections
-        aboutTitle: "Giới thiệu",
-        aboutSubtitle: "Hồ sơ của tôi",
-        aboutDesc: "Tổng quan sơ lược về bản thân và hành trình phát triển",
+        aboutTitle: "Lĩnh vực chuyên môn",
+        aboutSubtitle: "Chuyên môn & Giải pháp",
+        aboutDesc: "Các mảng sản phẩm và giải pháp công nghệ tôi trực tiếp xây dựng",
         skillsTitle: "Kỹ năng",
         skillsSubtitle: "Công nghệ sử dụng",
         skillsDesc:
@@ -902,6 +962,7 @@ export const usePortfolioStore = defineStore("portfolio", {
   getters: {
     personal: (state) => state[state.locale].personal,
     stats: (state) => state[state.locale].stats,
+    whatIBuild: (state) => state[state.locale].whatIBuild || [],
     projects: (state) => state[state.locale].projects,
     experiences: (state) => state[state.locale].experiences,
     education: (state) => state[state.locale].education,

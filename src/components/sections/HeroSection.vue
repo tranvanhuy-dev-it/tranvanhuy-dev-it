@@ -39,29 +39,33 @@
             </span>
           </div>
 
-          <!-- Consolidated Rich Bio -->
-          <div class="mt-3.5 sm:mt-4 space-y-2 text-slate-300 light:text-slate-600 text-xs sm:text-base leading-relaxed max-w-2xl min-w-0 w-full break-words">
+          <!-- Consolidated Rich Bio & Career Objective -->
+          <div class="mt-3.5 sm:mt-4 space-y-2 text-slate-300 light:text-slate-600 text-xs sm:text-sm leading-relaxed max-w-2xl min-w-0 w-full break-words">
             <p class="break-words">
               {{ store.locale === 'vi' 
-                  ? 'Lập trình viên phát triển hệ thống Web, Backend và Ứng dụng di động. Chuyên sâu về kiến trúc Java (Spring Boot), hệ sinh thái React & Next.js, framework Python (Frappe), và tích hợp Agentic AI (OpenClaw) vào tự động hóa quy trình nghiệp vụ.' 
-                  : 'Software Developer specializing in scalable Web, Backend, and Mobile systems with core expertise in Java (Spring Boot), React & Next.js, Python (Frappe), and Agentic AI workflow automation.' 
+                  ? 'Tôi là sinh viên năm 3 ngành Công nghệ Thông tin (Khoa học Dữ liệu & AI) tại Trường Đại học Bách Khoa – ĐH Đà Nẵng (GPA 3.5/4.0), đồng thời là Lập trình viên tại Digital Twin Group (MakeAI). Chuyên sâu về kiến trúc Java (Spring Boot), React & Next.js, framework Python (Frappe), và tích hợp Agentic AI (OpenClaw) vào tự động hóa quy trình nghiệp vụ số.' 
+                  : 'I am a 3rd-year Information Technology student (Data Science & AI) at Da Nang University of Technology (GPA 3.5/4.0), and a Software Developer at Digital Twin Group (MakeAI). Focused on Java (Spring Boot), React & Next.js, Python (Frappe), and Agentic AI workflow automation.' 
               }}
             </p>
-            <p class="text-slate-400 light:text-slate-500 text-[11px] sm:text-sm break-words">
-              {{ store.locale === 'vi'
-                  ? 'Đang theo học chuyên ngành Khoa học Dữ liệu & AI tại ĐH Bách Khoa Đà Nẵng (GPA 3.5/4.0), đồng thời trực tiếp phát triển các dự án thực tế tại Digital Twin Group (MakeAI). Luôn ưu tiên Clean Code, hiệu năng CSDL và kiến trúc mở rộng.'
-                  : 'Studying Data Science & AI at Da Nang University of Technology (GPA 3.5/4.0) while actively developing production projects at Digital Twin Group (MakeAI). Focused on Clean Architecture, database optimization, and high availability.'
-              }}
+            <p class="text-slate-300 light:text-slate-600 break-words">
+              <strong class="text-white light:text-slate-900 font-semibold">{{ store.locale === 'vi' ? 'Mục tiêu nghề nghiệp:' : 'Career Objective:' }}</strong>
+              {{ ' ' + store.personal.objective }}
             </p>
           </div>
 
           <!-- Quick Highlight Badges -->
-          <div class="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-slate-400 max-w-full">
-            <span class="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-850/80 border border-slate-700/80 text-slate-300 whitespace-nowrap">
-              🎓 DUT — GPA 3.5/4.0
+          <div class="mt-3 sm:mt-3.5 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-slate-400 max-w-full">
+            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 whitespace-nowrap flex items-center gap-1">
+              <span>🎓</span>
+              <span>DUT — GPA 3.5/4.0</span>
             </span>
-            <span class="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-850/80 border border-slate-700/80 text-slate-300 break-all sm:break-normal">
-              🏢 Digital Twin Group (MakeAI)
+            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 break-all sm:break-normal flex items-center gap-1">
+              <span>🏢</span>
+              <span>Digital Twin Group (MakeAI)</span>
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 whitespace-nowrap flex items-center gap-1">
+              <span>📍</span>
+              <span>Đà Nẵng, Việt Nam</span>
             </span>
           </div>
 
