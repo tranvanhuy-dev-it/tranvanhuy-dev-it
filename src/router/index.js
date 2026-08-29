@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import ProjectDetailView from "../views/ProjectDetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -8,6 +9,15 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+    },
+    {
+      path: "/projects/:id",
+      name: "project-detail",
+      component: ProjectDetailView,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
     },
   ],
   scrollBehavior(to, from, savedPosition) {

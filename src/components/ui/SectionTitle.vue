@@ -1,13 +1,12 @@
 <template>
-  <div class="text-center mb-16">
-    <p class="text-sm font-mono font-medium tracking-widest uppercase mb-3 text-[#06b6d4] light:text-cyan-700">
+  <div class="mb-6 sm:mb-10 text-left fade-up">
+    <p v-if="subtitle" class="text-xs font-mono font-semibold uppercase tracking-[0.15em] sm:tracking-[0.25em] text-cyan-400 light:text-blue-600 mb-1 sm:mb-1.5">
       {{ subtitle }}
     </p>
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">
-      <span class="gradient-text">{{ title }}</span>
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white light:text-slate-900">
+      {{ title }}
     </h2>
-    <div class="neon-line w-24 mx-auto mt-4"></div>
-    <p v-if="description" class="text-slate-400 light:text-slate-800 mt-4 max-w-xl mx-auto text-lg">
+    <p v-if="description" class="text-slate-400 light:text-slate-600 mt-1.5 sm:mt-2 text-xs sm:text-sm max-w-2xl leading-relaxed">
       {{ description }}
     </p>
   </div>

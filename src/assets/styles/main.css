@@ -13,53 +13,53 @@
   html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color: #374151 #111827;
+    scrollbar-color: #334155 #0f172a;
   }
 
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #030712;
+    background: #090d16;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1f2937;
+    background: #1e293b;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #374151;
+    background: #334155;
   }
 
   body {
-    background-color: #030712; /* Premium Deep Dark Background */
-    color: #e2e8f0; /* Clear light slate text */
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-weight: 500; /* Set global base to Medium for maximum legibility */
+    background-color: #090d16; /* Clean Deep Slate / Midnight Navy */
+    color: #cbd5e1; /* Crisp Slate Text */
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
     overflow-x: hidden;
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.65;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   ::selection {
-    background: rgba(124, 58, 237, 0.3);
+    background: rgba(37, 99, 235, 0.25);
     color: #ffffff;
   }
 
   html.light body {
-    background-color: #f8fafc; /* Clean light background */
-    color: #0f172a; /* Slate-900, near-black for maximum readability */
+    background-color: #f8fafc; /* Crisp Clean White / Slate */
+    color: #1e293b; /* High-contrast Charcoal text */
   }
 
   html.light ::selection {
-    background: rgba(124, 58, 237, 0.2);
-    color: #1e293b;
+    background: rgba(37, 99, 235, 0.15);
+    color: #0f172a;
   }
 
   html.light {
-    scrollbar-color: #cbd5e1 #f1f5f9;
+    scrollbar-color: #cbd5e1 #f8fafc;
   }
   html.light ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #f8fafc;
   }
   html.light ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
@@ -69,165 +69,135 @@
   }
 }
 
-/* ===================== DARK MODE CORE STYLES ===================== */
-/* Force highly readable font rendering on copy */
-p, li, a:not(.btn-primary):not(.btn-outline), span:not(.font-bold):not(.font-semibold):not(.btn-primary) {
-  font-weight: 500 !important;
-}
-
-/* Social links custom styling for dark mode */
-.social-link {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-.social-link:hover {
-  background: rgba(124, 58, 237, 0.15) !important;
-  border-color: rgba(124, 58, 237, 0.4) !important;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.35) !important;
-}
-html.light .social-link {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border: 1px solid rgba(15, 23, 42, 0.08) !important;
-}
-html.light .social-link:hover {
-  background: rgba(124, 58, 237, 0.1) !important;
-  border-color: rgba(124, 58, 237, 0.35) !important;
-}
-
-/* ===================== REUSABLE COMPONENTS ===================== */
+/* ===================== CORPORATE REUSABLE COMPONENTS ===================== */
 @layer components {
 
-  /* Dark Glass Card */
+  /* Modern Corporate Glass/Border Card (GitHub/Stripe style) */
   .glass-card {
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: #0f172a;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
   }
   html.light .glass-card {
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.04);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
   }
 
   .glass-card-hover {
-    @apply glass-card transition-all duration-300;
+    @apply glass-card transition-all duration-200;
   }
   .glass-card-hover:hover {
-    background: rgba(30, 41, 59, 0.55);
-    border-color: rgba(124, 58, 237, 0.45);
-    box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.25), 0 1px 3px rgba(124, 58, 237, 0.02);
-    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
   }
   html.light .glass-card-hover:hover {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.18), 0 1px 3px rgba(124, 58, 237, 0.02);
+    border-color: #93c5fd;
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
   }
 
-  /* Vibrant Buttons */
+  /* Solid Professional Primary Button (Stripe/Vercel Blue) */
   .btn-primary {
-    @apply relative px-7 py-3 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300;
-    background: linear-gradient(135deg, #7c3aed, #06b6d4);
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+    @apply relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm text-white transition-all duration-150 cursor-pointer shadow-sm;
+    background: #2563eb;
   }
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(124, 58, 237, 0.55);
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    transform: translateY(-1px);
   }
   .btn-primary:active {
     transform: translateY(0);
   }
 
+  /* Crisp Outline Button */
   .btn-outline {
-    @apply px-7 py-3 rounded-xl font-semibold transition-all duration-300;
-    border: 1px solid rgba(167, 139, 250, 0.5);
-    color: #c084fc;
-    background: transparent;
+    @apply relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-150 cursor-pointer;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    background: #1e293b;
   }
   .btn-outline:hover {
-    border-color: #a78bfa;
-    background: rgba(124, 58, 237, 0.08);
-    box-shadow: 0 8px 16px rgba(124, 58, 237, 0.2);
-    color: #c084fc;
+    border-color: #475569;
+    background: #334155;
+    color: #ffffff;
+    transform: translateY(-1px);
   }
   html.light .btn-outline {
-    border-color: rgba(124, 58, 237, 0.45);
-    color: #7c3aed;
+    border-color: #cbd5e1;
+    color: #334155;
+    background: #ffffff;
   }
   html.light .btn-outline:hover {
-    border-color: #7c3aed;
-    background: rgba(124, 58, 237, 0.06);
-    color: #6d28d9;
+    border-color: #94a3b8;
+    background: #f1f5f9;
+    color: #0f172a;
   }
 
   /* Section wrapper */
   .section-wrapper {
-    @apply py-20 px-4;
-    max-width: 1200px;
+    @apply py-20 px-4 sm:px-6;
+    max-width: 1140px;
     margin: 0 auto;
   }
 
-  /* Glowing Gradients */
+  /* Clean Corporate Typography */
   .gradient-text {
-    background: linear-gradient(135deg, #c084fc, #22d3ee);
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   html.light .gradient-text {
-    background: linear-gradient(135deg, #7c3aed, #0891b2);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  .gradient-text-amber {
-    background: linear-gradient(135deg, #fb923c, #f87171);
+    background: linear-gradient(135deg, #0f172a 40%, #2563eb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  html.light .gradient-text-amber {
-    background: linear-gradient(135deg, #ea580c, #dc2626);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
 
-  /* Line separator */
-  .neon-line {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    border: none;
-  }
-  html.light .neon-line {
-    background: rgba(15, 23, 42, 0.1);
-  }
-
-  /* Tech badge */
+  /* Tech badge (GitHub style) */
   .tech-badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium font-mono transition-all duration-200;
-    background: rgba(124, 58, 237, 0.08);
-    border: 1px solid rgba(124, 58, 237, 0.15);
-    color: #c084fc;
-  }
-  .tech-badge:hover {
-    background: rgba(124, 58, 237, 0.15);
-    border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: 0 8px 16px rgba(124, 58, 237, 0.12);
-    transform: translateY(-1px);
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-medium transition-colors;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #93c5fd;
   }
   html.light .tech-badge {
-    color: #7c3aed;
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #1d4ed8;
+  }
+
+  /* Social link button */
+  .social-link {
+    @apply w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150;
+    background: #1e293b;
+    border: 1px solid #334155;
+  }
+  .social-link:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+  }
+  html.light .social-link {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+  }
+  html.light .social-link:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff !important;
   }
 
   /* Timeline item dot */
   .timeline-dot {
-    @apply absolute w-4 h-4 rounded-full border-2;
-    background: linear-gradient(135deg, #7c3aed, #06b6d4);
-    border-color: #030712;
-    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.4);
+    @apply absolute w-3.5 h-3.5 rounded-full border-2;
+    background: #2563eb;
+    border-color: #090d16;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   }
   html.light .timeline-dot {
     border-color: #f8fafc;
@@ -235,10 +205,10 @@ html.light .social-link:hover {
 
   /* Skill bar track */
   .skill-track {
-    background: rgba(255, 255, 255, 0.08);
+    background: #1e293b;
   }
   html.light .skill-track {
-    background: rgba(15, 23, 42, 0.08);
+    background: #e2e8f0;
   }
 }
 

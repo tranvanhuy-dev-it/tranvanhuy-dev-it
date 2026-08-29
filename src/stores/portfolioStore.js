@@ -6,117 +6,124 @@ export const usePortfolioStore = defineStore("portfolio", {
     theme: localStorage.getItem("theme") || "dark",
     activeSection: "hero",
     projectFilter: "all",
-    activeSkillCategory: "frontend",
+    activeSkillCategory: "languages",
 
     skillCategoriesList: [
       {
-        id: "frontend",
-        labels: { en: "Frontend", vi: "Frontend" },
-        icon: "🎨",
+        id: "languages",
+        labels: { en: "Languages", vi: "Ngôn ngữ" },
+        icon: "💻",
         skills: [
           {
-            name: "Vue.js",
-            level: 65,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
-          },
-          {
-            name: "React",
-            level: 60,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+            name: "Java",
+            level: 85,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
           },
           {
             name: "TypeScript",
-            level: 45,
+            level: 70,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
           },
           {
             name: "JavaScript",
-            level: 75,
+            level: 80,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
           },
           {
-            name: "Tailwind CSS",
-            level: 70,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-          },
-          {
-            name: "HTML/CSS",
+            name: "Python",
             level: 75,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
           },
           {
-            name: "Capacitor",
-            level: 65,
-            logo: "https://cdn.simpleicons.org/capacitor/119EFF",
+            name: "SQL",
+            level: 85,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
           },
         ],
       },
       {
         id: "backend",
-        labels: { en: "Backend", vi: "Backend" },
+        labels: { en: "Backend & Frameworks", vi: "Backend & Frameworks" },
         icon: "⚙️",
         skills: [
           {
-            name: ".NET (NET Framework)",
+            name: "Spring Boot",
+            level: 85,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
+          },
+          {
+            name: "Frappe",
             level: 80,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg",
+            logo: "https://cdn.simpleicons.org/frappe/0089FF",
           },
           {
-            name: "Java (Spring Boot)",
-            level: 80,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+            name: "Node.js",
+            level: 75,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
           },
           {
-            name: "Python",
-            level: 70,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-          },
-          {
-            name: "REST API",
+            name: "REST APIs",
             level: 90,
             logo: "https://cdn.simpleicons.org/postman/FF6C37",
           },
           {
-            name: "GraphQL",
-            level: 45,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
-          },
-          {
-            name: "Socket.io",
-            level: 55,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
-          },
-          {
             name: "WebSocket",
-            level: 50,
+            level: 70,
             logo: "https://cdn.simpleicons.org/websocket/62B5E5",
           },
         ],
       },
       {
+        id: "frontend",
+        labels: { en: "Frontend Development", vi: "Frontend" },
+        icon: "🎨",
+        skills: [
+          {
+            name: "React",
+            level: 75,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+          },
+          {
+            name: "Next.js",
+            level: 75,
+            logo: "https://cdn.simpleicons.org/nextdotjs/white",
+          },
+          {
+            name: "Tailwind CSS",
+            level: 80,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+          },
+          {
+            name: "HTML5/CSS3",
+            level: 85,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+          },
+        ],
+      },
+      {
         id: "database",
-        labels: { en: "Database", vi: "Cơ sở dữ liệu" },
+        labels: { en: "Databases & Storage", vi: "Cơ sở dữ liệu" },
         icon: "🗄️",
         skills: [
           {
             name: "PostgreSQL",
-            level: 80,
+            level: 85,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
           },
           {
-            name: "MongoDB",
-            level: 85,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
-          },
-          {
             name: "MySQL",
-            level: 75,
+            level: 80,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
           },
           {
             name: "SQL Server",
-            level: 95,
+            level: 85,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+          },
+          {
+            name: "Redis",
+            level: 70,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
           },
         ],
       },
@@ -126,44 +133,29 @@ export const usePortfolioStore = defineStore("portfolio", {
         icon: "🛠️",
         skills: [
           {
-            name: "Git/GitHub",
+            name: "Docker",
+            level: 70,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+          },
+          {
+            name: "Git",
             level: 90,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
           },
           {
-            name: "Docker",
-            level: 55,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+            name: "GitHub Actions",
+            level: 75,
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
           },
           {
             name: "Linux",
-            level: 72,
+            level: 75,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
           },
           {
             name: "Nginx",
-            level: 65,
+            level: 70,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
-          },
-          {
-            name: "CI/CD",
-            level: 20,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
-          },
-          {
-            name: "VS Code / VS",
-            level: 95,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
-          },
-          {
-            name: "Antigravity",
-            level: 90,
-            logo: "https://cdn.simpleicons.org/googledeepmind/7c3aed",
-          },
-          {
-            name: "IntelliJ IDEA",
-            level: 85,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg",
           },
         ],
       },
@@ -174,32 +166,27 @@ export const usePortfolioStore = defineStore("portfolio", {
         skills: [
           {
             name: "Machine Learning",
-            level: 40,
+            level: 60,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
           },
           {
-            name: "Computer Vision",
-            level: 45,
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg",
-          },
-          {
             name: "Pandas",
-            level: 65,
+            level: 70,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
           },
           {
             name: "NumPy",
-            level: 65,
+            level: 70,
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg",
           },
           {
             name: "Agentic AI",
-            level: 45,
+            level: 65,
             logo: "https://cdn.simpleicons.org/robotframework/000000",
           },
           {
             name: "OpenClaw",
-            level: 40,
+            level: 60,
             logo: "https://cdn.simpleicons.org/anthropic/D97757",
           },
         ],
@@ -209,21 +196,20 @@ export const usePortfolioStore = defineStore("portfolio", {
     en: {
       personal: {
         name: "Trần Văn Huy",
-        title: "Information Technology Student",
+        title: "Software Developer",
         taglines: [
-          "Building Modern Web Applications",
-          "Delivering Agentic AI Solutions",
-          "Always Learning New Technologies",
-          "Full-Stack Developer",
-          "Agentic AI Engineer"
+          "Software Developer",
+          "Backend & Full-Stack Engineer",
+          "Applied AI & Agentic Solutions",
+          "Java Spring Boot & Next.js"
         ],
-        bio: "Hello! I am an Information Technology student with a strong passion for developing modern web applications. I love exploring and applying technologies across the entire stack—from frontend to backend—to build meaningful products, while always prioritizing clean code quality and optimal user experiences. I am also interested in applying agentic AI to development workflows to automate work and boost productivity.",
-        bio2: "I am particularly interested in Digital Transformation and aim to leverage technology to solve real-world problems for businesses and the community. I proactively learn, continuously refine my skills, and build hands-on experience through academic work, personal projects, and self-study. At MakeAI, I also gained hands-on experience building agentic AI workflows (OpenClaw) to automate and digitize business processes.",
+        bio: "Software Developer building scalable web, backend, and mobile systems with a strong focus on Data Science, Machine Learning, and Applied AI.",
+        bio2: "Experienced in building robust backend architectures with Java (Spring Boot), enterprise workflows with Python (Frappe), modern frontends with React & Next.js, and integrating Agentic AI to automate business processes.",
         objective:
-          "To become a professional Full-Stack Engineer with a specialization in AI and Data Science. I am eager to participate in real-world projects to enhance my technical skills, gain product development experience, and apply modern technologies to deliver effective digital transformation solutions for businesses and the community.",
+          "To deliver reliable, high-impact software systems as a Software Engineer, combining clean backend architecture with practical, data-driven automation.",
         location: "Da Nang, Vietnam",
         email: "tranvanhuy064206@gmail.com",
-        availability: "Intern at DTG - MakeAI",
+        availability: "Software Developer Intern @ Digital Twin Group (MakeAI)",
         avatar: "",
         cv: "/cv.pdf",
         socials: {
@@ -278,7 +264,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           description:
             "A technical infrastructure management system applying interactive 3D and 2D maps to manage assets and infrastructure operations.",
           longDesc:
-            "A digital solution built at MakeAI to manage technical infrastructure using interactive 3D and 2D maps. The system enables asset visualization and tracking on the map, and manages the operational workflows (maintenance, monitoring, inspection) related to technical infrastructure.",
+            "A digital solution built at Digital Twin Group (MakeAI) to manage technical infrastructure using interactive 3D and 2D maps. The system enables asset visualization and tracking on the map, and manages the operational workflows (maintenance, monitoring, inspection) related to technical infrastructure.",
           tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
           category: "fullstack",
           time: "05-2026",
@@ -286,7 +272,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           image: "/bimspace.png",
           featured: true,
           internal: true,
-          role: "A key project I lead at MakeAI as the primary developer, building on top of an existing codebase.",
+          role: "A key project I lead at Digital Twin Group (MakeAI) as the primary developer, building on top of an existing codebase.",
           responsibilities: [
             "Developed frontend features on top of the existing codebase",
             "Developed backend features on top of the existing codebase",
@@ -299,7 +285,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           description:
             "A system that digitizes the 10-step public investment workflow and integrates agentic AI to automate processing.",
           longDesc:
-            "A digital solution built at MakeAI to manage the entire public investment lifecycle. It digitizes the standard 10-step public investment process and integrates agentic AI (OpenClaw) to automate workflow steps, cut processing time, and boost operational efficiency.",
+            "A digital solution built at Digital Twin Group (MakeAI) to manage the entire public investment lifecycle. It digitizes the standard 10-step public investment process and integrates agentic AI (OpenClaw) to automate workflow steps, cut processing time, and boost operational efficiency.",
           tags: [
             "React.js",
             "Frappe",
@@ -313,7 +299,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           demo: "#",
           featured: true,
           internal: true,
-          role: "A key project I lead at MakeAI, taking over and continuing development after the initial phase was completed.",
+          role: "A key project I lead at Digital Twin Group (MakeAI), taking over and continuing development after the initial phase was completed.",
           responsibilities: [
             "Continued developing the 10-step public investment workflow",
             "Integrated agentic AI (OpenClaw) into the process",
@@ -342,7 +328,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "https://drive.google.com/file/d/1gP-v7GsawQFA5FAzYJVfpGRxaszoP5wy/view?usp=drive_link",
           image: "/sonTraHealth.png",
           featured: true,
-          role: "A personal project completed during my internship training at MakeAI, handling the entire system on my own.",
+          role: "A personal project completed during my internship training at Digital Twin Group (MakeAI), handling the entire system on my own.",
           responsibilities: [
             "Designed the database schema",
             "Designed & developed the backend",
@@ -355,9 +341,9 @@ export const usePortfolioStore = defineStore("portfolio", {
           id: 2,
           title: "StudyHub",
           description:
-            "A multimedia learning document and academic resource sharing platform for university students.",
+            "A cross-media study material and academic resource sharing portal for university students.",
           longDesc:
-            "A collaborative hub that enables students to upload and share learning materials, lecture notes, and course resources. Features user access control, smart content moderation, and advanced search functionality.",
+            "A collaborative portal allowing university students to upload and share study materials, past exam resources, and lecture notes. Features robust role-based access control, smart content moderation, and advanced full-text search.",
           tags: ["Vue 3", "Spring Boot", "MySQL", "JWT", "Vite"],
           category: "fullstack",
           time: "04-2026",
@@ -368,7 +354,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "https://drive.google.com/file/d/1F_Zerna0wK-b3lGOQwgS15-CYAVKIY25/view?usp=drive_link",
           image: "/studyHub.png",
           featured: true,
-          role: "A personal project I researched, designed, and built independently from the ground up.",
+          role: "A personal project I conceptualized, designed, and built from scratch.",
           responsibilities: [
             "Designed the database schema",
             "Designed & developed the backend",
@@ -380,16 +366,16 @@ export const usePortfolioStore = defineStore("portfolio", {
           id: 3,
           title: "NexShop — Smart E-Commerce & POS Platform",
           description:
-            "A personal full-stack e-commerce project with POS integration, built entirely with Next.js and deployed at vattudongkha.io.vn.",
+            "A full-stack personal project combining an online store and POS terminal, built with Next.js and deployed at vattudongkha.io.vn.",
           longDesc:
-            "NexShop is a personal full-stack e-commerce platform combining an online store with a POS (Point of Sale) system. Built entirely with Next.js (App Router), it leverages Prisma ORM with PostgreSQL for data persistence and Google OAuth for authentication. Features include product catalog, shopping cart, order management, POS transaction flow, and an admin analytics dashboard.",
+            "NexShop is a personal full-stack e-commerce solution integrating an online storefront with a Point of Sale (POS) terminal. Built with Next.js (App Router), Prisma ORM with PostgreSQL for data storage, and Google OAuth for authentication. Features product catalog management, shopping cart, order processing, POS transaction flow, and an administrative analytics dashboard.",
           tags: ["Next.js", "Prisma", "PostgreSQL", "Google OAuth", "Tailwind CSS"],
           category: "fullstack",
           time: "12-2025 - 05-2026",
           demo: "https://vattudongkha.io.vn",
           image: "/pbl3.png",
           featured: true,
-          role: "A personal project I designed and built entirely on my own, from database design through deployment.",
+          role: "A personal project I designed and built entirely on my own, from database design to deployment.",
           responsibilities: [
             "Designed the database schema with Prisma & PostgreSQL",
             "Built the full-stack app with Next.js App Router",
@@ -402,7 +388,7 @@ export const usePortfolioStore = defineStore("portfolio", {
       experiences: [
         {
           id: 4,
-          company: "DTG - MakeAI",
+          company: "Digital Twin Group (MakeAI)",
           position: "Full-Stack Developer Intern",
           period: "05/2026 – Present",
           duration: "Internship",
@@ -479,11 +465,21 @@ export const usePortfolioStore = defineStore("portfolio", {
           period: "2024 – Present",
           gpa: "3.5/4.0",
           description:
-            "Specialization in Data Science and Artificial Intelligence",
+            "Specialization in Data Science and Artificial Intelligence (AI)",
           type: "degree",
           logo: "/dut.png",
         },
       ],
+      academicFocus: {
+        tag: "Academic Specialization",
+        title: "Data Science & Artificial Intelligence (AI)",
+        subtitle: "Bach Khoa Da Nang (DUT)",
+        points: [
+          "Data Science & ML: Exploratory Data Analysis, Pandas, NumPy, Scikit-learn & Deep Learning.",
+          "Agentic AI & Automation: Multi-agent architectures and workflow automation (OpenClaw).",
+          "Software Engineering: Scalable full-stack systems (Spring Boot, React, Next.js, PostgreSQL), Clean Architecture."
+        ],
+      },
       ui: {
         home: "Home",
         about: "About",
@@ -552,21 +548,20 @@ export const usePortfolioStore = defineStore("portfolio", {
     vi: {
       personal: {
         name: "Trần Văn Huy",
-        title: "Sinh viên Công nghệ thông tin",
+        title: "Software Developer",
         taglines: [
-          "Xây dựng ứng dụng Web hiện đại",
-          "Cung cấp giải pháp Agentic AI",
-          "Luôn học hỏi công nghệ mới",
-          "Lập trình viên Full-Stack",
-          "Agentic AI Engineer"
+          "Lập trình viên Software Developer",
+          "Kỹ sư Backend & Full-Stack",
+          "Giải pháp Agentic AI & Tự động hóa",
+          "Java Spring Boot & Next.js"
         ],
-        bio: "Xin chào! Tôi là một sinh viên ngành Công nghệ Thông tin với niềm đam mê mạnh mẽ trong việc phát triển các ứng dụng web hiện đại. Tôi thích tìm tòi và áp dụng các công nghệ fullstack từ frontend đến backend để xây dựng những sản phẩm có ý nghĩa, đồng thời luôn ưu tiên chất lượng mã nguồn sạch và trải nghiệm người dùng tối ưu. Bên cạnh đó, tôi cũng quan tâm và ứng dụng agentic AI vào quy trình phát triển để tự động hóa công việc và nâng cao hiệu suất.",
-        bio2: "Tôi đặc biệt quan tâm đến lĩnh vực Chuyển đổi Số và hướng tới việc áp dụng công nghệ để giải quyết các bài toán thực tế cho doanh nghiệp và cộng đồng. Tôi luôn chủ động học hỏi, liên tục trau dồi kỹ năng và tích lũy kinh nghiệm thực tế qua các đề án trường học, dự án cá nhân và tự nghiên cứu. Tại MakeAI, tôi cũng đã có kinh nghiệm thực tế trong việc xây dựng các quy trình agentic AI (OpenClaw) để tự động hóa và số hóa nghiệp vụ.",
+        bio: "Lập trình viên phát triển hệ thống web, backend và mobile với trọng tâm vào tính mở rộng, ổn định và hiệu năng cao.",
+        bio2: "Có kinh nghiệm thực tế xây dựng kiến trúc backend với Java (Spring Boot), nghiệp vụ doanh nghiệp với Python (Frappe), giao diện hiện đại với React & Next.js, và ứng dụng Agentic AI để tự động hóa quy trình nghiệp vụ.",
         objective:
-          "Trở thành một Kỹ sư Full-Stack chuyên nghiệp với định hướng nghiên cứu sâu về AI và Khoa học dữ liệu. Tôi mong muốn được tham gia vào các dự án thực tế để nâng cao kỹ năng kỹ thuật, tích lũy kinh nghiệm phát triển sản phẩm và áp dụng các công nghệ hiện đại nhằm mang lại những giải pháp chuyển đổi số hiệu quả cho doanh nghiệp và cộng đồng.",
+          "Trở thành một Software Engineer / Full-Stack Engineer chuyên nghiệp, kết hợp kiến trúc backend vững chắc với các giải pháp AI và dữ liệu thông minh nhằm tạo ra sản phẩm có giá trị thực tế cao.",
         location: "Đà Nẵng, Việt Nam",
         email: "tranvanhuy064206@gmail.com",
-        availability: "Thực tập sinh tại DTG - MakeAI",
+        availability: "Software Developer Intern @ Digital Twin Group (MakeAI)",
         avatar: "",
         cv: "/cv.pdf",
         socials: {
@@ -621,7 +616,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           description:
             "Hệ thống quản lý hạ tầng kỹ thuật ứng dụng bản đồ tương tác 3D và 2D để quản lý tài sản và các nghiệp vụ vận hành hạ tầng.",
           longDesc:
-            "Giải pháp số được xây dựng tại MakeAI nhằm quản lý hạ tầng kỹ thuật thông qua bản đồ tương tác 3D và 2D. Hệ thống hỗ trợ trực quan hóa và theo dõi tài sản trên bản đồ, đồng thời quản lý các nghiệp vụ vận hành (bảo trì, giám sát, kiểm tra) liên quan đến hạ tầng kỹ thuật.",
+            "Giải pháp số được xây dựng tại Digital Twin Group (MakeAI) nhằm quản lý hạ tầng kỹ thuật thông qua bản đồ tương tác 3D và 2D. Hệ thống hỗ trợ trực quan hóa và theo dõi tài sản trên bản đồ, đồng thời quản lý các nghiệp vụ vận hành (bảo trì, giám sát, kiểm tra) liên quan đến hạ tầng kỹ thuật.",
           tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
           category: "fullstack",
           time: "05-2026",
@@ -629,7 +624,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           image: "/bimspace.png",
           featured: true,
           internal: true,
-          role: "Dự án trọng điểm tôi phụ trách tại MakeAI với vai trò lập trình viên chính, kế thừa và phát triển tiếp trên codebase sẵn có.",
+          role: "Dự án trọng điểm tôi phụ trách tại Digital Twin Group (MakeAI) với vai trò lập trình viên chính, kế thừa và phát triển tiếp trên codebase sẵn có.",
           responsibilities: [
             "Phát triển frontend dựa trên codebase có sẵn",
             "Phát triển backend dựa trên codebase có sẵn",
@@ -642,7 +637,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           description:
             "Hệ thống số hóa quy trình đầu tư công 10 bước và tích hợp agentic AI để tự động hóa xử lý.",
           longDesc:
-            "Giải pháp số được xây dựng tại MakeAI nhằm quản lý toàn bộ vòng đời đầu tư công. Hệ thống số hóa quy trình đầu tư công chuẩn 10 bước và tích hợp agentic AI (OpenClaw) để tự động hóa các bước xử lý, rút ngắn thời gian và nâng cao hiệu suất vận hành.",
+            "Giải pháp số được xây dựng tại Digital Twin Group (MakeAI) nhằm quản lý toàn bộ vòng đời đầu tư công. Hệ thống số hóa quy trình đầu tư công chuẩn 10 bước và tích hợp agentic AI (OpenClaw) để tự động hóa các bước xử lý, rút ngắn thời gian và nâng cao hiệu suất vận hành.",
           tags: [
             "React.js",
             "Frappe",
@@ -656,7 +651,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           demo: "#",
           featured: true,
           internal: true,
-          role: "Dự án trọng điểm tôi phụ trách tại MakeAI, tiếp nhận và phát triển tiếp sau khi dự án đã hoàn thành giai đoạn đầu.",
+          role: "Dự án trọng điểm tôi phụ trách tại Digital Twin Group (MakeAI), tiếp nhận và phát triển tiếp sau khi dự án đã hoàn thành giai đoạn đầu.",
           responsibilities: [
             "Tiếp tục phát triển mô hình quy trình đầu tư công 10 bước",
             "Tích hợp agentic AI (OpenClaw) vào quy trình",
@@ -685,7 +680,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "https://drive.google.com/file/d/1gP-v7GsawQFA5FAzYJVfpGRxaszoP5wy/view?usp=drive_link",
           image: "/sonTraHealth.png",
           featured: true,
-          role: "Dự án cá nhân tôi thực hiện trong quá trình đào tạo thực tập tại MakeAI, đảm nhận toàn bộ hệ thống một mình.",
+          role: "Dự án cá nhân tôi thực hiện trong quá trình đào tạo thực tập tại Digital Twin Group (MakeAI), đảm nhận toàn bộ hệ thống một mình.",
           responsibilities: [
             "Thiết kế cơ sở dữ liệu",
             "Thiết kế & phát triển backend",
@@ -745,7 +740,7 @@ export const usePortfolioStore = defineStore("portfolio", {
       experiences: [
         {
           id: 4,
-          company: "DTG - MakeAI",
+          company: "Digital Twin Group (MakeAI)",
           position: "Thực tập sinh Lập trình viên Full-Stack",
           period: "05/2026 – Hiện tại",
           duration: "Thực tập thực tế",
@@ -826,6 +821,16 @@ export const usePortfolioStore = defineStore("portfolio", {
           logo: "/dut.png",
         },
       ],
+      academicFocus: {
+        tag: "Định hướng chuyên môn",
+        title: "Khoa học Dữ liệu & Trí tuệ Nhân tạo (AI)",
+        subtitle: "Đại học Bách khoa - Đại học Đà Nẵng (DUT)",
+        points: [
+          "Khoa học Dữ liệu & ML: Phân tích & trực quan hóa dữ liệu (EDA), Pandas, NumPy, Scikit-learn & Deep Learning.",
+          "Agentic AI & Tự động hóa: Kiến trúc Multi-agent và tích hợp mô hình AI tự động hóa quy trình (OpenClaw).",
+          "Kỹ thuật phần mềm: Xây dựng hệ thống Full-stack (Spring Boot, React, Next.js, PostgreSQL), Clean Architecture."
+        ],
+      },
       ui: {
         home: "Trang chủ",
         about: "Giới thiệu",
@@ -900,6 +905,7 @@ export const usePortfolioStore = defineStore("portfolio", {
     projects: (state) => state[state.locale].projects,
     experiences: (state) => state[state.locale].experiences,
     education: (state) => state[state.locale].education,
+    academicFocus: (state) => state[state.locale].academicFocus,
     ui: (state) => state[state.locale].ui,
 
     skillCategories: (state) => {

@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="relative py-24 px-4">
+  <section id="projects" class="relative py-14 sm:py-24 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
         :title="store.ui.projectsTitle || 'Projects'"
@@ -8,17 +8,17 @@
       />
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12 fade-up">
+      <div class="flex flex-wrap justify-start gap-1.5 sm:gap-2 mb-6 sm:mb-8 fade-up">
         <button
           v-for="f in filters"
           :key="f.value"
-          class="px-5 py-2 rounded-xl text-sm font-medium transition-all duration-200"
-          :class="store.projectFilter === f.value ? 'filter-active' : 'filter-inactive'"
+          class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150 cursor-pointer"
+          :class="store.projectFilter === f.value ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-800/70 hover:bg-slate-800 text-slate-300 border border-slate-700/80 light:bg-white light:text-slate-700 light:border-slate-200 light:hover:bg-slate-50'"
           @click="store.setProjectFilter(f.value)"
           :id="`project-filter-${f.value}`"
         >
           {{ f.label }}
-          <span class="ml-1.5 text-xs opacity-70">({{ getCount(f.value) }})</span>
+          <span class="ml-1 text-xs opacity-80 font-mono">({{ getCount(f.value) }})</span>
         </button>
       </div>
 
@@ -26,10 +26,10 @@
       <TransitionGroup
         name="project-grid"
         tag="div"
-        class="grid md:grid-cols-2 gap-8 mx-auto"
+        class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mx-auto"
       >
         <ProjectCard
-          v-for="project in store.filteredProjects"
+          v-for="project in displayedProjects"
           :key="project.id"
           :project="project"
           :featured="project.featured"
@@ -38,14 +38,36 @@
         />
       </TransitionGroup>
 
+      <!-- View More / Collapse Button -->
+      <div
+        v-if="store.filteredProjects.length > 2"
+        class="mt-10 text-center fade-up"
+      >
+        <button
+          @click="showAll = !showAll"
+          class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/90 hover:border-blue-500/60 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group cursor-pointer"
+        >
+          <span>
+            {{ showAll 
+                ? (store.locale === 'vi' ? 'Thu gọn danh sách' : 'Show Less') 
+                : (store.locale === 'vi' ? `Xem thêm tất cả dự án (${store.filteredProjects.length})` : `View All Projects (${store.filteredProjects.length})`) 
+            }}
+          </span>
+          <span
+            class="text-blue-400 font-bold transition-transform duration-200 group-hover:translate-y-0.5"
+            :class="{ 'rotate-180 group-hover:-translate-y-0.5': showAll }"
+          >
+            ↓
+          </span>
+        </button>
+      </div>
+
       <!-- Empty state -->
       <div v-if="store.filteredProjects.length === 0" class="text-center py-20 text-slate-500">
         <div class="text-5xl mb-4">📭</div>
-        <p>No projects found in this category.</p>
+        <p>{{ store.locale === 'vi' ? 'Không có dự án nào trong danh mục này.' : 'No projects found in this category.' }}</p>
       </div>
     </div>
-
-
 
     <!-- Fullscreen Image Lightbox -->
     <Transition name="lightbox">
@@ -75,13 +97,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 
 const store = usePortfolioStore()
 const zoomImageUrl = ref(null)
+const showAll = ref(false)
 
 const filters = [
   { value: 'all', label: 'All' },
@@ -89,6 +112,13 @@ const filters = [
   { value: 'frontend', label: 'Frontend' },
   { value: 'backend', label: 'Backend' },
 ]
+
+const displayedProjects = computed(() => {
+  if (showAll.value) {
+    return store.filteredProjects
+  }
+  return store.filteredProjects.slice(0, 2)
+})
 
 function getCount(filter) {
   if (filter === 'all') return store.projects.length

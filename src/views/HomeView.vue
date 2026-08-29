@@ -1,5 +1,5 @@
 <template>
-  <div class="relative min-h-screen">
+  <div class="relative min-h-screen overflow-x-hidden w-full">
     <!-- 3D WebGL BG -->
     <ThreeDBackground />
 
@@ -13,12 +13,12 @@
     <NavBar :active-section="activeSection" />
 
     <!-- Main content -->
-    <main>
+    <main class="overflow-x-hidden w-full min-w-0">
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
       <ExperienceSection />
+      <ProjectsSection />
+      <SkillsSection />
       <EducationSection />
       <ContactSection />
     </main>

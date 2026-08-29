@@ -1,5 +1,5 @@
 <template>
-  <div ref="containerRef" id="three-container" class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-45"></div>
+  <div ref="containerRef" id="three-container" class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-25"></div>
 </template>
 
 <script setup>
@@ -13,7 +13,7 @@ let mouseX = 0, mouseY = 0
 let targetMouseX = 0, targetMouseY = 0
 let scrollY = 0
 
-const PARTICLE_COUNT = 1500
+const PARTICLE_COUNT = 800
 const SPHERE_RADIUS = 12
 
 function handleResize() {
@@ -59,12 +59,11 @@ onMounted(() => {
   const positions = new Float32Array(PARTICLE_COUNT * 3)
   const colors = new Float32Array(PARTICLE_COUNT * 3)
 
-  const colorViolet = new THREE.Color('#7c3aed') // Violet
-  const colorCyan = new THREE.Color('#06b6d4')   // Cyan
-  const colorWhite = new THREE.Color('#ffffff')
+  const colorBlue = new THREE.Color('#2563eb')
+  const colorCyan = new THREE.Color('#0ea5e9')
+  const colorSlate = new THREE.Color('#64748b')
 
   for (let i = 0; i < PARTICLE_COUNT; i++) {
-    // Generate a volumetric spherical shell of particles
     const u = Math.random()
     const v = Math.random()
     const theta = u * 2.0 * Math.PI
@@ -80,13 +79,12 @@ onMounted(() => {
     positions[i * 3 + 1] = y
     positions[i * 3 + 2] = z
 
-    // Assign colors (mix of violet and cyan, with some white highlights)
     const rand = Math.random()
-    let mixedColor = colorViolet.clone()
-    if (rand > 0.5) {
+    let mixedColor = colorBlue.clone()
+    if (rand > 0.6) {
       mixedColor = colorCyan.clone()
-    } else if (rand > 0.85) {
-      mixedColor = colorWhite.clone()
+    } else if (rand > 0.3) {
+      mixedColor = colorSlate.clone()
     }
 
     colors[i * 3] = mixedColor.r
@@ -130,12 +128,12 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 
   // 8. Animation loop
-  const clock = new THREE.Clock()
+  const startTime = performance.now()
 
   function animate() {
     animationFrameId = requestAnimationFrame(animate)
 
-    const elapsedTime = clock.getElapsedTime()
+    const elapsedTime = (performance.now() - startTime) * 0.001
 
     // Smoothly rotate the particle field
     if (particles) {

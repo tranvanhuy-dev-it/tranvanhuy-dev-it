@@ -7,29 +7,26 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="scrolled ? 'navbar-scrolled' : 'navbar-top'"
   >
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      <!-- Brand Name -->
       <a
         href="#hero"
-        class="flex items-center gap-3 group hover:opacity-90 transition-opacity"
+        class="flex items-center shrink-0 group hover:opacity-90 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        <div class="w-9 h-9 rounded-xl p-1 flex items-center justify-center bg-white shadow-md ring-1 ring-slate-200/50 dark:ring-white/20 transition-all group-hover:scale-105">
-          <img src="/logo.png" alt="Tran Van Huy Logo" class="w-full h-full object-contain" />
-        </div>
-        <span class="text-lg font-bold font-mono gradient-text">
+        <span class="text-base sm:text-lg font-bold font-mono gradient-text whitespace-nowrap">
           Tran Van Huy
         </span>
       </a>
 
       <!-- Desktop & Language Navigation Container -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 sm:gap-3 xl:gap-4">
         <!-- Desktop Nav Links -->
-        <ul class="hidden md:flex items-center gap-1">
+        <ul class="hidden lg:flex items-center gap-0.5 xl:gap-1">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
-              class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              class="nav-link px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
               :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="scrollTo(`#${item.id}`)"
             >
@@ -39,18 +36,18 @@
         </ul>
 
         <!-- Language Selector -->
-        <div class="flex items-center gap-0.5 bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 rounded-xl p-0.5 font-mono text-[10px]">
+        <div class="flex items-center gap-0.5 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
           <button
             @click="store.setLocale('en')"
-            class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
-            :class="store.locale === 'en' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 light:text-slate-700 hover:text-white light:hover:text-slate-900'"
+            class="px-2 py-1 rounded-md transition-all duration-150 cursor-pointer"
+            :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
           >
             EN
           </button>
           <button
             @click="store.setLocale('vi')"
-            class="px-2 py-1 rounded-lg transition-all duration-200 cursor-pointer"
-            :class="store.locale === 'vi' ? 'bg-purple-600/80 text-white font-bold' : 'text-slate-400 light:text-slate-700 hover:text-white light:hover:text-slate-900'"
+            class="px-2 py-1 rounded-md transition-all duration-150 cursor-pointer"
+            :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
           >
             VI
           </button>
@@ -59,7 +56,7 @@
         <!-- Theme Toggle -->
         <button
           @click="store.toggleTheme()"
-          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 transition-all duration-200 cursor-pointer"
+          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 transition-all duration-150 cursor-pointer shrink-0"
           :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
         >
           <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]">
@@ -78,10 +75,22 @@
           </svg>
         </button>
 
+        <!-- CV Button (desktop) -->
+        <a
+          :href="store.personal.cv"
+          download
+          class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 border border-slate-700/80 bg-slate-800/80 hover:bg-slate-700 hover:text-white transition-all shrink-0 whitespace-nowrap"
+        >
+          <span>CV</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+        </a>
+
         <!-- CTA Button (desktop) -->
         <a
           href="#contact"
-          class="hidden md:block btn-primary text-sm px-5 py-2"
+          class="hidden sm:inline-flex btn-primary text-xs sm:text-sm px-4 sm:px-5 py-2 shrink-0 whitespace-nowrap"
           @click.prevent="scrollTo('#contact')"
         >
           {{ store.ui.contactBtn || 'Contact' }}
@@ -89,7 +98,7 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 light:hover:bg-black/5 transition-colors"
+          class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 light:hover:bg-black/5 transition-colors shrink-0"
           @click="mobileOpen = !mobileOpen"
           aria-label="Toggle menu"
           id="mobile-menu-toggle"
@@ -103,16 +112,28 @@
 
     <!-- Mobile Menu -->
     <Transition name="mobile-menu">
-      <div v-if="mobileOpen" class="md:hidden mx-4 mb-4 glass-card p-4 rounded-2xl">
-        <ul class="flex flex-col gap-2">
+      <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 glass-card p-4 rounded-xl border border-slate-800/80 light:border-slate-200">
+        <ul class="flex flex-col gap-1.5">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
-              class="block px-4 py-3 rounded-xl text-sm font-medium transition-all"
+              class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
               :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white light:text-slate-800 light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
             >
               {{ store.ui[item.id] || item.label }}
+            </a>
+          </li>
+          <li class="pt-2 border-t border-slate-800 light:border-slate-200">
+            <a
+              :href="store.personal.cv"
+              download
+              class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg text-sm font-semibold text-cyan-300 border border-slate-700 bg-slate-800/90 hover:bg-slate-700 transition-all"
+            >
+              <span>{{ store.ui.downloadCv || 'Download CV' }}</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
             </a>
           </li>
         </ul>
@@ -131,15 +152,15 @@ const props = defineProps({
 
 const store = usePortfolioStore()
 const scrolled = ref(false)
-const mobileOpen = ref(false)
 const scrollProgress = ref(0)
+const mobileOpen = ref(false)
 
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -169,26 +190,36 @@ onUnmounted(() => {
 
 <style scoped>
 .navbar-scrolled {
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  background: rgba(9, 13, 22, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+html.light .navbar-scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 .navbar-top {
   background: transparent;
 }
 .nav-link-active {
-  color: #a855f7;
-  background: rgba(124, 58, 237, 0.1);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  font-weight: 600;
+}
+html.light .nav-link-active {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
 }
 
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 </style>
