@@ -47,19 +47,18 @@ Software Developer building scalable web, backend, and mobile systems, with a gr
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3>🏠 Boarding House Management Platform</h3>
-      <p>Multi-platform rental management and billing ecosystem with real-time communications and automated invoicing for landlords and tenants.</p>
+      <h3>🛍️ NexShop — E-Commerce & POS Platform</h3>
+      <p>Full-stack modern e-commerce platform integrated with a POS system, featuring real-time inventory, order tracking, and administrative analytics.</p>
       <p>
-        <code>Java (Spring Boot)</code> · <code>Vue 3</code> · <code>PostgreSQL</code> · <code>WebSockets</code> · <code>Capacitor</code>
+        <code>Next.js</code> · <code>Prisma</code> · <code>PostgreSQL</code> · <code>Tailwind CSS</code> · <code>Google OAuth</code>
       </p>
       <ul>
-        <li>Role-based access control (RBAC) & Google OAuth2</li>
-        <li>Automated invoice generation (PDF/Excel) & PayOS</li>
-        <li>Real-time tenant-landlord messaging via WebSockets</li>
+        <li>Full-stack architecture with Next.js App Router & Prisma ORM</li>
+        <li>Point of Sale (POS) checkout & inventory management</li>
+        <li>Comprehensive admin analytics dashboard & OAuth authentication</li>
       </ul>
       <p>
-        <a href="https://github.com/tranvanhuy-dev-it/QLPT_JAVA_BE" target="_blank"><b>Backend Repo</b></a> · 
-        <a href="https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE" target="_blank"><b>Frontend Repo</b></a>
+        <a href="https://vattudongkha.io.vn" target="_blank"><b>🌐 Live Demo</b></a>
       </p>
     </td>
   </tr>
