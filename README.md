@@ -80,6 +80,7 @@ Software Developer building scalable web, backend, and mobile systems, with a gr
 <h3 align="center">Backend & Frameworks</h3>
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=&message=Spring%20Boot&color=222222&style=flat&logo=springboot&logoColor=6DB33F" alt="Spring Boot" />
+  <img src="https://img.shields.io/static/v1?label=&message=Frappe&color=222222&style=flat&logo=frappe&logoColor=0089FF" alt="Frappe" />
   <img src="https://img.shields.io/static/v1?label=&message=Node.js&color=222222&style=flat&logo=nodedotjs&logoColor=5FA04E" alt="Node.js" />
   <img src="https://img.shields.io/static/v1?label=&message=REST%20APIs&color=222222&style=flat&logo=postman&logoColor=FF6C37" alt="REST APIs" />
   <img src="https://img.shields.io/static/v1?label=&message=WebSocket&color=222222&style=flat&logo=websocket&logoColor=62B5E5" alt="WebSocket" />
