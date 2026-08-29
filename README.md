@@ -61,6 +61,12 @@ I'm a Software Developer focused on building useful, dependable products while d
 <div align="center">
   <img width="49.5%" src="./metrics-streak.svg" alt="GitHub contribution streak" /><img width="49.5%" src="./metrics-languages.svg" alt="Most used programming languages" />
 </div>
+
+## ⏱️ WakaTime Stats
+
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+
 ## 🐍 Contribution Journey
 
 <div align="center">
