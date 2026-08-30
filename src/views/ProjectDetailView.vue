@@ -1,11 +1,11 @@
 <template>
   <div class="relative min-h-screen bg-[#090d16] light:bg-slate-50 text-slate-100 light:text-slate-800 selection:bg-blue-600 selection:text-white transition-colors duration-200">
     <!-- Top Fixed Sub-Navbar -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#090d16]/90 light:bg-[#edf2f9]/95 border-b border-slate-800/80 light:border-slate-300/80 px-4 sm:px-8 py-3 transition-colors">
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0d1527] text-white border-b border-blue-500/20 px-4 sm:px-8 py-3 transition-colors shadow-lg shadow-black/25">
       <div class="max-w-5xl mx-auto flex items-center justify-between">
         <router-link
           to="/"
-          class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors group"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors group"
         >
           <span class="p-1 rounded-md bg-slate-800/90 light:bg-slate-100 border border-slate-700 light:border-slate-300 group-hover:border-slate-500 text-slate-300 light:text-slate-700 group-hover:text-white light:group-hover:text-slate-900 transition-all">
             ←

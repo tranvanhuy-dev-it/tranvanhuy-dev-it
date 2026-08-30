@@ -4,7 +4,7 @@
 
   <!-- Navbar -->
   <nav
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#090d16]/95 light:bg-[#edf2f9]/95 backdrop-blur-md border-b border-slate-800/80 light:border-slate-300/80 shadow-md light:shadow-sm"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0d1527] text-white border-b border-blue-500/20 shadow-lg shadow-black/25 backdrop-blur-xl"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between gap-4">
       <!-- Brand Name -->
@@ -13,10 +13,10 @@
         class="flex items-center shrink-0 group hover:opacity-90 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        <span class="text-base sm:text-lg font-bold font-mono text-white light:text-slate-900 whitespace-nowrap flex items-center gap-1.5">
-          <span class="text-blue-500 light:text-blue-600">&lt;</span>
-          <span>Tran Van Huy</span>
-          <span class="text-blue-500 light:text-blue-600">/&gt;</span>
+        <span class="text-base sm:text-lg font-bold font-mono text-white whitespace-nowrap flex items-center gap-1.5">
+          <span class="text-cyan-400 font-bold">&lt;</span>
+          <span class="tracking-tight">Tran Van Huy</span>
+          <span class="text-cyan-400 font-bold">/&gt;</span>
         </span>
       </a>
 
@@ -28,7 +28,7 @@
             <a
               :href="`#${item.id}`"
               class="nav-link px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
-              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 light:text-slate-700 hover:text-white light:hover:text-blue-600 hover:bg-white/5 light:hover:bg-white/80'"
+              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-300 hover:text-white hover:bg-white/10'"
               @click.prevent="scrollTo(`#${item.id}`)"
             >
               {{ store.ui[item.id] || item.label }}
@@ -40,10 +40,10 @@
         <a
           :href="store.personal.cv"
           download
-          class="hidden xl:inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-mono font-medium text-cyan-300 light:text-blue-700 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-white hover:bg-slate-700 light:hover:bg-slate-50 transition-all shrink-0 whitespace-nowrap"
+          class="hidden xl:inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-mono font-medium text-cyan-300 border border-slate-700 bg-slate-800/90 hover:bg-slate-700 transition-all shrink-0 whitespace-nowrap"
         >
           <span>CV</span>
-          <svg class="w-3 h-3 text-cyan-400 light:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
         </a>
@@ -58,21 +58,21 @@
         </a>
 
         <!-- Visual Separator -->
-        <div class="hidden sm:block w-px h-4 bg-slate-700/60 light:bg-slate-300 mx-0.5"></div>
+        <div class="hidden sm:block w-px h-4 bg-slate-700 mx-0.5"></div>
 
         <!-- 4. Language Selector (EN / VI) -->
-        <div class="flex items-center h-8 gap-0.5 bg-slate-800/90 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0 shadow-sm">
+        <div class="flex items-center h-8 gap-0.5 bg-slate-800/90 border border-slate-700 rounded-lg p-0.5 font-mono text-[10px] shrink-0 shadow-sm">
           <button
             @click="store.setLocale('en')"
             class="h-full px-2 rounded-md flex items-center justify-center transition-all duration-150 cursor-pointer"
-            :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
+            :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-300 hover:text-white'"
           >
             EN
           </button>
           <button
             @click="store.setLocale('vi')"
             class="h-full px-2 rounded-md flex items-center justify-center transition-all duration-150 cursor-pointer"
-            :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
+            :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-300 hover:text-white'"
           >
             VI
           </button>
@@ -81,7 +81,7 @@
         <!-- 5. Theme Toggle -->
         <button
           @click="store.toggleTheme()"
-          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-800/80 light:bg-white border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-50 transition-all duration-150 cursor-pointer shrink-0 shadow-sm"
+          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:text-white bg-slate-800/90 border border-slate-700 hover:bg-slate-700 transition-all duration-150 cursor-pointer shrink-0 shadow-sm"
           :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
         >
           <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
@@ -102,40 +102,40 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="lg:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 rounded-lg bg-slate-800/80 light:bg-white border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-50 transition-colors shrink-0 cursor-pointer shadow-sm"
+          class="lg:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 rounded-lg bg-slate-800/90 border border-slate-700 hover:bg-slate-700 transition-colors shrink-0 cursor-pointer shadow-sm"
           @click="mobileOpen = !mobileOpen"
           aria-label="Toggle menu"
           id="mobile-menu-toggle"
         >
-          <span class="w-4 h-0.5 bg-slate-200 light:bg-slate-800 block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
-          <span class="w-4 h-0.5 bg-slate-200 light:bg-slate-800 block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
-          <span class="w-4 h-0.5 bg-slate-200 light:bg-slate-800 block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+          <span class="w-4 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
+          <span class="w-4 h-0.5 bg-white block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
+          <span class="w-4 h-0.5 bg-white block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
     <Transition name="mobile-menu">
-      <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 bg-slate-900/95 light:bg-[#f8fafc] border border-slate-800 light:border-slate-300 p-4 rounded-2xl shadow-2xl backdrop-blur-xl">
+      <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 bg-[#0d1527] border border-slate-700/80 p-4 rounded-2xl shadow-2xl backdrop-blur-xl">
         <ul class="flex flex-col gap-1.5">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
               class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
-              :class="activeSection === item.id ? 'text-blue-400 light:text-blue-700 bg-blue-500/15 light:bg-blue-100 font-bold border border-blue-500/20 light:border-blue-300' : 'text-slate-200 light:text-slate-800 hover:text-white light:hover:text-blue-600 hover:bg-white/5 light:hover:bg-white'"
+              :class="activeSection === item.id ? 'text-blue-400 bg-blue-500/20 font-bold border border-blue-500/30' : 'text-slate-200 hover:text-white hover:bg-white/10'"
               @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
             >
               {{ store.ui[item.id] || item.label }}
             </a>
           </li>
-          <li class="pt-2 border-t border-slate-800 light:border-slate-200">
+          <li class="pt-2 border-t border-slate-700">
             <a
               :href="store.personal.cv"
               download
               class="w-full btn-primary py-2.5 px-4 rounded-lg text-sm font-semibold justify-center shadow-sm"
             >
               <span>{{ store.ui.downloadCv || 'Download CV' }}</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
             </a>
