@@ -19,14 +19,14 @@
         </span>
       </a>
 
-      <!-- Desktop & Language Navigation Container -->
-      <div class="flex items-center gap-2 sm:gap-3 xl:gap-4">
-        <!-- Desktop Nav Links -->
+      <!-- Desktop Navigation & Controls Container -->
+      <div class="flex items-center gap-2 sm:gap-2.5 xl:gap-3">
+        <!-- 1. Desktop Nav Links -->
         <ul class="hidden lg:flex items-center gap-0.5 xl:gap-1">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
-              class="nav-link px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
+              class="nav-link px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
               :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="scrollTo(`#${item.id}`)"
             >
@@ -35,8 +35,32 @@
           </li>
         </ul>
 
-        <!-- Language Selector -->
-        <div class="flex items-center gap-0.5 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
+        <!-- 2. CV Download Button (desktop) -->
+        <a
+          :href="store.personal.cv"
+          download
+          class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-cyan-300 light:text-blue-600 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 transition-all shrink-0 whitespace-nowrap"
+        >
+          <span>CV</span>
+          <svg class="w-3 h-3 text-cyan-400 light:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+        </a>
+
+        <!-- 3. Primary Contact Me CTA Button -->
+        <a
+          href="#contact"
+          class="hidden sm:inline-flex btn-primary text-xs sm:text-sm px-4 py-2 shrink-0 whitespace-nowrap"
+          @click.prevent="scrollTo('#contact')"
+        >
+          {{ store.ui.contactBtn || 'Contact Me' }}
+        </a>
+
+        <!-- Visual Separator -->
+        <div class="hidden sm:block w-px h-4 bg-slate-700/60 light:bg-slate-300 mx-0.5"></div>
+
+        <!-- 4. Language Selector (EN / VI) -->
+        <div class="flex items-center gap-0.5 bg-slate-800/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
           <button
             @click="store.setLocale('en')"
             class="px-2 py-1 rounded-md transition-all duration-150 cursor-pointer"
@@ -53,13 +77,13 @@
           </button>
         </div>
 
-        <!-- Theme Toggle -->
+        <!-- 5. Theme Toggle -->
         <button
           @click="store.toggleTheme()"
           class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 transition-all duration-150 cursor-pointer shrink-0"
           :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
         >
-          <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]">
+          <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
             <circle cx="12" cy="12" r="4"></circle>
             <path d="M12 2v2"></path>
             <path d="M12 20v2"></path>
@@ -70,31 +94,10 @@
             <path d="m6.34 17.66-1.41 1.41"></path>
             <path d="m19.07 4.93-1.41 1.41"></path>
           </svg>
-          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]">
+          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
         </button>
-
-        <!-- CV Button (desktop) -->
-        <a
-          :href="store.personal.cv"
-          download
-          class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 border border-slate-700/80 bg-slate-800/80 hover:bg-slate-700 hover:text-white transition-all shrink-0 whitespace-nowrap"
-        >
-          <span>CV</span>
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-          </svg>
-        </a>
-
-        <!-- CTA Button (desktop) -->
-        <a
-          href="#contact"
-          class="hidden sm:inline-flex btn-primary text-xs sm:text-sm px-4 sm:px-5 py-2 shrink-0 whitespace-nowrap"
-          @click.prevent="scrollTo('#contact')"
-        >
-          {{ store.ui.contactBtn || 'Contact' }}
-        </a>
 
         <!-- Mobile Menu Toggle -->
         <button
