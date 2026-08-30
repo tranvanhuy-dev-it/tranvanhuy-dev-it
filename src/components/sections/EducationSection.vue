@@ -46,10 +46,10 @@
             <p class="text-slate-300 light:text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
               {{ edu.description }}
             </p>
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-              <span class="px-2 py-0.5 rounded bg-slate-800/70 border border-slate-700/70">Data Science</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/70 border border-slate-700/70">Artificial Intelligence</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/70 border border-slate-700/70">Software Engineering</span>
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 font-medium">Data Science</span>
+              <span class="px-2.5 py-0.5 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 font-medium">Artificial Intelligence</span>
+              <span class="px-2.5 py-0.5 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 font-medium">Software Engineering</span>
             </div>
           </div>
         </div>

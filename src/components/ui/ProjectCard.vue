@@ -98,27 +98,27 @@
       </div>
 
       <div>
-        <!-- Tech Stack Tags with mini logos -->
-        <div class="flex flex-wrap gap-1.5 mb-4 pt-1">
+        <!-- Tech Stack Tags with mini logos (Single row: max 3 tags + remaining count) -->
+        <div class="flex items-center gap-1.5 mb-4 pt-1 flex-nowrap overflow-hidden">
           <span
-            v-for="tag in project.tags.slice(0, 5)"
+            v-for="tag in project.tags.slice(0, 3)"
             :key="tag"
-            class="tech-badge inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md"
+            class="tech-badge inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-mono rounded-md shrink-0 whitespace-nowrap"
           >
             <img
               v-if="getTechLogo(tag)"
               :src="getTechLogo(tag)"
               :alt="tag"
-              class="w-3.5 h-3.5 object-contain shrink-0"
+              class="w-3 h-3 sm:w-3.5 sm:h-3.5 object-contain shrink-0"
               loading="lazy"
             />
             <span>{{ tag }}</span>
           </span>
           <span
-            v-if="project.tags.length > 5"
-            class="px-2 py-1 text-[10px] font-mono text-slate-400 bg-slate-800/60 rounded-md"
+            v-if="project.tags.length > 3"
+            class="px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-medium text-slate-400 light:text-slate-600 bg-slate-800/80 light:bg-slate-200 border border-slate-700/80 light:border-slate-300 rounded-md shrink-0 whitespace-nowrap"
           >
-            +{{ project.tags.length - 5 }}
+            +{{ project.tags.length - 3 }}
           </span>
         </div>
 
