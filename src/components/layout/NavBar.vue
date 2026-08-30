@@ -4,10 +4,10 @@
 
   <!-- Navbar -->
   <nav
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="scrolled ? 'navbar-scrolled' : 'navbar-top'"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0c1322]/95 lg:bg-transparent backdrop-blur-xl border-b border-blue-500/20 lg:border-transparent shadow-lg shadow-black/25 lg:shadow-none light:bg-white/95 light:border-slate-200 light:shadow-sm"
+    :class="scrolled ? 'lg:navbar-scrolled' : 'lg:navbar-top'"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between gap-4">
       <!-- Brand Name -->
       <a
         href="#hero"
@@ -80,7 +80,7 @@
         <!-- 5. Theme Toggle -->
         <button
           @click="store.toggleTheme()"
-          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 transition-all duration-150 cursor-pointer shrink-0"
+          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:text-slate-600 light:hover:text-slate-900 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-200 transition-all duration-150 cursor-pointer shrink-0"
           :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
         >
           <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
@@ -101,27 +101,27 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-white/5 light:hover:bg-black/5 transition-colors shrink-0"
+          class="lg:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 rounded-lg bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-200 transition-colors shrink-0 cursor-pointer"
           @click="mobileOpen = !mobileOpen"
           aria-label="Toggle menu"
           id="mobile-menu-toggle"
         >
-          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
-          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
-          <span class="w-5 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+          <span class="w-4 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'rotate-45 translate-y-2' : ''"></span>
+          <span class="w-4 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? 'opacity-0' : ''"></span>
+          <span class="w-4 h-0.5 bg-white light:bg-slate-900 block transition-all" :class="mobileOpen ? '-rotate-45 -translate-y-2' : ''"></span>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
     <Transition name="mobile-menu">
-      <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 glass-card p-4 rounded-xl border border-slate-800/80 light:border-slate-200">
+      <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 glass-card p-4 rounded-xl border border-slate-800/80 light:border-slate-200 shadow-xl">
         <ul class="flex flex-col gap-1.5">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
               class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
-              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-400 hover:text-white light:text-slate-800 light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5'"
+              :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-300 light:text-slate-700 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5'"
               @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
             >
               {{ store.ui[item.id] || item.label }}
@@ -131,10 +131,10 @@
             <a
               :href="store.personal.cv"
               download
-              class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg text-sm font-semibold text-cyan-300 border border-slate-700 bg-slate-800/90 hover:bg-slate-700 transition-all"
+              class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg text-sm font-semibold text-cyan-300 light:text-cyan-800 border border-slate-700 light:border-cyan-300 bg-slate-800/90 light:bg-cyan-50 hover:bg-slate-700 light:hover:bg-cyan-100 transition-all"
             >
               <span>{{ store.ui.downloadCv || 'Download CV' }}</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-cyan-400 light:text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
             </a>
