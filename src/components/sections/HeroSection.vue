@@ -1,123 +1,133 @@
 <template>
-  <section id="hero" class="relative min-h-[calc(100vh-4rem)] flex items-center justify-center pt-20 pb-8 sm:pt-24 sm:pb-20 px-4 sm:px-6 overflow-hidden">
+  <section id="hero" class="relative min-h-[calc(100svh-4.5rem)] flex flex-col justify-between pt-6 pb-4 sm:pt-12 sm:pb-8 lg:py-16 px-4 sm:px-6 overflow-hidden">
     <!-- Subtle ambient background glows -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl bg-blue-600/30"></div>
       <div class="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full opacity-15 blur-3xl bg-cyan-500/20"></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto min-w-0">
+    <!-- Main Content Grid (Centered in mobile viewport) -->
+    <div class="relative z-10 w-full max-w-6xl mx-auto min-w-0 my-auto">
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-w-0 w-full">
         
-        <!-- Left: Introduction & CTAs (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left fade-left min-w-0 w-full">
+        <!-- Left: Introduction & CTAs (7 cols on lg, full width on mobile) -->
+        <div
+          class="flex flex-col items-center lg:items-start text-center lg:text-left fade-left min-w-0 w-full"
+          :class="store.personal.avatar ? 'lg:col-span-7' : 'lg:col-span-7 max-w-xl lg:max-w-none mx-auto lg:mx-0'"
+        >
           
-          <!-- Single clean status badge -->
-          <div class="inline-flex items-center mb-3 max-w-full">
-            <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium bg-blue-600/10 border border-blue-500/20 text-blue-400 leading-none">
-              <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <!-- Status badge -->
+          <div class="inline-flex items-center mb-5 sm:mb-6 max-w-full">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-blue-600/10 border border-blue-500/25 text-blue-400 leading-none shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
               <span class="whitespace-nowrap">{{ store.personal.statusTag || store.personal.availability }}</span>
             </span>
           </div>
 
           <!-- Name Heading -->
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white light:text-slate-900 leading-[1.15] break-words">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white light:text-slate-900 leading-[1.15] break-words">
             {{ store.personal.name }}
           </h1>
 
-          <!-- Professional Role Subtitle -->
-          <div class="mt-2 sm:mt-2.5 flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-wrap text-sm sm:text-lg lg:text-xl font-medium tracking-tight break-words">
-            <span class="text-white light:text-slate-900 font-bold">
+          <!-- Professional Role Subtitle (Always on one line) -->
+          <div class="mt-3.5 sm:mt-4 flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-nowrap whitespace-nowrap text-[13px] sm:text-base md:text-lg lg:text-xl font-medium tracking-tight">
+            <span class="text-white light:text-slate-900 font-bold shrink-0">
               {{ store.locale === 'vi' ? 'Lập trình viên' : 'Software Developer' }}
             </span>
-            <span class="text-slate-600 font-normal">|</span>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 font-mono font-semibold">
+            <span class="text-slate-600 font-normal shrink-0">|</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 font-mono font-semibold shrink-0">
               Full-Stack & Applied AI
             </span>
           </div>
 
-          <!-- Punchy Value Proposition Statement (5-10s Recruiter Impression) -->
-          <div class="mt-3.5 sm:mt-4 text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl min-w-0 w-full break-words font-medium">
+          <!-- Dynamic Live Typewriter Tagline -->
+          <div class="mt-3 flex items-center justify-center lg:justify-start gap-1.5 font-mono text-xs sm:text-sm text-cyan-300 light:text-blue-600 bg-slate-900/80 light:bg-slate-100 border border-slate-800 light:border-slate-300 px-3 py-1 rounded-md shadow-sm">
+            <span class="text-slate-500 font-semibold select-none">&gt;</span>
+            <span class="font-medium">{{ currentTagline }}</span>
+            <span class="w-1.5 h-3.5 bg-cyan-400 animate-pulse inline-block"></span>
+          </div>
+
+          <!-- Refined Value Statement -->
+          <div class="mt-5 sm:mt-6 text-slate-300 light:text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg lg:max-w-2xl min-w-0 w-full break-words">
             <p class="break-words">
               {{ store.personal.statement || (store.locale === 'vi' 
-                  ? 'Xây dựng các hệ thống full-stack hướng production và giải pháp tự động hóa với AI ứng dụng.' 
-                  : 'Building production-oriented full-stack systems and practical AI-powered automation.') 
+                  ? 'Sinh viên CNTT ĐH Bách Khoa (GPA 3.5) & Full-Stack Developer tại Digital Twin Group (MakeAI), chuyên phát triển các hệ thống Spring Boot, Next.js và giải pháp tự động hóa với AI.' 
+                  : 'IT Student at Bach Khoa Da Nang (GPA 3.5) & Full-Stack Developer at Digital Twin Group (MakeAI), specializing in Spring Boot, Next.js, and practical AI automation.') 
               }}
             </p>
           </div>
 
-          <!-- Quick Highlight Badges (DUT GPA 3.5, MakeAI, Da Nang) -->
-          <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono max-w-full">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              <span>Digital Twin Group (MakeAI)</span>
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-              <span>DUT · GPA 3.5/4.0</span>
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>{{ store.locale === 'vi' ? 'Đà Nẵng, Việt Nam' : 'Da Nang, Vietnam' }}</span>
-            </span>
-          </div>
-
-          <!-- Unified Action Row: Primary CTA + Download CV + Socials -->
-          <div class="mt-6 sm:mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 min-w-0 w-full">
+          <!-- Buttons: 2 perfectly aligned stacked rows on mobile, side-by-side on desktop -->
+          <div class="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none">
             <a
               href="#projects"
               @click.prevent="scrollTo('#projects')"
-              class="btn-primary text-xs sm:text-sm px-4 sm:px-5 py-2.5 inline-flex items-center justify-center gap-1.5 sm:gap-2 flex-1 sm:flex-initial text-center"
+              class="w-full sm:w-auto h-11 sm:h-10 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 text-white bg-blue-600 hover:bg-blue-500 border border-blue-500/30 shadow-lg shadow-blue-500/25 transition-all text-center"
               id="hero-view-projects"
             >
+              <svg class="w-4 h-4 shrink-0 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
               <span>{{ store.ui.viewProjects || 'Xem dự án' }}</span>
-              <span>→</span>
             </a>
 
             <a
               :href="store.personal.cv"
               download
-              class="btn-outline text-xs sm:text-sm px-3.5 sm:px-4 py-2.5 inline-flex items-center justify-center gap-1.5 sm:gap-2 flex-1 sm:flex-initial text-center"
+              class="w-full sm:w-auto h-11 sm:h-10 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 text-slate-200 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-850/80 hover:bg-slate-800 light:bg-white light:hover:bg-slate-100 border border-slate-700/80 hover:border-slate-600 light:border-slate-300 transition-all text-center"
               id="hero-download-cv"
             >
-              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 shrink-0 text-slate-400 light:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
               <span>{{ store.ui.downloadCv || 'Tải CV' }}</span>
             </a>
+          </div>
 
-            <!-- Social Links -->
-            <div class="flex items-center gap-1.5 w-full sm:w-auto justify-center lg:justify-start mt-1 sm:mt-0">
-              <a
-                v-for="(url, platform) in store.personal.socials"
-                :key="platform"
-                :href="url"
-                target="_blank"
-                rel="noopener"
-                class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-slate-850/80 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-500 text-slate-400 hover:text-white flex items-center justify-center transition-all"
-                :aria-label="platform"
-              >
-                <IconGithub v-if="platform === 'github'" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                <IconLinkedin v-else-if="platform === 'linkedin'" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                <IconFacebook v-else-if="platform === 'facebook'" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-              </a>
-              <a
-                :href="`mailto:${store.personal.email}`"
-                class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-slate-850/80 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-500 text-slate-400 hover:text-white flex items-center justify-center transition-all"
-                aria-label="Email"
-              >
-                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </a>
-            </div>
+          <!-- Social Links -->
+          <div class="flex items-center justify-center lg:justify-start gap-2.5 w-full mt-5 sm:mt-6">
+            <a
+              v-for="(url, platform) in store.personal.socials"
+              :key="platform"
+              :href="url"
+              target="_blank"
+              rel="noopener"
+              class="w-10 h-10 rounded-xl bg-slate-850/90 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-500 text-slate-400 hover:text-white flex items-center justify-center transition-all shadow-sm"
+              :aria-label="platform"
+            >
+              <IconGithub v-if="platform === 'github'" class="w-4 h-4 fill-current" />
+              <IconLinkedin v-else-if="platform === 'linkedin'" class="w-4 h-4 fill-current" />
+              <IconFacebook v-else-if="platform === 'facebook'" class="w-4 h-4 fill-current" />
+            </a>
+            <a
+              :href="`mailto:${store.personal.email}`"
+              class="w-10 h-10 rounded-xl bg-slate-850/90 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-500 text-slate-400 hover:text-white flex items-center justify-center transition-all shadow-sm"
+              aria-label="Email"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
           </div>
 
         </div>
 
-        <!-- Right: Developer Terminal / Executive Profile Card (5 cols) -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end fade-right w-full min-w-0">
-          <div class="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden font-mono text-[11px] sm:text-xs">
+        <!-- Right: Developer Terminal or Avatar (Hidden on mobile if no avatar, 5 cols on lg) -->
+        <div
+          class="fade-right w-full min-w-0"
+          :class="store.personal.avatar ? 'flex lg:col-span-5 justify-center lg:justify-end' : 'hidden lg:flex lg:col-span-5 justify-center lg:justify-end'"
+        >
+          <!-- If avatar exists -->
+          <div v-if="store.personal.avatar" class="relative group max-w-xs sm:max-w-sm">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-slate-700/80 bg-slate-900 shadow-2xl">
+              <img :src="store.personal.avatar" :alt="store.personal.name" class="w-full h-auto object-cover aspect-square" />
+            </div>
+          </div>
+
+          <!-- If no avatar: Developer Terminal Card (Visible only on lg+ desktop) -->
+          <div v-else class="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden font-mono text-[11px] sm:text-xs">
             
             <!-- Terminal Header -->
             <div class="px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-850 border-b border-slate-800 flex items-center justify-between">
@@ -181,6 +191,24 @@
 
       </div>
     </div>
+
+    <!-- Bottom Scroll Indicator (Anchors the 1-screen mobile view) -->
+    <div class="relative z-10 w-full flex justify-center pt-3 pb-1 fade-up">
+      <a
+        href="#about"
+        @click.prevent="scrollTo('#about')"
+        class="inline-flex flex-col items-center gap-1 text-slate-500 hover:text-cyan-400 transition-colors group cursor-pointer"
+        aria-label="Scroll to about"
+      >
+        <span class="text-[10px] font-mono tracking-widest uppercase opacity-75 group-hover:opacity-100 font-medium">
+          {{ store.locale === 'vi' ? 'Khám phá' : 'Scroll' }}
+        </span>
+        <div class="w-4 h-6.5 rounded-full border border-slate-700/80 group-hover:border-cyan-400/80 flex items-start justify-center p-0.5 transition-colors">
+          <div class="w-1 h-1.5 bg-cyan-400 rounded-full animate-bounce"></div>
+        </div>
+      </a>
+    </div>
+
   </section>
 </template>
 

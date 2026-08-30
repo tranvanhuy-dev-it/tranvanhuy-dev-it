@@ -229,10 +229,10 @@ export const usePortfolioStore = defineStore("portfolio", {
         },
       },
       stats: [
-        { value: "AI & DS", label: "Focus Area" },
+        { value: "3.5/4.0", label: "DUT GPA" },
+        { value: "MakeAI", label: "Developer Intern" },
         { value: "5+", label: "Projects Completed" },
-        { value: "15+", label: "Technologies Used" },
-        { value: "100%", label: "Passion & Creativity" },
+        { value: "Full-Stack", label: "Spring Boot & Next.js" },
       ],
       whatIBuild: [
         {
@@ -639,7 +639,8 @@ export const usePortfolioStore = defineStore("portfolio", {
       },
       ui: {
         home: "Home",
-        about: "About",
+        about: "About Me",
+        solutions: "Solutions",
         skills: "Skills",
         projects: "Projects",
         experience: "Experience",
@@ -648,11 +649,14 @@ export const usePortfolioStore = defineStore("portfolio", {
         contactBtn: "Contact Me",
 
         // Section Titles
-        aboutTitle: "What I Build",
-        aboutSubtitle: "Core Solutions",
+        aboutTitle: "About Me",
+        aboutSubtitle: "Story & Profile",
         aboutDesc:
+          "Engineering philosophy, personal background, and career objectives",
+        solutionsTitle: "Core Solutions",
+        solutionsSubtitle: "What I Build",
+        solutionsDesc:
           "Key software systems and practical engineering solutions I build and deliver",
-        about: "What I Build",
         skillsTitle: "Tech Stack",
         skillsDesc: "The tools and technologies I use to bring ideas to life",
         projectsTitle: "Projects",
@@ -753,10 +757,10 @@ export const usePortfolioStore = defineStore("portfolio", {
         },
       },
       stats: [
-        { value: "AI & DS", label: "Lĩnh vực tập trung" },
-        { value: "5+", label: "Dự án hoàn thành" },
-        { value: "15+", label: "Công nghệ sử dụng" },
-        { value: "100%", label: "Đam mê & Sáng tạo" },
+        { value: "3.5/4.0", label: "GPA Đại học Bách Khoa" },
+        { value: "MakeAI", label: "Developer Intern" },
+        { value: "5+", label: "Dự án thực tế" },
+        { value: "Full-Stack", label: "Spring Boot & Next.js" },
       ],
       whatIBuild: [
         {
@@ -1162,7 +1166,8 @@ export const usePortfolioStore = defineStore("portfolio", {
       },
       ui: {
         home: "Trang chủ",
-        about: "Chuyên môn",
+        about: "Về tôi",
+        solutions: "Giải pháp",
         skills: "Kỹ năng",
         projects: "Dự án",
         experience: "Kinh nghiệm",
@@ -1171,9 +1176,12 @@ export const usePortfolioStore = defineStore("portfolio", {
         contactBtn: "Liên hệ tôi",
 
         // Sections
-        aboutTitle: "Lĩnh vực chuyên môn",
-        aboutSubtitle: "Chuyên môn & Giải pháp",
-        aboutDesc: "Các mảng sản phẩm và giải pháp công nghệ tôi trực tiếp xây dựng",
+        aboutTitle: "Về tôi",
+        aboutSubtitle: "Hành trình & Mục tiêu",
+        aboutDesc: "Triết lý kỹ thuật, hành trình phát triển và mục tiêu nghề nghiệp của tôi",
+        solutionsTitle: "Lĩnh vực chuyên môn",
+        solutionsSubtitle: "Giải pháp phần mềm",
+        solutionsDesc: "Các mảng sản phẩm và năng lực kỹ thuật tôi trực tiếp xây dựng và bàn giao",
         skillsTitle: "Kỹ năng",
         skillsSubtitle: "Công nghệ sử dụng",
         skillsDesc:

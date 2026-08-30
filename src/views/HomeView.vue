@@ -16,6 +16,7 @@
     <main class="overflow-x-hidden w-full min-w-0">
       <HeroSection />
       <AboutSection />
+      <SolutionsSection />
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
@@ -35,6 +36,7 @@ import NavBar from '@/components/layout/NavBar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
+import SolutionsSection from '@/components/sections/SolutionsSection.vue'
 import SkillsSection from '@/components/sections/SkillsSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'

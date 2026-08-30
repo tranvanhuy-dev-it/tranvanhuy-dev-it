@@ -161,6 +161,7 @@ const mobileOpen = ref(false)
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'solutions', label: 'Solutions' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
