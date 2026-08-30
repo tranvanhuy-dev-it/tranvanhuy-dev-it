@@ -50,19 +50,22 @@
             </p>
           </div>
 
-          <!-- Quick Highlight Badges (Arranged cleanly in a horizontal row) -->
-          <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs font-mono max-w-full">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
+          <!-- Quick Highlight Badges (Ultra compact on mobile to stay in 1 clean row) -->
+          <div class="mt-4 flex flex-nowrap sm:flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono max-w-full overflow-x-auto no-scrollbar">
+            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
               <span>🎓</span>
-              <span>DUT — GPA 3.5/4.0</span>
+              <span class="sm:hidden">DUT 3.5</span>
+              <span class="hidden sm:inline">DUT — GPA 3.5/4.0</span>
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
+            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
               <span>🏢</span>
-              <span>Digital Twin Group (MakeAI)</span>
+              <span class="sm:hidden">MakeAI</span>
+              <span class="hidden sm:inline">Digital Twin Group (MakeAI)</span>
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
+            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
               <span>📍</span>
-              <span>Đà Nẵng, Việt Nam</span>
+              <span class="sm:hidden">Đà Nẵng</span>
+              <span class="hidden sm:inline">Đà Nẵng, Việt Nam</span>
             </span>
           </div>
 
