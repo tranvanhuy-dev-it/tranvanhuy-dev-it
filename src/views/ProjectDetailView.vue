@@ -1,7 +1,7 @@
 <template>
   <div class="relative min-h-screen bg-[#090d16] light:bg-slate-50 text-slate-100 light:text-slate-800 selection:bg-blue-600 selection:text-white transition-colors duration-200">
     <!-- Top Fixed Sub-Navbar -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#090d16]/90 light:bg-white/90 border-b border-slate-800/80 light:border-slate-200 px-4 sm:px-8 py-3 transition-colors">
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#090d16]/90 light:bg-[#edf2f9]/95 border-b border-slate-800/80 light:border-slate-300/80 px-4 sm:px-8 py-3 transition-colors">
       <div class="max-w-5xl mx-auto flex items-center justify-between">
         <router-link
           to="/"
