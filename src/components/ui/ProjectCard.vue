@@ -1,5 +1,5 @@
 <template>
-  <div class="glass-card-hover overflow-hidden flex flex-col h-full rounded-xl border border-slate-800/80 light:border-slate-200">
+  <div class="glass-card-hover overflow-hidden flex flex-col h-full rounded-2xl border border-slate-800/80 light:border-slate-200 transition-all duration-300 group">
     <!-- Image / Placeholder -->
     <router-link
       :to="`/projects/${project.id}`"
@@ -13,10 +13,10 @@
       />
       <div
         v-else
-        class="w-full h-full flex items-center justify-center text-5xl"
+        class="w-full h-full flex items-center justify-center font-mono font-bold text-2xl text-cyan-400/80 light:text-blue-600/80 tracking-widest"
         :style="gradientBg"
       >
-        {{ categoryEmoji }}
+        &lt;/&gt;
       </div>
 
       <!-- Zoom hint overlay -->
@@ -26,29 +26,32 @@
         @click.stop.prevent="$emit('zoom-image', project.image)"
       >
         <span class="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-white/20 text-white text-xs font-mono font-medium flex items-center gap-1.5 shadow-lg">
-          🔍 Zoom Image
+          <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+          </svg>
+          <span>Zoom Image</span>
         </span>
       </div>
 
-      <!-- Featured badge -->
+      <!-- Ranking / Featured badge -->
       <div
-        v-if="project.featured"
-        class="absolute top-3 right-3 px-2.5 py-0.5 text-[11px] font-mono font-semibold rounded-md shadow-sm z-10 bg-blue-600 text-white"
+        v-if="project.rankingBadge || project.featured"
+        class="absolute top-3 right-3 px-2.5 py-1 text-[11px] font-mono font-semibold rounded-lg shadow-md z-10 bg-blue-600/95 text-white border border-blue-400/40 backdrop-blur-sm"
       >
-        Featured
+        {{ project.rankingBadge || (store.locale === 'vi' ? 'Dự án Nổi bật' : 'Featured Project') }}
       </div>
     </router-link>
 
     <!-- Content -->
-    <div class="p-3.5 sm:p-6 flex flex-col flex-grow justify-between">
+    <div class="p-4 sm:p-6 flex flex-col flex-grow justify-between">
       <div>
         <!-- Category & Period -->
-        <div class="flex items-center justify-between gap-2 mb-1.5 sm:mb-2 text-xs font-mono">
+        <div class="flex items-center justify-between gap-2 mb-2 text-xs font-mono">
           <span class="text-cyan-400 light:text-blue-600 font-semibold uppercase tracking-wider">
             {{ project.category }}
           </span>
           <span v-if="project.time" class="text-slate-400 light:text-slate-500 flex items-center gap-1">
-            <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
             {{ project.time }}
@@ -56,37 +59,39 @@
         </div>
 
         <!-- Title -->
-        <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-1.5 sm:mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+        <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-2 leading-snug group-hover:text-blue-400 transition-colors">
           <router-link :to="`/projects/${project.id}`" class="hover:underline">
             {{ project.title }}
           </router-link>
         </h3>
 
         <!-- Description (Clean & punchy) -->
-        <p class="text-slate-300 light:text-slate-700 text-xs sm:text-sm leading-relaxed mb-2.5 sm:mb-4 line-clamp-3">
+        <p class="text-slate-300 light:text-slate-700 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
           {{ project.description || project.longDesc }}
         </p>
 
-        <!-- Role & Key Highlights (Compact & Elegant) -->
+        <!-- MY CONTRIBUTION Section (Checklist format for high credibility) -->
         <div
-          v-if="project.role"
-          class="rounded-lg p-3 mb-4 bg-slate-850/60 light:bg-slate-50 border border-slate-800 light:border-slate-200"
+          v-if="project.contributions?.length || project.responsibilities?.length"
+          class="rounded-xl p-3 sm:p-3.5 mb-4 bg-slate-850/70 light:bg-slate-50 border border-slate-800 light:border-slate-200"
         >
-          <div class="flex items-center gap-2 text-xs text-white light:text-slate-900 font-medium mb-1.5">
-            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-blue-600/15 text-blue-400 border border-blue-500/30 font-semibold whitespace-nowrap shrink-0">
-              {{ store.locale === 'vi' ? 'Vai trò' : 'Role' }}
+          <div class="flex items-center justify-between gap-2 text-xs text-white light:text-slate-900 font-semibold mb-2">
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-blue-600/15 text-blue-400 border border-blue-500/30 font-semibold whitespace-nowrap shrink-0">
+              {{ store.ui.myContributionLabel || (store.locale === 'vi' ? 'Đóng góp của tôi' : 'My Contribution') }}
             </span>
-            <span class="truncate text-xs text-slate-200 light:text-slate-800">{{ project.role }}</span>
+            <span class="text-[11px] text-slate-400 light:text-slate-600 truncate font-normal">
+              {{ project.role }}
+            </span>
           </div>
 
-          <ul v-if="project.responsibilities?.length" class="space-y-1 mt-2 pt-2 border-t border-slate-750 light:border-slate-200 text-xs text-slate-400 light:text-slate-600">
+          <ul class="space-y-1.5 text-xs text-slate-300 light:text-slate-700">
             <li
-              v-for="item in project.responsibilities.slice(0, 3)"
+              v-for="item in (project.contributions || project.responsibilities).slice(0, 3)"
               :key="item"
-              class="flex items-start gap-1.5 leading-tight"
+              class="flex items-start gap-2 leading-snug"
             >
-              <span class="text-cyan-400 light:text-blue-600 shrink-0 text-xs">▸</span>
-              <span class="truncate">{{ item }}</span>
+              <span class="text-cyan-400 light:text-blue-600 shrink-0 font-bold text-xs mt-0.5">✓</span>
+              <span class="line-clamp-1">{{ item }}</span>
             </li>
           </ul>
         </div>
@@ -94,7 +99,7 @@
 
       <div>
         <!-- Tech Stack Tags with mini logos -->
-        <div class="flex flex-wrap gap-1.5 mb-4 pt-2">
+        <div class="flex flex-wrap gap-1.5 mb-4 pt-1">
           <span
             v-for="tag in project.tags.slice(0, 5)"
             :key="tag"
@@ -109,9 +114,15 @@
             />
             <span>{{ tag }}</span>
           </span>
+          <span
+            v-if="project.tags.length > 5"
+            class="px-2 py-1 text-[10px] font-mono text-slate-400 bg-slate-800/60 rounded-md"
+          >
+            +{{ project.tags.length - 5 }}
+          </span>
         </div>
 
-        <!-- Links & Action Buttons (1 sleek single row on mobile & desktop) -->
+        <!-- Links & Action Buttons -->
         <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 light:border-slate-200">
           <div v-if="hasLinks" class="flex items-center gap-1.5 sm:gap-2 w-full overflow-x-auto no-scrollbar flex-nowrap">
             <template v-if="project.githubBackend">
@@ -175,10 +186,10 @@
 
             <router-link
               :to="`/projects/${project.id}`"
-              class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-cyan-400 hover:text-cyan-300 light:text-blue-600 light:hover:text-blue-700 transition-colors py-1.5 px-2 sm:px-2.5 rounded-lg border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 shrink-0 whitespace-nowrap ml-auto"
+              class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-cyan-400 hover:text-cyan-300 light:text-blue-600 light:hover:text-blue-700 transition-colors py-1.5 px-2.5 rounded-lg border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 shrink-0 whitespace-nowrap ml-auto"
             >
               <span>{{ store.locale === 'vi' ? 'Chi tiết' : 'Details' }}</span>
-              <span>➔</span>
+              <span>→</span>
             </router-link>
           </div>
           <div
@@ -197,7 +208,7 @@
               class="inline-flex items-center gap-1 text-xs font-semibold text-cyan-400 hover:text-cyan-300 light:text-blue-600 light:hover:text-blue-700 transition-colors py-1.5 px-2.5 rounded-lg border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 shrink-0"
             >
               <span>{{ store.locale === 'vi' ? 'Xem chi tiết' : 'Details' }}</span>
-              <span>➔</span>
+              <span>→</span>
             </router-link>
           </div>
         </div>
@@ -220,18 +231,6 @@ const props = defineProps({
 
 defineEmits(['zoom-image'])
 
-const targetLink = computed(() => {
-  if (props.project.demo && props.project.demo !== '#') {
-    return props.project.demo
-  }
-  return props.project.github || '#'
-})
-
-const categoryEmoji = computed(() => {
-  const map = { frontend: '🎨', backend: '⚙️', fullstack: '🚀' }
-  return map[props.project.category] || '💻'
-})
-
 const hasLinks = computed(() =>
   Boolean(
     props.project.github ||
@@ -246,6 +245,7 @@ const gradientBg = computed(() => {
     frontend: 'background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2));',
     backend: 'background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(16,185,129,0.2));',
     fullstack: 'background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(245,158,11,0.1));',
+    enterprise: 'background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(16,185,129,0.1));',
   }
   return gradients[props.project.category] || gradients.fullstack
 })
@@ -258,6 +258,7 @@ const techLogoMap = {
   'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
   'Vue.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
+  'Vue 3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
   'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
   'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
   'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
@@ -268,25 +269,18 @@ const techLogoMap = {
   'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
   'Redis': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
   'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-  'TailwindCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
   'Tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
   'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
-  'Flutter': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg',
-  'Dart': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg',
-  'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
-  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
-  'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
+  'Capacitor': 'https://cdn.simpleicons.org/capacitor/119EFF',
   'WebSocket': 'https://cdn.simpleicons.org/websocket/62B5E5',
   'OpenClaw': 'https://cdn.simpleicons.org/openai/10A37F',
-  'AI Integration': 'https://cdn.simpleicons.org/openai/10A37F',
   'Agentic AI': 'https://cdn.simpleicons.org/openai/10A37F',
-  'HTML5/CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
   'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
-  'GitHub': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   'Vite': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
-  'Zustand': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'JWT': 'https://cdn.simpleicons.org/jsonwebtokens/000000',
-  'Chart.js': 'https://cdn.simpleicons.org/chartdotjs/FF6384',
+  'Prisma': 'https://cdn.simpleicons.org/prisma/white',
+  'PostGIS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+  'GIS Maps': 'https://cdn.simpleicons.org/leaflet/199900',
 }
 
 function getTechLogo(tag) {

@@ -4,8 +4,11 @@ import router from './router'
 import App from './App.vue'
 import './assets/styles/main.css'
 
-if (localStorage.getItem('theme') === 'light') {
+const savedTheme = localStorage.getItem('theme') || 'light'
+if (savedTheme === 'light') {
   document.documentElement.classList.add('light')
+} else {
+  document.documentElement.classList.remove('light')
 }
 
 const app = createApp(App)

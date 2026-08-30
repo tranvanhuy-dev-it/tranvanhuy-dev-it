@@ -56,11 +56,11 @@
           <span class="px-2.5 py-0.5 rounded bg-blue-600/15 border border-blue-500/30 text-blue-400 font-semibold uppercase">
             {{ project.category }}
           </span>
-          <span v-if="project.time" class="px-2.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/80 text-slate-400">
-            📅 {{ project.time }}
+          <span v-if="project.time" class="px-2.5 py-0.5 rounded bg-slate-850 border border-slate-700/80 text-slate-400">
+            {{ project.time }}
           </span>
-          <span v-if="project.featured" class="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-400 font-medium">
-            ★ Featured
+          <span v-if="project.rankingBadge" class="px-2.5 py-0.5 rounded bg-blue-500/15 border border-blue-500/30 text-blue-400 font-semibold">
+            {{ project.rankingBadge }}
           </span>
         </div>
 
@@ -76,7 +76,7 @@
       <!-- 2. Two-Column Clean Layout -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Left / Main Column (8 cols): Image + Case Study Details -->
+        <!-- Left / Main Column (8 cols): Case Study Details -->
         <div class="lg:col-span-8 space-y-8">
           
           <!-- Project Preview Image -->
@@ -92,7 +92,7 @@
                 <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
               </div>
               <span class="text-[11px] text-slate-500 truncate">Preview Screenshot</span>
-              <span class="text-[10px] text-blue-400 group-hover:underline">🔍 Phóng to</span>
+              <span class="text-[10px] text-blue-400 group-hover:underline">{{ store.locale === 'vi' ? 'Phóng to ảnh' : 'Zoom image' }}</span>
             </div>
             
             <img
@@ -102,10 +102,10 @@
             />
           </div>
 
-          <!-- Section: Solution Overview -->
+          <!-- 01. Solution Overview -->
           <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6">
             <h2 class="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
-              <span class="text-blue-400">01.</span>
+              <span class="text-blue-400 font-mono">01.</span>
               <span>{{ store.locale === 'vi' ? 'Tổng quan & Giải pháp' : 'Project Solution & Overview' }}</span>
             </h2>
             <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
@@ -113,38 +113,89 @@
             </p>
           </div>
 
-          <!-- Section: Key Responsibilities & Contributions -->
+          <!-- 02. My Contribution & Scope -->
           <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6">
             <h2 class="text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <span class="text-blue-400">02.</span>
-              <span>{{ store.locale === 'vi' ? 'Vai trò & Trách nhiệm đảm nhiệm' : 'Role & Key Contributions' }}</span>
+              <span class="text-blue-400 font-mono">02.</span>
+              <span>{{ store.ui.myContributionLabel || (store.locale === 'vi' ? 'Đóng góp & Trách nhiệm của tôi' : 'My Contribution & Scope') }}</span>
             </h2>
 
             <div v-if="project.role" class="mb-4 pb-3 border-b border-slate-800/80">
               <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider block mb-1 font-semibold">
-                {{ store.locale === 'vi' ? 'Phạm vi công việc:' : 'Scope of Work:' }}
+                {{ store.locale === 'vi' ? 'Vai trò đảm nhiệm:' : 'Assigned Role:' }}
               </span>
               <p class="text-sm font-medium text-slate-200">
                 {{ project.role }}
               </p>
             </div>
 
-            <ul v-if="project.responsibilities?.length" class="space-y-2.5">
+            <ul class="space-y-2.5">
               <li
-                v-for="item in project.responsibilities"
+                v-for="item in (project.contributions || project.responsibilities)"
                 :key="item"
                 class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
               >
-                <span class="text-blue-400 mt-0.5 shrink-0 font-bold">✓</span>
+                <span class="text-cyan-400 mt-0.5 shrink-0 font-bold">✓</span>
                 <span>{{ item }}</span>
               </li>
             </ul>
           </div>
 
+          <!-- 03. Key Engineering Decisions -->
+          <div v-if="project.engineeringDecisions?.length" class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6 space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span class="text-blue-400 font-mono">03.</span>
+              <span>{{ store.ui.decisionsLabel || (store.locale === 'vi' ? 'Quyết định Kỹ thuật Then chốt' : 'Key Engineering Decisions') }}</span>
+            </h2>
+
+            <div class="grid gap-3 sm:gap-4">
+              <div
+                v-for="d in project.engineeringDecisions"
+                :key="d.decision"
+                class="p-3.5 sm:p-4 rounded-xl bg-slate-850/80 border border-slate-800/90 space-y-1.5"
+              >
+                <div class="text-xs sm:text-sm font-bold text-cyan-300 flex items-center gap-2">
+                  <span>▸</span>
+                  <span>{{ d.decision }}</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-4">
+                  {{ d.reason }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04. Technical Challenges & Solutions -->
+          <div v-if="project.challengesAndSolutions?.length" class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6 space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span class="text-blue-400 font-mono">04.</span>
+              <span>{{ store.ui.challengesLabel || (store.locale === 'vi' ? 'Thách thức Kỹ thuật & Giải pháp' : 'Technical Challenges & Solutions') }}</span>
+            </h2>
+
+            <div class="space-y-3 sm:space-y-4">
+              <div
+                v-for="item in project.challengesAndSolutions"
+                :key="item.challenge"
+                class="p-4 rounded-xl bg-slate-850/80 border border-slate-800/90 space-y-2.5"
+              >
+                <div class="text-xs sm:text-sm font-semibold text-rose-300 flex items-start gap-2.5">
+                  <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Problem</span>
+                  <span>{{ item.challenge }}</span>
+                </div>
+                <div class="text-xs sm:text-sm text-emerald-300/90 flex items-start gap-2.5 pt-2 border-t border-slate-800">
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Solution</span>
+                  <span>{{ item.solution }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Internal project notice if applicable -->
-          <div v-if="project.internal" class="p-4 rounded-lg bg-amber-950/20 border border-amber-800/40 text-amber-300/90 text-xs flex items-center gap-2.5">
-            <span class="text-base">🔒</span>
-            <span>{{ store.locale === 'vi' ? 'Dự án nội bộ tại Digital Twin Group (MakeAI) — Mã nguồn & bản phân phối được bảo mật.' : 'Enterprise internal project at Digital Twin Group (MakeAI) — Source code is private.' }}</span>
+          <div v-if="project.internal" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            <span>{{ store.locale === 'vi' ? 'Dự án nội bộ tại Digital Twin Group (MakeAI) — Mã nguồn & cơ sở dữ liệu được bảo mật theo chính sách công ty.' : 'Enterprise internal project at Digital Twin Group (MakeAI) — Source code is private.' }}</span>
           </div>
 
         </div>
@@ -206,7 +257,7 @@
               </a>
 
               <div v-if="!project.github && !project.demo && !project.video" class="text-xs text-slate-500 italic text-center py-1">
-                {{ store.locale === 'vi' ? 'Không có liên kết công khai.' : 'No public links available.' }}
+                {{ store.locale === 'vi' ? 'Dự án doanh nghiệp bảo mật mã nguồn.' : 'Private enterprise project.' }}
               </div>
             </div>
           </div>
@@ -383,6 +434,7 @@ const techLogoMap = {
   'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
   'Vue.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
+  'Vue 3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
   'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
   'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
   'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
@@ -393,25 +445,18 @@ const techLogoMap = {
   'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
   'Redis': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
   'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-  'TailwindCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
   'Tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
   'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
-  'Flutter': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg',
-  'Dart': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg',
-  'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
-  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
-  'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
+  'Capacitor': 'https://cdn.simpleicons.org/capacitor/119EFF',
   'WebSocket': 'https://cdn.simpleicons.org/websocket/62B5E5',
   'OpenClaw': 'https://cdn.simpleicons.org/openai/10A37F',
-  'AI Integration': 'https://cdn.simpleicons.org/openai/10A37F',
   'Agentic AI': 'https://cdn.simpleicons.org/openai/10A37F',
-  'HTML5/CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
   'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
-  'GitHub': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   'Vite': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
-  'Zustand': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   'JWT': 'https://cdn.simpleicons.org/jsonwebtokens/000000',
-  'Chart.js': 'https://cdn.simpleicons.org/chartdotjs/FF6384',
+  'Prisma': 'https://cdn.simpleicons.org/prisma/white',
+  'PostGIS': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+  'GIS Maps': 'https://cdn.simpleicons.org/leaflet/199900',
 }
 
 function getTechLogo(tag) {

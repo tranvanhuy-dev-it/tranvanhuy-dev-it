@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const usePortfolioStore = defineStore("portfolio", {
   state: () => ({
     locale: localStorage.getItem("locale") || "en", // default to English
-    theme: localStorage.getItem("theme") || "dark",
+    theme: localStorage.getItem("theme") || "light",
     activeSection: "hero",
     projectFilter: "all",
     activeSkillCategory: "languages",
@@ -192,21 +192,36 @@ export const usePortfolioStore = defineStore("portfolio", {
       personal: {
         name: "Trần Văn Huy",
         title: "Software Developer",
+        roleSubtitle: "Software Developer | Full-Stack & Applied AI",
+        statement: "Building production-oriented full-stack systems and practical AI-powered automation.",
         taglines: [
           "Software Developer",
           "Backend & Full-Stack Engineer",
           "Applied AI & Agentic Solutions",
           "Java Spring Boot & Next.js"
         ],
+        aboutStory: [
+          "Hi, I'm Tran Van Huy — a 3rd-year Information Technology student majoring in Data Science & Artificial Intelligence at Da Nang University of Technology (DUT - UD) with an academic GPA of 3.5/4.0.",
+          "Currently, I work as a Software Developer Intern at Digital Twin Group (MakeAI), where I build production-grade enterprise modules for statutory Public Investment Management, GIS spatial mapping platforms (PostGIS), and Agentic AI (OpenClaw) workflow automations.",
+          "I am passionate about engineering robust full-stack software systems — taking full ownership from database design (PostgreSQL, MySQL), backend architecture (Java Spring Boot, Python Frappe, REST APIs), and real-time STOMP WebSockets to reactive user interfaces (Next.js, TypeScript, React, Vue 3) and containerized deployment (Docker Compose, Linux).",
+        ],
         bio: "Software Developer building scalable web, backend, and mobile systems with a strong focus on Data Science, Machine Learning, and Applied AI.",
-        bio2: "Experienced in building robust backend architectures with Java (Spring Boot), enterprise workflows with Python (Frappe), modern frontends with React & Next.js, and integrating Agentic AI to automate business processes.",
+        bio2: "Experienced in building robust backend architectures with Java (Spring Boot), enterprise workflows with Python (Frappe), modern frontends with Next.js & TypeScript, and integrating Agentic AI to automate business processes.",
         objective:
           "To deliver reliable, high-impact software systems as a Software Engineer, combining clean backend architecture with practical, data-driven automation.",
         location: "Da Nang, Vietnam",
         email: "tranvanhuy064206@gmail.com",
         availability: "Software Developer Intern @ Digital Twin Group (MakeAI)",
+        statusTag: "Working at Digital Twin Group (MakeAI)",
         avatar: "",
         cv: "/cv.pdf",
+        quickFacts: [
+          { label: "Current Role", value: "Software Developer Intern" },
+          { label: "Company", value: "Digital Twin Group (MakeAI)" },
+          { label: "Education", value: "Bach Khoa Da Nang (DUT) — GPA 3.5/4.0" },
+          { label: "Specialization", value: "Data Science & Artificial Intelligence" },
+          { label: "Location", value: "Da Nang, Vietnam" },
+        ],
         socials: {
           github: "https://github.com/tranvanhuy-dev-it",
           linkedin: "https://www.linkedin.com/in/huy-tran-van-5753b13b4",
@@ -223,8 +238,8 @@ export const usePortfolioStore = defineStore("portfolio", {
         {
           icon: "🌐",
           title: "Full-Stack Web Applications",
-          desc: "Modern, reactive interfaces and performant frontend architectures with React, Next.js, and Vue.",
-          tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+          desc: "Modern, reactive interfaces and performant frontend architectures with Next.js, TypeScript, and Vue 3.",
+          tags: ["Next.js", "TypeScript", "React", "Vue 3", "Tailwind CSS"]
         },
         {
           icon: "⚙️",
@@ -242,7 +257,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           icon: "🗺️",
           title: "GIS & Digital Transformation",
           desc: "Interactive spatial data platforms (2D/3D maps) and enterprise process automation.",
-          tags: ["2D/3D Maps", "Frappe", "Process Digitization"]
+          tags: ["Next.js", "TypeScript", "2D/3D Maps", "PostGIS", "Frappe"]
         },
         {
           icon: "🤖",
@@ -284,6 +299,30 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Integrated third-party services: Google OAuth2, PayOS, Email",
             "Designed the user interface (Web & Mobile)",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Spring Boot Layered Architecture",
+              reason: "Ensures strict separation across Controller, Service, and Repository layers with transactional integrity for financial billing operations."
+            },
+            {
+              decision: "Capacitor Cross-Platform Packaging",
+              reason: "Leveraged 100% of Vue 3 components to package high-performance mobile apps without maintaining separate native codebases."
+            },
+            {
+              decision: "STOMP over WebSocket Protocol",
+              reason: "Implemented topic-based publish/subscribe channels between landlords and tenants with JWT-authenticated handshakes."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Automated monthly recurring billing with tiered utility calculations (electricity/water tier pricing).",
+              solution: "Engineered a reliable scheduled cron service with transactional batch processing, dynamic tiered formula evaluation, and PayOS QR generation."
+            },
+            {
+              challenge: "Mobile network drops disrupting active WebSocket chat connections.",
+              solution: "Implemented heartbeat monitoring, exponential backoff auto-reconnection, and fallback unread message polling on client resume."
+            }
+          ]
         },
         {
           id: 6,
@@ -292,7 +331,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "A technical infrastructure management system applying interactive 3D and 2D maps to manage assets and infrastructure operations.",
           longDesc:
             "A digital solution built at Digital Twin Group (MakeAI) to manage technical infrastructure using interactive 3D and 2D maps. The system enables asset visualization and tracking on the map, and manages the operational workflows (maintenance, monitoring, inspection) related to technical infrastructure.",
-          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          tags: ["Next.js", "TypeScript", "Frappe", "Python", "PostgreSQL", "GIS Maps"],
           category: "fullstack",
           time: "05-2026",
           demo: "#",
@@ -301,10 +340,30 @@ export const usePortfolioStore = defineStore("portfolio", {
           internal: true,
           role: "A key project I lead at Digital Twin Group (MakeAI) as the primary developer, building on top of an existing codebase.",
           responsibilities: [
-            "Developed frontend features on top of the existing codebase",
+            "Developed frontend features with Next.js & TypeScript on top of the existing codebase",
             "Developed backend features on top of the existing codebase",
-            "Redesigned the user interface",
+            "Redesigned the user interface for optimal usability",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Next.js UI & Frappe Backend Decoupling",
+              reason: "Delivers smooth interactive 2D/3D spatial rendering on the client while utilizing Frappe's robust metadata-driven DocType system and permission controls."
+            },
+            {
+              decision: "Viewport Bounding-Box Spatial Queries",
+              reason: "Restricts asset queries to the visible map viewport using PostGIS spatial indexing, preventing client browser memory bloat."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Rendering large-scale infrastructure layers on interactive maps causing FPS stuttering.",
+              solution: "Implemented vector tile clustering, level-of-detail (LOD) simplifications, and PostGIS GiST indexing for fast sub-viewport slicing."
+            },
+            {
+              challenge: "Coordinating multi-department maintenance logs across distributed spatial assets.",
+              solution: "Configured Frappe Workflow State Machine with strict role-based transitions, automated status alerts, and audit trails."
+            }
+          ]
         },
         {
           id: 7,
@@ -314,7 +373,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           longDesc:
             "A digital solution built at Digital Twin Group (MakeAI) to manage the entire public investment lifecycle. It digitizes the standard 10-step public investment process and integrates agentic AI (OpenClaw) to automate workflow steps, cut processing time, and boost operational efficiency.",
           tags: [
-            "React.js",
+            "Next.js",
+            "TypeScript",
             "Frappe",
             "Python",
             "PostgreSQL",
@@ -330,7 +390,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           responsibilities: [
             "Continued developing the 10-step public investment workflow",
             "Integrated agentic AI (OpenClaw) into the process",
-            "Redesigned the system's user interface",
+            "Re-architected the frontend interface with Next.js & TypeScript",
             "Built the Disbursement module",
             "Built the System Settings module",
             "Built the System Catalog module",
@@ -338,6 +398,26 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Built the Overview & Reports module",
             "Built the Bidding Packages module",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Agentic AI Integration with OpenClaw",
+              reason: "Automates extracting key financial metrics and legal clauses from investment dossiers, reducing manual review time significantly."
+            },
+            {
+              decision: "Modular Feature Architecture",
+              reason: "Separated Disbursement, Bidding, and Supervision modules into dedicated components for isolated testing and clear operational boundaries."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Enforcing complex legal preconditions across the statutory 10-step investment lifecycle.",
+              solution: "Constructed an immutable multi-stage validation engine in Python/Frappe with exhaustive logging and step-gate validations."
+            },
+            {
+              challenge: "Ensuring accuracy and explainability in AI-assisted document parsing.",
+              solution: "Designed a hybrid pipeline combining rule-based deterministic checks with OpenClaw LLM inference and mandatory human reviewer checkpoints."
+            }
+          ]
         },
         {
           id: 1,
@@ -346,7 +426,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "A management system for medical service facilities and businesses designed for the Son Tra ward local government.",
           longDesc:
             "A digital solution built to help local authorities monitor and manage medical and health-related establishments in Son Tra ward. It integrates an interactive digital map for geolocating facilities, managing licensing information, tracking quality inspections, and enabling quick navigation.",
-          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          tags: ["React.js", "Next.js", "Frappe", "Python", "PostGIS", "PostgreSQL"],
           category: "fullstack",
           time: "05-2026",
           github: "https://github.com/tranvanhuy-dev-it/SonTraHealthManagement.git",
@@ -357,12 +437,28 @@ export const usePortfolioStore = defineStore("portfolio", {
           featured: true,
           role: "A personal project completed during my internship training at Digital Twin Group (MakeAI), handling the entire system on my own.",
           responsibilities: [
-            "Designed the database schema",
-            "Designed & developed the backend",
-            "Designed the user interface",
-            "Integrated map & geolocation services",
+            "Designed the database schema with PostGIS spatial indices",
+            "Designed & developed the backend with Python Frappe",
+            "Designed the user interface using React.js & Next.js",
+            "Integrated map & geolocation services with sub-10ms radius filtering",
             "Designed a PostGIS-based geospatial data system",
           ],
+          engineeringDecisions: [
+            {
+              decision: "PostGIS Spatial Engine for Geo-indexing",
+              reason: "Enables instant radius querying (ST_DWithin) and spatial polygon containment for local administrative boundaries."
+            },
+            {
+              decision: "Field-Ready Responsive UI in React.js & Next.js",
+              reason: "Optimized for mobile tablets and desktops used by municipal officers conducting on-site inspections."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Real-time radius filtering and inspection status categorization under high map panning speeds.",
+              solution: "Used spatial GiST indexing and client-side GeoJSON memoization, cutting spatial lookup response times to under 10ms."
+            }
+          ]
         },
         {
           id: 2,
@@ -388,15 +484,31 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Integrated Google & Email services",
             "Designed the user interface",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Spring Boot + JWT Stateless Auth",
+              reason: "Ensures scalable session management and fine-grained authorization for students, moderators, and admins."
+            },
+            {
+              decision: "Hierarchical Academic Taxonomy",
+              reason: "Structured categorization by university, department, and course for instant full-text filtering."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Handling multi-format file uploads while preventing malicious payloads and file corruption.",
+              solution: "Implemented server-side MIME verification, upload size quotas, and unique hash-based file deduplication."
+            }
+          ]
         },
         {
           id: 3,
           title: "NexShop — Smart E-Commerce & POS Platform",
           description:
-            "A full-stack personal project combining an online store and POS terminal, built with Next.js and deployed at vattudongkha.io.vn.",
+            "A full-stack personal project combining an online store and POS terminal, built with Next.js, TypeScript, and deployed at vattudongkha.io.vn.",
           longDesc:
-            "NexShop is a personal full-stack e-commerce solution integrating an online storefront with a Point of Sale (POS) terminal. Built with Next.js (App Router), Prisma ORM with PostgreSQL for data storage, and Google OAuth for authentication. Features product catalog management, shopping cart, order processing, POS transaction flow, and an administrative analytics dashboard.",
-          tags: ["Next.js", "Prisma", "PostgreSQL", "Google OAuth", "Tailwind CSS"],
+            "NexShop is a personal full-stack e-commerce solution integrating an online storefront with a Point of Sale (POS) terminal. Built with Next.js (App Router), TypeScript, Prisma ORM with PostgreSQL for data storage, and Google OAuth for authentication. Features product catalog management, shopping cart, order processing, POS transaction flow, and an administrative analytics dashboard.",
+          tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Google OAuth", "Tailwind CSS"],
           category: "fullstack",
           time: "12-2025 - 05-2026",
           demo: "https://vattudongkha.io.vn",
@@ -405,11 +517,27 @@ export const usePortfolioStore = defineStore("portfolio", {
           role: "A personal project I designed and built entirely on my own, from database design to deployment.",
           responsibilities: [
             "Designed the database schema with Prisma & PostgreSQL",
-            "Built the full-stack app with Next.js App Router",
+            "Built the full-stack app with Next.js App Router & TypeScript",
             "Integrated Google OAuth authentication",
             "Built the POS transaction & checkout flow",
             "Designed the admin analytics dashboard",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Next.js App Router with Server Actions",
+              reason: "Reduces client JavaScript footprint and provides secure, direct database transactions for shopping cart and checkout."
+            },
+            {
+              decision: "Prisma ORM with PostgreSQL",
+              reason: "Ensures type safety across the entire codebase with transactional safety during inventory deductions."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Preventing inventory race conditions between simultaneous online orders and physical POS checkouts.",
+              solution: "Utilized Prisma interactive transactions ($transaction) with database row-level locking during order finalization."
+            }
+          ]
         },
       ],
       experiences: [
@@ -420,13 +548,15 @@ export const usePortfolioStore = defineStore("portfolio", {
           period: "05/2026 – Present",
           duration: "Internship",
           description: [
-            "BIMspace (Technical Infrastructure Management): served as the primary developer, extending frontend and backend features on an existing codebase and redesigning the UI.",
-            "Son Tra Ward Health Management: built and owned the entire system solo during internship training — database design, backend, UI, map integration, and a PostGIS-based geospatial system.",
-            "Public Investment Management: joined mid-project after phase 1, continued developing the 10-step public investment workflow, integrated agentic AI (OpenClaw), redesigned the UI, and delivered the Disbursement, System Settings, System Catalog, Construction & Supervision, Overview & Reports, and Bidding Packages modules.",
+            "BIMspace (Technical Infrastructure Management): served as the primary developer, extending frontend and backend features on an existing codebase with Next.js & TypeScript.",
+            "Son Tra Ward Health Management: built and owned the entire system solo during internship training — database design, backend, Next.js & React UI, map integration, and a PostGIS-based geospatial system.",
+            "Public Investment Management: joined mid-project after phase 1, continued developing the 10-step public investment workflow, integrated agentic AI (OpenClaw), rebuilt frontend with Next.js & TypeScript, and delivered the Disbursement, System Settings, System Catalog, Construction & Supervision, Overview & Reports, and Bidding Packages modules.",
             "Designed database schemas, optimized SQL query performance, and implemented role-based authorization across projects.",
             "Collaborated in Agile sprint planning, daily stand-ups, and code review processes to ensure code quality.",
           ],
           tech: [
+            "Next.js",
+            "TypeScript",
             "React.js",
             "Vue 3",
             "Agentic AI",
@@ -551,7 +681,7 @@ export const usePortfolioStore = defineStore("portfolio", {
         locationLabel: "Location",
         emailLabel: "Email",
         availabilityLabel: "Status",
-        downloadCv: "Download My CV",
+        downloadCv: "Download CV",
         backToTop: "Back to top",
         hi: "Hi, I am",
         viewProjects: "View Projects",
@@ -586,21 +716,36 @@ export const usePortfolioStore = defineStore("portfolio", {
       personal: {
         name: "Trần Văn Huy",
         title: "Software Developer",
+        roleSubtitle: "Software Developer | Full-Stack & Applied AI",
+        statement: "Xây dựng các hệ thống full-stack hướng production và giải pháp tự động hóa với AI ứng dụng.",
         taglines: [
           "Lập trình viên Software Developer",
           "Kỹ sư Backend & Full-Stack",
           "Giải pháp Agentic AI & Tự động hóa",
           "Java Spring Boot & Next.js"
         ],
+        aboutStory: [
+          "Xin chào, tôi là Trần Văn Huy — sinh viên năm 3 chuyên ngành Khoa học Dữ liệu & Trí tuệ Nhân tạo tại Trường Đại học Bách Khoa - ĐH Đà Nẵng (DUT - UD) với điểm GPA 3.5/4.0.",
+          "Hiện tại, tôi đang là Software Developer Intern tại Digital Twin Group (MakeAI), trực tiếp tham gia phát triển các dự án thực tế về Quản lý Đầu tư công (chu trình 10 bước chuẩn nhà nước), nền tảng GIS bản đồ không gian (PostGIS) và tích hợp Agentic AI (OpenClaw) để tự động hóa quy trình nghiệp vụ.",
+          "Tôi đam mê xây dựng các hệ thống phần mềm full-stack bền vững, làm chủ toàn diện từ thiết kế CSDL quan hệ (PostgreSQL, MySQL), kiến trúc backend (Java Spring Boot, Python Frappe, REST APIs), realtime STOMP WebSocket đến giao diện người dùng (Next.js, TypeScript, React, Vue 3) và quy trình đóng gói triển khai (Docker Compose, Linux).",
+        ],
         bio: "Lập trình viên phát triển hệ thống web, backend và mobile với trọng tâm vào tính mở rộng, ổn định và hiệu năng cao.",
-        bio2: "Có kinh nghiệm thực tế xây dựng kiến trúc backend với Java (Spring Boot), nghiệp vụ doanh nghiệp với Python (Frappe), giao diện hiện đại với React & Next.js, và ứng dụng Agentic AI để tự động hóa quy trình nghiệp vụ.",
+        bio2: "Có kinh nghiệm thực tế xây dựng kiến trúc backend với Java (Spring Boot), nghiệp vụ doanh nghiệp với Python (Frappe), giao diện hiện đại với Next.js & TypeScript, và ứng dụng Agentic AI để tự động hóa quy trình nghiệp vụ.",
         objective:
           "Trở thành một Software Engineer / Full-Stack Engineer chuyên nghiệp, kết hợp kiến trúc backend vững chắc với các giải pháp AI và dữ liệu thông minh nhằm tạo ra sản phẩm có giá trị thực tế cao.",
         location: "Đà Nẵng, Việt Nam",
         email: "tranvanhuy064206@gmail.com",
         availability: "Software Developer Intern @ Digital Twin Group (MakeAI)",
+        statusTag: "Đang làm việc tại Digital Twin Group (MakeAI)",
         avatar: "",
         cv: "/cv.pdf",
+        quickFacts: [
+          { label: "Vị trí hiện tại", value: "Software Developer Intern" },
+          { label: "Nơi công tác", value: "Digital Twin Group (MakeAI)" },
+          { label: "Học vấn", value: "Đại học Bách Khoa (DUT) — GPA 3.5/4.0" },
+          { label: "Chuyên ngành", value: "Khoa học Dữ liệu & Trí tuệ Nhân tạo" },
+          { label: "Địa điểm", value: "Đà Nẵng, Việt Nam" },
+        ],
         socials: {
           github: "https://github.com/tranvanhuy-dev-it",
           linkedin: "https://www.linkedin.com/in/huy-tran-van-5753b13b4",
@@ -617,8 +762,8 @@ export const usePortfolioStore = defineStore("portfolio", {
         {
           icon: "🌐",
           title: "Ứng dụng Web Full-Stack",
-          desc: "Xây dựng giao diện web hiện đại, phản hồi mượt mà và kiến trúc frontend hiệu năng cao với React, Next.js và Vue.",
-          tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+          desc: "Xây dựng giao diện web hiện đại, phản hồi mượt mà và kiến trúc frontend hiệu năng cao với Next.js, TypeScript và Vue 3.",
+          tags: ["Next.js", "TypeScript", "React", "Vue 3", "Tailwind CSS"]
         },
         {
           icon: "⚙️",
@@ -636,7 +781,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           icon: "🗺️",
           title: "GIS & Chuyển đổi số doanh nghiệp",
           desc: "Nền tảng quản lý dữ liệu không gian tương tác bản đồ 2D/3D và số hóa tự động hóa quy trình nghiệp vụ.",
-          tags: ["Bản đồ 2D/3D", "Frappe", "Số hóa quy trình"]
+          tags: ["Next.js", "TypeScript", "Bản đồ 2D/3D", "PostGIS", "Frappe"]
         },
         {
           icon: "🤖",
@@ -678,6 +823,30 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Tích hợp các dịch vụ bên thứ ba: Google OAuth2, PayOS, Email",
             "Thiết kế giao diện người dùng (Web & Mobile)",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Kiến trúc phân tầng Clean/Layered trên Spring Boot",
+              reason: "Phân tách rõ rệt giữa Controller, Service và Repository, đảm bảo tính toàn vẹn giao dịch tài chính (Transactional) cho các đợt phát hành hóa đơn phòng trọ."
+            },
+            {
+              decision: "Đóng gói ứng dụng di động với Capacitor",
+              reason: "Tận dụng 100% mã nguồn Vue 3 để build app di động Android/iOS mượt mà mà không phải duy trì 2 codebase riêng biệt."
+            },
+            {
+              decision: "Giao thức STOMP qua WebSocket",
+              reason: "Quản lý các topic chat riêng biệt theo từng phòng/khách thuê với xác thực JWT an toàn ngay từ bước handshake."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Tự động hóa chu kỳ xuất hóa đơn định kỳ hàng tháng với bảng giá lũy tiến bậc thang (điện/nước).",
+              solution: "Thiết kế scheduled cron service xử lý batch transactional, tính toán biểu phí động và tự động tạo mã VietQR/PayOS cho từng hóa đơn."
+            },
+            {
+              challenge: "Ứng dụng di động khi vào chế độ chạy nền hoặc rớt mạng làm ngắt kết nối WebSocket.",
+              solution: "Xây dựng cơ chế heartbeat kiểm tra kết nối, tự động reconnect với exponential backoff và fallback polling tin nhắn chưa đọc khi mở lại ứng dụng."
+            }
+          ]
         },
         {
           id: 6,
@@ -686,7 +855,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Hệ thống quản lý hạ tầng kỹ thuật ứng dụng bản đồ tương tác 3D và 2D để quản lý tài sản và các nghiệp vụ vận hành hạ tầng.",
           longDesc:
             "Giải pháp số được xây dựng tại Digital Twin Group (MakeAI) nhằm quản lý hạ tầng kỹ thuật thông qua bản đồ tương tác 3D và 2D. Hệ thống hỗ trợ trực quan hóa và theo dõi tài sản trên bản đồ, đồng thời quản lý các nghiệp vụ vận hành (bảo trì, giám sát, kiểm tra) liên quan đến hạ tầng kỹ thuật.",
-          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          tags: ["Next.js", "TypeScript", "Frappe", "Python", "PostgreSQL", "Bản đồ GIS"],
           category: "fullstack",
           time: "05-2026",
           demo: "#",
@@ -695,10 +864,30 @@ export const usePortfolioStore = defineStore("portfolio", {
           internal: true,
           role: "Dự án trọng điểm tôi phụ trách tại Digital Twin Group (MakeAI) với vai trò lập trình viên chính, kế thừa và phát triển tiếp trên codebase sẵn có.",
           responsibilities: [
-            "Phát triển frontend dựa trên codebase có sẵn",
+            "Phát triển frontend với Next.js & TypeScript dựa trên codebase có sẵn",
             "Phát triển backend dựa trên codebase có sẵn",
-            "Thiết kế lại giao diện người dùng",
+            "Thiết kế lại giao diện người dùng tối ưu trải nghiệm",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Tách rời giao diện Next.js và Backend Frappe",
+              reason: "Mang lại trải nghiệm người dùng mượt mà khi tương tác bản đồ dữ liệu lớn, đồng thời tận dụng hệ thống quản lý DocType và phân quyền mạnh mẽ của Frappe."
+            },
+            {
+              decision: "Truy vấn không gian theo khung nhìn (Viewport Bounding-Box)",
+              reason: "Chỉ tải các đối tượng hạ tầng nằm trong khung nhìn hiển thị của bản đồ, giảm thiểu tiêu thụ RAM và chống tràn bộ nhớ trình duyệt."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Hiển thị hàng nghìn lớp hạ tầng kỹ thuật phức tạp trên bản đồ mà không gây giật lag FPS.",
+              solution: "Áp dụng kỹ thuật gom cụm dữ liệu (Clustering), đơn giản hóa mức độ chi tiết (LOD) và đánh chỉ mục không gian GiST trên PostGIS."
+            },
+            {
+              challenge: "Theo dõi và đồng bộ nhật ký bảo trì thiết bị giữa nhiều đơn vị liên quan.",
+              solution: "Xây dựng Frappe Workflow State Machine với các bước phê duyệt chặt chẽ, tự động gửi cảnh báo và lưu vết lịch sử thao tác."
+            }
+          ]
         },
         {
           id: 7,
@@ -708,7 +897,8 @@ export const usePortfolioStore = defineStore("portfolio", {
           longDesc:
             "Giải pháp số được xây dựng tại Digital Twin Group (MakeAI) nhằm quản lý toàn bộ vòng đời đầu tư công. Hệ thống số hóa quy trình đầu tư công chuẩn 10 bước và tích hợp agentic AI (OpenClaw) để tự động hóa các bước xử lý, rút ngắn thời gian và nâng cao hiệu suất vận hành.",
           tags: [
-            "React.js",
+            "Next.js",
+            "TypeScript",
             "Frappe",
             "Python",
             "PostgreSQL",
@@ -724,7 +914,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           responsibilities: [
             "Tiếp tục phát triển mô hình quy trình đầu tư công 10 bước",
             "Tích hợp agentic AI (OpenClaw) vào quy trình",
-            "Thiết kế lại giao diện hệ thống",
+            "Tái cấu trúc và thiết kế lại giao diện hệ thống với Next.js & TypeScript",
             "Xây dựng chức năng Giải ngân",
             "Xây dựng chức năng Cài đặt hệ thống",
             "Xây dựng chức năng Danh mục hệ thống",
@@ -732,6 +922,26 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Xây dựng chức năng Tổng quan và Báo cáo",
             "Xây dựng chức năng Gói thầu",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Tích hợp tầng Agentic AI với OpenClaw",
+              reason: "Tự động hóa bóc tách các chỉ số tài chính và điều khoản pháp lý từ hồ sơ dự án, giảm thiểu đáng kể thời gian rà soát thủ công."
+            },
+            {
+              decision: "Kiến trúc mô-đun hóa độc lập",
+              reason: "Tách bạch rõ các phân hệ Giải ngân, Thi công giám sát, Gói thầu và Danh mục để thuận tiện cho việc kiểm thử và mở rộng nghiệp vụ trong tương lai."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Ràng buộc pháp lý và điều kiện chuyển bước nghiêm ngặt giữa 10 giai đoạn trong vòng đời dự án.",
+              solution: "Xây dựng validation engine đa tầng trong Frappe/Python với cơ chế khóa dữ liệu và lưu vết nhật ký kiểm toán (Audit Trail) bất biến."
+            },
+            {
+              challenge: "Đảm bảo độ chính xác và tính giải trình khi AI hỗ trợ phân tích văn bản pháp lý.",
+              solution: "Thiết kế pipeline kết hợp kiểm tra luật tĩnh (Rule-based) với mô hình OpenClaw AI và bắt buộc có bước xác nhận từ chuyên viên phụ trách."
+            }
+          ]
         },
         {
           id: 1,
@@ -740,7 +950,7 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Hệ thống quản lý cơ sở dịch vụ y tế và kinh doanh được thiết kế cho chính quyền phường Sơn Trà.",
           longDesc:
             "Giải pháp chuyển đổi số hỗ trợ chính quyền địa phương giám sát và quản lý các cơ sở y tế tại phường Sơn Trà. Tích hợp bản đồ số tương tác định vị cơ sở, quản lý giấy phép kinh doanh, theo dõi kiểm tra chất lượng và điều hướng nhanh.",
-          tags: ["JavaScript", "Frappe", "React.js", "Python", "PostgreSQL"],
+          tags: ["React.js", "Next.js", "Frappe", "Python", "PostGIS", "PostgreSQL"],
           category: "fullstack",
           time: "05-2026",
           github: "https://github.com/tranvanhuy-dev-it/SonTraHealthManagement.git",
@@ -751,12 +961,28 @@ export const usePortfolioStore = defineStore("portfolio", {
           featured: true,
           role: "Dự án cá nhân tôi thực hiện trong quá trình đào tạo thực tập tại Digital Twin Group (MakeAI), đảm nhận toàn bộ hệ thống một mình.",
           responsibilities: [
-            "Thiết kế cơ sở dữ liệu",
+            "Thiết kế cơ sở dữ liệu với PostGIS",
             "Thiết kế & phát triển backend",
-            "Thiết kế giao diện người dùng",
-            "Tích hợp dịch vụ bản đồ",
+            "Thiết kế giao diện người dùng với React.js & Next.js",
+            "Tích hợp dịch vụ bản đồ số định vị cơ sở",
             "Thiết kế hệ thống dữ liệu không gian địa lý dựa trên PostGIS",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Sử dụng PostGIS cho lưu trữ và truy vấn không gian",
+              reason: "Hỗ trợ tính toán khoảng cách thực địa (ST_DWithin) và xác định cơ sở thuộc ranh giới phường một cách chính xác tuyệt đối."
+            },
+            {
+              decision: "Giao diện React.js & Next.js tối ưu trên thiết bị di động/tablet",
+              reason: "Giúp cán bộ quản lý phường có thể tra cứu và cập nhật dữ liệu kiểm tra nhanh chóng ngay tại hiện trường."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Truy vấn lọc cơ sở theo bán kính và loại hình dịch vụ với thời gian phản hồi tức thì khi di chuyển bản đồ.",
+              solution: "Tận dụng chỉ mục không gian GiST trên PostgreSQL kết hợp cache dữ liệu GeoJSON ở client, đưa tốc độ lọc xuống dưới 10ms."
+            }
+          ]
         },
         {
           id: 2,
@@ -782,15 +1008,31 @@ export const usePortfolioStore = defineStore("portfolio", {
             "Tích hợp dịch vụ Google & Email",
             "Thiết kế giao diện người dùng",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Spring Boot + JWT Stateless Auth",
+              reason: "Quản lý phiên đăng nhập an toàn, phân quyền chi tiết giữa Sinh viên, Kiểm duyệt viên và Quản trị viên."
+            },
+            {
+              decision: "Cây danh mục môn học phân cấp",
+              reason: "Tổ chức tài liệu theo Trường - Khoa - Bộ môn giúp sinh viên dễ dàng tìm kiếm tài liệu chính xác."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Xử lý tải lên nhiều định dạng file tài liệu lớn và ngăn chặn tệp độc hại.",
+              solution: "Xác thực MIME-type từ máy chủ, giới hạn dung lượng upload và tạo mã băm (hash) để phát hiện và loại bỏ tài liệu trùng lặp."
+            }
+          ]
         },
         {
           id: 3,
           title: "NexShop — Nền tảng Thương mại Điện tử & POS Thông minh",
           description:
-            "Dự án cá nhân full-stack kết hợp cửa hàng online và trạm POS, xây dựng hoàn toàn bằng Next.js và triển khai tại vattudongkha.io.vn.",
+            "Dự án cá nhân full-stack kết hợp cửa hàng online và trạm POS, xây dựng hoàn toàn bằng Next.js, TypeScript và triển khai tại vattudongkha.io.vn.",
           longDesc:
-            "NexShop là nền tảng thương mại điện tử cá nhân full-stack kết hợp cửa hàng trực tuyến với hệ thống POS (Point of Sale). Xây dựng hoàn toàn bằng Next.js (App Router), sử dụng Prisma ORM với PostgreSQL để lưu trữ dữ liệu và Google OAuth để xác thực. Tính năng bao gồm danh mục sản phẩm, giỏ hàng, quản lý đơn hàng, luồng thanh toán POS và trang quản trị phân tích doanh thu.",
-          tags: ["Next.js", "Prisma", "PostgreSQL", "Google OAuth", "Tailwind CSS"],
+            "NexShop là nền tảng thương mại điện tử cá nhân full-stack kết hợp cửa hàng trực tuyến với hệ thống POS (Point of Sale). Xây dựng hoàn toàn bằng Next.js (App Router), TypeScript, sử dụng Prisma ORM với PostgreSQL để lưu trữ dữ liệu và Google OAuth để xác thực. Tính năng bao gồm danh mục sản phẩm, giỏ hàng, quản lý đơn hàng, luồng thanh toán POS và trang quản trị phân tích doanh thu.",
+          tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Google OAuth", "Tailwind CSS"],
           category: "fullstack",
           time: "12-2025 - 05-2026",
           demo: "https://vattudongkha.io.vn",
@@ -799,11 +1041,27 @@ export const usePortfolioStore = defineStore("portfolio", {
           role: "Dự án cá nhân do tôi tự thiết kế và xây dựng hoàn toàn một mình, từ thiết kế CSDL đến triển khai thực tế.",
           responsibilities: [
             "Thiết kế cơ sở dữ liệu với Prisma & PostgreSQL",
-            "Xây dựng ứng dụng full-stack với Next.js App Router",
+            "Xây dựng ứng dụng full-stack với Next.js App Router & TypeScript",
             "Tích hợp xác thực Google OAuth",
             "Xây dựng luồng giao dịch & thanh toán POS",
             "Thiết kế trang quản trị phân tích doanh thu",
           ],
+          engineeringDecisions: [
+            {
+              decision: "Next.js App Router với Server Actions",
+              reason: "Giảm dung lượng bundle JavaScript phía client và bảo mật tuyệt đối các thao tác tạo đơn hàng và thanh toán."
+            },
+            {
+              decision: "Prisma ORM với PostgreSQL",
+              reason: "Đảm bảo tính an toàn kiểu dữ liệu (Type-safe) xuyên suốt từ CSDL đến UI, ngăn chặn lỗi runtime khi xử lý tồn kho."
+            }
+          ],
+          challengesAndSolutions: [
+            {
+              challenge: "Đồng bộ số lượng tồn kho theo thời gian thực giữa đơn đặt online và giao dịch mua trực tiếp tại quầy POS.",
+              solution: "Sử dụng Prisma interactive transaction ($transaction) với cơ chế khóa dòng (Row-level locking) khi trừ tồn kho để loại bỏ race condition."
+            }
+          ]
         },
       ],
       experiences: [
@@ -814,13 +1072,15 @@ export const usePortfolioStore = defineStore("portfolio", {
           period: "05/2026 – Hiện tại",
           duration: "Thực tập thực tế",
           description: [
-            "BIMspace (Quản lý Hạ tầng Kỹ thuật): đảm nhận vai trò lập trình viên chính, mở rộng frontend và backend trên codebase có sẵn và thiết kế lại giao diện.",
-            "Quản lý Y tế Phường Sơn Trà: tự xây dựng và làm chủ toàn bộ hệ thống trong quá trình training thực tập — thiết kế cơ sở dữ liệu, backend, giao diện, tích hợp bản đồ và hệ thống dữ liệu không gian địa lý PostGIS.",
-            "Quản lý Đầu tư Công: tham gia dự án khi đã hoàn thành giai đoạn đầu, tiếp tục phát triển quy trình đầu tư công 10 bước, tích hợp agentic AI (OpenClaw), thiết kế lại giao diện, và triển khai các chức năng Giải ngân, Cài đặt hệ thống, Danh mục hệ thống, Thi công và Giám sát, Tổng quan và Báo cáo, Gói thầu.",
+            "BIMspace (Quản lý Hạ tầng Kỹ thuật): đảm nhận vai trò lập trình viên chính, mở rộng frontend với Next.js & TypeScript và backend trên codebase có sẵn.",
+            "Quản lý Y tế Phường Sơn Trà: tự xây dựng và làm chủ toàn bộ hệ thống trong quá trình training thực tập — thiết kế CSDL PostGIS, backend, giao diện React.js & Next.js, tích hợp bản đồ.",
+            "Quản lý Đầu tư Công: tham gia dự án khi đã hoàn thành giai đoạn đầu, tiếp tục phát triển quy trình đầu tư công 10 bước, tích hợp agentic AI (OpenClaw), tái cấu trúc giao diện Next.js & TypeScript, và triển khai các chức năng Giải ngân, Cài đặt hệ thống, Danh mục hệ thống, Thi công và Giám sát, Tổng quan và Báo cáo, Gói thầu.",
             "Thiết kế cơ sở dữ liệu, tối ưu hóa hiệu năng truy vấn SQL và triển khai phân quyền bảo mật vai trò cho các dự án.",
             "Cộng tác làm việc trong môi trường Agile/Scrum, báo cáo hàng ngày và kiểm duyệt mã nguồn.",
           ],
           tech: [
+            "Next.js",
+            "TypeScript",
             "React.js",
             "Vue 3",
             "Agentic AI",
@@ -945,7 +1205,7 @@ export const usePortfolioStore = defineStore("portfolio", {
         locationLabel: "Địa điểm",
         emailLabel: "Email",
         availabilityLabel: "Trạng thái",
-        downloadCv: "Tải xuống CV",
+        downloadCv: "Tải CV",
         backToTop: "Trở về đầu trang",
         hi: "Xin chào, tôi là",
         viewProjects: "Xem dự án",

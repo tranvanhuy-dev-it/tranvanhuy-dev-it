@@ -16,7 +16,7 @@
           <div class="inline-flex items-center mb-3 max-w-full">
             <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium bg-blue-600/10 border border-blue-500/20 text-blue-400 leading-none">
               <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-              <span class="whitespace-nowrap">{{ store.personal.availability }}</span>
+              <span class="whitespace-nowrap">{{ store.personal.statusTag || store.personal.availability }}</span>
             </span>
           </div>
 
@@ -36,36 +36,29 @@
             </span>
           </div>
 
-          <!-- Consolidated Rich Bio & Career Objective -->
-          <div class="mt-3.5 sm:mt-4 space-y-2 text-slate-300 light:text-slate-600 text-xs sm:text-sm leading-relaxed max-w-2xl min-w-0 w-full break-words">
+          <!-- Punchy Value Proposition Statement (5-10s Recruiter Impression) -->
+          <div class="mt-3.5 sm:mt-4 text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl min-w-0 w-full break-words font-medium">
             <p class="break-words">
-              {{ store.locale === 'vi' 
-                  ? 'Tôi là sinh viên năm 3 ngành Công nghệ Thông tin (Khoa học Dữ liệu & AI) tại Trường Đại học Bách Khoa – ĐH Đà Nẵng (GPA 3.5/4.0), đồng thời là Lập trình viên tại Digital Twin Group (MakeAI). Chuyên sâu về kiến trúc Java (Spring Boot), React & Next.js, framework Python (Frappe), và tích hợp Agentic AI (OpenClaw) vào tự động hóa quy trình nghiệp vụ số.' 
-                  : 'I am a 3rd-year Information Technology student (Data Science & AI) at Da Nang University of Technology (GPA 3.5/4.0), and a Software Developer at Digital Twin Group (MakeAI). Focused on Java (Spring Boot), React & Next.js, Python (Frappe), and Agentic AI workflow automation.' 
+              {{ store.personal.statement || (store.locale === 'vi' 
+                  ? 'Xây dựng các hệ thống full-stack hướng production và giải pháp tự động hóa với AI ứng dụng.' 
+                  : 'Building production-oriented full-stack systems and practical AI-powered automation.') 
               }}
-            </p>
-            <p class="text-slate-300 light:text-slate-600 break-words">
-              <strong class="text-white light:text-slate-900 font-semibold">{{ store.locale === 'vi' ? 'Mục tiêu nghề nghiệp:' : 'Career Objective:' }}</strong>
-              {{ ' ' + store.personal.objective }}
             </p>
           </div>
 
-          <!-- Quick Highlight Badges (Ultra compact on mobile to stay in 1 clean row) -->
-          <div class="mt-4 flex flex-nowrap sm:flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono max-w-full overflow-x-auto no-scrollbar">
-            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span>🎓</span>
-              <span class="sm:hidden">DUT 3.5</span>
-              <span class="hidden sm:inline">DUT — GPA 3.5/4.0</span>
+          <!-- Quick Highlight Badges (DUT GPA 3.5, MakeAI, Da Nang) -->
+          <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono max-w-full">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span>Digital Twin Group (MakeAI)</span>
             </span>
-            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span>🏢</span>
-              <span class="sm:hidden">MakeAI</span>
-              <span class="hidden sm:inline">Digital Twin Group (MakeAI)</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+              <span>DUT · GPA 3.5/4.0</span>
             </span>
-            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
-              <span>📍</span>
-              <span class="sm:hidden">Đà Nẵng</span>
-              <span class="hidden sm:inline">Đà Nẵng, Việt Nam</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>{{ store.locale === 'vi' ? 'Đà Nẵng, Việt Nam' : 'Da Nang, Vietnam' }}</span>
             </span>
           </div>
 

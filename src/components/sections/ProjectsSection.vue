@@ -2,23 +2,25 @@
   <section id="projects" class="relative py-7 sm:py-20 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
-        :title="store.ui.projectsTitle || 'Projects'"
-        :subtitle="store.ui.projectsSubtitle || 'My Work'"
-        :description="store.ui.projectsDesc || 'A selection of key projects I have built'"
+        :title="store.ui.projectsTitle || 'Featured Projects'"
+        :subtitle="store.ui.projectsSubtitle || 'Engineering Portfolio'"
+        :description="store.ui.projectsDesc || 'Architecture-driven full-stack systems, enterprise workflows, and AI solutions'"
       />
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-start gap-1.5 sm:gap-2 mb-3.5 sm:mb-8 fade-up">
+      <div class="flex flex-wrap justify-start gap-1.5 sm:gap-2 mb-5 sm:mb-8 fade-up">
         <button
           v-for="f in filters"
           :key="f.value"
-          class="px-2.5 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150 cursor-pointer"
-          :class="store.projectFilter === f.value ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-800/70 hover:bg-slate-800 text-slate-300 border border-slate-700/80 light:bg-white light:text-slate-700 light:border-slate-200 light:hover:bg-slate-50'"
+          class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-150 cursor-pointer flex items-center gap-1.5"
+          :class="store.projectFilter === f.value ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-800/70 hover:bg-slate-800 text-slate-300 border border-slate-700/80 light:bg-white light:text-slate-700 light:border-slate-200 light:hover:bg-slate-50'"
           @click="store.setProjectFilter(f.value)"
           :id="`project-filter-${f.value}`"
         >
-          {{ f.label }}
-          <span class="ml-1 text-xs opacity-80 font-mono">({{ getCount(f.value) }})</span>
+          <span>{{ f.label }}</span>
+          <span class="text-[11px] opacity-80 font-mono px-1.5 py-0.2 rounded-md bg-black/20 light:bg-slate-200/60">
+            {{ getCount(f.value) }}
+          </span>
         </button>
       </div>
 
@@ -26,7 +28,7 @@
       <TransitionGroup
         name="project-grid"
         tag="div"
-        class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 mx-auto"
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-7 mx-auto"
       >
         <ProjectCard
           v-for="project in displayedProjects"
@@ -41,16 +43,16 @@
       <!-- View More / Collapse Button -->
       <div
         v-if="store.filteredProjects.length > 2"
-        class="mt-5 sm:mt-10 text-center fade-up"
+        class="mt-6 sm:mt-12 text-center fade-up"
       >
         <button
           @click="showAll = !showAll"
-          class="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/90 hover:border-blue-500/60 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group cursor-pointer"
+          class="inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/90 hover:border-blue-500/60 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group cursor-pointer"
         >
           <span>
             {{ showAll 
-                ? (store.locale === 'vi' ? 'Thu gọn danh sách' : 'Show Less') 
-                : (store.locale === 'vi' ? `Xem thêm tất cả dự án (${store.filteredProjects.length})` : `View All Projects (${store.filteredProjects.length})`) 
+                ? (store.locale === 'vi' ? 'Thu gọn danh sách dự án' : 'Show Less Projects') 
+                : (store.locale === 'vi' ? `Xem toàn bộ ${store.filteredProjects.length} dự án` : `View All ${store.filteredProjects.length} Projects`) 
             }}
           </span>
           <span
@@ -63,8 +65,7 @@
       </div>
 
       <!-- Empty state -->
-      <div v-if="store.filteredProjects.length === 0" class="text-center py-20 text-slate-500">
-        <div class="text-5xl mb-4">📭</div>
+      <div v-if="store.filteredProjects.length === 0" class="text-center py-16 text-slate-500 font-mono text-xs">
         <p>{{ store.locale === 'vi' ? 'Không có dự án nào trong danh mục này.' : 'No projects found in this category.' }}</p>
       </div>
     </div>
@@ -106,12 +107,13 @@ const store = usePortfolioStore()
 const zoomImageUrl = ref(null)
 const showAll = ref(false)
 
-const filters = [
-  { value: 'all', label: 'All' },
-  { value: 'fullstack', label: 'Full-Stack' },
-  { value: 'frontend', label: 'Frontend' },
-  { value: 'backend', label: 'Backend' },
-]
+const filters = computed(() => [
+  { value: 'all', label: store.ui.filterAll || 'All' },
+  { value: 'fullstack', label: store.ui.filterFullstack || 'Full-Stack' },
+  { value: 'enterprise', label: store.ui.filterEnterprise || 'Enterprise' },
+  { value: 'ai', label: store.ui.filterAi || 'AI & Automation' },
+  { value: 'gis', label: store.ui.filterGis || 'GIS & Maps' },
+])
 
 const displayedProjects = computed(() => {
   if (showAll.value) {
@@ -122,26 +124,16 @@ const displayedProjects = computed(() => {
 
 function getCount(filter) {
   if (filter === 'all') return store.projects.length
-  return store.projects.filter(p => p.category === filter).length
+  return store.projects.filter(p => {
+    if (p.categories && Array.isArray(p.categories)) {
+      return p.categories.includes(filter)
+    }
+    return p.category === filter
+  }).length
 }
 </script>
 
 <style scoped>
-.filter-active {
-  background: linear-gradient(135deg, #7c3aed, #06b6d4);
-  color: white;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
-}
-.filter-inactive {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #94a3b8;
-}
-.filter-inactive:hover {
-  border-color: rgba(124, 58, 237, 0.3);
-  color: white;
-}
-
 .project-grid-enter-active,
 .project-grid-leave-active {
   transition: all 0.4s ease;
@@ -153,25 +145,6 @@ function getCount(filter) {
 }
 .project-grid-move {
   transition: transform 0.4s ease;
-}
-
-/* Modal Animation */
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-.modal-enter-active .relative,
-.modal-leave-active .relative {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-}
-.modal-enter-from .relative,
-.modal-leave-to .relative {
-  transform: scale(0.9) translateY(20px);
-  opacity: 0;
 }
 
 /* Lightbox Animation */
