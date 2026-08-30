@@ -10,16 +10,13 @@
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-w-0 w-full">
         
         <!-- Left: Introduction & CTAs (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col text-left fade-left min-w-0 w-full">
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left fade-left min-w-0 w-full">
           
-          <!-- Single clean status badge (1 clean line on both mobile and desktop) -->
+          <!-- Single clean status badge -->
           <div class="inline-flex items-center mb-3 max-w-full">
-            <span class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium bg-blue-600/10 border border-blue-500/20 text-blue-400 leading-none">
+            <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium bg-blue-600/10 border border-blue-500/20 text-blue-400 leading-none">
               <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-              <!-- Compact on mobile: fits in 1 clean line -->
-              <span class="sm:hidden whitespace-nowrap">Intern @ Digital Twin Group (MakeAI)</span>
-              <!-- Full on desktop -->
-              <span class="hidden sm:inline whitespace-nowrap">{{ store.personal.availability }}</span>
+              <span class="whitespace-nowrap">{{ store.personal.availability }}</span>
             </span>
           </div>
 
@@ -29,7 +26,7 @@
           </h1>
 
           <!-- Professional Role Subtitle -->
-          <div class="mt-2 sm:mt-2.5 flex items-center gap-1.5 sm:gap-2 flex-wrap text-sm sm:text-lg lg:text-xl font-medium tracking-tight break-words">
+          <div class="mt-2 sm:mt-2.5 flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-wrap text-sm sm:text-lg lg:text-xl font-medium tracking-tight break-words">
             <span class="text-white light:text-slate-900 font-bold">
               {{ store.locale === 'vi' ? 'Lập trình viên' : 'Software Developer' }}
             </span>
@@ -53,24 +50,24 @@
             </p>
           </div>
 
-          <!-- Quick Highlight Badges -->
-          <div class="mt-3 sm:mt-3.5 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-slate-400 max-w-full">
-            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 whitespace-nowrap flex items-center gap-1">
+          <!-- Quick Highlight Badges (Arranged cleanly in a horizontal row) -->
+          <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs font-mono max-w-full">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
               <span>🎓</span>
               <span>DUT — GPA 3.5/4.0</span>
             </span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 break-all sm:break-normal flex items-center gap-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
               <span>🏢</span>
               <span>Digital Twin Group (MakeAI)</span>
             </span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-850/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-300 light:text-slate-700 whitespace-nowrap flex items-center gap-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-850/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-200 light:text-slate-700 whitespace-nowrap shadow-sm hover:border-blue-500/50 transition-colors">
               <span>📍</span>
               <span>Đà Nẵng, Việt Nam</span>
             </span>
           </div>
 
-          <!-- Unified Action Row: Primary CTA + Download CV + Socials (Responsive layout) -->
-          <div class="mt-6 sm:mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3 min-w-0 w-full">
+          <!-- Unified Action Row: Primary CTA + Download CV + Socials -->
+          <div class="mt-6 sm:mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 min-w-0 w-full">
             <a
               href="#projects"
               @click.prevent="scrollTo('#projects')"
@@ -93,8 +90,8 @@
               <span>{{ store.ui.downloadCv || 'Tải CV' }}</span>
             </a>
 
-            <!-- Social Links in same neat row -->
-            <div class="flex items-center gap-1.5 w-full sm:w-auto justify-start mt-1 sm:mt-0">
+            <!-- Social Links -->
+            <div class="flex items-center gap-1.5 w-full sm:w-auto justify-center lg:justify-start mt-1 sm:mt-0">
               <a
                 v-for="(url, platform) in store.personal.socials"
                 :key="platform"
