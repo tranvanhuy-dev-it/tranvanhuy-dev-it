@@ -4,7 +4,7 @@
 
   <!-- Navbar -->
   <nav
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#090d16]/95 light:bg-white/95 border-b border-slate-800/80 light:border-slate-200 shadow-md light:shadow-sm backdrop-blur-md"
+    class="portfolio-navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#090d16]/95 light:bg-blue-50/95 border-b border-slate-800/80 light:border-blue-100 shadow-md light:shadow-sm backdrop-blur-md"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between gap-4">
       <!-- Brand Name -->
@@ -13,7 +13,7 @@
         class="flex items-center shrink-0 group hover:opacity-90 transition-opacity"
         @click.prevent="scrollTo('#hero')"
       >
-        <span class="text-base sm:text-lg font-bold font-mono text-white light:text-slate-900 whitespace-nowrap flex items-center gap-1.5">
+        <span class="navbar-brand text-base sm:text-lg font-bold font-mono text-white whitespace-nowrap flex items-center gap-1.5">
           <span class="text-cyan-400 light:text-blue-600 font-bold">&lt;</span>
           <span class="tracking-tight">Tran Van Huy</span>
           <span class="text-cyan-400 light:text-blue-600 font-bold">/&gt;</span>

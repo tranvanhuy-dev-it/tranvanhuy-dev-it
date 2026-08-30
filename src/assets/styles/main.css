@@ -331,6 +331,24 @@ html.light nav, html.light header, html.light .nav-container {
   border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
 }
 
+/* Keep the main portfolio topbar prominent in light mode. */
+html.light nav.portfolio-navbar {
+  background: linear-gradient(110deg, rgba(239, 246, 255, 0.97), rgba(224, 242, 254, 0.95)) !important;
+  border-bottom-color: rgba(147, 197, 253, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.08) !important;
+}
+html.light nav.portfolio-navbar .navbar-brand {
+  color: #0f172a !important;
+}
+html.light nav.portfolio-navbar .nav-link {
+  color: #475569 !important;
+}
+html.light nav.portfolio-navbar .nav-link:hover,
+html.light nav.portfolio-navbar .nav-link-active {
+  color: #2563eb !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
 /* ===================== TAB BUTTONS ===================== */
 .tab-inactive {
   background: rgba(255, 255, 255, 0.03) !important;
