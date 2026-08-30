@@ -1,19 +1,19 @@
 <template>
-  <div class="relative min-h-screen bg-[#090d16] text-slate-100 selection:bg-blue-600 selection:text-white">
+  <div class="relative min-h-screen bg-[#090d16] light:bg-slate-50 text-slate-100 light:text-slate-800 selection:bg-blue-600 selection:text-white transition-colors duration-200">
     <!-- Top Fixed Sub-Navbar -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#090d16]/90 border-b border-slate-800/80 px-4 sm:px-8 py-3">
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#090d16]/90 light:bg-white/90 border-b border-slate-800/80 light:border-slate-200 px-4 sm:px-8 py-3 transition-colors">
       <div class="max-w-5xl mx-auto flex items-center justify-between">
         <router-link
           to="/"
-          class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors group"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors group"
         >
-          <span class="p-1 rounded-md bg-slate-800/90 border border-slate-700 group-hover:border-slate-500 text-slate-300 group-hover:text-white transition-all">
+          <span class="p-1 rounded-md bg-slate-800/90 light:bg-slate-100 border border-slate-700 light:border-slate-300 group-hover:border-slate-500 text-slate-300 light:text-slate-700 group-hover:text-white light:group-hover:text-slate-900 transition-all">
             ←
           </span>
           <span>{{ store.locale === 'vi' ? 'Quay lại Portfolio' : 'Back to Portfolio' }}</span>
         </router-link>
 
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2.5 sm:gap-3">
           <!-- External links quick access -->
           <a
             v-if="project?.demo && project.demo !== '#'"
@@ -27,22 +27,44 @@
           </a>
 
           <!-- Language Switcher -->
-          <div class="flex items-center gap-0.5 bg-slate-800/80 border border-slate-700/80 rounded-lg p-0.5 font-mono text-[10px]">
+          <div class="flex items-center gap-0.5 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px]">
             <button
               @click="store.setLocale('en')"
               class="px-2 py-1 rounded-md transition-all cursor-pointer"
-              :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'"
+              :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
             >
               EN
             </button>
             <button
               @click="store.setLocale('vi')"
               class="px-2 py-1 rounded-md transition-all cursor-pointer"
-              :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'"
+              :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
             >
               VI
             </button>
           </div>
+
+          <!-- Theme Toggle -->
+          <button
+            @click="store.toggleTheme()"
+            class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white light:text-slate-600 light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-black/5 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-slate-100 transition-all duration-150 cursor-pointer shrink-0"
+            :aria-label="store.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+          >
+            <svg v-if="store.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </header>
@@ -51,24 +73,24 @@
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" v-if="project">
       
       <!-- 1. Header Title & Meta -->
-      <div class="mb-8 pb-6 border-b border-slate-800/80">
+      <div class="mb-8 pb-6 border-b border-slate-800/80 light:border-slate-200">
         <div class="flex flex-wrap items-center gap-2 mb-3 text-xs font-mono">
-          <span class="px-2.5 py-0.5 rounded bg-blue-600/15 border border-blue-500/30 text-blue-400 font-semibold uppercase">
+          <span class="px-2.5 py-0.5 rounded-md bg-blue-600/15 border border-blue-500/30 text-blue-400 light:text-blue-600 font-semibold uppercase">
             {{ project.category }}
           </span>
-          <span v-if="project.time" class="px-2.5 py-0.5 rounded bg-slate-850 border border-slate-700/80 text-slate-400">
+          <span v-if="project.time" class="px-2.5 py-0.5 rounded-md bg-slate-850 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 text-slate-400 light:text-slate-600">
             {{ project.time }}
           </span>
-          <span v-if="project.rankingBadge" class="px-2.5 py-0.5 rounded bg-blue-500/15 border border-blue-500/30 text-blue-400 font-semibold">
+          <span v-if="project.rankingBadge" class="px-2.5 py-0.5 rounded-md bg-blue-500/15 border border-blue-500/30 text-blue-400 light:text-blue-600 font-semibold">
             {{ project.rankingBadge }}
           </span>
         </div>
 
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-3 leading-tight">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white light:text-slate-900 tracking-tight mb-3 leading-tight">
           {{ project.title }}
         </h1>
 
-        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+        <p class="text-sm sm:text-base text-slate-300 light:text-slate-600 leading-relaxed max-w-3xl">
           {{ project.description }}
         </p>
       </div>
@@ -77,22 +99,22 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Left / Main Column (8 cols): Case Study Details -->
-        <div class="lg:col-span-8 space-y-8">
+        <div class="lg:col-span-8 space-y-6 sm:space-y-8">
           
           <!-- Project Preview Image -->
           <div
             v-if="project.image"
-            class="rounded-xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl group cursor-pointer relative"
+            class="rounded-xl overflow-hidden border border-slate-800 light:border-slate-200 bg-slate-900 light:bg-white shadow-xl group cursor-pointer relative"
             @click="zoomImage = true"
           >
-            <div class="px-3.5 py-2 bg-slate-850 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
+            <div class="px-3.5 py-2 bg-slate-850 light:bg-slate-100 border-b border-slate-800 light:border-slate-200 flex items-center justify-between text-xs text-slate-400 light:text-slate-600 font-mono">
               <div class="flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
               </div>
-              <span class="text-[11px] text-slate-500 truncate">Preview Screenshot</span>
-              <span class="text-[10px] text-blue-400 group-hover:underline">{{ store.locale === 'vi' ? 'Phóng to ảnh' : 'Zoom image' }}</span>
+              <span class="text-[11px] text-slate-500 light:text-slate-600 truncate">Preview Screenshot</span>
+              <span class="text-[10px] text-blue-400 light:text-blue-600 group-hover:underline">{{ store.locale === 'vi' ? 'Phóng to ảnh' : 'Zoom image' }}</span>
             </div>
             
             <img
@@ -103,28 +125,28 @@
           </div>
 
           <!-- 01. Solution Overview -->
-          <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6">
-            <h2 class="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
-              <span class="text-blue-400 font-mono">01.</span>
+          <div class="bg-slate-900/60 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 sm:p-6 shadow-sm">
+            <h2 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-3 flex items-center gap-2">
+              <span class="text-blue-400 light:text-blue-600 font-mono">01.</span>
               <span>{{ store.locale === 'vi' ? 'Tổng quan & Giải pháp' : 'Project Solution & Overview' }}</span>
             </h2>
-            <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+            <p class="text-sm text-slate-300 light:text-slate-700 leading-relaxed whitespace-pre-line">
               {{ project.longDesc || project.description }}
             </p>
           </div>
 
           <!-- 02. My Contribution & Scope -->
-          <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6">
-            <h2 class="text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <span class="text-blue-400 font-mono">02.</span>
+          <div class="bg-slate-900/60 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 sm:p-6 shadow-sm">
+            <h2 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-4 flex items-center gap-2">
+              <span class="text-blue-400 light:text-blue-600 font-mono">02.</span>
               <span>{{ store.ui.myContributionLabel || (store.locale === 'vi' ? 'Đóng góp & Trách nhiệm của tôi' : 'My Contribution & Scope') }}</span>
             </h2>
 
-            <div v-if="project.role" class="mb-4 pb-3 border-b border-slate-800/80">
-              <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider block mb-1 font-semibold">
+            <div v-if="project.role" class="mb-4 pb-3 border-b border-slate-800/80 light:border-slate-200">
+              <span class="text-xs font-mono text-cyan-400 light:text-blue-600 uppercase tracking-wider block mb-1 font-semibold">
                 {{ store.locale === 'vi' ? 'Vai trò đảm nhiệm:' : 'Assigned Role:' }}
               </span>
-              <p class="text-sm font-medium text-slate-200">
+              <p class="text-sm font-medium text-slate-200 light:text-slate-800">
                 {{ project.role }}
               </p>
             </div>
@@ -133,18 +155,18 @@
               <li
                 v-for="item in (project.contributions || project.responsibilities)"
                 :key="item"
-                class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
+                class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 light:text-slate-700 leading-relaxed"
               >
-                <span class="text-cyan-400 mt-0.5 shrink-0 font-bold">✓</span>
+                <span class="text-cyan-400 light:text-blue-600 mt-0.5 shrink-0 font-bold">✓</span>
                 <span>{{ item }}</span>
               </li>
             </ul>
           </div>
 
           <!-- 03. Key Engineering Decisions -->
-          <div v-if="project.engineeringDecisions?.length" class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6 space-y-4">
-            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-              <span class="text-blue-400 font-mono">03.</span>
+          <div v-if="project.engineeringDecisions?.length" class="bg-slate-900/60 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 sm:p-6 space-y-4 shadow-sm">
+            <h2 class="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
+              <span class="text-blue-400 light:text-blue-600 font-mono">03.</span>
               <span>{{ store.ui.decisionsLabel || (store.locale === 'vi' ? 'Quyết định Kỹ thuật Then chốt' : 'Key Engineering Decisions') }}</span>
             </h2>
 
@@ -152,13 +174,13 @@
               <div
                 v-for="d in project.engineeringDecisions"
                 :key="d.decision"
-                class="p-3.5 sm:p-4 rounded-xl bg-slate-850/80 border border-slate-800/90 space-y-1.5"
+                class="p-3.5 sm:p-4 rounded-xl bg-slate-850/80 light:bg-slate-50 border border-slate-800/90 light:border-slate-200 space-y-1.5"
               >
-                <div class="text-xs sm:text-sm font-bold text-cyan-300 flex items-center gap-2">
+                <div class="text-xs sm:text-sm font-bold text-cyan-300 light:text-blue-600 flex items-center gap-2">
                   <span>▸</span>
                   <span>{{ d.decision }}</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-4">
+                <p class="text-xs sm:text-sm text-slate-300 light:text-slate-700 leading-relaxed pl-4">
                   {{ d.reason }}
                 </p>
               </div>
@@ -166,9 +188,9 @@
           </div>
 
           <!-- 04. Technical Challenges & Solutions -->
-          <div v-if="project.challengesAndSolutions?.length" class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 sm:p-6 space-y-4">
-            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-              <span class="text-blue-400 font-mono">04.</span>
+          <div v-if="project.challengesAndSolutions?.length" class="bg-slate-900/60 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 sm:p-6 space-y-4 shadow-sm">
+            <h2 class="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
+              <span class="text-blue-400 light:text-blue-600 font-mono">04.</span>
               <span>{{ store.ui.challengesLabel || (store.locale === 'vi' ? 'Thách thức Kỹ thuật & Giải pháp' : 'Technical Challenges & Solutions') }}</span>
             </h2>
 
@@ -176,14 +198,14 @@
               <div
                 v-for="item in project.challengesAndSolutions"
                 :key="item.challenge"
-                class="p-4 rounded-xl bg-slate-850/80 border border-slate-800/90 space-y-2.5"
+                class="p-4 rounded-xl bg-slate-850/80 light:bg-slate-50 border border-slate-800/90 light:border-slate-200 space-y-2.5"
               >
-                <div class="text-xs sm:text-sm font-semibold text-rose-300 flex items-start gap-2.5">
-                  <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Problem</span>
+                <div class="text-xs sm:text-sm font-semibold text-rose-300 light:text-rose-600 flex items-start gap-2.5">
+                  <span class="px-2 py-0.5 rounded bg-rose-500/20 light:bg-rose-100 text-rose-300 light:text-rose-700 border border-rose-500/30 light:border-rose-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Problem</span>
                   <span>{{ item.challenge }}</span>
                 </div>
-                <div class="text-xs sm:text-sm text-emerald-300/90 flex items-start gap-2.5 pt-2 border-t border-slate-800">
-                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Solution</span>
+                <div class="text-xs sm:text-sm text-emerald-300/90 light:text-emerald-700 flex items-start gap-2.5 pt-2 border-t border-slate-800 light:border-slate-200">
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 light:bg-emerald-100 text-emerald-300 light:text-emerald-800 border border-emerald-500/30 light:border-emerald-300 font-mono text-[10px] font-bold uppercase shrink-0 mt-0.5">Solution</span>
                   <span>{{ item.solution }}</span>
                 </div>
               </div>
@@ -191,8 +213,8 @@
           </div>
 
           <!-- Internal project notice if applicable -->
-          <div v-if="project.internal" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div v-if="project.internal" class="p-4 rounded-xl bg-slate-900 light:bg-slate-100 border border-slate-800 light:border-slate-300 text-slate-300 light:text-slate-700 text-xs flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-slate-400 light:text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
             <span>{{ store.locale === 'vi' ? 'Dự án nội bộ tại Digital Twin Group (MakeAI) — Mã nguồn & cơ sở dữ liệu được bảo mật theo chính sách công ty.' : 'Enterprise internal project at Digital Twin Group (MakeAI) — Source code is private.' }}</span>
@@ -204,8 +226,8 @@
         <div class="lg:col-span-4 space-y-5 lg:sticky lg:top-20">
           
           <!-- Actions Card -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-5 shadow-lg">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-3">
+          <div class="bg-slate-900/90 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 shadow-lg light:shadow-sm">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 light:text-slate-500 font-semibold mb-3">
               {{ store.locale === 'vi' ? 'Liên kết trực tiếp' : 'Project Links' }}
             </h3>
             
@@ -226,7 +248,7 @@
                 :href="project.github"
                 target="_blank"
                 rel="noopener"
-                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 hover:text-white transition-all"
+                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-slate-700 light:border-slate-300 bg-slate-800 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 text-xs font-medium text-slate-200 light:text-slate-800 hover:text-white light:hover:text-slate-900 transition-all"
               >
                 <IconGithub class="w-4 h-4" />
                 <span>{{ project.githubBackend ? 'Frontend Code' : 'Source Code' }}</span>
@@ -237,7 +259,7 @@
                 :href="project.githubBackend"
                 target="_blank"
                 rel="noopener"
-                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 hover:text-white transition-all"
+                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-slate-700 light:border-slate-300 bg-slate-800 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 text-xs font-medium text-slate-200 light:text-slate-800 hover:text-white light:hover:text-slate-900 transition-all"
               >
                 <IconGithub class="w-4 h-4" />
                 <span>Backend Code</span>
@@ -248,7 +270,7 @@
                 :href="project.video"
                 target="_blank"
                 rel="noopener"
-                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-xs font-medium text-purple-300 transition-all"
+                class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-purple-500/40 light:border-purple-300 bg-purple-500/10 light:bg-purple-50 hover:bg-purple-500/20 light:hover:bg-purple-100 text-xs font-medium text-purple-300 light:text-purple-700 transition-all"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -263,15 +285,15 @@
           </div>
 
           <!-- Tech Stack Card -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-5 shadow-lg">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-3">
+          <div class="bg-slate-900/90 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 shadow-lg light:shadow-sm">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 light:text-slate-500 font-semibold mb-3">
               {{ store.locale === 'vi' ? 'Công nghệ sử dụng' : 'Tech Stack' }}
             </h3>
             <div class="flex flex-wrap gap-1.5">
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-md bg-slate-800 text-cyan-300 border border-slate-700"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-md bg-slate-800 light:bg-slate-100 text-cyan-300 light:text-blue-700 border border-slate-700 light:border-slate-300"
               >
                 <img
                   v-if="getTechLogo(tag)"
@@ -286,23 +308,23 @@
           </div>
 
           <!-- Quick Metadata Card -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-5 shadow-lg space-y-3 text-xs">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-2">
+          <div class="bg-slate-900/90 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl p-5 shadow-lg light:shadow-sm space-y-3 text-xs">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 light:text-slate-500 font-semibold mb-2">
               {{ store.locale === 'vi' ? 'Thông tin tóm tắt' : 'Quick Details' }}
             </h3>
             
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-              <span class="text-slate-400">{{ store.locale === 'vi' ? 'Thể loại' : 'Category' }}</span>
-              <span class="font-semibold text-slate-200 uppercase font-mono">{{ project.category }}</span>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-800 light:border-slate-200">
+              <span class="text-slate-400 light:text-slate-500">{{ store.locale === 'vi' ? 'Thể loại' : 'Category' }}</span>
+              <span class="font-semibold text-slate-200 light:text-slate-800 uppercase font-mono">{{ project.category }}</span>
             </div>
 
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-              <span class="text-slate-400">{{ store.locale === 'vi' ? 'Thời gian' : 'Timeline' }}</span>
-              <span class="font-medium text-slate-200 font-mono">{{ project.time || 'N/A' }}</span>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-800 light:border-slate-200">
+              <span class="text-slate-400 light:text-slate-500">{{ store.locale === 'vi' ? 'Thời gian' : 'Timeline' }}</span>
+              <span class="font-medium text-slate-200 light:text-slate-800 font-mono">{{ project.time || 'N/A' }}</span>
             </div>
 
             <div class="flex items-center justify-between">
-              <span class="text-slate-400">{{ store.locale === 'vi' ? 'Trạng thái' : 'Status' }}</span>
+              <span class="text-slate-400 light:text-slate-500">{{ store.locale === 'vi' ? 'Trạng thái' : 'Status' }}</span>
               <span class="inline-flex items-center gap-1 text-emerald-400 font-medium">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>{{ store.locale === 'vi' ? 'Hoàn thành' : 'Completed' }}</span>
@@ -314,20 +336,20 @@
       </div>
 
       <!-- 3. Bottom Next / Previous Project Navigation -->
-      <div class="mt-14 pt-8 border-t border-slate-800 flex items-center justify-between">
+      <div class="mt-14 pt-8 border-t border-slate-800 light:border-slate-200 flex items-center justify-between">
         <router-link
           v-if="prevProject"
           :to="`/projects/${prevProject.id}`"
-          class="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors group"
+          class="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-400 hover:text-white light:text-slate-600 light:hover:text-slate-900 transition-colors group"
         >
-          <span class="p-2 rounded-lg bg-slate-800 border border-slate-700 group-hover:border-slate-600 transition-colors">
+          <span class="p-2 rounded-lg bg-slate-800 light:bg-slate-100 border border-slate-700 light:border-slate-300 group-hover:border-slate-600 light:group-hover:border-slate-400 transition-colors">
             ←
           </span>
           <div class="text-left">
-            <span class="text-[10px] font-mono text-slate-500 block uppercase">
+            <span class="text-[10px] font-mono text-slate-500 light:text-slate-400 block uppercase">
               {{ store.locale === 'vi' ? 'Dự án trước' : 'Previous' }}
             </span>
-            <span class="font-semibold text-slate-200 group-hover:text-blue-400 truncate max-w-[150px] sm:max-w-[200px] block">
+            <span class="font-semibold text-slate-200 light:text-slate-800 group-hover:text-blue-400 light:group-hover:text-blue-600 truncate max-w-[150px] sm:max-w-[200px] block">
               {{ prevProject.title }}
             </span>
           </div>
@@ -337,17 +359,17 @@
         <router-link
           v-if="nextProject"
           :to="`/projects/${nextProject.id}`"
-          class="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors group text-right"
+          class="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-400 hover:text-white light:text-slate-600 light:hover:text-slate-900 transition-colors group text-right"
         >
           <div class="text-right">
-            <span class="text-[10px] font-mono text-slate-500 block uppercase">
+            <span class="text-[10px] font-mono text-slate-500 light:text-slate-400 block uppercase">
               {{ store.locale === 'vi' ? 'Dự án tiếp theo' : 'Next' }}
             </span>
-            <span class="font-semibold text-slate-200 group-hover:text-blue-400 truncate max-w-[150px] sm:max-w-[200px] block">
+            <span class="font-semibold text-slate-200 light:text-slate-800 group-hover:text-blue-400 light:group-hover:text-blue-600 truncate max-w-[150px] sm:max-w-[200px] block">
               {{ nextProject.title }}
             </span>
           </div>
-          <span class="p-2 rounded-lg bg-slate-800 border border-slate-700 group-hover:border-slate-600 transition-colors">
+          <span class="p-2 rounded-lg bg-slate-800 light:bg-slate-100 border border-slate-700 light:border-slate-300 group-hover:border-slate-600 light:group-hover:border-slate-400 transition-colors">
             →
           </span>
         </router-link>
@@ -359,10 +381,10 @@
     <!-- Project Not Found State -->
     <div v-else class="max-w-md mx-auto text-center py-28 px-4">
       <div class="text-4xl mb-3">🔍</div>
-      <h2 class="text-xl font-bold text-white mb-2">
+      <h2 class="text-xl font-bold text-white light:text-slate-900 mb-2">
         {{ store.locale === 'vi' ? 'Không tìm thấy thông tin dự án' : 'Project Not Found' }}
       </h2>
-      <p class="text-slate-400 text-xs mb-6">
+      <p class="text-slate-400 light:text-slate-600 text-xs mb-6">
         {{ store.locale === 'vi' ? 'Vui lòng chọn một dự án khác từ trang chủ.' : 'Please pick another project from the home page.' }}
       </p>
       <router-link to="/" class="btn-primary text-xs px-5 py-2">
