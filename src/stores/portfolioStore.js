@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const usePortfolioStore = defineStore("portfolio", {
   state: () => ({
-    locale: "vi", // default to Vietnamese
+    locale: localStorage.getItem("locale") || "en", // default to English
     theme: localStorage.getItem("theme") || "dark",
     activeSection: "hero",
     projectFilter: "all",
@@ -995,6 +995,7 @@ export const usePortfolioStore = defineStore("portfolio", {
   actions: {
     setLocale(loc) {
       this.locale = loc;
+      localStorage.setItem("locale", loc);
     },
     setTheme(mode) {
       this.theme = mode;

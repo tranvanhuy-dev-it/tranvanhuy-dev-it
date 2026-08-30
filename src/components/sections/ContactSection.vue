@@ -158,9 +158,14 @@
                   <span v-if="submitStatus === 'success'" class="text-green-400 flex items-center gap-1.5 animate-pulse">
                     {{ store.ui.formSuccess || '✓ Message sent successfully! Thank you.' }}
                   </span>
-                  <span v-else-if="submitStatus === 'error'" class="text-red-400 flex items-center gap-1.5">
-                    {{ store.ui.formError || '✗ Something went wrong. Please try again later.' }}
-                  </span>
+                  <div v-else-if="submitStatus === 'error'" class="text-red-400 flex flex-col gap-0.5">
+                    <span class="flex items-center gap-1.5 font-semibold">
+                      {{ store.ui.formError || '✗ Something went wrong. Please try again later.' }}
+                    </span>
+                    <span v-if="errorMessage" class="text-[11px] font-mono opacity-80 break-words">
+                      ({{ errorMessage }})
+                    </span>
+                  </div>
                 </div>
 
                 <button
@@ -193,7 +198,7 @@ import IconLinkedin from '@/components/icons/IconLinkedin.vue'
 import IconFacebook from '@/components/icons/IconFacebook.vue'
 
 const store = usePortfolioStore()
-const { form, errors, isSubmitting, submitStatus, submit } = useContactForm()
+const { form, errors, isSubmitting, submitStatus, errorMessage, submit } = useContactForm()
 const copied = ref(false)
 
 function copyEmail() {

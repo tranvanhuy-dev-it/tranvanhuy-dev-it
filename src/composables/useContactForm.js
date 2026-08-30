@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 export function useContactForm() {
   const isSubmitting = ref(false)
   const submitStatus = ref(null) // 'success' | 'error' | null
+  const errorMessage = ref('')
 
   const form = reactive({
     name: '',
@@ -50,6 +51,7 @@ export function useContactForm() {
 
     isSubmitting.value = true
     submitStatus.value = null
+    errorMessage.value = ''
 
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
@@ -91,6 +93,7 @@ export function useContactForm() {
     } catch (err) {
       console.error('Email send error:', err)
       submitStatus.value = 'error'
+      errorMessage.value = err?.text || err?.message || String(err)
     } finally {
       isSubmitting.value = false
     }
@@ -101,6 +104,7 @@ export function useContactForm() {
     errors,
     isSubmitting,
     submitStatus,
+    errorMessage,
     submit,
     validate,
   }
