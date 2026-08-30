@@ -570,6 +570,16 @@ export const usePortfolioStore = defineStore("portfolio", {
         formSending: "Sending...",
         formSuccess: "✓ Message sent successfully! Thank you.",
         formError: "✗ Something went wrong. Please try again later.",
+        presetSubjects: [
+          "💼 Software Developer Opportunity / Interview",
+          "🤝 Freelance / Project Collaboration",
+          "💬 General Inquiry / Technical Discussion",
+        ],
+        presetSubjectsShort: [
+          { short: "💼 Job Opportunity", full: "💼 Software Developer Opportunity / Interview" },
+          { short: "🤝 Collaboration", full: "🤝 Freelance / Project Collaboration" },
+          { short: "💬 General Connect", full: "💬 General Inquiry / Technical Discussion" },
+        ],
       },
     },
 
@@ -955,6 +965,16 @@ export const usePortfolioStore = defineStore("portfolio", {
         formSending: "Đang gửi...",
         formSuccess: "✓ Tin nhắn đã được gửi thành công! Cảm ơn bạn.",
         formError: "✗ Đã xảy ra lỗi. Vui lòng thử lại sau.",
+        presetSubjects: [
+          "💼 Thư mời tuyển dụng / Phỏng vấn",
+          "🤝 Hợp tác dự án / Freelance",
+          "💬 Thắc mắc chung / Trao đổi công việc",
+        ],
+        presetSubjectsShort: [
+          { short: "💼 Thư mời tuyển dụng", full: "💼 Thư mời tuyển dụng / Phỏng vấn" },
+          { short: "🤝 Hợp tác dự án", full: "🤝 Hợp tác dự án / Freelance" },
+          { short: "💬 Trao đổi công việc", full: "💬 Thắc mắc chung / Trao đổi công việc" },
+        ],
       },
     },
   }),
@@ -968,6 +988,8 @@ export const usePortfolioStore = defineStore("portfolio", {
     education: (state) => state[state.locale].education,
     academicFocus: (state) => state[state.locale].academicFocus,
     ui: (state) => state[state.locale].ui,
+    presetSubjects: (state) => state[state.locale].ui.presetSubjects || [],
+    presetSubjectsShort: (state) => state[state.locale].ui.presetSubjectsShort || [],
 
     skillCategories: (state) => {
       return state.skillCategoriesList.map((cat) => ({

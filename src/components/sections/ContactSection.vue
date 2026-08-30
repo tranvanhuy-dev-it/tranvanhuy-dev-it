@@ -126,7 +126,36 @@
 
               <!-- Subject -->
               <div class="space-y-1.5">
-                <label for="subject" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formSubject || 'Subject' }}</label>
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <label for="subject" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formSubject || 'Subject' }}</label>
+                  
+                  <!-- Quick Select Dropdown -->
+                  <select
+                    @change="onSelectSubject"
+                    class="text-[11px] font-mono bg-slate-800/90 light:bg-slate-100 text-cyan-400 light:text-blue-600 border border-slate-700/80 light:border-slate-300 rounded px-2 py-0.5 outline-none cursor-pointer hover:border-cyan-500/50 transition-colors"
+                  >
+                    <option value="" disabled selected>{{ store.locale === 'vi' ? '⚡ Chọn nhanh tiêu đề...' : '⚡ Quick select subject...' }}</option>
+                    <option v-for="s in store.presetSubjects" :key="s" :value="s" class="bg-slate-900 text-white light:bg-white light:text-slate-900">
+                      {{ s }}
+                    </option>
+                  </select>
+                </div>
+
+                <!-- Quick Preset Chips for 1-tap fill -->
+                <div class="flex flex-wrap gap-1.5 py-0.5">
+                  <button
+                    v-for="s in store.presetSubjectsShort"
+                    :key="s.full"
+                    type="button"
+                    @click="form.subject = s.full"
+                    class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-slate-850 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-700/70 light:border-slate-300 transition-all cursor-pointer"
+                    :class="form.subject === s.full ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300 light:border-blue-500 light:text-blue-600 font-semibold' : ''"
+                  >
+                    {{ s.short }}
+                  </button>
+                </div>
+
+                <!-- Editable Input Field -->
                 <input
                   v-model="form.subject"
                   type="text"
@@ -205,6 +234,12 @@ function copyEmail() {
   navigator.clipboard.writeText(store.personal.email)
   copied.value = true
   setTimeout(() => (copied.value = false), 2000)
+}
+
+function onSelectSubject(e) {
+  if (e.target.value) {
+    form.subject = e.target.value
+  }
 }
 
 const socials = [
