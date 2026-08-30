@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="relative py-14 sm:py-24 px-4 sm:px-6">
+  <section id="contact" class="relative py-7 sm:py-20 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto relative z-10">
       <SectionTitle
         :title="store.ui.contactTitle || 'Contact'"
@@ -7,9 +7,9 @@
         :description="store.ui.contactDesc || 'Let\'s connect to discuss software engineering roles or collaboration!'"
       />
 
-      <div class="grid md:grid-cols-5 gap-5 sm:gap-8 mt-5 sm:mt-8 items-start">
+      <div class="grid md:grid-cols-5 gap-3.5 sm:gap-8 mt-4 sm:mt-8 items-start">
         <!-- Column 1: Info and Socials (Span 2) -->
-        <div class="md:col-span-2 space-y-4 sm:space-y-5 fade-left">
+        <div class="md:col-span-2 space-y-3 sm:space-y-5 fade-left">
           <div class="glass-card p-3.5 sm:p-7 flex flex-col gap-3 sm:gap-5 rounded-xl sm:rounded-2xl border border-slate-800/80 light:border-slate-200">
             <div>
               <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
@@ -144,9 +144,9 @@
                 <textarea
                   v-model="form.message"
                   id="message"
-                  rows="6"
+                  rows="4"
                   placeholder="Hi Huy, we are impressed with your profile and would like to discuss..."
-                  class="w-full px-3.5 py-2.5 rounded-lg text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                  class="w-full px-3.5 py-2.5 rounded-lg text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors resize-none sm:rows-6"
                   :class="errors.message ? 'border-red-500/80' : ''"
                 ></textarea>
                 <p v-if="errors.message" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.message }}</p>

@@ -40,10 +40,10 @@
     </router-link>
 
     <!-- Content -->
-    <div class="p-4 sm:p-6 flex flex-col flex-grow justify-between">
+    <div class="p-3.5 sm:p-6 flex flex-col flex-grow justify-between">
       <div>
         <!-- Category & Period -->
-        <div class="flex items-center justify-between gap-2 mb-2 text-xs font-mono">
+        <div class="flex items-center justify-between gap-2 mb-1.5 sm:mb-2 text-xs font-mono">
           <span class="text-cyan-400 light:text-blue-600 font-semibold uppercase tracking-wider">
             {{ project.category }}
           </span>
@@ -56,14 +56,14 @@
         </div>
 
         <!-- Title -->
-        <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+        <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 mb-1.5 sm:mb-2 leading-snug group-hover:text-blue-400 transition-colors">
           <router-link :to="`/projects/${project.id}`" class="hover:underline">
             {{ project.title }}
           </router-link>
         </h3>
 
         <!-- Description (Clean & punchy) -->
-        <p class="text-slate-300 light:text-slate-700 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
+        <p class="text-slate-300 light:text-slate-700 text-xs sm:text-sm leading-relaxed mb-2.5 sm:mb-4 line-clamp-3">
           {{ project.description || project.longDesc }}
         </p>
 

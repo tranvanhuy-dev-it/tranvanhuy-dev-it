@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="relative py-14 sm:py-24 px-4 sm:px-6">
+  <section id="projects" class="relative py-7 sm:py-20 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
         :title="store.ui.projectsTitle || 'Projects'"
@@ -8,11 +8,11 @@
       />
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-start gap-1.5 sm:gap-2 mb-6 sm:mb-8 fade-up">
+      <div class="flex flex-wrap justify-start gap-1.5 sm:gap-2 mb-3.5 sm:mb-8 fade-up">
         <button
           v-for="f in filters"
           :key="f.value"
-          class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150 cursor-pointer"
+          class="px-2.5 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150 cursor-pointer"
           :class="store.projectFilter === f.value ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-800/70 hover:bg-slate-800 text-slate-300 border border-slate-700/80 light:bg-white light:text-slate-700 light:border-slate-200 light:hover:bg-slate-50'"
           @click="store.setProjectFilter(f.value)"
           :id="`project-filter-${f.value}`"
@@ -26,7 +26,7 @@
       <TransitionGroup
         name="project-grid"
         tag="div"
-        class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mx-auto"
+        class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 mx-auto"
       >
         <ProjectCard
           v-for="project in displayedProjects"
@@ -41,11 +41,11 @@
       <!-- View More / Collapse Button -->
       <div
         v-if="store.filteredProjects.length > 2"
-        class="mt-10 text-center fade-up"
+        class="mt-5 sm:mt-10 text-center fade-up"
       >
         <button
           @click="showAll = !showAll"
-          class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/90 hover:border-blue-500/60 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group cursor-pointer"
+          class="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/90 hover:border-blue-500/60 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-200 group cursor-pointer"
         >
           <span>
             {{ showAll 

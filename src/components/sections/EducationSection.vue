@@ -1,5 +1,5 @@
 <template>
-  <section id="education" class="relative py-14 sm:py-24 px-4 sm:px-6">
+  <section id="education" class="relative py-7 sm:py-20 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
       <SectionTitle
         :title="store.ui.eduTitle || 'Education'"
@@ -7,12 +7,12 @@
         :description="store.ui.eduDesc || 'University education, qualifications, and certifications'"
       />
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 mt-6 sm:mt-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 mt-4 sm:mt-8">
         <!-- Education Main Card (8 cols) -->
         <div
           v-for="(edu, i) in store.education"
           :key="edu.id"
-          class="lg:col-span-8 glass-card-hover p-4 sm:p-7 rounded-2xl border border-slate-800/80 light:border-slate-200 fade-up flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
+          class="lg:col-span-8 glass-card-hover p-3.5 sm:p-7 rounded-2xl border border-slate-800/80 light:border-slate-200 fade-up flex flex-col sm:flex-row items-start gap-3 sm:gap-6"
           :style="`animation-delay: ${(i + 1) * 80}ms`"
         >
           <!-- Left side: Type Icon & Date / GPA -->
