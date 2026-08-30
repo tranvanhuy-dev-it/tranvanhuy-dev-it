@@ -39,7 +39,7 @@
         <a
           :href="store.personal.cv"
           download
-          class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-cyan-300 light:text-blue-600 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 transition-all shrink-0 whitespace-nowrap"
+          class="hidden xl:inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-mono font-medium text-cyan-300 light:text-blue-600 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 transition-all shrink-0 whitespace-nowrap"
         >
           <span>CV</span>
           <svg class="w-3 h-3 text-cyan-400 light:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
         <!-- 3. Primary Contact Me CTA Button -->
         <a
           href="#contact"
-          class="hidden sm:inline-flex btn-primary text-xs sm:text-sm px-4 py-2 shrink-0 whitespace-nowrap"
+          class="hidden sm:inline-flex items-center justify-center h-8 btn-primary text-xs px-3.5 rounded-lg shrink-0 whitespace-nowrap"
           @click.prevent="scrollTo('#contact')"
         >
           {{ store.ui.contactBtn || 'Contact Me' }}
@@ -60,17 +60,17 @@
         <div class="hidden sm:block w-px h-4 bg-slate-700/60 light:bg-slate-300 mx-0.5"></div>
 
         <!-- 4. Language Selector (EN / VI) -->
-        <div class="flex items-center gap-0.5 bg-slate-800/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
+        <div class="flex items-center h-8 gap-0.5 bg-slate-800/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
           <button
             @click="store.setLocale('en')"
-            class="px-2 py-1 rounded-md transition-all duration-150 cursor-pointer"
+            class="h-full px-2 rounded-md flex items-center justify-center transition-all duration-150 cursor-pointer"
             :class="store.locale === 'en' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
           >
             EN
           </button>
           <button
             @click="store.setLocale('vi')"
-            class="px-2 py-1 rounded-md transition-all duration-150 cursor-pointer"
+            class="h-full px-2 rounded-md flex items-center justify-center transition-all duration-150 cursor-pointer"
             :class="store.locale === 'vi' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900'"
           >
             VI
