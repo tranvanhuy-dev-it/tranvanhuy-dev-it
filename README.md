@@ -36,40 +36,6 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>🏠 Boarding House Management System</h3>
-      <p>Multi-platform system (Web & Mobile) for renting, billing, and communication between landlords and tenants. Features automated invoice generation and real-time chat.</p>
-      <p>
-        <code>Java</code> · <code>Spring Boot</code> · <code>Vue 3</code> · <code>Capacitor</code> · <code>WebSocket</code> · <code>PostgreSQL</code>
-      </p>
-      <ul>
-        <li>Real-time tenant-landlord messaging via STOMP WebSocket</li>
-        <li>Automated recurring billing with PayOS QR & PDF/Excel exports</li>
-        <li>Native mobile app packaging via Capacitor</li>
-      </ul>
-      <p>
-        <a href="https://github.com/tranvanhuy-dev-it/QLPT_VUE_FE.git" target="_blank"><b>💻 Frontend</b></a> · 
-        <a href="https://github.com/tranvanhuy-dev-it/QLPT_JAVA_BE.git" target="_blank"><b>⚙️ Backend</b></a> · 
-        <a href="https://drive.google.com/drive/folders/1pMhWNV0MlMn5DsGgoY7uKyaGYdRp9qo3?usp=sharing" target="_blank"><b>🎬 Video Demo</b></a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏛️ Public Investment Management System</h3>
-      <p>Enterprise digital solution built at MakeAI that digitizes the statutory 10-step public investment process, integrating Agentic AI to automate workflows.</p>
-      <p>
-        <code>Next.js</code> · <code>TypeScript</code> · <code>Frappe</code> · <code>Python</code> · <code>PostgreSQL</code> · <code>Agentic AI (OpenClaw)</code>
-      </p>
-      <ul>
-        <li>Automated document verification with Agentic AI (OpenClaw)</li>
-        <li>Disbursement, Bidding Packages, and Construction Supervision modules</li>
-        <li>State Machine engine with multi-stage validation & audit trails</li>
-      </ul>
-      <p>
-        <i>🔒 Enterprise Internal Project @ Digital Twin Group (MakeAI)</i>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
       <h3>🏙️ BIMspace - Infrastructure Management</h3>
       <p>Technical infrastructure management platform leveraging interactive 2D and 3D maps to manage assets and operational maintenance workflows.</p>
       <p>
@@ -85,24 +51,6 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3>🏥 Son Tra Ward Health Management</h3>
-      <p>Geospatial management solution for medical service establishments and businesses designed for the local municipal government of Son Tra ward.</p>
-      <p>
-        <code>React.js</code> · <code>Next.js</code> · <code>Frappe</code> · <code>Python</code> · <code>PostGIS</code> · <code>PostgreSQL</code>
-      </p>
-      <ul>
-        <li>Interactive digital map for geolocating healthcare facilities</li>
-        <li>PostGIS spatial indexing with sub-10ms radius filtering</li>
-        <li>Facility licensing, quality inspection logs, and quick navigation</li>
-      </ul>
-      <p>
-        <a href="https://github.com/tranvanhuy-dev-it/SonTraHealthManagement.git" target="_blank"><b>💻 Source Code</b></a> · 
-        <a href="https://drive.google.com/file/d/1gP-v7GsawQFA5FAzYJVfpGRxaszoP5wy/view?usp=drive_link" target="_blank"><b>🎬 Video Demo</b></a>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
       <h3>🛍️ NexShop — E-Commerce & POS Platform</h3>
       <p>Full-stack omnichannel retail platform combining an online storefront with an in-person Point of Sale (POS) terminal and revenue analytics.</p>
       <p>
@@ -115,23 +63,6 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
       </ul>
       <p>
         <a href="https://vattudongkha.io.vn" target="_blank"><b>🌐 Live Website (vattudongkha.io.vn)</b></a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>📚 StudyHub — Academic Resource Portal</h3>
-      <p>Collaborative academic portal allowing university students to upload, moderate, and share study materials and past exam resources.</p>
-      <p>
-        <code>Vue 3</code> · <code>Spring Boot</code> · <code>MySQL</code> · <code>JWT</code> · <code>Vite</code>
-      </p>
-      <ul>
-        <li>Role-based access control (Student, Moderator, Admin)</li>
-        <li>Hierarchical course taxonomy & fast full-text filtering</li>
-        <li>Automated file validation, deduplication, and secure download tokens</li>
-      </ul>
-      <p>
-        <a href="https://github.com/tranvanhuy-dev-it/StudyHub-Client" target="_blank"><b>💻 Frontend</b></a> · 
-        <a href="https://github.com/tranvanhuy-dev-it/StudyHub.git" target="_blank"><b>⚙️ Backend</b></a> · 
-        <a href="https://drive.google.com/file/d/1F_Zerna0wK-b3lGOQwgS15-CYAVKIY25/view?usp=drive_link" target="_blank"><b>🎬 Video Demo</b></a>
       </p>
     </td>
   </tr>
