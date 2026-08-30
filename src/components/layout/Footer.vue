@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative py-10 px-4 sm:px-6 border-t border-slate-800/80 light:border-slate-200 bg-slate-950/60 light:bg-slate-50">
+  <footer class="relative pt-8 pb-12 sm:py-10 px-4 sm:px-6 border-t border-slate-800/80 light:border-slate-200 bg-slate-950/60 light:bg-slate-50">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-400 light:text-slate-600">
       <div class="flex items-center gap-2">
         <span>© {{ new Date().getFullYear() }}</span>

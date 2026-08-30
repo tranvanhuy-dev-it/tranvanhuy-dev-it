@@ -390,3 +390,16 @@ html.light .filter-inactive:hover {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Prevent auto-zoom on iOS/Android mobile browsers when opening keyboard */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
