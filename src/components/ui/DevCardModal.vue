@@ -9,7 +9,7 @@
         tabindex="-1"
       >
         <div
-          class="relative w-full max-w-2xl bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-3xl p-5 sm:p-7 shadow-2xl text-left overflow-hidden transition-all duration-300"
+          class="relative w-full max-w-2xl bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-3xl p-4 sm:p-7 shadow-2xl text-left overflow-hidden transition-all duration-300"
         >
           <!-- Ambient Glow Background -->
           <div class="absolute -top-24 -right-24 w-52 h-52 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -27,182 +27,185 @@
           </button>
 
           <!-- Modal Header -->
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4 pr-10">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-cyan-500/10 light:bg-cyan-50 border border-cyan-500/30 text-cyan-400 light:text-cyan-700 text-[11px] font-mono mb-1">
               <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
               <span>{{ isVi ? 'THẺ HỒ SƠ DEV CARD' : 'DEVELOPER PROFILE CARD' }}</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white light:text-slate-900">
+            <h3 class="text-base sm:text-xl font-bold text-white light:text-slate-900">
               {{ isVi ? 'Thẻ Profile Tóm Tắt (Dev ID)' : 'Digital Developer Card' }}
             </h3>
           </div>
 
-          <!-- Pixel-Perfect Developer ID Card -->
-          <div
-            id="dev-card-element"
-            class="relative rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-slate-950 via-[#0a1122] to-slate-950 text-white border border-cyan-500/30 shadow-2xl overflow-hidden"
-          >
-            <!-- Background Glow Gradients -->
-            <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/15 via-blue-500/10 to-transparent rounded-bl-full pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/15 via-blue-500/10 to-transparent rounded-tr-full pointer-events-none"></div>
+          <!-- Horizontal Landscape Card Wrapper (Always horizontal on both Mobile & PC) -->
+          <div class="overflow-x-auto pb-1 sm:pb-0 scrollbar-thin">
+            <div
+              id="dev-card-element"
+              class="relative min-w-[560px] sm:min-w-full rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-slate-950 via-[#0a1122] to-slate-950 text-white border border-cyan-500/30 shadow-2xl overflow-hidden"
+            >
+              <!-- Background Glow Gradients -->
+              <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/15 via-blue-500/10 to-transparent rounded-bl-full pointer-events-none"></div>
+              <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/15 via-blue-500/10 to-transparent rounded-tr-full pointer-events-none"></div>
 
-            <div class="relative z-10">
-              <div class="flex flex-col sm:flex-row items-center justify-between gap-5">
-                <!-- Left Side: Profile Details & Competencies -->
-                <div class="flex-1 min-w-0 space-y-3.5 w-full">
-                  
-                  <!-- Header: Avatar, Name & Role -->
-                  <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-cyan-500 to-teal-400 p-0.5 shadow-lg shadow-cyan-500/20 shrink-0 flex items-center justify-center">
-                      <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-cyan-300 font-mono font-bold text-base tracking-wider">
-                        TVH
+              <div class="relative z-10">
+                <!-- Symmetrical Landscape Row (Always Horizontal) -->
+                <div class="flex flex-row items-center justify-between gap-5">
+                  <!-- Left Side: Profile Details & Competencies -->
+                  <div class="flex-1 min-w-0 space-y-3.5">
+                    
+                    <!-- Header: Avatar, Name & Role -->
+                    <div class="flex items-center gap-3.5">
+                      <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-cyan-500 to-teal-400 p-0.5 shadow-lg shadow-cyan-500/20 shrink-0 flex items-center justify-center">
+                        <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-cyan-300 font-mono font-bold text-base tracking-wider">
+                          TVH
+                        </div>
+                      </div>
+
+                      <div class="min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap">
+                          <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                            Trần Văn Huy
+                          </h4>
+                          <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>MakeAI</span>
+                          </span>
+                        </div>
+                        <p class="text-xs text-cyan-300 font-mono mt-0.5">
+                          Software Developer | Full-Stack & AI Solutions
+                        </p>
                       </div>
                     </div>
 
-                    <div class="min-w-0">
+                    <!-- 2 Balanced Information Boxes (Always 2 Columns) -->
+                    <div class="grid grid-cols-2 gap-2.5">
+                      <!-- Education Box -->
+                      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-sm flex flex-col justify-between h-[82px]">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Education</span>
+                          <span class="text-[11px] font-mono font-bold text-cyan-400">GPA 3.5 / 4.0</span>
+                        </div>
+                        <div>
+                          <p class="text-xs font-bold text-slate-100 truncate">ĐH Bách Khoa Đà Nẵng (DUT)</p>
+                          <p class="text-[11px] text-slate-400 font-mono truncate">Khoa học Dữ liệu & AI</p>
+                        </div>
+                      </div>
+
+                      <!-- Experience Box -->
+                      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-sm flex flex-col justify-between h-[82px]">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Experience</span>
+                          <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">MakeAI (DTG)</span>
+                        </div>
+                        <div>
+                          <p class="text-xs font-bold text-slate-100 truncate">Software Developer Intern</p>
+                          <p class="text-[11px] text-purple-300 font-mono truncate">Full-Stack & AI Solutions</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Tech Stack: High-Quality Standard Devicon Logos -->
+                    <div>
+                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5">Tech Stack</span>
                       <div class="flex items-center gap-2 flex-wrap">
-                        <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight">
-                          Trần Văn Huy
-                        </h4>
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                          <span>MakeAI</span>
-                        </span>
+                        <!-- Java -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Java">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- Spring Boot -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Spring Boot">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- Next.js -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-cyan-500/50 transition-all cursor-pointer" title="Next.js">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-full h-full object-contain invert" />
+                        </div>
+
+                        <!-- Vue 3 -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Vue.js 3">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue.js 3" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- PostgreSQL -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-blue-500/50 transition-all cursor-pointer" title="PostgreSQL">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- Python -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Python">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- Docker -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-sky-500/50 transition-all cursor-pointer" title="Docker">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full object-contain" />
+                        </div>
+
+                        <!-- AI Chip Badge -->
+                        <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-purple-500/40 p-1 hover:border-purple-400 transition-all cursor-pointer text-purple-400" title="AI & Agentic Systems">
+                          <span class="text-xs font-mono font-bold">AI</span>
+                        </div>
                       </div>
-                      <p class="text-xs text-cyan-300 font-mono mt-0.5">
-                        Software Developer | Full-Stack & AI Solutions
-                      </p>
                     </div>
+
                   </div>
 
-                  <!-- 2 Balanced Information Boxes (Symmetrical & Non-overflowing) -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <!-- Education Box -->
-                    <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-sm flex flex-col justify-between h-[82px]">
-                      <div class="flex items-center justify-between">
-                        <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Education</span>
-                        <span class="text-[11px] font-mono font-bold text-cyan-400">GPA 3.5 / 4.0</span>
-                      </div>
-                      <div>
-                        <p class="text-xs font-bold text-slate-100 truncate">ĐH Bách Khoa Đà Nẵng (DUT)</p>
-                        <p class="text-[11px] text-slate-400 font-mono truncate">Khoa học Dữ liệu & AI</p>
-                      </div>
-                    </div>
-
-                    <!-- Experience Box -->
-                    <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-sm flex flex-col justify-between h-[82px]">
-                      <div class="flex items-center justify-between">
-                        <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Experience</span>
-                        <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">MakeAI (DTG)</span>
-                      </div>
-                      <div>
-                        <p class="text-xs font-bold text-slate-100 truncate">Software Developer Intern</p>
-                        <p class="text-[11px] text-purple-300 font-mono truncate">Full-Stack & AI Solutions</p>
-                      </div>
+                  <!-- Right Side: White QR Pass Card (Always on Right) -->
+                  <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white text-slate-900 shadow-xl shrink-0 self-center">
+                    <QrcodeVue
+                      ref="cardQrRef"
+                      value="https://www.tranvanhuy.io.vn"
+                      :size="105"
+                      level="H"
+                      render-as="canvas"
+                      class="block mx-auto"
+                    />
+                    <div class="text-center mt-2">
+                      <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
+                        {{ isVi ? 'QUÉT XEM HỒ SƠ' : 'SCAN TO VISIT' }}
+                      </span>
+                      <span class="text-[10px] font-mono font-extrabold text-blue-600 block">
+                        tranvanhuy.io.vn
+                      </span>
                     </div>
                   </div>
-
-                  <!-- Tech Stack: High-Quality Standard Devicon Logos -->
-                  <div>
-                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5">Tech Stack</span>
-                    <div class="flex items-center gap-2 flex-wrap">
-                      <!-- Java -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Java">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- Spring Boot -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Spring Boot">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- Next.js -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-cyan-500/50 transition-all cursor-pointer" title="Next.js">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-full h-full object-contain invert" />
-                      </div>
-
-                      <!-- Vue 3 -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Vue.js 3">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue.js 3" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- PostgreSQL -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-blue-500/50 transition-all cursor-pointer" title="PostgreSQL">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- Python -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Python">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- Docker -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-sky-500/50 transition-all cursor-pointer" title="Docker">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full object-contain" />
-                      </div>
-
-                      <!-- AI & LLM Chip Badge -->
-                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-purple-500/40 p-1 hover:border-purple-400 transition-all cursor-pointer text-purple-400" title="AI & Agentic Systems">
-                        <span class="text-xs font-mono font-bold">AI</span>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
 
-                <!-- Right Side: White QR Pass Card -->
-                <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white text-slate-900 shadow-xl shrink-0 self-center">
-                  <QrcodeVue
-                    ref="cardQrRef"
-                    value="https://www.tranvanhuy.io.vn"
-                    :size="105"
-                    level="H"
-                    render-as="canvas"
-                    class="block mx-auto"
-                  />
-                  <div class="text-center mt-2">
-                    <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
-                      {{ isVi ? 'QUÉT XEM HỒ SƠ' : 'SCAN TO VISIT' }}
+                <!-- Card Footer: Single Clean Balanced Row -->
+                <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono gap-2">
+                  <div class="flex items-center gap-3 sm:gap-4 truncate">
+                    <span class="flex items-center gap-1.5 text-slate-300 truncate">
+                      <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                      <span class="truncate">tranvanhuy064206@gmail.com</span>
                     </span>
-                    <span class="text-[10px] font-mono font-extrabold text-blue-600 block">
-                      tranvanhuy.io.vn
+                    <span class="flex items-center gap-1.5 text-slate-400 shrink-0">
+                      <svg class="w-3.5 h-3.5 text-rose-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      </svg>
+                      <span>Da Nang, VN</span>
                     </span>
                   </div>
-                </div>
-              </div>
 
-              <!-- Card Footer: Single Clean Balanced Row -->
-              <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono gap-2">
-                <div class="flex items-center gap-3 sm:gap-4 truncate">
-                  <span class="flex items-center gap-1.5 text-slate-300 truncate">
-                    <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <span class="truncate">tranvanhuy064206@gmail.com</span>
-                  </span>
-                  <span class="hidden md:flex items-center gap-1.5 text-slate-400 shrink-0">
-                    <svg class="w-3.5 h-3.5 text-rose-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <span>Da Nang, VN</span>
-                  </span>
+                  <a
+                    href="https://github.com/tranvanhuy-dev-it"
+                    target="_blank"
+                    rel="noopener"
+                    class="text-cyan-400 hover:text-cyan-300 font-semibold shrink-0"
+                  >
+                    github.com/tranvanhuy-dev-it
+                  </a>
                 </div>
-
-                <a
-                  href="https://github.com/tranvanhuy-dev-it"
-                  target="_blank"
-                  rel="noopener"
-                  class="text-cyan-400 hover:text-cyan-300 font-semibold shrink-0"
-                >
-                  github.com/tranvanhuy-dev-it
-                </a>
               </div>
             </div>
           </div>
 
           <!-- Bottom Action Buttons -->
-          <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p class="text-xs text-slate-400 light:text-slate-600">
               {{ isVi ? 'Lưu thẻ hồ sơ để đính kèm email hoặc gửi nhanh cho nhà tuyển dụng.' : 'Save this profile card to attach to emails or share with recruiters.' }}
             </p>

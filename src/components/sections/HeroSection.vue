@@ -30,7 +30,7 @@
           </h1>
 
           <!-- Professional Role Subtitle -->
-          <div class="mt-3.5 sm:mt-4 flex items-center justify-center lg:justify-start gap-2 text-sm sm:text-base md:text-lg font-medium tracking-tight">
+          <div class="mt-3.5 sm:mt-4 flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[13px] sm:text-base md:text-lg font-medium tracking-tight whitespace-nowrap">
             <span class="text-white light:text-slate-900 font-bold shrink-0">
               {{ store.locale === 'vi' ? 'Lập trình viên' : 'Software Developer' }}
             </span>
@@ -57,8 +57,9 @@
             </p>
           </div>
 
-          <!-- Buttons: perfectly aligned rows on mobile, side-by-side on desktop -->
-          <div class="mt-7 sm:mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 w-full max-w-xs sm:max-w-none">
+          <!-- Buttons: Row 1 on mobile is View Projects, Row 2 is Download CV + Dev Card side by side -->
+          <div class="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3 w-full max-w-sm sm:max-w-none">
+            <!-- 1. Xem dự án (Primary CTA) -->
             <a
               href="#projects"
               @click.prevent="scrollTo('#projects')"
@@ -72,30 +73,33 @@
               <span>{{ store.ui.viewProjects || 'Xem dự án' }}</span>
             </a>
 
-            <a
-              :href="store.personal.cv"
-              download
-              class="w-full sm:w-auto h-11 sm:h-10 px-5 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-slate-200 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-850/80 hover:bg-slate-800 light:bg-white light:hover:bg-slate-100 border border-slate-700/80 hover:border-slate-600 light:border-slate-300 transition-all text-center"
-              id="hero-download-cv"
-            >
-              <svg class="w-4 h-4 shrink-0 text-slate-400 light:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
-              <span>{{ store.ui.downloadCv || 'Tải CV' }}</span>
-            </a>
+            <!-- 2. Mobile 2-column grid: Tải CV & Thẻ Dev Card cùng 1 hàng -->
+            <div class="grid grid-cols-2 gap-2 sm:flex sm:gap-3 w-full sm:w-auto">
+              <a
+                :href="store.personal.cv"
+                download
+                class="w-full sm:w-auto h-11 sm:h-10 px-3 sm:px-5 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-1.5 sm:gap-2 text-slate-200 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-850/80 hover:bg-slate-800 light:bg-white light:hover:bg-slate-100 border border-slate-700/80 hover:border-slate-600 light:border-slate-300 transition-all text-center"
+                id="hero-download-cv"
+              >
+                <svg class="w-4 h-4 shrink-0 text-slate-400 light:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span class="truncate">{{ store.ui.downloadCv || 'Tải CV' }}</span>
+              </a>
 
-            <button
-              type="button"
-              @click="showDevCard = true"
-              class="w-full sm:w-auto h-11 sm:h-10 px-4 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-900 bg-cyan-500/10 hover:bg-cyan-500/20 light:bg-cyan-50 light:hover:bg-cyan-100 border border-cyan-500/30 hover:border-cyan-500/50 light:border-cyan-300 transition-all cursor-pointer text-center"
-            >
-              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="16" rx="3" stroke-width="2"/>
-                <circle cx="9" cy="10" r="2" stroke-width="2"/>
-                <path d="M15 8h2M15 12h2M7 16h10" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span>{{ store.ui.devCardBtn || 'Dev ID Card' }}</span>
-            </button>
+              <button
+                type="button"
+                @click="showDevCard = true"
+                class="w-full sm:w-auto h-11 sm:h-10 px-3 sm:px-4 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-1.5 sm:gap-2 text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-900 bg-cyan-500/10 hover:bg-cyan-500/20 light:bg-cyan-50 light:hover:bg-cyan-100 border border-cyan-500/30 hover:border-cyan-500/50 light:border-cyan-300 transition-all cursor-pointer text-center"
+              >
+                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="16" rx="3" stroke-width="2"/>
+                  <circle cx="9" cy="10" r="2" stroke-width="2"/>
+                  <path d="M15 8h2M15 12h2M7 16h10" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="truncate">{{ isVi ? 'Thẻ Dev Card' : 'Dev Card' }}</span>
+              </button>
+            </div>
           </div>
 
           <!-- Social Links -->
