@@ -46,7 +46,7 @@
       <div class="p-4 rounded-2xl bg-slate-850/80 light:bg-slate-50 border border-slate-800 light:border-slate-200 shadow-sm">
         <div class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-slate-400">Primary Languages</div>
         <div class="text-lg sm:text-xl font-bold text-cyan-400 light:text-blue-600 mt-1 truncate">
-          Java / TypeScript
+          {{ topTwoLanguages }}
         </div>
       </div>
 
@@ -164,4 +164,11 @@ import { useGithubStats } from '@/composables/useGithubStats'
 const store = usePortfolioStore()
 const isVi = computed(() => store.locale === 'vi')
 const { stats, loading } = useGithubStats()
+
+const topTwoLanguages = computed(() => {
+  if (stats.value.topLanguages && stats.value.topLanguages.length >= 2) {
+    return `${stats.value.topLanguages[0].name} / ${stats.value.topLanguages[1].name}`
+  }
+  return stats.value.topLanguages?.[0]?.name || 'Java / C#'
+})
 </script>

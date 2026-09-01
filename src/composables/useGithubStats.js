@@ -1,34 +1,41 @@
 import { ref, onMounted } from 'vue'
 
 const GITHUB_USERNAME = 'tranvanhuy-dev-it'
-const CACHE_KEY = 'github_stats_cache'
+const CACHE_KEY = 'github_stats_cache_v2'
 const CACHE_EXPIRY = 30 * 60 * 1000 // 30 minutes
 
 export function useGithubStats() {
   const loading = ref(true)
   const error = ref(null)
   const stats = ref({
-    publicRepos: 18,
-    totalStars: 5,
-    followers: 10,
-    following: 12,
+    publicRepos: 15,
+    totalStars: 2,
+    followers: 0,
+    following: 0,
     topLanguages: [
-      { name: 'Java', percent: 38, color: '#b07219' },
-      { name: 'TypeScript', percent: 26, color: '#3178c6' },
-      { name: 'Python', percent: 18, color: '#3572A5' },
-      { name: 'Vue', percent: 12, color: '#41b883' },
-      { name: 'JavaScript', percent: 6, color: '#f1e05a' }
+      { name: 'C#', percent: 33, color: '#178600' },
+      { name: 'Java', percent: 20, color: '#b07219' },
+      { name: 'Vue', percent: 20, color: '#41b883' },
+      { name: 'JavaScript', percent: 13, color: '#f1e05a' },
+      { name: 'Python', percent: 7, color: '#3572A5' }
     ],
     recentEvents: [
       {
         id: '1',
+        repo: 'tranvanhuy-dev-it/tranvanhuy-dev-it',
+        message: 'feat: implement modular project structure with auto-image scanner & live github stats',
+        time: 'Just now',
+        type: 'PushEvent'
+      },
+      {
+        id: '2',
         repo: 'tranvanhuy-dev-it/QLPT_JAVA_BE',
         message: 'feat: optimize WebSocket real-time messaging & billing batch queries',
         time: 'Recent',
         type: 'PushEvent'
       },
       {
-        id: '2',
+        id: '3',
         repo: 'tranvanhuy-dev-it/SonTraHealthManagement',
         message: 'feat: add PostGIS geospatial boundary queries and UI responsive map',
         time: 'Recent',
@@ -95,16 +102,16 @@ export function useGithubStats() {
         }
 
         const languageColors = {
+          'C#': '#178600',
           Java: '#b07219',
+          Vue: '#41b883',
           TypeScript: '#3178c6',
           JavaScript: '#f1e05a',
           Python: '#3572A5',
-          Vue: '#41b883',
           HTML: '#e34c26',
           CSS: '#563d7c',
-          C: '#555555',
           'C++': '#f34b7d',
-          'C#': '#178600'
+          C: '#555555'
         }
 
         const topLangs = Object.keys(langCounts)
@@ -121,12 +128,12 @@ export function useGithubStats() {
         const parsedEvents = []
         if (Array.isArray(eventsData)) {
           for (const ev of eventsData) {
-            if (ev.type === 'PushEvent' && ev.payload?.commits?.length > 0) {
-              const commit = ev.payload.commits[ev.payload.commits.length - 1]
+            if (ev.type === 'PushEvent') {
+              const commitMsg = ev.payload?.commits?.[0]?.message || 'Repository code update'
               parsedEvents.push({
                 id: ev.id,
                 repo: ev.repo?.name || 'repo',
-                message: commit.message.split('\n')[0],
+                message: commitMsg.split('\n')[0],
                 time: formatRelativeTime(ev.created_at),
                 type: 'PushEvent'
               })
@@ -136,10 +143,10 @@ export function useGithubStats() {
         }
 
         const computedStats = {
-          publicRepos: userData?.public_repos || reposData.length || stats.value.publicRepos,
-          totalStars: stars || stats.value.totalStars,
-          followers: userData?.followers || stats.value.followers,
-          following: userData?.following || stats.value.following,
+          publicRepos: userData?.public_repos !== undefined ? userData.public_repos : reposData.length,
+          totalStars: stars,
+          followers: userData?.followers !== undefined ? userData.followers : 0,
+          following: userData?.following !== undefined ? userData.following : 0,
           topLanguages: topLangs.length > 0 ? topLangs : stats.value.topLanguages,
           recentEvents: parsedEvents.length > 0 ? parsedEvents : stats.value.recentEvents
         }
