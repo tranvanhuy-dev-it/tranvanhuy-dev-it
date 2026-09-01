@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="relative min-h-[calc(100svh-4.5rem)] flex flex-col justify-between pt-6 pb-4 sm:pt-12 sm:pb-8 lg:py-16 px-4 sm:px-6 overflow-hidden">
+  <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 overflow-hidden">
     <!-- Subtle ambient background glows -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl bg-blue-600/30"></div>
