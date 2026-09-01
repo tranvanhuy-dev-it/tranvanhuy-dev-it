@@ -21,13 +21,13 @@
       </a>
 
       <!-- Desktop Navigation & Controls Container -->
-      <div class="flex items-center gap-2 sm:gap-2.5 xl:gap-3">
-        <!-- 1. Desktop Nav Links -->
-        <ul class="hidden lg:flex items-center gap-0.5 xl:gap-1">
+      <div class="flex items-center gap-2 sm:gap-3 xl:gap-4">
+        <!-- 1. Streamlined Desktop Nav Links -->
+        <ul class="hidden lg:flex items-center gap-1 xl:gap-2">
           <li v-for="item in navItems" :key="item.id">
             <a
               :href="`#${item.id}`"
-              class="nav-link px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
+              class="nav-link px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-200"
               :class="activeSection === item.id ? 'nav-link-active' : 'text-slate-300 light:text-slate-600 hover:text-white light:hover:text-blue-600 hover:bg-white/5 light:hover:bg-slate-100'"
               @click.prevent="scrollTo(`#${item.id}`)"
             >
@@ -36,22 +36,10 @@
           </li>
         </ul>
 
-        <!-- 2. CV Download Button (desktop) -->
-        <a
-          :href="store.personal.cv"
-          download
-          class="hidden xl:inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-mono font-medium text-cyan-300 light:text-blue-700 border border-slate-700/80 light:border-slate-300 bg-slate-800/80 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 transition-all shrink-0 whitespace-nowrap"
-        >
-          <span>CV</span>
-          <svg class="w-3 h-3 text-cyan-400 light:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-          </svg>
-        </a>
-
-        <!-- 3. Primary Contact Me CTA Button -->
+        <!-- 2. Primary Contact Me CTA Button -->
         <a
           href="#contact"
-          class="hidden sm:inline-flex items-center justify-center h-8 btn-primary text-xs px-3.5 rounded-lg shrink-0 whitespace-nowrap"
+          class="hidden sm:inline-flex items-center justify-center h-8 btn-primary text-xs px-4 rounded-lg shrink-0 whitespace-nowrap shadow-sm"
           @click.prevent="scrollTo('#contact')"
         >
           {{ store.ui.contactBtn || 'Contact Me' }}
@@ -60,7 +48,7 @@
         <!-- Visual Separator -->
         <div class="hidden sm:block w-px h-4 bg-slate-700/60 light:bg-slate-300 mx-0.5"></div>
 
-        <!-- 4. Language Selector (EN / VI) -->
+        <!-- 3. Language Selector (EN / VI) -->
         <div class="flex items-center h-8 gap-0.5 bg-slate-800/90 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 rounded-lg p-0.5 font-mono text-[10px] shrink-0">
           <button
             @click="handleLocaleChange('en')"
@@ -78,23 +66,7 @@
           </button>
         </div>
 
-        <!-- 5. Sound FX Toggle -->
-        <button
-          @click="sound.toggleMute()"
-          class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-200 transition-all duration-150 cursor-pointer shrink-0"
-          :title="sound.isMuted.value ? (store.locale === 'vi' ? 'Bật âm thanh' : 'Unmute sound') : (store.locale === 'vi' ? 'Tắt âm thanh' : 'Mute sound')"
-          :aria-label="sound.isMuted.value ? 'Unmute sound' : 'Mute sound'"
-        >
-          <svg v-if="!sound.isMuted.value" class="w-4 h-4 text-cyan-400 light:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
-          </svg>
-          <svg v-else class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
-          </svg>
-        </button>
-
-        <!-- 6. Theme Toggle -->
+        <!-- 4. Theme Toggle (Dark / Light) -->
         <button
           @click="handleThemeToggle"
           class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-800/80 light:bg-slate-100 border border-slate-700/80 light:border-slate-300 hover:bg-slate-700 light:hover:bg-slate-200 transition-all duration-150 cursor-pointer shrink-0"
@@ -130,7 +102,7 @@
       </div>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu Dropdown -->
     <Transition name="mobile-menu">
       <div v-if="mobileOpen" class="lg:hidden mx-4 mb-4 bg-slate-900/95 light:bg-white border border-slate-800 light:border-slate-200 p-4 rounded-2xl shadow-2xl backdrop-blur-xl">
         <ul class="flex flex-col gap-1.5">
@@ -138,25 +110,23 @@
             <a
               :href="`#${item.id}`"
               class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
-              :class="activeSection === item.id ? 'text-blue-400 light:text-blue-600 bg-blue-500/15 light:bg-blue-50 font-bold border border-blue-500/20 light:border-blue-200' : 'text-slate-200 light:text-slate-800 hover:text-white light:hover:text-blue-600 hover:bg-white/5 light:hover:bg-slate-100'"
-              @click.prevent="() => { scrollTo(`#${item.id}`); mobileOpen = false }"
+              :class="activeSection === item.id ? 'bg-blue-600 text-white font-bold' : 'text-slate-300 light:text-slate-700 hover:bg-slate-800 light:hover:bg-slate-100'"
+              @click="scrollTo(`#${item.id}`)"
             >
               {{ store.ui[item.id] || item.label }}
             </a>
           </li>
-          <li class="pt-2 border-t border-slate-800 light:border-slate-200">
-            <a
-              :href="store.personal.cv"
-              download
-              class="w-full btn-primary py-2.5 px-4 rounded-lg text-sm font-semibold justify-center shadow-sm"
-            >
-              <span>{{ store.ui.downloadCv || 'Download CV' }}</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
-            </a>
-          </li>
         </ul>
+
+        <div class="mt-4 pt-3 border-t border-slate-800 light:border-slate-200">
+          <a
+            href="#contact"
+            class="btn-primary w-full py-2.5 text-xs rounded-xl flex items-center justify-center gap-2"
+            @click="scrollTo('#contact')"
+          >
+            {{ store.ui.contactBtn || 'Contact Me' }}
+          </a>
+        </div>
       </div>
     </Transition>
   </nav>
@@ -177,14 +147,12 @@ const scrolled = ref(false)
 const scrollProgress = ref(0)
 const mobileOpen = ref(false)
 
+// Streamlined, essential navigation items
 const navItems = [
-  { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'solutions', label: 'Solutions' },
-  { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
-  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -194,6 +162,7 @@ function scrollTo(selector) {
   if (el) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+  mobileOpen.value = false
 }
 
 function handleLocaleChange(loc) {
@@ -209,34 +178,55 @@ function handleThemeToggle() {
 function handleScroll() {
   scrolled.value = window.scrollY > 50
 
-  // Scroll progress
-  const docH = document.documentElement.scrollHeight - window.innerHeight
-  scrollProgress.value = docH > 0 ? (window.scrollY / docH) * 100 : 0
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  scrollProgress.value = height > 0 ? (winScroll / height) * 100 : 0
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
 })
+
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
 <style scoped>
+.portfolio-navbar {
+  will-change: background-color, border-color, box-shadow;
+}
+
 .nav-link-active {
   color: #38bdf8;
-  background: rgba(56, 189, 248, 0.1);
+  background-color: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   font-weight: 600;
 }
-html.light .nav-link-active {
-  color: #0284c7;
-  background: rgba(2, 132, 199, 0.08);
+
+:global(.light) .nav-link-active {
+  color: #2563eb;
+  background-color: #dbeafe;
+  border: 1px solid #bfdbfe;
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+  z-index: 100;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
 }
 
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
-  transition: all 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
   opacity: 0;

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const isMuted = ref(localStorage.getItem('sound_muted') === 'true')
+const isMuted = ref(false)
 let audioCtx = null
 
 function getAudioContext() {
@@ -20,7 +20,6 @@ function getAudioContext() {
 export function useSoundEffects() {
   function toggleMute() {
     isMuted.value = !isMuted.value
-    localStorage.setItem('sound_muted', isMuted.value ? 'true' : 'false')
     if (!isMuted.value) {
       playClick()
     }
