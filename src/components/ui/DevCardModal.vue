@@ -9,7 +9,7 @@
         tabindex="-1"
       >
         <div
-          class="relative w-full max-w-2xl bg-white light:bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-2xl text-left overflow-hidden transition-all duration-300"
+          class="relative w-full max-w-[672px] bg-white light:bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-2xl text-left transition-all duration-300"
         >
           <!-- Close Button -->
           <button
@@ -47,7 +47,7 @@
                   <!-- Left: Official System Logo, Name & Title -->
                   <div class="flex items-center gap-3.5 min-w-0">
                     <div class="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 shadow-sm shrink-0 flex items-center justify-center p-2 overflow-hidden">
-                      <img src="/favicon.svg" alt="System Logo" class="w-full h-full object-contain" />
+                      <img src="/logo.png" alt="System Logo" class="w-full h-full object-contain" />
                     </div>
 
                     <div class="min-w-0">
@@ -125,8 +125,8 @@
               </div>
 
               <!-- 4. Bottom Footer Strip: Grounded Solid Base -->
-              <div class="px-6 py-3 bg-slate-50 border-t border-slate-200/90 flex items-center justify-between text-xs text-slate-600 font-mono">
-                <div class="flex items-center gap-5 whitespace-nowrap">
+              <div class="px-6 py-3 bg-slate-50 border-t border-slate-200/90 flex items-center justify-between gap-4 text-xs text-slate-600 font-mono">
+                <div class="flex items-center gap-5 whitespace-nowrap min-w-0">
                   <!-- Email -->
                   <span class="flex items-center gap-1.5 text-slate-700">
                     <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
