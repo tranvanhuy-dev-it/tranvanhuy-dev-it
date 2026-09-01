@@ -70,7 +70,7 @@
                         </span>
                       </div>
                       <p class="text-xs text-cyan-300 font-mono mt-0.5">
-                        Software Developer | Full-Stack & Applied AI
+                        Software Developer | Full-Stack & AI Solutions
                       </p>
                     </div>
                   </div>
@@ -97,62 +97,53 @@
                       </div>
                       <div>
                         <p class="text-xs font-bold text-slate-100 truncate">Software Developer Intern</p>
-                        <p class="text-[11px] text-purple-300 font-mono truncate">Full-Stack & Applied AI</p>
+                        <p class="text-[11px] text-purple-300 font-mono truncate">Full-Stack & AI Solutions</p>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tech Stack: Pure Tech Icons -->
+                  <!-- Tech Stack: High-Quality Standard Devicon Logos -->
                   <div>
                     <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5">Tech Stack</span>
                     <div class="flex items-center gap-2 flex-wrap">
-                      <!-- Java / Spring -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition-all" title="Java Spring Boot">
-                        <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M21.93 11.23c-.76-4.52-4.14-8.08-8.62-8.99-4.88-.99-9.52 1.63-11.13 6.08-1.78 4.93.38 10.37 5.09 12.63 4.29 2.06 9.54.99 12.64-2.58.55-.63.29-1.63-.49-1.92-.7-.26-1.46.06-1.84.71-2.22 3.8-7.39 4.79-10.82 2.07-3.41-2.71-4.15-7.75-1.59-11.36 2.55-3.59 7.62-4.48 11.26-1.97 1.48 1.02 2.53 2.53 2.94 4.25.18.77.92 1.28 1.7 1.16.82-.12 1.34-.84 1.16-1.68zM12.5 7.5c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5c1.47 0 2.78-.71 3.6-1.81.42-.56.24-1.37-.36-1.72-.56-.33-1.29-.11-1.64.44-.39.6-.98.99-1.6.99-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5c.83 0 1.55.4 2 1.03.4.56 1.18.73 1.76.38.56-.34.75-1.1.37-1.68-.97-1.33-2.46-2.13-4.13-2.13z"/>
-                        </svg>
+                      <!-- Java -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Java">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="w-full h-full object-contain" />
                       </div>
 
-                      <!-- Next.js / React -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all" title="Next.js / React">
-                        <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 17.568l-5.32-6.852v6.852H10.5V6.432h2.074l5.32 6.852V6.432h2.074v11.136h-2.074zM6.432 17.568V6.432h2.074v11.136H6.432z"/>
-                        </svg>
+                      <!-- Spring Boot -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Spring Boot">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" class="w-full h-full object-contain" />
+                      </div>
+
+                      <!-- Next.js -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-cyan-500/50 transition-all cursor-pointer" title="Next.js">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-full h-full object-contain invert" />
                       </div>
 
                       <!-- Vue 3 -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition-all" title="Vue.js 3">
-                        <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M2 3h3.5L12 14.5 18.5 3H22L12 21 2 3zm4.5 0h3L12 7.5 14.5 3h3L12 12.5 6.5 3z"/>
-                        </svg>
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-emerald-500/50 transition-all cursor-pointer" title="Vue.js 3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue.js 3" class="w-full h-full object-contain" />
                       </div>
 
-                      <!-- PostgreSQL / SQL -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition-all" title="PostgreSQL Database">
-                        <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5v-2h-2v2H9v-4h1.5v-2H9V7h4c1.66 0 3 1.34 3 3 0 1.13-.63 2.11-1.56 2.63.96.48 1.56 1.48 1.56 2.62v1.25H13zm0-7.5h-2v2h2c.55 0 1-.45 1-1s-.45-1-1-1zm.5 4.5h-2.5v2h2.5c.55 0 1-.45 1-1s-.45-1-1-1z"/>
-                        </svg>
+                      <!-- PostgreSQL -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-blue-500/50 transition-all cursor-pointer" title="PostgreSQL">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full object-contain" />
                       </div>
 
-                      <!-- Python / Frappe -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-amber-500/50 transition-all" title="Python & Frappe">
-                        <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M11.9 1a5.4 5.4 0 0 0-5.4 5.4v2.7h5.4v.9H4.7A4.7 4.7 0 0 0 0 14.7a4.7 4.7 0 0 0 4.7 4.7h2.7v-2.7a5.4 5.4 0 0 1 5.4-5.4h3.6v-.9H11.9A5.4 5.4 0 0 0 11.9 1zm-1.8 1.8a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zm2 8.5v2.7h-3.6a4.7 4.7 0 0 0-4.7 4.7 4.7 4.7 0 0 0 4.7 4.7h7.2a4.7 4.7 0 0 0 4.7-4.7v-2.7h-5.4v-.9h7.2a5.4 5.4 0 0 0 5.4-5.4v-2.7h-2.7v2.7a5.4 5.4 0 0 1-5.4 5.4h-3.6v-.9h3.6a.9.9 0 1 1 0-1.8zm1.8 9.1a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/>
-                        </svg>
+                      <!-- Python -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-amber-500/50 transition-all cursor-pointer" title="Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="w-full h-full object-contain" />
                       </div>
 
                       <!-- Docker -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 transition-all" title="Docker Containerization">
-                        <svg class="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186zm-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186zm5.893 2.715h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185zm-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm-2.928 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.208a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zM23.79 11.23c-.347-.234-.997-.333-1.85-.308-.182-.416-.44-.8-.762-1.134-.34-.354-.766-.606-1.246-.736l-.37-.1-1.42 1.42a.186.186 0 00-.054.131v.004c.003.023.007.045.01.068.188 1.107-.156 2.228-.905 3.004-.77.798-1.868 1.248-2.983 1.226H1.722a.486.486 0 00-.486.486v.297c0 .546.06 1.09.18 1.62.915 4.07 4.542 7.02 8.71 7.02 5.093 0 9.42-3.666 10.37-8.77.307-.13.914-.42 1.458-1.077.564-.68.643-1.442.643-1.442a2.383 2.383 0 00-.807-.639z"/>
-                        </svg>
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 p-1.5 hover:border-sky-500/50 transition-all cursor-pointer" title="Docker">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full object-contain" />
                       </div>
 
-                      <!-- Agentic AI -->
-                      <div class="group relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-purple-500/50 transition-all" title="Agentic AI & LLMs">
-                        <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
+                      <!-- AI & LLM Chip Badge -->
+                      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-purple-500/40 p-1 hover:border-purple-400 transition-all cursor-pointer text-purple-400" title="AI & Agentic Systems">
+                        <span class="text-xs font-mono font-bold">AI</span>
                       </div>
                     </div>
                   </div>
@@ -180,7 +171,7 @@
                 </div>
               </div>
 
-              <!-- Card Footer: Single Clean Balanced Row (No wrapping / no clutter) -->
+              <!-- Card Footer: Single Clean Balanced Row -->
               <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono gap-2">
                 <div class="flex items-center gap-3 sm:gap-4 truncate">
                   <span class="flex items-center gap-1.5 text-slate-300 truncate">
@@ -342,7 +333,7 @@ function downloadCardPng() {
 
       ctx.font = '16px monospace'
       ctx.fillStyle = '#38bdf8'
-      ctx.fillText('Software Developer | Full-Stack & Applied AI', 156, 124)
+      ctx.fillText('Software Developer | Full-Stack & AI Solutions', 156, 124)
 
       // 6. Academic & Experience Badges
       // Box 1: Education
@@ -388,14 +379,14 @@ function downloadCardPng() {
       ctx.fillText('Software Developer Intern', 436, 222)
       ctx.fillStyle = '#c084fc'
       ctx.font = '13px monospace'
-      ctx.fillText('Full-Stack & Applied AI', 436, 250)
+      ctx.fillText('Full-Stack & AI Solutions', 436, 250)
 
       // 7. Tech Stack Badges
       ctx.fillStyle = '#94a3b8'
       ctx.font = '12px monospace'
       ctx.fillText('CORE TECH STACK', 60, 305)
 
-      const techList = ['Java (Spring Boot)', 'Next.js 14', 'Vue 3', 'PostgreSQL', 'Python / Frappe', 'Docker', 'Agentic AI']
+      const techList = ['Java', 'Spring Boot', 'Next.js', 'Vue 3', 'PostgreSQL', 'Python', 'Docker', 'AI']
       let currentX = 60
       let currentY = 325
 

@@ -36,7 +36,7 @@
             </span>
             <span class="text-slate-600 font-normal shrink-0">|</span>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 font-mono font-semibold shrink-0">
-              Full-Stack & Applied AI
+              {{ store.personal.roleSubtitle || (store.locale === 'vi' ? 'Full-Stack & Kỹ thuật AI' : 'Full-Stack & AI Engineering') }}
             </span>
           </div>
 
