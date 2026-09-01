@@ -204,7 +204,7 @@
           <!-- Bottom Action Buttons -->
           <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p class="text-xs text-slate-400 light:text-slate-600">
-              {{ isVi ? 'Lưu thẻ hình ảnh PNG để đính kèm email hoặc gửi vào nhóm tuyển dụng.' : 'Download this image card to attach to emails or share with hiring teams.' }}
+              {{ isVi ? 'Lưu thẻ hồ sơ để đính kèm email hoặc gửi nhanh cho nhà tuyển dụng.' : 'Save this profile card to attach to emails or share with recruiters.' }}
             </p>
 
             <button
@@ -216,7 +216,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
               <span v-if="isGenerating" class="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-              <span>{{ isGenerating ? (isVi ? 'Đang tạo...' : 'Generating...') : (isVi ? 'Tải Thẻ PNG (1-Click)' : 'Download Card (PNG)') }}</span>
+              <span>{{ isGenerating ? (isVi ? 'Đang xuất thẻ...' : 'Exporting...') : (isVi ? 'Tải Thẻ Profile' : 'Download Card') }}</span>
             </button>
           </div>
         </div>
