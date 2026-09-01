@@ -27,7 +27,7 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
 - ⚙️ **Scalable Backend Systems** — Clean Architecture RESTful APIs, secure auth workflows (JWT/OAuth2), and real-time STOMP WebSockets with Spring Boot and Python Frappe.
 - 📱 **Cross-Platform Mobile Apps** — Hybrid applications packaged with Capacitor for seamless multi-platform deployment.
 - 🗺️ **GIS & Digital Transformation** — Interactive 2D/3D spatial data platforms with PostGIS and automated statutory enterprise workflows.
-- 🤖 **Data & Agentic AI Systems** — Automated document parsing, ETL pipelines, and Agentic AI workflow integrations.
+- 🤖 **Data & AI Systems** — Automated document parsing, ETL pipelines, and Agentic AI workflow integrations.
 
 ---
 
@@ -38,68 +38,74 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
     <td width="50%" valign="top">
       <h3>🏙️ BIMspace - Infrastructure Management</h3>
       <p>Technical infrastructure management platform leveraging interactive 2D and 3D maps to manage assets and operational maintenance workflows.</p>
-      <p><b>Stack:</b> Vue.js 3, Vite, Leaflet, Pinia, Tailwind CSS</p>
-      <a href="https://www.tranvanhuy.io.vn/#projects">View Project Details →</a>
+      <p>
+        <code>Next.js</code> · <code>TypeScript</code> · <code>Frappe</code> · <code>Python</code> · <code>PostgreSQL</code> · <code>GIS Maps</code>
+      </p>
+      <ul>
+        <li>Interactive 2D/3D map visualization for technical infrastructure assets</li>
+        <li>Asset tracking, inspection logs, and scheduled maintenance</li>
+        <li>Viewport bounding-box spatial queries for high FPS performance</li>
+      </ul>
+      <p>
+        <i>🔒 Enterprise Internal Project @ Digital Twin Group (MakeAI)</i>
+      </p>
     </td>
     <td width="50%" valign="top">
-      <h3>🏥 SonTra Health Management</h3>
-      <p>Decentralized GIS-based epidemic tracking and medical equipment management system for Son Tra Medical Center.</p>
-      <p><b>Stack:</b> Java 21, Spring Boot, PostgreSQL, PostGIS, Leaflet</p>
-      <a href="https://www.tranvanhuy.io.vn/#projects">View Project Details →</a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🏠 QLPT - Boarding House Ecosystem</h3>
-      <p>Full-stack rental management ecosystem with real-time billing, issue tracking, and instant WebSocket STOMP messaging.</p>
-      <p><b>Stack:</b> Java Spring Boot, MySQL, WebSocket STOMP, React.js, Tailwind CSS</p>
-      <a href="https://www.tranvanhuy.io.vn/#projects">View Project Details →</a>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏛️ Public Investment Management</h3>
-      <p>End-to-end statutory investment lifecycle management platform automating the 10-step administrative workflow with Agentic AI.</p>
-      <p><b>Stack:</b> Python, Frappe, Next.js, TypeScript, Agentic AI</p>
-      <a href="https://www.tranvanhuy.io.vn/#projects">View Project Details →</a>
+      <h3>🛍️ NexShop — E-Commerce & POS Platform</h3>
+      <p>Full-stack omnichannel retail platform combining an online storefront with an in-person Point of Sale (POS) terminal and revenue analytics.</p>
+      <p>
+        <code>Next.js</code> · <code>TypeScript</code> · <code>Prisma</code> · <code>PostgreSQL</code> · <code>Google OAuth</code> · <code>Tailwind CSS</code>
+      </p>
+      <ul>
+        <li>Next.js App Router with Server Actions & Prisma ORM</li>
+        <li>POS offline-tolerant terminal & transactional stock locking</li>
+        <li>Admin revenue analytics dashboard & Google OAuth authentication</li>
+      </ul>
+      <p>
+        <a href="https://vattudongkha.io.vn" target="_blank"><b>🌐 Live Website (vattudongkha.io.vn)</b></a>
+      </p>
     </td>
   </tr>
 </table>
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-<h3 align="center">Languages & Core</h3>
+<h3 align="center">Languages</h3>
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=&message=Java&color=222222&style=flat&logo=openjdk&logoColor=ED8B00" alt="Java" />
-  <img src="https://img.shields.io/static/v1?label=&message=TypeScript&color=222222&style=flat&logo=typescript&logoColor=3178C6" alt="TypeScript" />
-  <img src="https://img.shields.io/static/v1?label=&message=JavaScript&color=222222&style=flat&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
-  <img src="https://img.shields.io/static/v1?label=&message=Python&color=222222&style=flat&logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/static/v1?label=&message=SQL&color=222222&style=flat&logo=postgresql&logoColor=4169E1" alt="SQL" />
-  <img src="https://img.shields.io/static/v1?label=&message=C%23&color=222222&style=flat&logo=csharp&logoColor=239120" alt="C#" />
-  <img src="https://img.shields.io/static/v1?label=&message=C%2B%2B&color=222222&style=flat&logo=cplusplus&logoColor=00599C" alt="C++" />
+  <img src="https://img.shields.io/static/v1?label=&message=Java&color=000000&style=flat&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/static/v1?label=&message=TypeScript&color=000000&style=flat&logo=typescript&logoColor=3178C6" alt="TypeScript" />
+  <img src="https://img.shields.io/static/v1?label=&message=JavaScript&color=000000&style=flat&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+  <img src="https://img.shields.io/static/v1?label=&message=Python&color=000000&style=flat&logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/static/v1?label=&message=SQL&color=000000&style=flat&logo=postgresql&logoColor=4169E1" alt="SQL" />
 </p>
 
-<h3 align="center">Backend & Database</h3>
+<h3 align="center">Backend & Frameworks</h3>
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=&message=Spring%20Boot&color=222222&style=flat&logo=springboot&logoColor=6DB33F" alt="Spring Boot" />
   <img src="https://img.shields.io/static/v1?label=&message=Frappe%20Framework&color=222222&style=flat&logo=frappe&logoColor=0089FF" alt="Frappe" />
   <img src="https://img.shields.io/static/v1?label=&message=Node.js&color=222222&style=flat&logo=nodedotjs&logoColor=5FA04E" alt="Node.js" />
-  <img src="https://img.shields.io/static/v1?label=&message=PostgreSQL&color=222222&style=flat&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
-  <img src="https://img.shields.io/static/v1?label=&message=MySQL&color=222222&style=flat&logo=mysql&logoColor=4479A1" alt="MySQL" />
-  <img src="https://img.shields.io/static/v1?label=&message=Redis&color=222222&style=flat&logo=redis&logoColor=DC382D" alt="Redis" />
-  <img src="https://img.shields.io/static/v1?label=&message=PostGIS&color=222222&style=flat&logo=postgis&logoColor=ffffff" alt="PostGIS" />
-  <img src="https://img.shields.io/static/v1?label=&message=WebSocket%20STOMP&color=222222&style=flat&logo=socketdotio&logoColor=010101" alt="WebSocket" />
+  <img src="https://img.shields.io/static/v1?label=&message=REST%20APIs&color=222222&style=flat&logo=postman&logoColor=FF6C37" alt="REST APIs" />
+  <img src="https://img.shields.io/static/v1?label=&message=WebSocket%20STOMP&color=222222&style=flat&logo=websocket&logoColor=62B5E5" alt="WebSocket" />
 </p>
 
 <h3 align="center">Frontend & Mobile</h3>
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=&message=Next.js&color=222222&style=flat&logo=nextdotjs&logoColor=ffffff" alt="Next.js" />
-  <img src="https://img.shields.io/static/v1?label=&message=React&color=222222&style=flat&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/static/v1?label=&message=Vue.js%203&color=222222&style=flat&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js" />
-  <img src="https://img.shields.io/static/v1?label=&message=Tailwind%20CSS&color=222222&style=flat&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/static/v1?label=&message=Vite&color=222222&style=flat&logo=vite&logoColor=646CFF" alt="Vite" />
-  <img src="https://img.shields.io/static/v1?label=&message=Pinia&color=222222&style=flat&logo=vuedotjs&logoColor=FFE066" alt="Pinia" />
+  <img src="https://img.shields.io/static/v1?label=&message=Next.js&color=222222&style=flat&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/static/v1?label=&message=React.js&color=222222&style=flat&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/static/v1?label=&message=Vue%203&color=222222&style=flat&logo=vuedotjs&logoColor=4FC08D" alt="Vue 3" />
   <img src="https://img.shields.io/static/v1?label=&message=Capacitor&color=222222&style=flat&logo=capacitor&logoColor=119EFF" alt="Capacitor" />
+  <img src="https://img.shields.io/static/v1?label=&message=Tailwind%20CSS&color=222222&style=flat&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS" />
+</p>
+
+<h3 align="center">Databases & Geospatial</h3>
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=&message=PostgreSQL&color=222222&style=flat&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
+  <img src="https://img.shields.io/static/v1?label=&message=PostGIS&color=222222&style=flat&logo=postgresql&logoColor=336791" alt="PostGIS" />
+  <img src="https://img.shields.io/static/v1?label=&message=MySQL&color=222222&style=flat&logo=mysql&logoColor=4479A1" alt="MySQL" />
+  <img src="https://img.shields.io/static/v1?label=&message=SQL%20Server&color=222222&style=flat&logo=microsoftsqlserver&logoColor=CC292B" alt="SQL Server" />
+  <img src="https://img.shields.io/static/v1?label=&message=Redis&color=222222&style=flat&logo=redis&logoColor=FF4438" alt="Redis" />
 </p>
 
 <h3 align="center">DevOps, AI & Tools</h3>
@@ -133,13 +139,26 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./github-contribution-grid-snake.svg" />
-    <img alt="GitHub Contribution Snake Animation" src="./github-contribution-grid-snake.svg" width="100%" />
+    <img width="100%" src="./github-contribution-grid-snake.svg" alt="Contribution grid snake animation" />
   </picture>
 </div>
 
 ---
 
+## 🤝 Connect with Me
+
+<p align="center">
+  <a target="_blank" href="https://www.tranvanhuy.io.vn"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://www.linkedin.com/in/huy-tran-van-5753b13b4"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png" alt="LinkedIn" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://github.com/tranvanhuy-dev-it"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://facebook.com/tranvanhuy260306"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/facebook-new.png" alt="Facebook" /></a>&nbsp;&nbsp;
+  <a href="mailto:tranvanhuy064206@gmail.com"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/gmail-new.png" alt="Email" /></a>
+</p>
+
 <div align="center">
-  <p>Crafted with clean code, modern engineering, and passion for excellence.</p>
-  <a href="https://www.tranvanhuy.io.vn"><b>Explore Live Portfolio →</b></a>
+  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views" />
 </div>
+
+<br />
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=85&section=footer&color=0:0891b2,50:0f172a,100:020617&animation=fadeIn" alt="Footer wave" />
