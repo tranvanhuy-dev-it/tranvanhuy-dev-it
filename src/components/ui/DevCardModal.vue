@@ -46,17 +46,20 @@
                   <!-- Left Side: Profile Details & Competencies -->
                   <div class="flex-1 min-w-0 space-y-3.5">
                     
-                    <!-- Header: Avatar, Name & Role -->
+                    <!-- Header: Avatar, Name, Role & Badges (Including GPA 3.5) -->
                     <div class="flex items-center gap-3.5">
                       <div class="w-12 h-12 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-base tracking-wider">
                         TVH
                       </div>
 
                       <div class="min-w-0">
-                        <div class="flex items-center gap-2">
-                          <h4 class="text-xl font-bold text-slate-900 tracking-tight whitespace-nowrap">
+                        <div class="flex items-center gap-2 flex-nowrap whitespace-nowrap">
+                          <h4 class="text-xl font-bold text-slate-900 tracking-tight">
                             Trần Văn Huy
                           </h4>
+                          <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200 shrink-0">
+                            GPA 3.5
+                          </span>
                           <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                             <span>MakeAI</span>
@@ -71,22 +74,19 @@
                     <!-- 2 Balanced Information Boxes -->
                     <div class="grid grid-cols-2 gap-3">
                       <!-- Education Box -->
-                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[84px]">
-                        <div class="flex items-center justify-between">
-                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
-                          <span class="text-[11px] font-mono font-bold text-blue-600">GPA 3.5 / 4.0</span>
-                        </div>
+                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
                         <div>
-                          <p class="text-xs font-bold text-slate-900 whitespace-nowrap">ĐH Bách Khoa Đà Nẵng (DUT)</p>
-                          <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap">Khoa học Dữ liệu & AI</p>
+                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold block">Education</span>
+                          <p class="text-xs font-bold text-slate-900 whitespace-nowrap mt-1">ĐH Bách Khoa Đà Nẵng (DUT)</p>
                         </div>
+                        <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap">Khoa học Dữ liệu & AI</p>
                       </div>
 
                       <!-- Experience Box -->
-                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[84px]">
+                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
                         <div class="flex items-center justify-between">
                           <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
-                          <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">DTG</span>
+                          <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-200/60 text-slate-700 border border-slate-300">DTG</span>
                         </div>
                         <div>
                           <p class="text-xs font-bold text-slate-900 whitespace-nowrap">Software Developer Intern</p>
@@ -95,10 +95,10 @@
                       </div>
                     </div>
 
-                    <!-- Core Tech Stack: Clean Minimalist Pills -->
+                    <!-- Core Tech Stack: Single Horizontal Row (No wrapping) -->
                     <div>
                       <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5 font-semibold">Core Tech Stack</span>
-                      <div class="flex items-center gap-1.5 flex-wrap font-mono text-[11px]">
+                      <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px] overflow-hidden">
                         <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Java</span>
                         <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Spring Boot</span>
                         <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Next.js</span>
