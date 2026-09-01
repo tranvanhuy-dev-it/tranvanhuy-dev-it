@@ -269,23 +269,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useContactForm } from '@/composables/useContactForm'
+import { useSoundEffects } from '@/composables/useSoundEffects'
 import IconGithub from '@/components/icons/IconGithub.vue'
 import IconLinkedin from '@/components/icons/IconLinkedin.vue'
 import IconQrCode from '@/components/icons/IconQrCode.vue'
 import QrCodeModal from '@/components/ui/QrCodeModal.vue'
 
 const store = usePortfolioStore()
-const { form, errors, isSubmitting, submitStatus, errorMessage, submit } = useContactForm()
+const sound = useSoundEffects()
+const { form, errors, isSubmitting, submitStatus, errorMessage, submit: originalSubmit } = useContactForm()
 const copied = ref(false)
 const showQrModal = ref(false)
 
 function copyEmail() {
+  sound.playSuccess()
   navigator.clipboard.writeText(store.personal.email)
   copied.value = true
   setTimeout(() => (copied.value = false), 2000)
 }
+
+function submit() {
+  sound.playClick()
+  originalSubmit()
+}
+
+watch(submitStatus, (status) => {
+  if (status === 'success') {
+    sound.playSuccess()
+  }
+})
 </script>

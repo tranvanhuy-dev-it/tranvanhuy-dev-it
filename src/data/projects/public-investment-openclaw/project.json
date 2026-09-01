@@ -1,0 +1,92 @@
+{
+  "id": 7,
+  "slug": "public-investment-openclaw",
+  "category": "fullstack",
+  "featured": true,
+  "internal": true,
+  "time": "06-2026 – Present",
+  "demo": "#",
+  "tags": [
+    "Next.js",
+    "TypeScript",
+    "Frappe",
+    "Python",
+    "PostgreSQL",
+    "Agentic AI",
+    "OpenClaw"
+  ],
+  "en": {
+    "title": "Public Investment Management System",
+    "description": "A system that digitizes the 10-step public investment workflow and integrates agentic AI to automate processing.",
+    "longDesc": "A digital solution built at Digital Twin Group (MakeAI) to manage the entire public investment lifecycle. It digitizes the standard 10-step public investment process and integrates agentic AI (OpenClaw) to automate workflow steps, cut processing time, and boost operational efficiency.",
+    "role": "A key project I lead at Digital Twin Group (MakeAI), taking over and continuing development after the initial phase was completed.",
+    "responsibilities": [
+      "Continued developing the 10-step public investment workflow",
+      "Integrated agentic AI (OpenClaw) into the process",
+      "Re-architected the frontend interface with Next.js & TypeScript",
+      "Built the Disbursement module",
+      "Built the System Settings module",
+      "Built the System Catalog module",
+      "Built the Construction & Supervision module",
+      "Built the Overview & Reports module",
+      "Built the Bidding Packages module"
+    ],
+    "engineeringDecisions": [
+      {
+        "decision": "Agentic AI Integration with OpenClaw",
+        "reason": "Automates extracting key financial metrics and legal clauses from investment dossiers, reducing manual review time significantly."
+      },
+      {
+        "decision": "Modular Feature Architecture",
+        "reason": "Separated Disbursement, Bidding, and Supervision modules into dedicated components for isolated testing and clear operational boundaries."
+      }
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Enforcing complex legal preconditions across the statutory 10-step investment lifecycle.",
+        "solution": "Constructed an immutable multi-stage validation engine in Python/Frappe with exhaustive logging and step-gate validations."
+      },
+      {
+        "challenge": "Ensuring accuracy and explainability in AI-assisted document parsing.",
+        "solution": "Designed a hybrid pipeline combining rule-based deterministic checks with OpenClaw LLM inference and mandatory human reviewer checkpoints."
+      }
+    ]
+  },
+  "vi": {
+    "title": "Hệ thống Quản lý Đầu tư Công",
+    "description": "Hệ thống số hóa quy trình đầu tư công 10 bước và tích hợp agentic AI để tự động hóa xử lý.",
+    "longDesc": "Giải pháp số được xây dựng tại Digital Twin Group (MakeAI) nhằm quản lý toàn bộ vòng đời đầu tư công. Hệ thống số hóa quy trình đầu tư công chuẩn 10 bước và tích hợp agentic AI (OpenClaw) để tự động hóa các bước xử lý, rút ngắn thời gian và nâng cao hiệu suất vận hành.",
+    "role": "Dự án trọng điểm tôi phụ trách tại Digital Twin Group (MakeAI), tiếp nhận và phát triển tiếp sau khi dự án đã hoàn thành giai đoạn đầu.",
+    "responsibilities": [
+      "Tiếp tục phát triển mô hình quy trình đầu tư công 10 bước",
+      "Tích hợp agentic AI (OpenClaw) vào quy trình",
+      "Tái cấu trúc và thiết kế lại giao diện hệ thống với Next.js & TypeScript",
+      "Xây dựng chức năng Giải ngân",
+      "Xây dựng chức năng Cài đặt hệ thống",
+      "Xây dựng chức năng Danh mục hệ thống",
+      "Xây dựng chức năng Thi công và Giám sát",
+      "Xây dựng chức năng Tổng quan và Báo cáo",
+      "Xây dựng chức năng Gói thầu"
+    ],
+    "engineeringDecisions": [
+      {
+        "decision": "Tích hợp tầng Agentic AI với OpenClaw",
+        "reason": "Tự động hóa bóc tách các chỉ số tài chính và điều khoản pháp lý từ hồ sơ dự án, giảm thiểu đáng kể thời gian rà soát thủ công."
+      },
+      {
+        "decision": "Kiến trúc mô-đun hóa độc lập",
+        "reason": "Tách bạch rõ các phân hệ Giải ngân, Thi công giám sát, Gói thầu và Danh mục để thuận tiện cho việc kiểm thử và mở rộng nghiệp vụ trong tương lai."
+      }
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Ràng buộc pháp lý và điều kiện chuyển bước nghiêm ngặt giữa 10 giai đoạn trong vòng đời dự án.",
+        "solution": "Xây dựng validation engine đa tầng trong Frappe/Python với cơ chế khóa dữ liệu và lưu vết nhật ký kiểm toán (Audit Trail) bất biến."
+      },
+      {
+        "challenge": "Đảm bảo độ chính xác và tính giải trình khi AI hỗ trợ phân tích văn bản pháp lý.",
+        "solution": "Thiết kế pipeline kết hợp kiểm tra luật tĩnh (Rule-based) với mô hình OpenClaw AI và bắt buộc có bước xác nhận từ chuyên viên phụ trách."
+      }
+    ]
+  }
+}

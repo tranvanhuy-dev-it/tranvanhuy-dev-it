@@ -57,12 +57,12 @@
             </p>
           </div>
 
-          <!-- Buttons: 2 perfectly aligned stacked rows on mobile, side-by-side on desktop -->
-          <div class="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none">
+          <!-- Buttons: perfectly aligned rows on mobile, side-by-side on desktop -->
+          <div class="mt-7 sm:mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 w-full max-w-xs sm:max-w-none">
             <a
               href="#projects"
               @click.prevent="scrollTo('#projects')"
-              class="w-full sm:w-auto h-11 sm:h-10 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 text-white bg-blue-600 hover:bg-blue-500 border border-blue-500/30 shadow-lg shadow-blue-500/25 transition-all text-center"
+              class="w-full sm:w-auto h-11 sm:h-10 px-5 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-white bg-blue-600 hover:bg-blue-500 border border-blue-500/30 shadow-lg shadow-blue-500/25 transition-all text-center"
               id="hero-view-projects"
             >
               <svg class="w-4 h-4 shrink-0 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
             <a
               :href="store.personal.cv"
               download
-              class="w-full sm:w-auto h-11 sm:h-10 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 text-slate-200 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-850/80 hover:bg-slate-800 light:bg-white light:hover:bg-slate-100 border border-slate-700/80 hover:border-slate-600 light:border-slate-300 transition-all text-center"
+              class="w-full sm:w-auto h-11 sm:h-10 px-5 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-slate-200 hover:text-white light:text-slate-700 light:hover:text-slate-900 bg-slate-850/80 hover:bg-slate-800 light:bg-white light:hover:bg-slate-100 border border-slate-700/80 hover:border-slate-600 light:border-slate-300 transition-all text-center"
               id="hero-download-cv"
             >
               <svg class="w-4 h-4 shrink-0 text-slate-400 light:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,6 +83,19 @@
               </svg>
               <span>{{ store.ui.downloadCv || 'Tải CV' }}</span>
             </a>
+
+            <button
+              type="button"
+              @click="showDevCard = true"
+              class="w-full sm:w-auto h-11 sm:h-10 px-4 rounded-xl font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-900 bg-cyan-500/10 hover:bg-cyan-500/20 light:bg-cyan-50 light:hover:bg-cyan-100 border border-cyan-500/30 hover:border-cyan-500/50 light:border-cyan-300 transition-all cursor-pointer text-center"
+            >
+              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="16" rx="3" stroke-width="2"/>
+                <circle cx="9" cy="10" r="2" stroke-width="2"/>
+                <path d="M15 8h2M15 12h2M7 16h10" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>{{ store.ui.devCardBtn || 'Dev ID Card' }}</span>
+            </button>
           </div>
 
           <!-- Social Links -->
@@ -209,17 +222,26 @@
       </a>
     </div>
 
+    <!-- Dev Card Generator Modal -->
+    <DevCardModal
+      :is-open="showDevCard"
+      @close="showDevCard = false"
+    />
   </section>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
+import { useSoundEffects } from '@/composables/useSoundEffects'
 import IconGithub from '@/components/icons/IconGithub.vue'
 import IconLinkedin from '@/components/icons/IconLinkedin.vue'
 import IconFacebook from '@/components/icons/IconFacebook.vue'
+import DevCardModal from '@/components/ui/DevCardModal.vue'
 
 const store = usePortfolioStore()
+const sound = useSoundEffects()
+const showDevCard = ref(false)
 
 // Typewriter Implementation with instant display and clean loop
 const currentTagline = ref('Software Developer & Full-Stack Engineer')
@@ -293,6 +315,7 @@ watch(() => store.locale, () => {
 })
 
 function scrollTo(selector) {
+  sound.playClick()
   document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>

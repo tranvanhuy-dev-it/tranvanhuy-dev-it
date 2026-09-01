@@ -1,0 +1,22 @@
+[
+  {
+    "value": "3.5/4.0",
+    "en": { "label": "DUT GPA" },
+    "vi": { "label": "GPA Bách Khoa" }
+  },
+  {
+    "value": "MakeAI",
+    "en": { "label": "Developer Intern" },
+    "vi": { "label": "Developer Intern" }
+  },
+  {
+    "value": "6+",
+    "en": { "label": "Key Projects" },
+    "vi": { "label": "Dự án tiêu biểu" }
+  },
+  {
+    "value": "Full-Stack",
+    "en": { "label": "Spring Boot & Next.js" },
+    "vi": { "label": "Spring Boot & Next.js" }
+  }
+]
