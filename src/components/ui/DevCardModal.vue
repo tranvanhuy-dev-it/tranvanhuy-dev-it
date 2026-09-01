@@ -44,10 +44,10 @@
               <div class="p-6 pb-4 flex-1 flex flex-col justify-between">
                 <!-- 1. Top Section: Header & Pure QR on Right -->
                 <div class="flex items-center justify-between gap-4">
-                  <!-- Left: Avatar, Name & Title -->
+                  <!-- Left: Official System Logo, Name & Title -->
                   <div class="flex items-center gap-3.5 min-w-0">
-                    <div class="w-11 h-11 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-base tracking-wider">
-                      TVH
+                    <div class="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 shadow-sm shrink-0 flex items-center justify-center p-2 overflow-hidden">
+                      <img src="/favicon.svg" alt="System Logo" class="w-full h-full object-contain" />
                     </div>
 
                     <div class="min-w-0">
