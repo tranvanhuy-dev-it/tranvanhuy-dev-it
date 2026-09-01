@@ -10,18 +10,24 @@ import uiData from './ui.json'
 const projectFiles = import.meta.glob('./projects/*/project.json', { eager: true })
 
 // Auto-scan all project images from their respective images/ subdirectories
-const projectImages = import.meta.glob('./projects/*/images/*.{png,jpg,jpeg,webp,svg,gif}', {
+const projectImages = import.meta.glob('./projects/*/images/*.{png,jpg,jpeg,webp,svg,gif,PNG,JPG,JPEG,WEBP,SVG,GIF}', {
   eager: true,
   import: 'default'
 })
 
+// Robust helper to extract project folder name from any path format (Windows/Unix/Vite relative/absolute)
+function extractProjectFolder(filePath) {
+  if (!filePath) return null
+  const normalized = filePath.replace(/\\/g, '/')
+  const match = normalized.match(/(?:^|\/)projects\/([^/]+)\//)
+  return match ? match[1] : null
+}
+
 // Map images to their folder slug
 const imagesByFolder = {}
 for (const path in projectImages) {
-  // Path format: ./projects/[folderName]/images/[filename]
-  const match = path.match(/\.\/projects\/([^/]+)\/images\//)
-  if (match && match[1]) {
-    const folder = match[1]
+  const folder = extractProjectFolder(path)
+  if (folder) {
     if (!imagesByFolder[folder]) {
       imagesByFolder[folder] = []
     }
@@ -35,10 +41,9 @@ for (const path in projectFiles) {
   const config = projectFiles[path].default || projectFiles[path]
   if (config.hidden) continue
 
-  const match = path.match(/\.\/projects\/([^/]+)\//)
-  const folder = match ? match[1] : (config.slug || 'project')
+  const folder = extractProjectFolder(path) || config.slug || 'project'
   const images = imagesByFolder[folder] || []
-  const coverImage = images.length > 0 ? images[0] : (config.image || '/logo.png')
+  const coverImage = images.length > 0 ? images[0] : (config.image || `/${folder}.png` || '/logo.png')
 
   rawProjects.push({
     ...config,
