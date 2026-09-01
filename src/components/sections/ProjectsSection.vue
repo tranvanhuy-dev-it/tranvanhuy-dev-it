@@ -68,9 +68,6 @@
       <div v-if="store.filteredProjects.length === 0" class="text-center py-16 text-slate-500 font-mono text-xs">
         <p>{{ store.locale === 'vi' ? 'Không có dự án nào trong danh mục này.' : 'No projects found in this category.' }}</p>
       </div>
-
-      <!-- Live GitHub Activity & Engineering Metrics Section -->
-      <GithubActivitySection />
     </div>
 
     <!-- Fullscreen Image Lightbox -->
@@ -104,7 +101,6 @@
 import { ref, computed } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
-import GithubActivitySection from '@/components/sections/GithubActivitySection.vue'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 
 const store = usePortfolioStore()
