@@ -37,17 +37,17 @@
           <div class="overflow-x-auto pb-1 scrollbar-thin">
             <div
               id="dev-card-element"
-              class="relative rounded-2xl bg-white text-slate-900 border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between"
+              class="relative rounded-2xl bg-gradient-to-br from-indigo-100 via-blue-50 to-cyan-100 text-slate-900 border border-indigo-100 shadow-sm overflow-hidden flex flex-col justify-between"
               style="width: 620px; min-width: 620px; height: 350px; min-height: 350px; font-family: 'Inter', system-ui, -apple-system, sans-serif;"
             >
               <!-- Card Main Body -->
-              <div class="p-6 pb-4 flex-1 flex flex-col justify-between">
+              <div class="p-6 pb-4 flex-1 flex flex-col gap-5">
                 <!-- 1. Top Section: Header & Pure QR on Right -->
                 <div class="flex items-center justify-between gap-4">
                   <!-- Left: Official System Logo, Name & Title -->
                   <div class="flex items-center gap-3.5 min-w-0">
-                    <div class="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 shadow-sm shrink-0 flex items-center justify-center p-2 overflow-hidden">
-                      <img src="/logo.png" alt="System Logo" class="w-full h-full object-contain" />
+                    <div class="w-11 h-11 rounded-xl shadow-sm shrink-0 overflow-hidden">
+                      <img src="/logo.png" alt="System Logo" class="w-full h-full object-cover" />
                     </div>
 
                     <div class="min-w-0">
@@ -72,19 +72,32 @@
                   </div>
                 </div>
 
+                <!-- 1.5 Quick Stats Strip -->
+                <div class="flex items-center gap-6 px-1">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg font-extrabold text-indigo-600 leading-none">5</span>
+                    <span class="text-[11px] text-slate-500 font-medium leading-[1.15]">Completed<br />Projects</span>
+                  </div>
+                  <div class="w-px h-7 bg-indigo-100"></div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg font-extrabold text-blue-600 leading-none">8</span>
+                    <span class="text-[11px] text-slate-500 font-medium leading-[1.15]">Core Tech<br />Stack</span>
+                  </div>
+                </div>
+
                 <!-- 2. Middle Section: Unified Connected Panel (Education & Experience) -->
-                <div class="rounded-xl bg-slate-50/80 border border-slate-200/90 grid grid-cols-2 divide-x divide-slate-200/90 shadow-2xs overflow-hidden">
+                <div class="rounded-xl bg-white/80 border border-indigo-100 grid grid-cols-2 divide-x divide-indigo-100 shadow-2xs overflow-hidden">
                   <!-- Education Column -->
                   <div class="p-3 flex flex-col justify-between h-[74px]">
                     <div class="flex items-center justify-between gap-1 leading-none">
                       <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
-                      <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80 font-mono font-bold text-[10px] whitespace-nowrap">
+                      <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200 font-mono font-bold text-[10px] whitespace-nowrap">
                         GPA 3.5
                       </span>
                     </div>
                     <div>
-                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">ĐH Bách Khoa Đà Nẵng (DUT)</p>
-                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Khoa học Dữ liệu & AI</p>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">Da Nang University of Technology</p>
+                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Data Science & AI</p>
                     </div>
                   </div>
 
@@ -92,15 +105,15 @@
                   <div class="p-3 flex flex-col justify-between h-[74px]">
                     <div class="flex items-center justify-between gap-1 leading-none">
                       <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
-                      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/80 font-mono font-semibold text-[10px] whitespace-nowrap">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-cyan-100 text-cyan-700 border border-cyan-200 font-mono font-semibold text-[10px] whitespace-nowrap">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
                         <span>MakeAI</span>
                       </span>
                     </div>
                     <div>
                       <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">Software Developer Intern</p>
                       <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">
-                        {{ isVi ? 'Phát triển Web App & Hệ thống AI' : 'Web Apps & AI Systems Development' }}
+                        Web Apps & AI Systems Development
                       </p>
                     </div>
                   </div>
@@ -112,20 +125,20 @@
                     <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Core Tech Stack</span>
                   </div>
                   <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px]">
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Java</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Spring Boot</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Next.js</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Vue 3</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">PostgreSQL</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Python</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-50 text-slate-800 border border-slate-200/90 font-medium">Docker</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-bold">AI</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Java</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Spring Boot</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Next.js</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Vue 3</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">PostgreSQL</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Python</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Docker</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">AI</span>
                   </div>
                 </div>
               </div>
 
               <!-- 4. Bottom Footer Strip: Grounded Solid Base -->
-              <div class="px-6 py-3 bg-slate-50 border-t border-slate-200/90 flex items-center justify-between gap-4 text-xs text-slate-600 font-mono">
+              <div class="px-6 py-3 bg-white/60 border-t border-indigo-100 flex items-center justify-between gap-4 text-xs text-slate-600 font-mono">
                 <div class="flex items-center gap-5 whitespace-nowrap min-w-0">
                   <!-- Email -->
                   <span class="flex items-center gap-1.5 text-slate-700">
@@ -149,7 +162,7 @@
                   href="https://github.com/tranvanhuy-dev-it"
                   target="_blank"
                   rel="noopener"
-                  class="text-blue-600 hover:text-blue-700 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap"
+                  class="text-indigo-600 hover:text-blue-600 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap transition-colors"
                 >
                   <span>github.com/tranvanhuy-dev-it</span>
                 </a>
