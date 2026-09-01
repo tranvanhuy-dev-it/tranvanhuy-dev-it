@@ -1,8 +1,9 @@
 {
   "id": 3,
-  "slug": "nexshop",
   "category": "fullstack",
   "featured": true,
+  "showInitial": false,
+  "order": 6,
   "internal": false,
   "time": "12-2025 - 05-2026",
   "demo": "https://vattudongkha.io.vn",

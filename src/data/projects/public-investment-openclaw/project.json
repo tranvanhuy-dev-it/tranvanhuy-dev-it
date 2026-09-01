@@ -1,8 +1,9 @@
 {
   "id": 7,
-  "slug": "public-investment-openclaw",
   "category": "fullstack",
   "featured": true,
+  "showInitial": false,
+  "order": 3,
   "internal": true,
   "time": "06-2026 – Present",
   "demo": "#",

@@ -42,7 +42,7 @@
 
       <!-- View More / Collapse Button -->
       <div
-        v-if="store.filteredProjects.length > 2"
+        v-if="hasMoreProjects && store.filteredProjects.length > 1"
         class="mt-6 sm:mt-12 text-center fade-up"
       >
         <button
@@ -123,7 +123,16 @@ const displayedProjects = computed(() => {
   if (showAll.value) {
     return store.filteredProjects
   }
-  return store.filteredProjects.slice(0, 2)
+  const initialList = store.filteredProjects.filter(p => p.showInitial)
+  if (initialList.length > 0 && initialList.length < store.filteredProjects.length) {
+    return initialList
+  }
+  return store.filteredProjects
+})
+
+const hasMoreProjects = computed(() => {
+  const initialList = store.filteredProjects.filter(p => p.showInitial)
+  return (initialList.length > 0 && initialList.length < store.filteredProjects.length) || showAll.value
 })
 
 function getCount(filter) {

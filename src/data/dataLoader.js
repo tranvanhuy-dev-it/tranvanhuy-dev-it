@@ -6,10 +6,10 @@ import whatIBuildData from './whatIBuild.json'
 import statsData from './stats.json'
 import uiData from './ui.json'
 
-// Auto-scan all project JSON configs
+// Auto-scan all project JSON configs from arbitrary folder names
 const projectFiles = import.meta.glob('./projects/*/project.json', { eager: true })
 
-// Auto-scan all project images from their respective images/ subdirectories without needing hardcoded filenames
+// Auto-scan all project images from their respective images/ subdirectories
 const projectImages = import.meta.glob('./projects/*/images/*.{png,jpg,jpeg,webp,svg,gif}', {
   eager: true,
   import: 'default'
@@ -29,10 +29,12 @@ for (const path in projectImages) {
   }
 }
 
-// Build raw projects list with auto-attached images
+// Build raw projects list with auto-attached images and metadata
 const rawProjects = []
 for (const path in projectFiles) {
   const config = projectFiles[path].default || projectFiles[path]
+  if (config.hidden) continue
+
   const match = path.match(/\.\/projects\/([^/]+)\//)
   const folder = match ? match[1] : (config.slug || 'project')
   const images = imagesByFolder[folder] || []
@@ -42,12 +44,18 @@ for (const path in projectFiles) {
     ...config,
     slug: folder,
     image: coverImage,
-    images: images
+    images: images,
+    // Flag to determine if the project should be displayed initially before expanding
+    showInitial: config.showInitial !== undefined ? Boolean(config.showInitial) : (config.featured ?? true),
+    order: config.order !== undefined ? Number(config.order) : 999
   })
 }
 
-// Sort projects (featured first, then by time/id)
+// Sort projects dynamically by order (ascending), then featured, then id (descending)
 rawProjects.sort((a, b) => {
+  if (a.order !== b.order) {
+    return a.order - b.order
+  }
   if (a.featured && !b.featured) return -1
   if (!a.featured && b.featured) return 1
   return (b.id || 0) - (a.id || 0)
@@ -81,6 +89,8 @@ export function loadPortfolioData() {
         slug: p.slug,
         category: p.category,
         featured: p.featured,
+        showInitial: p.showInitial,
+        order: p.order,
         internal: p.internal,
         time: p.time,
         github: p.github,
@@ -90,10 +100,10 @@ export function loadPortfolioData() {
         tags: p.tags,
         image: p.image,
         images: p.images,
-        title: p[lang]?.title || p.title,
-        description: p[lang]?.description || p.description,
-        longDesc: p[lang]?.longDesc || p.longDesc,
-        role: p[lang]?.role || p.role,
+        title: p[lang]?.title || p.title || '',
+        description: p[lang]?.description || p.description || '',
+        longDesc: p[lang]?.longDesc || p.longDesc || '',
+        role: p[lang]?.role || p.role || '',
         responsibilities: p[lang]?.responsibilities || p.responsibilities || [],
         engineeringDecisions: p[lang]?.engineeringDecisions || p.engineeringDecisions || [],
         challengesAndSolutions: p[lang]?.challengesAndSolutions || p.challengesAndSolutions || []

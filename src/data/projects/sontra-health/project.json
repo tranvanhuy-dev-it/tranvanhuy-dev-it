@@ -1,8 +1,9 @@
 {
   "id": 1,
-  "slug": "sontra-health",
   "category": "fullstack",
   "featured": true,
+  "showInitial": false,
+  "order": 4,
   "internal": false,
   "time": "05-2026",
   "github": "https://github.com/tranvanhuy-dev-it/SonTraHealthManagement.git",
