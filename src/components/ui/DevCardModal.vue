@@ -11,9 +11,9 @@
         <div
           class="relative w-full max-w-2xl bg-slate-900 light:bg-white border border-slate-700/80 light:border-slate-300 rounded-3xl p-5 sm:p-7 shadow-2xl text-left overflow-hidden transition-all duration-300"
         >
-          <!-- Subtle Glow -->
-          <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+          <!-- Ambient Glow Background -->
+          <div class="absolute -top-24 -right-24 w-52 h-52 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-24 -left-24 w-52 h-52 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
           <!-- Close Button -->
           <button
@@ -28,111 +28,142 @@
 
           <!-- Modal Header -->
           <div class="mb-4">
-            <h3 class="text-lg sm:text-xl font-bold text-white light:text-slate-900 flex items-center gap-2">
-              <span>{{ isVi ? 'Thẻ Hồ Sơ Dev Card' : 'Developer Profile Card' }}</span>
-              <span class="text-xs font-mono font-normal px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 light:text-blue-700 border border-blue-500/30">
-                1-Click Export
-              </span>
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-cyan-500/10 light:bg-cyan-50 border border-cyan-500/30 text-cyan-400 light:text-cyan-700 text-[11px] font-mono mb-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span>{{ isVi ? 'THẺ HỒ SƠ DEV CARD' : 'DEVELOPER PROFILE CARD' }}</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white light:text-slate-900">
+              {{ isVi ? 'Thẻ Profile Tóm Tắt (Dev ID)' : 'Digital Developer Card' }}
             </h3>
           </div>
 
-          <!-- Minimalist & High-Impact Dev Card Area -->
+          <!-- Pixel-Perfect Developer ID Card -->
           <div
             id="dev-card-element"
-            class="relative rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-slate-950 via-[#0b1329] to-slate-950 text-white border border-slate-800 shadow-2xl overflow-hidden"
+            class="relative rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-slate-950 via-[#0a1122] to-slate-950 text-white border border-cyan-500/30 shadow-2xl overflow-hidden"
           >
-            <!-- Sleek Ambient Lighting -->
-            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <!-- Background Glow Gradients -->
+            <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/15 via-blue-500/10 to-transparent rounded-bl-full pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/15 via-blue-500/10 to-transparent rounded-tr-full pointer-events-none"></div>
 
-            <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-              
-              <!-- Left Side: Profile & Key Highlights -->
-              <div class="flex-1 min-w-0 space-y-4">
-                <!-- Avatar + Name -->
-                <div class="flex items-center gap-3.5">
-                  <div class="w-13 h-13 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-0.5 shadow-lg shadow-blue-500/20 shrink-0">
-                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-cyan-300 font-mono font-bold text-lg">
-                      TVH
+            <div class="relative z-10">
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-5">
+                <!-- Left Side: Profile Details & Competencies -->
+                <div class="flex-1 min-w-0 space-y-3.5 w-full">
+                  
+                  <!-- Header: Avatar, Name & Role -->
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-cyan-500 to-teal-400 p-0.5 shadow-lg shadow-cyan-500/20 shrink-0 flex items-center justify-center">
+                      <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-cyan-300 font-mono font-bold text-base tracking-wider">
+                        TVH
+                      </div>
+                    </div>
+
+                    <div class="min-w-0">
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                          Trần Văn Huy
+                        </h4>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          <span>MakeAI</span>
+                        </span>
+                      </div>
+                      <p class="text-xs text-cyan-300 font-mono mt-0.5">
+                        Software Developer | Full-Stack & Applied AI
+                      </p>
                     </div>
                   </div>
 
+                  <!-- 2 Balanced Information Boxes -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <!-- Education Box -->
+                    <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800/90 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Education</span>
+                        <span class="text-[11px] font-mono font-bold text-cyan-400">GPA 3.5 / 4.0</span>
+                      </div>
+                      <p class="text-xs font-bold text-slate-100 mt-1 truncate">ĐH Bách Khoa Đà Nẵng (DUT)</p>
+                      <p class="text-[11px] text-slate-400 font-mono truncate">Khoa học Dữ liệu & AI (IT)</p>
+                    </div>
+
+                    <!-- Focus / Domain Box -->
+                    <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800/90 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Specialization</span>
+                        <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300">Production</span>
+                      </div>
+                      <p class="text-xs font-bold text-slate-100 mt-1 truncate">Data Science & AI Solutions</p>
+                      <p class="text-[11px] text-purple-300/90 font-mono truncate">Backend & Full-Stack Systems</p>
+                    </div>
+                  </div>
+
+                  <!-- Core Tech Stack Pills -->
                   <div>
-                    <h4 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                      Trần Văn Huy
-                    </h4>
-                    <p class="text-xs sm:text-sm font-mono text-cyan-400 font-medium">
-                      Software Developer • Full-Stack & AI
-                    </p>
-                  </div>
-                </div>
-
-                <!-- 3 Clear High-Impact Bullet Highlights -->
-                <div class="space-y-2 text-xs sm:text-sm">
-                  <!-- Education -->
-                  <div class="flex items-center gap-2 text-slate-200">
-                    <span class="text-base">🎓</span>
-                    <span><strong>ĐH Bách Khoa Đà Nẵng (DUT)</strong> • <span class="text-cyan-300 font-mono font-semibold">GPA 3.5/4.0</span></span>
-                  </div>
-
-                  <!-- Work Experience -->
-                  <div class="flex items-center gap-2 text-slate-200">
-                    <span class="text-base">💼</span>
-                    <span>Software Developer Intern @ <strong>MakeAI (DTG)</strong></span>
-                  </div>
-
-                  <!-- Tech Stack -->
-                  <div class="flex items-center gap-2 text-slate-300 pt-1">
-                    <span class="text-base">⚡</span>
-                    <div class="flex flex-wrap gap-1.5 font-mono text-xs">
-                      <span class="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-amber-300">Spring Boot</span>
-                      <span class="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-cyan-300">Next.js / Vue 3</span>
-                      <span class="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-blue-300">PostgreSQL</span>
-                      <span class="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-purple-300">Agentic AI</span>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5">Core Tech Stack</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-amber-300 text-[11px] font-mono border border-slate-800">Spring Boot</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-cyan-300 text-[11px] font-mono border border-slate-800">Next.js</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-emerald-300 text-[11px] font-mono border border-slate-800">Vue 3</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-blue-300 text-[11px] font-mono border border-slate-800">PostgreSQL</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-indigo-300 text-[11px] font-mono border border-slate-800">Frappe / Python</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-purple-300 text-[11px] font-mono border border-slate-800">Agentic AI</span>
+                      <span class="px-2 py-0.5 rounded-md bg-slate-900/90 text-slate-300 text-[11px] font-mono border border-slate-800">Docker</span>
                     </div>
                   </div>
+
                 </div>
 
-                <!-- Contact row -->
-                <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400 border-t border-slate-800/80">
+                <!-- Right Side: White QR Pass Card -->
+                <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white text-slate-900 shadow-xl shrink-0 self-center">
+                  <QrcodeVue
+                    ref="cardQrRef"
+                    value="https://www.tranvanhuy.io.vn"
+                    :size="105"
+                    level="H"
+                    render-as="canvas"
+                    class="block mx-auto"
+                  />
+                  <div class="text-center mt-2">
+                    <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
+                      {{ isVi ? 'QUÉT ĐỂ XEM HỒ SƠ' : 'SCAN TO VISIT' }}
+                    </span>
+                    <span class="text-[10px] font-mono font-extrabold text-blue-600 block">
+                      tranvanhuy.io.vn
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Footer Metadata Bar -->
+              <div class="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-xs text-slate-400 font-mono gap-2">
+                <div class="flex items-center gap-4">
                   <span class="flex items-center gap-1.5 text-slate-300">
                     <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                     <span>tranvanhuy064206@gmail.com</span>
                   </span>
-                  <span class="flex items-center gap-1.5 text-cyan-400">
-                    <span>github.com/tranvanhuy-dev-it</span>
+                  <span class="flex items-center gap-1.5 text-slate-400">
+                    <svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>Da Nang, Vietnam</span>
                   </span>
                 </div>
-              </div>
 
-              <!-- Right Side: Minimalist QR Code Box -->
-              <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white text-slate-900 shadow-xl shrink-0">
-                <QrcodeVue
-                  ref="cardQrRef"
-                  value="https://www.tranvanhuy.io.vn"
-                  :size="105"
-                  level="H"
-                  render-as="canvas"
-                  class="block mx-auto"
-                />
-                <div class="text-center mt-1.5">
-                  <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
-                    {{ isVi ? 'QUÉT XEM PORTFOLIO' : 'SCAN FOR PORTFOLIO' }}
-                  </span>
-                  <span class="text-[10px] font-mono font-extrabold text-blue-600 block">
-                    tranvanhuy.io.vn
-                  </span>
+                <div class="text-cyan-400 font-semibold">
+                  github.com/tranvanhuy-dev-it
                 </div>
               </div>
-
             </div>
           </div>
 
           <!-- Bottom Action Buttons -->
           <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p class="text-xs text-slate-400 light:text-slate-600">
-              {{ isVi ? 'Tải thẻ PNG tinh gọn để gửi nhanh cho nhà tuyển dụng.' : 'Download this clean PNG card to share with recruiters.' }}
+              {{ isVi ? 'Lưu thẻ hình ảnh PNG để đính kèm email hoặc gửi vào nhóm tuyển dụng.' : 'Download this image card to attach to emails or share with hiring teams.' }}
             </p>
 
             <button
@@ -144,7 +175,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
               <span v-if="isGenerating" class="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-              <span>{{ isGenerating ? (isVi ? 'Đang xuất ảnh...' : 'Exporting...') : (isVi ? 'Tải Thẻ PNG (1-Click)' : 'Download Card (PNG)') }}</span>
+              <span>{{ isGenerating ? (isVi ? 'Đang tạo...' : 'Generating...') : (isVi ? 'Tải Thẻ PNG (1-Click)' : 'Download Card (PNG)') }}</span>
             </button>
           </div>
         </div>
@@ -180,137 +211,196 @@ watch(() => props.isOpen, (newVal) => {
   }
 })
 
-// Clean High-Resolution Canvas 2D PNG Generator
+// Direct High-Resolution HTML5 Canvas 2D Renderer for 1-Click PNG Download
 function downloadCardPng() {
   sound.playClick()
   isGenerating.value = true
 
   setTimeout(() => {
     try {
-      const width = 1000
-      const height = 500
+      const width = 1140
+      const height = 620
       const canvas = document.createElement('canvas')
       canvas.width = width
       canvas.height = height
       const ctx = canvas.getContext('2d')
 
-      // 1. Background (Clean Dark Obsidian)
+      // 1. Background gradient (Cyber Dark Slate)
       const bgGrad = ctx.createLinearGradient(0, 0, width, height)
-      bgGrad.addColorStop(0, '#030712')
-      bgGrad.addColorStop(0.6, '#0b1329')
-      bgGrad.addColorStop(1, '#030712')
+      bgGrad.addColorStop(0, '#040711')
+      bgGrad.addColorStop(0.5, '#0a1122')
+      bgGrad.addColorStop(1, '#020617')
       ctx.fillStyle = bgGrad
       ctx.fillRect(0, 0, width, height)
 
-      // 2. Subtle Border
-      ctx.lineWidth = 2
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)'
+      // 2. Card Border Neon Gradient
+      ctx.lineWidth = 3
+      const borderGrad = ctx.createLinearGradient(0, 0, width, height)
+      borderGrad.addColorStop(0, '#06b6d4')
+      borderGrad.addColorStop(0.5, '#3b82f6')
+      borderGrad.addColorStop(1, '#8b5cf6')
+      ctx.strokeStyle = borderGrad
       ctx.beginPath()
       ctx.roundRect(24, 24, width - 48, height - 48, 20)
       ctx.stroke()
 
-      // 3. Avatar Monogram
-      const avGrad = ctx.createLinearGradient(60, 60, 140, 140)
+      // 3. Ambient Glow Circles
+      const glow1 = ctx.createRadialGradient(width - 150, 150, 10, width - 150, 150, 300)
+      glow1.addColorStop(0, 'rgba(6, 182, 212, 0.2)')
+      glow1.addColorStop(1, 'rgba(6, 182, 212, 0)')
+      ctx.fillStyle = glow1
+      ctx.fillRect(0, 0, width, height)
+
+      // 4. Avatar / Monogram Box
+      const avGrad = ctx.createLinearGradient(60, 60, 136, 136)
       avGrad.addColorStop(0, '#2563eb')
       avGrad.addColorStop(1, '#06b6d4')
       ctx.fillStyle = avGrad
       ctx.beginPath()
-      ctx.roundRect(60, 60, 72, 72, 16)
+      ctx.roundRect(60, 60, 76, 76, 16)
       ctx.fill()
 
       ctx.fillStyle = '#030712'
       ctx.beginPath()
-      ctx.roundRect(62, 62, 68, 68, 14)
+      ctx.roundRect(62, 62, 72, 72, 14)
       ctx.fill()
 
       ctx.fillStyle = '#38bdf8'
-      ctx.font = 'bold 26px monospace'
+      ctx.font = 'bold 28px monospace'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
-      ctx.fillText('TVH', 96, 96)
+      ctx.fillText('TVH', 98, 98)
 
-      // 4. Name & Title
+      // 5. Name & Subtitle
       ctx.textAlign = 'left'
       ctx.textBaseline = 'alphabetic'
-      ctx.font = 'bold 32px sans-serif'
+      ctx.font = 'bold 34px sans-serif'
       ctx.fillStyle = '#ffffff'
-      ctx.fillText('Trần Văn Huy', 150, 92)
+      ctx.fillText('Trần Văn Huy', 156, 92)
+
+      // MakeAI Badge
+      ctx.fillStyle = 'rgba(16, 185, 129, 0.15)'
+      ctx.beginPath()
+      ctx.roundRect(390, 68, 125, 28, 14)
+      ctx.fill()
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.4)'
+      ctx.lineWidth = 1
+      ctx.stroke()
+      ctx.fillStyle = '#34d399'
+      ctx.font = 'bold 13px monospace'
+      ctx.fillText('● MakeAI', 412, 87)
 
       ctx.font = '16px monospace'
       ctx.fillStyle = '#38bdf8'
-      ctx.fillText('Software Developer • Full-Stack & AI', 150, 122)
+      ctx.fillText('Software Developer | Full-Stack & Applied AI', 156, 124)
 
-      // 5. 3 Power Highlights
-      ctx.font = '18px sans-serif'
-      ctx.fillStyle = '#f8fafc'
-      ctx.fillText('🎓  ĐH Bách Khoa Đà Nẵng (DUT)', 60, 185)
+      // 6. Academic & Focus Badges
+      // Box 1
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)'
+      ctx.beginPath()
+      ctx.roundRect(60, 165, 340, 105, 14)
+      ctx.fill()
+      ctx.strokeStyle = '#1e293b'
+      ctx.lineWidth = 1.5
+      ctx.stroke()
+
+      ctx.fillStyle = '#94a3b8'
+      ctx.font = '12px monospace'
+      ctx.fillText('EDUCATION', 76, 192)
       ctx.fillStyle = '#38bdf8'
-      ctx.font = 'bold 16px monospace'
-      ctx.fillText('• GPA 3.5 / 4.0', 370, 185)
+      ctx.font = 'bold 13px monospace'
+      ctx.fillText('GPA 3.5 / 4.0', 305, 192)
 
-      ctx.font = '18px sans-serif'
-      ctx.fillStyle = '#f8fafc'
-      ctx.fillText('💼  Software Developer Intern @ MakeAI (DTG)', 60, 230)
+      ctx.fillStyle = '#ffffff'
+      ctx.font = 'bold 16px sans-serif'
+      ctx.fillText('ĐH Bách Khoa Đà Nẵng (DUT)', 76, 222)
+      ctx.fillStyle = '#94a3b8'
+      ctx.font = '13px monospace'
+      ctx.fillText('Khoa học Dữ liệu & AI (IT)', 76, 250)
 
-      // Tech Stack
-      ctx.font = '18px sans-serif'
-      ctx.fillStyle = '#f8fafc'
-      ctx.fillText('⚡  Core Stack:', 60, 275)
+      // Box 2
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)'
+      ctx.beginPath()
+      ctx.roundRect(420, 165, 340, 105, 14)
+      ctx.fill()
+      ctx.strokeStyle = '#1e293b'
+      ctx.stroke()
 
-      const techs = ['Spring Boot', 'Next.js', 'Vue 3', 'PostgreSQL', 'Agentic AI']
-      let tx = 200
-      techs.forEach(t => {
-        ctx.font = '13px monospace'
-        const tw = ctx.measureText(t).width + 20
+      ctx.fillStyle = '#94a3b8'
+      ctx.font = '12px monospace'
+      ctx.fillText('SPECIALIZATION', 436, 192)
+      ctx.fillStyle = '#c084fc'
+      ctx.font = 'bold 12px monospace'
+      ctx.fillText('PRODUCTION', 675, 192)
+
+      ctx.fillStyle = '#ffffff'
+      ctx.font = 'bold 16px sans-serif'
+      ctx.fillText('Data Science & AI Solutions', 436, 222)
+      ctx.fillStyle = '#c084fc'
+      ctx.font = '13px monospace'
+      ctx.fillText('Backend & Full-Stack Systems', 436, 250)
+
+      // 7. Core Tech Stack
+      ctx.fillStyle = '#94a3b8'
+      ctx.font = '12px monospace'
+      ctx.fillText('CORE TECH STACK', 60, 305)
+
+      const techList = ['Spring Boot', 'Next.js', 'Vue 3', 'PostgreSQL', 'Frappe / Python', 'Agentic AI', 'Docker']
+      let currentX = 60
+      let currentY = 325
+
+      techList.forEach(t => {
+        ctx.font = '14px monospace'
+        const tWidth = ctx.measureText(t).width + 20
         ctx.fillStyle = 'rgba(15, 23, 42, 0.9)'
         ctx.beginPath()
-        ctx.roundRect(tx, 256, tw, 28, 6)
+        ctx.roundRect(currentX, currentY, tWidth, 32, 6)
         ctx.fill()
         ctx.strokeStyle = '#334155'
         ctx.stroke()
 
-        ctx.fillStyle = '#38bdf8'
-        ctx.fillText(t, tx + 10, 275)
-        tx += tw + 10
+        ctx.fillStyle = '#e2e8f0'
+        ctx.fillText(t, currentX + 10, currentY + 21)
+        currentX += tWidth + 10
       })
 
-      // 6. QR Container on Right
+      // 8. QR Code Container on the right
       ctx.fillStyle = '#ffffff'
       ctx.beginPath()
-      ctx.roundRect(720, 60, 220, 320, 18)
+      ctx.roundRect(810, 60, 260, 340, 20)
       ctx.fill()
 
       const qrCanvas = cardQrRef.value?.$el?.querySelector('canvas') || cardQrRef.value?.$el
       if (qrCanvas && qrCanvas instanceof HTMLCanvasElement) {
-        ctx.drawImage(qrCanvas, 745, 80, 170, 170)
+        ctx.drawImage(qrCanvas, 840, 85, 200, 200)
       }
 
       ctx.textAlign = 'center'
       ctx.fillStyle = '#64748b'
-      ctx.font = 'bold 11px monospace'
-      ctx.fillText('SCAN FOR LIVE PORTFOLIO', 830, 290)
-
+      ctx.font = 'bold 12px monospace'
+      ctx.fillText('SCAN TO VISIT PORTFOLIO', 940, 320)
       ctx.fillStyle = '#2563eb'
-      ctx.font = 'bold 14px monospace'
-      ctx.fillText('www.tranvanhuy.io.vn', 830, 320)
+      ctx.font = 'bold 15px monospace'
+      ctx.fillText('tranvanhuy.io.vn', 940, 350)
 
-      // 7. Footer Contact Bar
+      // 9. Footer Info Bar
       ctx.textAlign = 'left'
       ctx.strokeStyle = '#1e293b'
       ctx.beginPath()
-      ctx.moveTo(60, 420)
-      ctx.lineTo(width - 60, 420)
+      ctx.moveTo(60, 520)
+      ctx.lineTo(width - 60, 520)
       ctx.stroke()
 
       ctx.fillStyle = '#94a3b8'
-      ctx.font = '14px monospace'
-      ctx.fillText('✉ tranvanhuy064206@gmail.com', 60, 455)
+      ctx.font = '15px monospace'
+      ctx.fillText('✉ tranvanhuy064206@gmail.com', 60, 560)
+      ctx.fillText('📍 Da Nang, Vietnam', 420, 560)
 
       ctx.fillStyle = '#38bdf8'
       ctx.textAlign = 'right'
-      ctx.fillText('github.com/tranvanhuy-dev-it', width - 60, 455)
+      ctx.fillText('github.com/tranvanhuy-dev-it', width - 60, 560)
 
-      // Download trigger
+      // Trigger download
       const link = document.createElement('a')
       link.download = 'tranvanhuy-dev-card.png'
       link.href = canvas.toDataURL('image/png')
@@ -320,7 +410,7 @@ function downloadCardPng() {
 
       sound.playSuccess()
     } catch (err) {
-      console.error('Error generating card', err)
+      console.error('Error generating Dev Card', err)
     } finally {
       isGenerating.value = false
     }
