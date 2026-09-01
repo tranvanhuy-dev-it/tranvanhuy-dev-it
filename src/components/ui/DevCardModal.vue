@@ -59,23 +59,15 @@
                     </div>
                   </div>
 
-                  <!-- Top-Right: Compact QR Code Pass -->
-                  <div class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0">
+                  <!-- Top-Right: Pure Compact QR Code Only -->
+                  <div class="p-1.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0 shadow-sm" title="https://www.tranvanhuy.io.vn">
                     <QrcodeVue
                       value="https://www.tranvanhuy.io.vn"
-                      :size="56"
+                      :size="52"
                       level="M"
                       render-as="svg"
                       class="block shrink-0"
                     />
-                    <div class="text-left pr-1 font-mono">
-                      <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold leading-none">
-                        Portfolio
-                      </span>
-                      <span class="text-[10px] font-bold text-blue-600 block mt-1 leading-none">
-                        tranvanhuy.io.vn
-                      </span>
-                    </div>
                   </div>
                 </div>
 
