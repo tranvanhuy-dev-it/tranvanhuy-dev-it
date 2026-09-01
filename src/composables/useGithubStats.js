@@ -1,67 +1,48 @@
 import { ref, onMounted } from 'vue'
 
 const GITHUB_USERNAME = 'tranvanhuy-dev-it'
-const CACHE_KEY = 'github_stats_cache_v2'
-const CACHE_EXPIRY = 30 * 60 * 1000 // 30 minutes
+const CACHE_KEY = 'github_stats_cache_v3'
+const CACHE_EXPIRY = 10 * 60 * 1000 // 10 minutes cache
 
 export function useGithubStats() {
   const loading = ref(true)
+  const isRefreshing = ref(false)
   const error = ref(null)
+  const lastUpdated = ref(null)
+
   const stats = ref({
-    publicRepos: 15,
-    totalStars: 2,
+    publicRepos: 0,
+    totalStars: 0,
     followers: 0,
     following: 0,
-    topLanguages: [
-      { name: 'C#', percent: 33, color: '#178600' },
-      { name: 'Java', percent: 20, color: '#b07219' },
-      { name: 'Vue', percent: 20, color: '#41b883' },
-      { name: 'JavaScript', percent: 13, color: '#f1e05a' },
-      { name: 'Python', percent: 7, color: '#3572A5' }
-    ],
-    recentEvents: [
-      {
-        id: '1',
-        repo: 'tranvanhuy-dev-it/tranvanhuy-dev-it',
-        message: 'feat: implement modular project structure with auto-image scanner & live github stats',
-        time: 'Just now',
-        type: 'PushEvent'
-      },
-      {
-        id: '2',
-        repo: 'tranvanhuy-dev-it/QLPT_JAVA_BE',
-        message: 'feat: optimize WebSocket real-time messaging & billing batch queries',
-        time: 'Recent',
-        type: 'PushEvent'
-      },
-      {
-        id: '3',
-        repo: 'tranvanhuy-dev-it/SonTraHealthManagement',
-        message: 'feat: add PostGIS geospatial boundary queries and UI responsive map',
-        time: 'Recent',
-        type: 'PushEvent'
-      }
-    ]
+    topLanguages: [],
+    recentEvents: []
   })
 
-  async function fetchStats() {
+  async function fetchStats(forceRefresh = false) {
     try {
-      // Check cache first
-      const cached = localStorage.getItem(CACHE_KEY)
-      if (cached) {
-        try {
-          const parsed = JSON.parse(cached)
-          if (Date.now() - parsed.timestamp < CACHE_EXPIRY) {
-            stats.value = parsed.data
-            loading.value = false
-            return
-          }
-        } catch (e) {}
+      if (forceRefresh) {
+        isRefreshing.value = true
+        localStorage.removeItem(CACHE_KEY)
+      } else {
+        // Check cache first
+        const cached = localStorage.getItem(CACHE_KEY)
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached)
+            if (Date.now() - parsed.timestamp < CACHE_EXPIRY) {
+              stats.value = parsed.data
+              lastUpdated.value = new Date(parsed.timestamp).toLocaleTimeString()
+              loading.value = false
+              return
+            }
+          } catch (e) {}
+        }
       }
 
       loading.value = true
 
-      // Fetch user profile and repos in parallel
+      // Fetch user profile, repos, and public events directly from GitHub REST API
       const [userRes, reposRes, eventsRes] = await Promise.allSettled([
         fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
         fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed`),
@@ -84,7 +65,7 @@ export function useGithubStats() {
       }
 
       if (userData || (Array.isArray(reposData) && reposData.length > 0)) {
-        // Calculate stars & languages
+        // Calculate stars & language distribution dynamically
         let stars = 0
         const langCounts = {}
         let totalLangRepos = 0
@@ -111,7 +92,9 @@ export function useGithubStats() {
           HTML: '#e34c26',
           CSS: '#563d7c',
           'C++': '#f34b7d',
-          C: '#555555'
+          C: '#555555',
+          PHP: '#4F5D95',
+          Dart: '#00B4AB'
         }
 
         const topLangs = Object.keys(langCounts)
@@ -124,12 +107,12 @@ export function useGithubStats() {
           .sort((a, b) => b.count - a.count)
           .slice(0, 5)
 
-        // Parse recent push events
+        // Parse real recent push events from GitHub
         const parsedEvents = []
         if (Array.isArray(eventsData)) {
           for (const ev of eventsData) {
             if (ev.type === 'PushEvent') {
-              const commitMsg = ev.payload?.commits?.[0]?.message || 'Repository code update'
+              const commitMsg = ev.payload?.commits?.[0]?.message || 'Update repository codebase'
               parsedEvents.push({
                 id: ev.id,
                 repo: ev.repo?.name || 'repo',
@@ -147,13 +130,14 @@ export function useGithubStats() {
           totalStars: stars,
           followers: userData?.followers !== undefined ? userData.followers : 0,
           following: userData?.following !== undefined ? userData.following : 0,
-          topLanguages: topLangs.length > 0 ? topLangs : stats.value.topLanguages,
-          recentEvents: parsedEvents.length > 0 ? parsedEvents : stats.value.recentEvents
+          topLanguages: topLangs,
+          recentEvents: parsedEvents
         }
 
         stats.value = computedStats
+        lastUpdated.value = new Date().toLocaleTimeString()
 
-        // Save to cache
+        // Cache result
         localStorage.setItem(
           CACHE_KEY,
           JSON.stringify({
@@ -163,10 +147,11 @@ export function useGithubStats() {
         )
       }
     } catch (err) {
-      console.warn('GitHub API fetch fallback', err)
+      console.warn('GitHub API fetch failed:', err)
       error.value = err
     } finally {
       loading.value = false
+      isRefreshing.value = false
     }
   }
 
@@ -190,7 +175,9 @@ export function useGithubStats() {
   return {
     stats,
     loading,
+    isRefreshing,
     error,
-    refresh: fetchStats
+    lastUpdated,
+    refresh: () => fetchStats(true)
   }
 }
