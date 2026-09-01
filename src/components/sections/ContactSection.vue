@@ -143,8 +143,8 @@
         </div>
 
         <!-- Right Column (7 cols): Send Message Form -->
-        <div class="lg:col-span-7 glass-card p-5 sm:p-7 rounded-2xl border border-slate-800/80 light:border-slate-200 fade-right flex flex-col justify-between">
-          <div>
+        <div class="lg:col-span-7 glass-card p-5 sm:p-7 rounded-2xl border border-slate-800/80 light:border-slate-200 fade-right flex flex-col justify-between h-full">
+          <div class="flex flex-col flex-1 h-full">
             <div class="mb-4 pb-3 border-b border-slate-800/80 light:border-slate-200">
               <h3 class="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
                 <span>{{ store.ui.sendMessageTitle || 'Send a Direct Message' }}</span>
@@ -154,78 +154,79 @@
               </p>
             </div>
 
-            <form @submit.prevent="submit" class="space-y-3.5">
-              <!-- Name & Email -->
-              <div class="grid sm:grid-cols-2 gap-3.5">
-                <div class="space-y-1">
-                  <label for="name" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formName || 'Full Name' }}</label>
-                  <input
-                    v-model="form.name"
-                    type="text"
-                    id="name"
-                    placeholder="Recruiter Name / Company"
-                    class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    :class="errors.name ? 'border-red-500/80' : ''"
-                  />
-                  <p v-if="errors.name" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.name }}</p>
+            <form @submit.prevent="submit" class="space-y-3.5 flex flex-col flex-1 justify-between">
+              <div class="space-y-3.5 flex flex-col flex-1">
+                <!-- Name & Email -->
+                <div class="grid sm:grid-cols-2 gap-3.5">
+                  <div class="space-y-1">
+                    <label for="name" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formName || 'Full Name' }}</label>
+                    <input
+                      v-model="form.name"
+                      type="text"
+                      id="name"
+                      placeholder="Recruiter Name / Company"
+                      class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
+                      :class="errors.name ? 'border-red-500/80' : ''"
+                    />
+                    <p v-if="errors.name" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.name }}</p>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label for="email" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formEmail || 'Email Address' }}</label>
+                    <input
+                      v-model="form.email"
+                      type="email"
+                      id="email"
+                      placeholder="email@company.com"
+                      class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
+                      :class="errors.email ? 'border-red-500/80' : ''"
+                    />
+                    <p v-if="errors.email" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.email }}</p>
+                  </div>
                 </div>
 
+                <!-- Subject Dropdown -->
                 <div class="space-y-1">
-                  <label for="email" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formEmail || 'Email Address' }}</label>
-                  <input
-                    v-model="form.email"
-                    type="email"
-                    id="email"
-                    placeholder="email@company.com"
-                    class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    :class="errors.email ? 'border-red-500/80' : ''"
-                  />
-                  <p v-if="errors.email" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.email }}</p>
-                </div>
-              </div>
-
-              <!-- Subject Dropdown -->
-              <div class="space-y-1">
-                <label for="subject" class="text-xs font-mono text-slate-400 light:text-slate-600">
-                  {{ store.ui.formSubject || 'Subject' }}
-                </label>
-                <select
-                  v-model="form.subject"
-                  id="subject"
-                  class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors cursor-pointer"
-                  :class="errors.subject ? 'border-red-500/80' : ''"
-                >
-                  <option value="" disabled selected>
-                    {{ store.locale === 'vi' ? '-- Chọn tiêu đề phù hợp --' : '-- Select a subject topic --' }}
-                  </option>
-                  <option
-                    v-for="s in store.presetSubjects"
-                    :key="s"
-                    :value="s"
-                    class="bg-slate-900 text-white light:bg-white light:text-slate-900 py-1"
+                  <label for="subject" class="text-xs font-mono text-slate-400 light:text-slate-600">
+                    {{ store.ui.formSubject || 'Subject' }}
+                  </label>
+                  <select
+                    v-model="form.subject"
+                    id="subject"
+                    class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors cursor-pointer"
+                    :class="errors.subject ? 'border-red-500/80' : ''"
                   >
-                    {{ s }}
-                  </option>
-                </select>
-                <p v-if="errors.subject" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.subject }}</p>
-              </div>
+                    <option value="" disabled selected>
+                      {{ store.locale === 'vi' ? '-- Chọn tiêu đề phù hợp --' : '-- Select a subject topic --' }}
+                    </option>
+                    <option
+                      v-for="s in store.presetSubjects"
+                      :key="s"
+                      :value="s"
+                      class="bg-slate-900 text-white light:bg-white light:text-slate-900 py-1"
+                    >
+                      {{ s }}
+                    </option>
+                  </select>
+                  <p v-if="errors.subject" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.subject }}</p>
+                </div>
 
-              <!-- Message Content -->
-              <div class="space-y-1">
-                <label for="message" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formMessage || 'Message Content' }}</label>
-                <textarea
-                  v-model="form.message"
-                  id="message"
-                  rows="4"
-                  placeholder="Hi Huy, we are impressed with your profile and would like to discuss..."
-                  class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                  :class="errors.message ? 'border-red-500/80' : ''"
-                ></textarea>
-                <p v-if="errors.message" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.message }}</p>
+                <!-- Message Content -->
+                <div class="space-y-1 flex flex-col flex-1 min-h-[140px]">
+                  <label for="message" class="text-xs font-mono text-slate-400 light:text-slate-600">{{ store.ui.formMessage || 'Message Content' }}</label>
+                  <textarea
+                    v-model="form.message"
+                    id="message"
+                    placeholder="Hi Huy, we are impressed with your profile and would like to discuss..."
+                    class="w-full flex-1 min-h-[130px] px-3.5 py-2.5 rounded-xl text-xs bg-slate-900/90 light:bg-slate-50 border border-slate-700/80 light:border-slate-300 text-white light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    :class="errors.message ? 'border-red-500/80' : ''"
+                  ></textarea>
+                  <p v-if="errors.message" class="text-[11px] text-red-400 font-mono mt-0.5">{{ errors.message }}</p>
+                </div>
               </div>
 
               <!-- Action buttons & feedback state -->
-              <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 mt-auto">
                 <div class="text-xs font-medium w-full sm:w-auto">
                   <span v-if="submitStatus === 'success'" class="text-green-400 flex items-center gap-1.5 animate-pulse">
                     {{ store.ui.formSuccess || '✓ Message sent successfully! Thank you.' }}
