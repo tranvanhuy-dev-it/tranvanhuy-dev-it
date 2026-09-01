@@ -28,7 +28,7 @@
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
               <span>{{ isVi ? 'THẺ HỒ SƠ DEV CARD' : 'DEVELOPER PROFILE CARD' }}</span>
             </div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900">
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">
               {{ isVi ? 'Thẻ Profile Kỹ Sư Phần Mềm' : 'Digital Developer Pass' }}
             </h3>
           </div>
@@ -37,103 +37,99 @@
           <div class="overflow-x-auto pb-1 scrollbar-thin">
             <div
               id="dev-card-element"
-              class="relative min-w-[620px] rounded-2xl p-6 bg-white text-slate-900 border border-slate-200 shadow-sm overflow-hidden font-sans"
-              style="width: 620px; background-color: #ffffff;"
+              class="relative min-w-[620px] rounded-2xl p-6 bg-white text-slate-900 border border-slate-200 shadow-sm overflow-hidden"
+              style="width: 620px; background-color: #ffffff; font-family: 'Inter', system-ui, -apple-system, sans-serif;"
             >
-              <div class="relative z-10">
-                <!-- Symmetrical Landscape Row -->
-                <div class="flex flex-row items-center justify-between gap-6">
-                  <!-- Left Side: Profile Details & Competencies -->
-                  <div class="flex-1 min-w-0 space-y-3.5">
-                    
-                    <!-- Header: Avatar, Name, Role & Badges (Including GPA 3.5) -->
-                    <div class="flex items-center gap-3.5">
-                      <div class="w-12 h-12 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-base tracking-wider">
-                        TVH
-                      </div>
-
-                      <div class="min-w-0">
-                        <div class="flex items-center gap-2 flex-nowrap whitespace-nowrap">
-                          <h4 class="text-xl font-bold text-slate-900 tracking-tight">
-                            Trần Văn Huy
-                          </h4>
-                          <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200 shrink-0">
-                            GPA 3.5
-                          </span>
-                          <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 shrink-0">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                            <span>MakeAI</span>
-                          </span>
-                        </div>
-                        <p class="text-xs text-slate-500 font-mono mt-0.5 whitespace-nowrap font-medium">
-                          Software Developer • Full-Stack & AI Solutions
-                        </p>
-                      </div>
+              <div class="relative z-10 space-y-4">
+                <!-- Top Row: Profile Details on Left, Compact QR on Top-Right -->
+                <div class="flex items-start justify-between gap-4">
+                  <!-- Left: Avatar, Name & Title -->
+                  <div class="flex items-center gap-3.5 min-w-0">
+                    <div class="w-12 h-12 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-base tracking-wider">
+                      TVH
                     </div>
 
-                    <!-- 2 Balanced Information Boxes -->
-                    <div class="grid grid-cols-2 gap-3">
-                      <!-- Education Box -->
-                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
-                        <div>
-                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold block">Education</span>
-                          <p class="text-xs font-bold text-slate-900 whitespace-nowrap mt-1">ĐH Bách Khoa Đà Nẵng (DUT)</p>
-                        </div>
-                        <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap">Khoa học Dữ liệu & AI</p>
-                      </div>
-
-                      <!-- Experience Box -->
-                      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
-                        <div class="flex items-center justify-between">
-                          <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
-                          <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-200/60 text-slate-700 border border-slate-300">DTG</span>
-                        </div>
-                        <div>
-                          <p class="text-xs font-bold text-slate-900 whitespace-nowrap">Software Developer Intern</p>
-                          <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap">Full-Stack & AI Solutions</p>
-                        </div>
-                      </div>
+                    <div class="min-w-0">
+                      <h4 class="text-xl font-bold text-slate-900 tracking-tight whitespace-nowrap leading-tight">
+                        Trần Văn Huy
+                      </h4>
+                      <p class="text-xs text-slate-500 font-medium mt-1 whitespace-nowrap">
+                        Software Developer • Full-Stack & AI Solutions
+                      </p>
                     </div>
-
-                    <!-- Core Tech Stack: Single Horizontal Row (No wrapping) -->
-                    <div>
-                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5 font-semibold">Core Tech Stack</span>
-                      <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px] overflow-hidden">
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Java</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Spring Boot</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Next.js</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Vue 3</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">PostgreSQL</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Python</span>
-                        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Docker</span>
-                        <span class="px-2 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-bold">AI</span>
-                      </div>
-                    </div>
-
                   </div>
 
-                  <!-- Right Side: Clean Integrated QR Card -->
-                  <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm shrink-0 self-center text-slate-900">
+                  <!-- Top-Right: Compact QR Code Pass -->
+                  <div class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0">
                     <QrcodeVue
                       value="https://www.tranvanhuy.io.vn"
-                      :size="105"
-                      level="H"
+                      :size="56"
+                      level="M"
                       render-as="svg"
-                      class="block mx-auto"
+                      class="block shrink-0"
                     />
-                    <div class="text-center mt-2">
-                      <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
-                        {{ isVi ? 'QUÉT XEM HỒ SƠ' : 'SCAN TO VISIT' }}
+                    <div class="text-left pr-1 font-mono">
+                      <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold leading-none">
+                        Portfolio
                       </span>
-                      <span class="text-[10px] font-mono font-bold text-blue-600 block">
+                      <span class="text-[10px] font-bold text-blue-600 block mt-1 leading-none">
                         tranvanhuy.io.vn
                       </span>
                     </div>
                   </div>
                 </div>
 
+                <!-- Middle Row: 2 Balanced Information Boxes -->
+                <div class="grid grid-cols-2 gap-3">
+                  <!-- Education Box (With GPA 3.5 nicely placed inside) -->
+                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">
+                        GPA 3.5
+                      </span>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap">ĐH Bách Khoa Đà Nẵng (DUT)</p>
+                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Khoa học Dữ liệu & AI</p>
+                    </div>
+                  </div>
+
+                  <!-- Experience Box (With MakeAI badge & distinct non-duplicate detail) -->
+                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>MakeAI</span>
+                      </span>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap">Software Developer Intern</p>
+                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">
+                        {{ isVi ? 'Phát triển Web App & Hệ thống AI' : 'Web Apps & AI Systems Development' }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Core Tech Stack: Single Clean Horizontal Row -->
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5 font-semibold">Core Tech Stack</span>
+                  <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px] overflow-hidden">
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Java</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Spring Boot</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Next.js</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Vue 3</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">PostgreSQL</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Python</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Docker</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-bold">AI</span>
+                  </div>
+                </div>
+
                 <!-- Card Footer: Single Clean Balanced Row -->
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
                   <div class="flex items-center gap-4 whitespace-nowrap">
                     <!-- Email -->
                     <span class="flex items-center gap-1.5 text-slate-600">
