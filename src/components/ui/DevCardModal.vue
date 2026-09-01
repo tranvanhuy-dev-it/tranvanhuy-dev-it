@@ -26,19 +26,19 @@
           <div class="mb-3 sm:mb-4 pr-10">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-mono mb-1">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              <span>{{ isVi ? 'DANH THIẾP DEV PASS' : 'DEVELOPER BUSINESS CARD' }}</span>
+              <span>{{ isVi ? 'DANH THIẾP DEV CARD' : 'DEVELOPER PASS' }}</span>
             </div>
             <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">
               {{ isVi ? 'Thẻ Danh Thiếp Kỹ Sư Phần Mềm' : 'Digital Developer Business Card' }}
             </h3>
           </div>
 
-          <!-- Visible Card Area (Standard Business Card Golden Ratio 1.73 : 1) -->
+          <!-- Visible Card Area (Golden ISO ID Card Ratio 640px x 380px) -->
           <div class="overflow-x-auto pb-1 scrollbar-thin">
             <div
               id="dev-card-element"
-              class="relative min-w-[580px] rounded-2xl p-6 text-slate-900 border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between"
-              style="width: 580px; height: 335px; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); font-family: 'Inter', system-ui, -apple-system, sans-serif;"
+              class="relative rounded-2xl p-6 text-slate-900 border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between"
+              style="width: 640px; min-width: 640px; height: 380px; min-height: 380px; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); font-family: 'Inter', system-ui, -apple-system, sans-serif;"
             >
               <!-- Top Section: Header & Pure QR on Right -->
               <div class="flex items-start justify-between gap-4">
@@ -62,7 +62,7 @@
                 <div class="p-1.5 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs" title="https://www.tranvanhuy.io.vn">
                   <QrcodeVue
                     value="https://www.tranvanhuy.io.vn"
-                    :size="52"
+                    :size="56"
                     level="M"
                     render-as="svg"
                     class="block shrink-0"
@@ -71,9 +71,9 @@
               </div>
 
               <!-- Middle Section: 2 Balanced Information Boxes -->
-              <div class="grid grid-cols-2 gap-3 my-auto">
+              <div class="grid grid-cols-2 gap-3.5 my-auto">
                 <!-- Education Box -->
-                <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[76px]">
+                <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[84px]">
                   <div class="flex items-center justify-between gap-1 leading-none">
                     <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
                     <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80 font-mono font-bold text-[10px] whitespace-nowrap">
@@ -87,7 +87,7 @@
                 </div>
 
                 <!-- Experience Box -->
-                <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[76px]">
+                <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[84px]">
                   <div class="flex items-center justify-between gap-1 leading-none">
                     <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
                     <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/80 font-mono font-semibold text-[10px] whitespace-nowrap">
@@ -104,10 +104,10 @@
                 </div>
               </div>
 
-              <!-- Tech Stack Section: Single Horizontal Row -->
+              <!-- Tech Stack Section: Single Horizontal Row with Comfortable Breathing Room -->
               <div>
                 <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5 font-semibold">Core Tech Stack</span>
-                <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px] overflow-hidden">
+                <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px]">
                   <span class="px-2.5 py-1 rounded-lg bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Java</span>
                   <span class="px-2.5 py-1 rounded-lg bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Spring Boot</span>
                   <span class="px-2.5 py-1 rounded-lg bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Next.js</span>
@@ -119,9 +119,9 @@
                 </div>
               </div>
 
-              <!-- Bottom Footer Section: Single Clean Line -->
+              <!-- Bottom Footer Section: Single Clean Balanced Line with Clear Margins -->
               <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-600 font-mono">
-                <div class="flex items-center gap-4 whitespace-nowrap">
+                <div class="flex items-center gap-5 whitespace-nowrap">
                   <!-- Email -->
                   <span class="flex items-center gap-1.5 text-slate-700">
                     <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,7 +144,7 @@
                   href="https://github.com/tranvanhuy-dev-it"
                   target="_blank"
                   rel="noopener"
-                  class="text-blue-600 hover:text-blue-700 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap"
+                  class="text-blue-600 hover:text-blue-700 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap pl-3"
                 >
                   <span>github.com/tranvanhuy-dev-it</span>
                 </a>
@@ -203,7 +203,7 @@ watch(() => props.isOpen, (newVal) => {
   }
 })
 
-// Direct DOM Capture with html-to-image (2.5x Retina, Business Card Golden Ratio 1.73:1)
+// Direct DOM Capture with html-to-image (2.5x Retina, 640px x 380px Golden Card Ratio)
 async function downloadCardPng() {
   sound.playClick()
   isGenerating.value = true
@@ -217,15 +217,15 @@ async function downloadCardPng() {
       quality: 1.0,
       cacheBust: true,
       backgroundColor: '#f8fafc',
-      width: 580,
-      height: 335,
+      width: 640,
+      height: 380,
       style: {
-        width: '580px',
-        minWidth: '580px',
-        maxWidth: '580px',
-        height: '335px',
-        minHeight: '335px',
-        maxHeight: '335px',
+        width: '640px',
+        minWidth: '640px',
+        maxWidth: '640px',
+        height: '380px',
+        minHeight: '380px',
+        maxHeight: '380px',
         transform: 'none',
         margin: '0',
       }
