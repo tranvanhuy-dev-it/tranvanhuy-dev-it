@@ -1,10 +1,18 @@
-import personalData from './personal.json'
+import personalData from './personal/personal.json'
 import skillsData from './skills.json'
 import experiencesData from './experiences.json'
 import educationData from './education.json'
 import whatIBuildData from './whatIBuild.json'
 import statsData from './stats.json'
 import uiData from './ui.json'
+
+// Auto-scan all personal images from src/data/personal/images/ without needing hardcoded filenames
+const personalImagesGlob = import.meta.glob('./personal/images/*.{png,jpg,jpeg,webp,svg,gif,PNG,JPG,JPEG,WEBP,SVG,GIF}', {
+  eager: true,
+  import: 'default'
+})
+const personalImageList = Object.values(personalImagesGlob)
+const detectedAvatar = personalImageList.length > 0 ? personalImageList[0] : (personalData.avatar || '')
 
 // Auto-scan all project JSON configs from arbitrary folder names
 const projectFiles = import.meta.glob('./projects/*/project.json', { eager: true })
@@ -73,7 +81,8 @@ export function loadPortfolioData() {
       personal: {
         email: personalData.email,
         location: personalData.location,
-        avatar: personalData.avatar,
+        avatar: detectedAvatar,
+        avatars: personalImageList,
         cv: personalData.cv,
         website: personalData.website,
         socials: personalData.socials,
