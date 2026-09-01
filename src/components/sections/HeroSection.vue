@@ -29,14 +29,14 @@
             {{ store.personal.name }}
           </h1>
 
-          <!-- Professional Role Subtitle (Always on one line) -->
-          <div class="mt-3.5 sm:mt-4 flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-nowrap whitespace-nowrap text-[13px] sm:text-base md:text-lg lg:text-xl font-medium tracking-tight">
+          <!-- Professional Role Subtitle -->
+          <div class="mt-3.5 sm:mt-4 flex items-center justify-center lg:justify-start gap-2 text-sm sm:text-base md:text-lg font-medium tracking-tight">
             <span class="text-white light:text-slate-900 font-bold shrink-0">
               {{ store.locale === 'vi' ? 'Lập trình viên' : 'Software Developer' }}
             </span>
             <span class="text-slate-600 font-normal shrink-0">|</span>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 font-mono font-semibold shrink-0">
-              {{ store.personal.roleSubtitle || (store.locale === 'vi' ? 'Full-Stack & Kỹ thuật AI' : 'Full-Stack & AI Engineering') }}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 font-mono font-semibold">
+              {{ store.locale === 'vi' ? 'Full-Stack & Giải pháp AI' : 'Full-Stack & AI Solutions' }}
             </span>
           </div>
 
@@ -164,7 +164,7 @@
                   <span class="text-slate-400">name:</span> <span class="text-emerald-300">'Trần Văn Huy'</span>,
                 </div>
                 <div>
-                  <span class="text-slate-400">role:</span> <span class="text-emerald-300">'Full-Stack & Applied AI'</span>,
+                  <span class="text-slate-400">role:</span> <span class="text-emerald-300">'Full-Stack & AI Solutions'</span>,
                 </div>
                 <div>
                   <span class="text-slate-400">education:</span> <span class="text-emerald-300">'Bach Khoa Da Nang (DUT)'</span>,

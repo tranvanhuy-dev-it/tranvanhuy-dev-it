@@ -13,7 +13,7 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
 - 💼 **Current Role:** Software Developer Intern @ **Digital Twin Group (MakeAI)**.
 - 📍 **Location:** Da Nang, Vietnam.
 - ⚙️ **Core Tech:** Java (Spring Boot), Next.js, React.js, Vue 3, Python (Frappe), PostgreSQL, PostGIS, WebSocket STOMP, Capacitor.
-- 🤖 **AI Focus:** Applied AI, Agentic AI workflows (OpenClaw), Data Science pipelines.
+- 🤖 **AI Focus:** AI Solutions, Agentic AI workflows (OpenClaw), Data Science pipelines.
 - 🎯 **Philosophy:** Engineering robust, scalable full-stack software systems with clean architecture, high reliability, and practical business impact.
 - 🌐 **Live Portfolio:** [www.tranvanhuy.io.vn](https://www.tranvanhuy.io.vn)
 
