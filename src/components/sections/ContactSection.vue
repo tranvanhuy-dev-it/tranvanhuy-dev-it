@@ -65,6 +65,29 @@
                   </span>
                 </div>
               </div>
+
+              <!-- Quick QR Scan Banner Card -->
+              <div
+                @click="showQrModal = true"
+                class="p-2.5 sm:p-3 rounded-xl bg-slate-850/60 hover:bg-slate-850 light:bg-slate-50 light:hover:bg-slate-100 border border-slate-800 hover:border-cyan-500/50 light:border-slate-200 light:hover:border-cyan-500/50 transition-all cursor-pointer group flex items-center justify-between gap-2.5"
+              >
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-cyan-500/10 light:bg-cyan-100 border border-cyan-500/30 flex items-center justify-center text-cyan-400 light:text-cyan-700 shrink-0 group-hover:scale-105 transition-transform">
+                    <IconQrCode class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-cyan-400 light:text-blue-600 font-semibold">
+                      {{ store.locale === 'vi' ? 'Quét QR xem trên điện thoại' : 'Scan QR for Mobile View' }}
+                    </p>
+                    <p class="text-[11px] sm:text-xs font-semibold text-white light:text-slate-900 truncate">
+                      www.tranvanhuy.io.vn
+                    </p>
+                  </div>
+                </div>
+                <div class="px-2 sm:px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-medium bg-slate-800 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-300 light:bg-slate-200 light:text-slate-700 light:group-hover:bg-cyan-500 light:group-hover:text-slate-950 border border-slate-700 light:border-slate-300 transition-all shrink-0">
+                  {{ store.locale === 'vi' ? 'Quét mã' : 'Scan QR' }}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -74,12 +97,12 @@
               {{ store.locale === 'vi' ? 'Kênh kết nối & Hồ sơ:' : 'Direct Links & Profile:' }}
             </span>
 
-            <div class="grid grid-cols-3 gap-2">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <a
                 :href="store.personal.socials.linkedin"
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center justify-center gap-1.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-slate-850 hover:bg-slate-750 light:bg-slate-100 light:hover:bg-slate-200 text-slate-200 hover:text-white light:text-slate-800 light:hover:text-slate-900 border border-slate-700/80 light:border-slate-300 text-[11px] sm:text-xs font-medium transition-all shadow-sm whitespace-nowrap text-center"
+                class="inline-flex items-center justify-center gap-1.5 px-2 sm:px-2.5 py-2 sm:py-2.5 rounded-xl bg-slate-850 hover:bg-slate-750 light:bg-slate-100 light:hover:bg-slate-200 text-slate-200 hover:text-white light:text-slate-800 light:hover:text-slate-900 border border-slate-700/80 light:border-slate-300 text-[11px] sm:text-xs font-medium transition-all shadow-sm whitespace-nowrap text-center"
               >
                 <IconLinkedin class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-blue-400 shrink-0" />
                 <span>LinkedIn</span>
@@ -89,7 +112,7 @@
                 :href="store.personal.socials.github"
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center justify-center gap-1.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-slate-850 hover:bg-slate-750 light:bg-slate-100 light:hover:bg-slate-200 text-slate-200 hover:text-white light:text-slate-800 light:hover:text-slate-900 border border-slate-700/80 light:border-slate-300 text-[11px] sm:text-xs font-medium transition-all shadow-sm whitespace-nowrap text-center"
+                class="inline-flex items-center justify-center gap-1.5 px-2 sm:px-2.5 py-2 sm:py-2.5 rounded-xl bg-slate-850 hover:bg-slate-750 light:bg-slate-100 light:hover:bg-slate-200 text-slate-200 hover:text-white light:text-slate-800 light:hover:text-slate-900 border border-slate-700/80 light:border-slate-300 text-[11px] sm:text-xs font-medium transition-all shadow-sm whitespace-nowrap text-center"
               >
                 <IconGithub class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-slate-300 light:text-slate-700 shrink-0" />
                 <span>GitHub</span>
@@ -98,13 +121,23 @@
               <a
                 :href="store.personal.cv"
                 download
-                class="inline-flex items-center justify-center gap-1 px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 light:bg-cyan-50 light:hover:bg-cyan-100 text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800 border border-cyan-500/30 light:border-cyan-400/50 text-[11px] sm:text-xs font-semibold transition-all shadow-sm whitespace-nowrap text-center"
+                class="inline-flex items-center justify-center gap-1 px-2 sm:px-2.5 py-2 sm:py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 light:bg-cyan-50 light:hover:bg-cyan-100 text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800 border border-cyan-500/30 light:border-cyan-400/50 text-[11px] sm:text-xs font-semibold transition-all shadow-sm whitespace-nowrap text-center"
               >
                 <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-cyan-400 light:text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
                 <span>{{ store.ui.downloadCv || 'Tải CV' }}</span>
               </a>
+
+              <button
+                type="button"
+                @click="showQrModal = true"
+                class="inline-flex items-center justify-center gap-1.5 px-2 sm:px-2.5 py-2 sm:py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 light:bg-purple-50 light:hover:bg-purple-100 text-purple-300 hover:text-purple-200 light:text-purple-700 light:hover:text-purple-800 border border-purple-500/30 light:border-purple-400/50 text-[11px] sm:text-xs font-semibold transition-all shadow-sm whitespace-nowrap text-center cursor-pointer"
+                :title="store.locale === 'vi' ? 'Quét mã QR Portfolio' : 'Scan QR Portfolio'"
+              >
+                <IconQrCode class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-purple-400 light:text-purple-600" />
+                <span>{{ store.locale === 'vi' ? 'Mã QR' : 'QR Code' }}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -225,6 +258,13 @@
 
       </div>
     </div>
+
+    <!-- QR Code Modal Popup -->
+    <QrCodeModal
+      :is-open="showQrModal"
+      url="https://www.tranvanhuy.io.vn"
+      @close="showQrModal = false"
+    />
   </section>
 </template>
 
@@ -235,10 +275,13 @@ import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useContactForm } from '@/composables/useContactForm'
 import IconGithub from '@/components/icons/IconGithub.vue'
 import IconLinkedin from '@/components/icons/IconLinkedin.vue'
+import IconQrCode from '@/components/icons/IconQrCode.vue'
+import QrCodeModal from '@/components/ui/QrCodeModal.vue'
 
 const store = usePortfolioStore()
 const { form, errors, isSubmitting, submitStatus, errorMessage, submit } = useContactForm()
 const copied = ref(false)
+const showQrModal = ref(false)
 
 function copyEmail() {
   navigator.clipboard.writeText(store.personal.email)
