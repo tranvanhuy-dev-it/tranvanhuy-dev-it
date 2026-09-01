@@ -249,7 +249,7 @@ const taglines = computed(() => {
   return store.personal.taglines || [
     'Software Developer',
     'Full-Stack & Backend Engineer',
-    'Applied AI & Automation Solutions',
+    'Data Science & AI Solutions',
     'Java Spring Boot & Next.js'
   ]
 })

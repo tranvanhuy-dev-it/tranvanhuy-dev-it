@@ -25,7 +25,7 @@
       "subtitle": "Bach Khoa Da Nang (DUT)",
       "points": [
         "Data Science & ML: Exploratory Data Analysis, Pandas, NumPy, Scikit-learn & Deep Learning.",
-        "Agentic AI & Automation: Multi-agent architectures and workflow automation (OpenClaw).",
+        "Agentic AI & Automation: Multi-agent architectures and workflow automation.",
         "Software Engineering: Scalable full-stack systems (Spring Boot, React, Next.js, PostgreSQL), Clean Architecture."
       ]
     },
@@ -35,7 +35,7 @@
       "subtitle": "Đại học Bách Khoa Đà Nẵng (DUT)",
       "points": [
         "Khoa học Dữ liệu & Học máy: Khám phá & phân tích dữ liệu, Pandas, NumPy, Scikit-learn và Deep Learning.",
-        "Agentic AI & Tự động hóa: Kiến trúc Multi-agent và tự động hóa quy trình nghiệp vụ (OpenClaw).",
+        "Agentic AI & Tự động hóa: Kiến trúc Multi-agent và tự động hóa quy trình nghiệp vụ.",
         "Kỹ nghệ Phần mềm: Hệ thống full-stack quy mô lớn (Spring Boot, React, Next.js, PostgreSQL), Clean Architecture."
       ]
     }

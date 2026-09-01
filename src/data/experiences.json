@@ -10,7 +10,6 @@
       "React.js",
       "Vue 3",
       "Agentic AI",
-      "OpenClaw",
       "Java (Spring Boot)",
       "Python",
       "Frappe",
@@ -24,7 +23,7 @@
       "description": [
         "BIMspace (Technical Infrastructure Management): served as the primary developer, extending frontend and backend features on an existing codebase with Next.js & TypeScript.",
         "Son Tra Ward Health Management: built and owned the entire system solo during internship training — database design, backend, Next.js & React UI, map integration, and a PostGIS-based geospatial system.",
-        "Public Investment Management: joined mid-project after phase 1, continued developing the 10-step public investment workflow, integrated agentic AI (OpenClaw), rebuilt frontend with Next.js & TypeScript, and delivered the Disbursement, System Settings, System Catalog, Construction & Supervision, Overview & Reports, and Bidding Packages modules.",
+        "Public Investment Management: joined mid-project after phase 1, continued developing the 10-step public investment workflow, integrated Agentic AI automation, rebuilt frontend with Next.js & TypeScript, and delivered the Disbursement, System Settings, System Catalog, Construction & Supervision, Overview & Reports, and Bidding Packages modules.",
         "Designed database schemas, optimized SQL query performance, and implemented role-based authorization across projects.",
         "Collaborated in Agile sprint planning, daily stand-ups, and code review processes to ensure code quality."
       ]
@@ -35,7 +34,7 @@
       "description": [
         "BIMspace (Quản lý Hạ tầng Kỹ thuật): đảm nhận vai trò lập trình viên chính, mở rộng frontend với Next.js & TypeScript và backend trên codebase có sẵn.",
         "Quản lý Y tế Phường Sơn Trà: tự xây dựng và làm chủ toàn bộ hệ thống trong quá trình training thực tập — thiết kế CSDL PostGIS, backend, giao diện React.js & Next.js, tích hợp bản đồ.",
-        "Quản lý Đầu tư Công: tham gia dự án khi đã hoàn thành giai đoạn đầu, tiếp tục phát triển quy trình đầu tư công 10 bước, tích hợp agentic AI (OpenClaw), tái cấu trúc giao diện Next.js & TypeScript, và triển khai các chức năng Giải ngân, Cài đặt hệ thống, Danh mục hệ thống, Thi công và Giám sát, Tổng quan và Báo cáo, Gói thầu.",
+        "Quản lý Đầu tư Công: tham gia dự án khi đã hoàn thành giai đoạn đầu, tiếp tục phát triển quy trình đầu tư công 10 bước, tích hợp tự động hóa với Agentic AI, tái cấu trúc giao diện Next.js & TypeScript, và triển khai các chức năng Giải ngân, Cài đặt hệ thống, Danh mục hệ thống, Thi công và Giám sát, Tổng quan và Báo cáo, Gói thầu.",
         "Thiết kế cơ sở dữ liệu, tối ưu hóa hiệu năng truy vấn SQL và triển khai phân quyền bảo mật vai trò cho các dự án.",
         "Cộng tác làm việc trong môi trường Agile/Scrum, báo cáo hàng ngày và kiểm duyệt mã nguồn."
       ]

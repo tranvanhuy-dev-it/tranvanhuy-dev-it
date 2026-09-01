@@ -49,7 +49,7 @@
   },
   {
     "icon": "🤖",
-    "tags": ["Agentic AI (OpenClaw)", "Python", "Pandas", "NumPy"],
+    "tags": ["Agentic AI", "Python", "Pandas", "NumPy"],
     "en": {
       "title": "Data & AI Systems",
       "desc": "Data analysis pipelines and agentic AI-driven tools to automate enterprise workflows."
