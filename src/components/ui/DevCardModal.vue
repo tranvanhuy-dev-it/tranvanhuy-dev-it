@@ -33,37 +33,37 @@
             </h3>
           </div>
 
-          <!-- Visible Card Area (Light Minimalist Executive Theme) -->
+          <!-- Visible Card Area (Ultra-Compact Sleek Developer Pass) -->
           <div class="overflow-x-auto pb-1 scrollbar-thin">
             <div
               id="dev-card-element"
-              class="relative min-w-[620px] rounded-2xl p-6 bg-white text-slate-900 border border-slate-200 shadow-sm overflow-hidden"
-              style="width: 620px; background-color: #ffffff; font-family: 'Inter', system-ui, -apple-system, sans-serif;"
+              class="relative min-w-[600px] rounded-2xl p-4 sm:p-5 text-slate-900 border border-slate-200/90 shadow-sm overflow-hidden"
+              style="width: 600px; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); font-family: 'Inter', system-ui, -apple-system, sans-serif;"
             >
-              <div class="relative z-10 space-y-4">
-                <!-- Top Row: Profile Details on Left, Compact QR on Top-Right -->
-                <div class="flex items-start justify-between gap-4">
+              <div class="relative z-10 space-y-2.5">
+                <!-- Top Row: Compact Header & Pure QR on Right -->
+                <div class="flex items-center justify-between gap-3">
                   <!-- Left: Avatar, Name & Title -->
-                  <div class="flex items-center gap-3.5 min-w-0">
-                    <div class="w-12 h-12 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-base tracking-wider">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 text-white shadow-sm shrink-0 flex items-center justify-center font-mono font-bold text-sm tracking-wider">
                       TVH
                     </div>
 
                     <div class="min-w-0">
-                      <h4 class="text-xl font-bold text-slate-900 tracking-tight whitespace-nowrap leading-tight">
+                      <h4 class="text-lg font-extrabold text-slate-900 tracking-tight whitespace-nowrap leading-tight">
                         Trần Văn Huy
                       </h4>
-                      <p class="text-xs text-slate-500 font-medium mt-1 whitespace-nowrap">
+                      <p class="text-[11px] text-slate-600 font-medium mt-0.5 whitespace-nowrap">
                         Software Developer • Full-Stack & AI Solutions
                       </p>
                     </div>
                   </div>
 
-                  <!-- Top-Right: Pure Compact QR Code Only -->
-                  <div class="p-1.5 rounded-xl bg-slate-50 border border-slate-200 shrink-0 shadow-sm" title="https://www.tranvanhuy.io.vn">
+                  <!-- Top-Right: Ultra-Compact Pure QR Code -->
+                  <div class="p-1 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs" title="https://www.tranvanhuy.io.vn">
                     <QrcodeVue
                       value="https://www.tranvanhuy.io.vn"
-                      :size="52"
+                      :size="46"
                       level="M"
                       render-as="svg"
                       class="block shrink-0"
@@ -71,60 +71,60 @@
                   </div>
                 </div>
 
-                <!-- Middle Row: 2 Balanced Information Boxes -->
-                <div class="grid grid-cols-2 gap-3">
-                  <!-- Education Box (With GPA 3.5 nicely placed inside) -->
-                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
-                    <div class="flex items-center justify-between">
-                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
-                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">
+                <!-- Middle Row: 2 Ultra-Compact Info Boxes -->
+                <div class="grid grid-cols-2 gap-2.5">
+                  <!-- Education Box -->
+                  <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[66px]">
+                    <div class="flex items-center justify-between gap-1 leading-none">
+                      <span class="text-[9px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
+                      <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80 font-mono font-bold text-[10px] whitespace-nowrap">
                         GPA 3.5
                       </span>
                     </div>
                     <div>
-                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap">ĐH Bách Khoa Đà Nẵng (DUT)</p>
-                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Khoa học Dữ liệu & AI</p>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">ĐH Bách Khoa Đà Nẵng (DUT)</p>
+                      <p class="text-[10px] text-slate-500 font-medium whitespace-nowrap">Khoa học Dữ liệu & AI</p>
                     </div>
                   </div>
 
-                  <!-- Experience Box (With MakeAI badge & distinct non-duplicate detail) -->
-                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col justify-between h-[82px]">
-                    <div class="flex items-center justify-between">
-                      <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
-                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                  <!-- Experience Box -->
+                  <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between h-[66px]">
+                    <div class="flex items-center justify-between gap-1 leading-none">
+                      <span class="text-[9px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
+                      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/80 font-mono font-semibold text-[10px] whitespace-nowrap">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                         <span>MakeAI</span>
                       </span>
                     </div>
                     <div>
-                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap">Software Developer Intern</p>
-                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">Software Developer Intern</p>
+                      <p class="text-[10px] text-slate-500 font-medium whitespace-nowrap">
                         {{ isVi ? 'Phát triển Web App & Hệ thống AI' : 'Web Apps & AI Systems Development' }}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <!-- Core Tech Stack: Single Clean Horizontal Row -->
+                <!-- Core Tech Stack: Ultra-Compact Single Row -->
                 <div>
-                  <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider block mb-1.5 font-semibold">Core Tech Stack</span>
-                  <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px] overflow-hidden">
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Java</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Spring Boot</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Next.js</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Vue 3</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">PostgreSQL</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Python</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 font-medium">Docker</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-bold">AI</span>
+                  <span class="text-[9px] text-slate-400 font-mono uppercase tracking-wider block mb-1 font-semibold">Core Tech Stack</span>
+                  <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[10px] overflow-hidden">
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Java</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Spring Boot</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Next.js</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Vue 3</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">PostgreSQL</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Python</span>
+                    <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200 shadow-2xs font-medium">Docker</span>
+                    <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 shadow-2xs font-bold">AI</span>
                   </div>
                 </div>
 
-                <!-- Card Footer: Single Clean Balanced Row -->
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
-                  <div class="flex items-center gap-4 whitespace-nowrap">
+                <!-- Card Footer: Slim Single Row -->
+                <div class="pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px] text-slate-600 font-mono">
+                  <div class="flex items-center gap-3.5 whitespace-nowrap">
                     <!-- Email -->
-                    <span class="flex items-center gap-1.5 text-slate-600">
+                    <span class="flex items-center gap-1.5 text-slate-700">
                       <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                       </svg>
@@ -145,7 +145,7 @@
                     href="https://github.com/tranvanhuy-dev-it"
                     target="_blank"
                     rel="noopener"
-                    class="text-blue-600 hover:text-blue-700 font-medium shrink-0 flex items-center gap-1 whitespace-nowrap"
+                    class="text-blue-600 hover:text-blue-700 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap"
                   >
                     <span>github.com/tranvanhuy-dev-it</span>
                   </a>
@@ -205,7 +205,7 @@ watch(() => props.isOpen, (newVal) => {
   }
 })
 
-// Direct DOM Capture with html-to-image (2.5x Retina, Clean Light Card)
+// Direct DOM Capture with html-to-image (2.5x Retina, Slim Compact Card)
 async function downloadCardPng() {
   sound.playClick()
   isGenerating.value = true
@@ -218,12 +218,12 @@ async function downloadCardPng() {
       pixelRatio: 2.5,
       quality: 1.0,
       cacheBust: true,
-      backgroundColor: '#ffffff',
-      width: 620,
+      backgroundColor: '#f8fafc',
+      width: 600,
       style: {
-        width: '620px',
-        minWidth: '620px',
-        maxWidth: '620px',
+        width: '600px',
+        minWidth: '600px',
+        maxWidth: '600px',
         transform: 'none',
         margin: '0',
       }
