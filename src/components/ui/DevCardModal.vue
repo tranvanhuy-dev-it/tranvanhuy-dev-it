@@ -87,7 +87,7 @@
                     </div>
                     <div>
                       <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">University of Science and Technology - UDN</p>
-                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Data Science & AI</p>
+                      <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Data Science & Artificial Intelligence</p>
                     </div>
                   </div>
 
@@ -271,6 +271,12 @@ async function downloadCardPng() {
     clone.style.transform = 'none'
     clone.style.margin = '0'
     document.body.appendChild(clone)
+
+    // Give the browser a couple of frames to actually layout and paint the
+    // freshly-appended clone before measuring/capturing it — reading
+    // offsetHeight or calling toPng() immediately on some mobile browsers
+    // can race the layout pass and produce a blank image.
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
 
     let dataUrl
     try {
