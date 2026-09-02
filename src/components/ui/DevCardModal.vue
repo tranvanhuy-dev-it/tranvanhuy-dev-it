@@ -47,7 +47,7 @@
                   <!-- Left: Official System Logo, Name & Title -->
                   <div class="flex items-center gap-3 min-w-0">
                     <div class="w-11 h-11 rounded-xl shadow-sm shrink-0 overflow-hidden">
-                      <img src="/logo.png" alt="System Logo" class="w-full h-full object-cover" />
+                      <img :src="logoDataUri" alt="System Logo" class="w-full h-full object-cover" />
                     </div>
 
                     <div class="min-w-0">
@@ -116,13 +116,13 @@
                   </div>
                   <div class="grid grid-cols-3 gap-2">
                     <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
-                      <p class="text-[10px] font-bold text-slate-800 leading-snug">Full-Stack Web Apps</p>
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug whitespace-nowrap">Full-Stack Web Apps</p>
                     </div>
                     <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
-                      <p class="text-[10px] font-bold text-slate-800 leading-snug">Data & AI Systems</p>
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug whitespace-nowrap">Data & AI Systems</p>
                     </div>
                     <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
-                      <p class="text-[10px] font-bold text-slate-800 leading-snug">GIS & Digital Transform.</p>
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug whitespace-nowrap">GIS & Digital Transform.</p>
                     </div>
                   </div>
                 </div>
@@ -194,6 +194,7 @@ import QrcodeVue from 'qrcode.vue'
 import { toPng } from 'html-to-image'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useSoundEffects } from '@/composables/useSoundEffects'
+import { logoDataUri } from '@/assets/logoDataUri.js'
 
 const props = defineProps({
   isOpen: {
@@ -221,32 +222,9 @@ async function downloadCardPng() {
   isGenerating.value = true
 
   const node = document.getElementById('dev-card-element')
-  const logoImg = node?.querySelector('img')
-  const originalLogoSrc = logoImg?.src
 
   try {
     if (!node) throw new Error('Card element not found')
-
-    // html-to-image re-fetches every <img> src itself (with a cacheBust query
-    // param) instead of using the already-loaded element — on flaky mobile
-    // networks that fetch can fail and it silently falls back to a blank
-    // image. Inline the logo as a data URI so no network request is needed
-    // during export.
-    if (logoImg && !logoImg.src.startsWith('data:')) {
-      try {
-        const resp = await fetch(originalLogoSrc)
-        const blob = await resp.blob()
-        const dataUri = await new Promise((resolve, reject) => {
-          const reader = new FileReader()
-          reader.onloadend = () => resolve(reader.result)
-          reader.onerror = reject
-          reader.readAsDataURL(blob)
-        })
-        logoImg.src = dataUri
-      } catch (err) {
-        console.error('Failed to inline logo as data URI', err)
-      }
-    }
 
     // Wait for web fonts to finish loading — on mobile they may still be
     // fetching, causing the SVG-based capture to fall back to a different
@@ -323,7 +301,6 @@ async function downloadCardPng() {
     console.error('Error generating card image', err)
     alert(isVi.value ? `Xuất ảnh thất bại: ${err?.message || err}` : `Export failed: ${err?.message || err}`)
   } finally {
-    if (logoImg && originalLogoSrc) logoImg.src = originalLogoSrc
     isGenerating.value = false
   }
 }
