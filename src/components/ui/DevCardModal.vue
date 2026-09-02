@@ -224,7 +224,30 @@ async function downloadCardPng() {
     const node = document.getElementById('dev-card-element')
     if (!node) throw new Error('Card element not found')
 
-    const actualHeight = node.offsetHeight
+    // Ensure the logo image has fully finished loading before serializing
+    // the DOM — on mobile networks it may not be ready yet, leaving it blank.
+    const logoImg = node.querySelector('img')
+    if (logoImg && !logoImg.complete) {
+      await new Promise((resolve) => {
+        logoImg.addEventListener('load', resolve, { once: true })
+        logoImg.addEventListener('error', resolve, { once: true })
+      })
+    }
+
+    // Card is styled with a fixed 620px width, but on narrow mobile viewports
+    // the live element is shrunk inside its scroll container, so its current
+    // offsetHeight doesn't reflect the true rendered height at 620px. Clone
+    // the node off-screen at the target width to measure it accurately.
+    const clone = node.cloneNode(true)
+    clone.style.position = 'fixed'
+    clone.style.top = '-9999px'
+    clone.style.left = '-9999px'
+    clone.style.width = '620px'
+    clone.style.minWidth = '620px'
+    clone.style.maxWidth = '620px'
+    document.body.appendChild(clone)
+    const actualHeight = clone.offsetHeight
+    document.body.removeChild(clone)
 
     const dataUrl = await toPng(node, {
       pixelRatio: 2.5,
