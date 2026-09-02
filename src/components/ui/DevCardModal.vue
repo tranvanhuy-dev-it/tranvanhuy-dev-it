@@ -37,15 +37,15 @@
           <div class="overflow-x-auto pb-1 scrollbar-thin">
             <div
               id="dev-card-element"
-              class="relative rounded-2xl bg-gradient-to-br from-indigo-100 via-blue-50 to-cyan-100 text-slate-900 border border-indigo-100 shadow-sm overflow-hidden flex flex-col justify-between"
-              style="width: 620px; min-width: 620px; height: 350px; min-height: 350px; font-family: 'Inter', system-ui, -apple-system, sans-serif;"
+              class="relative rounded-2xl bg-gradient-to-br from-indigo-100 via-blue-50 to-cyan-100 text-slate-900 border border-indigo-100 shadow-sm overflow-hidden flex flex-col"
+              style="width: 620px; min-width: 620px; height: 354px; min-height: 354px; font-family: 'Inter', system-ui, -apple-system, sans-serif;"
             >
               <!-- Card Main Body -->
-              <div class="p-6 pb-4 flex-1 flex flex-col gap-5">
+              <div class="p-6 pb-4 flex-1 flex flex-col justify-between">
                 <!-- 1. Top Section: Header & Pure QR on Right -->
                 <div class="flex items-center justify-between gap-4">
                   <!-- Left: Official System Logo, Name & Title -->
-                  <div class="flex items-center gap-3.5 min-w-0">
+                  <div class="flex items-center gap-3 min-w-0">
                     <div class="w-11 h-11 rounded-xl shadow-sm shrink-0 overflow-hidden">
                       <img src="/logo.png" alt="System Logo" class="w-full h-full object-cover" />
                     </div>
@@ -57,6 +57,9 @@
                       <p class="text-xs text-slate-500 font-medium mt-0.5 whitespace-nowrap">
                         Software Developer • Full-Stack & AI Solutions
                       </p>
+                      <p class="text-[11px] text-slate-500 font-medium italic mt-1 whitespace-nowrap">
+                        "Turning data into scalable, intelligent software systems."
+                      </p>
                     </div>
                   </div>
 
@@ -64,7 +67,7 @@
                   <div class="p-1 rounded-xl bg-slate-50 border border-slate-200 shrink-0 shadow-2xs" title="https://www.tranvanhuy.io.vn">
                     <QrcodeVue
                       value="https://www.tranvanhuy.io.vn"
-                      :size="48"
+                      :size="56"
                       level="M"
                       render-as="svg"
                       class="block shrink-0"
@@ -72,23 +75,10 @@
                   </div>
                 </div>
 
-                <!-- 1.5 Quick Stats Strip -->
-                <div class="flex items-center gap-6 px-1">
-                  <div class="flex items-center gap-2">
-                    <span class="text-lg font-extrabold text-indigo-600 leading-none">5</span>
-                    <span class="text-[11px] text-slate-500 font-medium leading-[1.15]">Completed<br />Projects</span>
-                  </div>
-                  <div class="w-px h-7 bg-indigo-100"></div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-lg font-extrabold text-blue-600 leading-none">8</span>
-                    <span class="text-[11px] text-slate-500 font-medium leading-[1.15]">Core Tech<br />Stack</span>
-                  </div>
-                </div>
-
                 <!-- 2. Middle Section: Unified Connected Panel (Education & Experience) -->
                 <div class="rounded-xl bg-white/80 border border-indigo-100 grid grid-cols-2 divide-x divide-indigo-100 shadow-2xs overflow-hidden">
                   <!-- Education Column -->
-                  <div class="p-3 flex flex-col justify-between h-[74px]">
+                  <div class="p-3.5 flex flex-col justify-between h-[80px]">
                     <div class="flex items-center justify-between gap-1 leading-none">
                       <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Education</span>
                       <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200 font-mono font-bold text-[10px] whitespace-nowrap">
@@ -96,13 +86,13 @@
                       </span>
                     </div>
                     <div>
-                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">Da Nang University of Technology</p>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">University of Science and Technology - UD</p>
                       <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Data Science & AI</p>
                     </div>
                   </div>
 
                   <!-- Experience Column -->
-                  <div class="p-3 flex flex-col justify-between h-[74px]">
+                  <div class="p-3.5 flex flex-col justify-between h-[80px]">
                     <div class="flex items-center justify-between gap-1 leading-none">
                       <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Experience</span>
                       <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-cyan-100 text-cyan-700 border border-cyan-200 font-mono font-semibold text-[10px] whitespace-nowrap">
@@ -119,27 +109,28 @@
                   </div>
                 </div>
 
-                <!-- 3. Tech Stack: Unified Strip -->
+                <!-- 3. Core Expertise: Unified Strip -->
                 <div>
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Core Tech Stack</span>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-semibold">Core Expertise</span>
                   </div>
-                  <div class="flex items-center gap-1.5 flex-nowrap whitespace-nowrap font-mono text-[11px]">
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Java</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Spring Boot</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Next.js</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Vue 3</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">PostgreSQL</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Python</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">Docker</span>
-                    <span class="px-2.5 py-1 rounded-lg bg-white/80 text-slate-800 border border-indigo-100 font-medium">AI</span>
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug">Full-Stack Web Apps</p>
+                    </div>
+                    <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug">Data & AI Systems</p>
+                    </div>
+                    <div class="px-2.5 py-3 rounded-lg bg-white/80 border border-indigo-100 flex items-center justify-center text-center">
+                      <p class="text-[10px] font-bold text-slate-800 leading-snug">GIS & Digital Transform.</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- 4. Bottom Footer Strip: Grounded Solid Base -->
-              <div class="px-6 py-3 bg-white/60 border-t border-indigo-100 flex items-center justify-between gap-4 text-xs text-slate-600 font-mono">
-                <div class="flex items-center gap-5 whitespace-nowrap min-w-0">
+              <div class="mt-auto px-5 py-2.5 bg-white/60 border-t border-indigo-100 flex items-center justify-between gap-3 text-[10.5px] text-slate-600 font-mono shrink-0">
+                <div class="flex items-center gap-3 whitespace-nowrap min-w-0 overflow-hidden">
                   <!-- Email -->
                   <span class="flex items-center gap-1.5 text-slate-700">
                     <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +139,7 @@
                     <span>tranvanhuy064206@gmail.com</span>
                   </span>
                   <!-- Location -->
-                  <span class="flex items-center gap-1.5 text-slate-500">
+                  <span class="flex items-center gap-1.5 text-slate-500 shrink-0">
                     <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -162,8 +153,11 @@
                   href="https://github.com/tranvanhuy-dev-it"
                   target="_blank"
                   rel="noopener"
-                  class="text-indigo-600 hover:text-blue-600 font-semibold shrink-0 flex items-center gap-1 whitespace-nowrap transition-colors"
+                  class="text-indigo-600 hover:text-blue-600 font-semibold shrink-0 flex items-center gap-1.5 whitespace-nowrap transition-colors"
                 >
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
                   <span>github.com/tranvanhuy-dev-it</span>
                 </a>
               </div>
@@ -221,7 +215,7 @@ watch(() => props.isOpen, (newVal) => {
   }
 })
 
-// Direct DOM Capture with html-to-image (2.5x Retina, 620px x 350px Unified Layout)
+// Direct DOM Capture with html-to-image (2.5x Retina, 620px wide, height auto-fit to content)
 async function downloadCardPng() {
   sound.playClick()
   isGenerating.value = true
@@ -230,20 +224,19 @@ async function downloadCardPng() {
     const node = document.getElementById('dev-card-element')
     if (!node) throw new Error('Card element not found')
 
+    const actualHeight = node.offsetHeight
+
     const dataUrl = await toPng(node, {
       pixelRatio: 2.5,
       quality: 1.0,
       cacheBust: true,
       backgroundColor: '#ffffff',
       width: 620,
-      height: 350,
+      height: actualHeight,
       style: {
         width: '620px',
         minWidth: '620px',
         maxWidth: '620px',
-        height: '350px',
-        minHeight: '350px',
-        maxHeight: '350px',
         transform: 'none',
         margin: '0',
       }
