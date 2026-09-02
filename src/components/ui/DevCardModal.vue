@@ -191,7 +191,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import QrcodeVue from 'qrcode.vue'
-import { toPng } from 'html-to-image'
+import { toCanvas } from 'html-to-image'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useSoundEffects } from '@/composables/useSoundEffects'
 import { logoDataUri } from '@/assets/logoDataUri.js'
@@ -265,16 +265,41 @@ async function downloadCardPng() {
 
     // Give the browser a couple of frames to actually layout and paint the
     // freshly-appended clone before measuring/capturing it — reading
-    // offsetHeight or calling toPng() immediately on some mobile browsers
+    // offsetHeight or calling toCanvas() immediately on some mobile browsers
     // can race the layout pass and produce a blank image.
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
 
-    let dataUrl
+    const pixelRatio = 2.5
+
+    // Every attempt to get the logo <img> to survive html-to-image's own
+    // SVG-foreignObject-based rendering pipeline failed on mobile (fetched
+    // URL, then a build-time-inlined base64 data URI — both still came out
+    // missing), which points to that pipeline itself being unreliable with
+    // embedded images on some mobile browsers, regardless of how the image
+    // data is sourced. So sidestep it: capture the card WITHOUT the logo via
+    // toCanvas(), then draw the logo onto the resulting canvas directly with
+    // the plain, well-supported Canvas 2D API.
+    const cloneLogoImg = clone.querySelector('img')
+    let logoRect = null
+    if (cloneLogoImg) {
+      const cloneRect = clone.getBoundingClientRect()
+      const imgRect = cloneLogoImg.getBoundingClientRect()
+      logoRect = {
+        x: imgRect.left - cloneRect.left,
+        y: imgRect.top - cloneRect.top,
+        width: imgRect.width,
+        height: imgRect.height,
+        radius: parseFloat(getComputedStyle(cloneLogoImg.parentElement || cloneLogoImg).borderRadius) || 0,
+      }
+      cloneLogoImg.style.visibility = 'hidden'
+    }
+
+    let canvas
     try {
       const actualHeight = clone.offsetHeight
 
-      dataUrl = await toPng(clone, {
-        pixelRatio: 2.5,
+      canvas = await toCanvas(clone, {
+        pixelRatio,
         quality: 1.0,
         cacheBust: false,
         backgroundColor: '#ffffff',
@@ -284,6 +309,34 @@ async function downloadCardPng() {
     } finally {
       document.body.removeChild(clone)
     }
+
+    if (logoRect) {
+      const logoImgEl = new Image()
+      await new Promise((resolve, reject) => {
+        logoImgEl.onload = resolve
+        logoImgEl.onerror = reject
+        logoImgEl.src = logoDataUri
+      })
+      const ctx = canvas.getContext('2d')
+      const x = logoRect.x * pixelRatio
+      const y = logoRect.y * pixelRatio
+      const w = logoRect.width * pixelRatio
+      const h = logoRect.height * pixelRatio
+      const r = logoRect.radius * pixelRatio
+      ctx.save()
+      ctx.beginPath()
+      ctx.moveTo(x + r, y)
+      ctx.arcTo(x + w, y, x + w, y + h, r)
+      ctx.arcTo(x + w, y + h, x, y + h, r)
+      ctx.arcTo(x, y + h, x, y, r)
+      ctx.arcTo(x, y, x + w, y, r)
+      ctx.closePath()
+      ctx.clip()
+      ctx.drawImage(logoImgEl, x, y, w, h)
+      ctx.restore()
+    }
+
+    const dataUrl = canvas.toDataURL('image/png', 1.0)
 
     if (!dataUrl || dataUrl.length < 100) {
       throw new Error(`Export produced an empty image (dataUrl length: ${dataUrl?.length ?? 0})`)
