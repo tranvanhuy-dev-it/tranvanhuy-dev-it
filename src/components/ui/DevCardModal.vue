@@ -220,18 +220,39 @@ async function downloadCardPng() {
   sound.playClick()
   isGenerating.value = true
 
+  const node = document.getElementById('dev-card-element')
+  const logoImg = node?.querySelector('img')
+  const originalLogoSrc = logoImg?.src
+
   try {
-    const node = document.getElementById('dev-card-element')
     if (!node) throw new Error('Card element not found')
 
-    // Ensure the logo image has fully finished loading before serializing
-    // the DOM — on mobile networks it may not be ready yet, leaving it blank.
-    const logoImg = node.querySelector('img')
-    if (logoImg && !logoImg.complete) {
-      await new Promise((resolve) => {
-        logoImg.addEventListener('load', resolve, { once: true })
-        logoImg.addEventListener('error', resolve, { once: true })
-      })
+    // html-to-image re-fetches every <img> src itself (with a cacheBust query
+    // param) instead of using the already-loaded element — on flaky mobile
+    // networks that fetch can fail and it silently falls back to a blank
+    // image. Inline the logo as a data URI so no network request is needed
+    // during export.
+    if (logoImg && !logoImg.src.startsWith('data:')) {
+      try {
+        const resp = await fetch(originalLogoSrc)
+        const blob = await resp.blob()
+        const dataUri = await new Promise((resolve, reject) => {
+          const reader = new FileReader()
+          reader.onloadend = () => resolve(reader.result)
+          reader.onerror = reject
+          reader.readAsDataURL(blob)
+        })
+        logoImg.src = dataUri
+      } catch (err) {
+        console.error('Failed to inline logo as data URI', err)
+      }
+    }
+
+    // Wait for web fonts to finish loading — on mobile they may still be
+    // fetching, causing the SVG-based capture to fall back to a different
+    // font and wrap text that fits on desktop.
+    if (document.fonts?.ready) {
+      await document.fonts.ready
     }
 
     // Card is styled with a fixed 620px width, but on narrow mobile viewports
@@ -252,7 +273,7 @@ async function downloadCardPng() {
     const dataUrl = await toPng(node, {
       pixelRatio: 2.5,
       quality: 1.0,
-      cacheBust: true,
+      cacheBust: false,
       backgroundColor: '#ffffff',
       width: 620,
       height: actualHeight,
@@ -276,6 +297,7 @@ async function downloadCardPng() {
   } catch (err) {
     console.error('Error generating card image', err)
   } finally {
+    if (logoImg && originalLogoSrc) logoImg.src = originalLogoSrc
     isGenerating.value = false
   }
 }
