@@ -261,15 +261,24 @@ async function downloadCardPng() {
     // capture. Capture from an off-screen clone appended directly to
     // document.body instead, so it lays out at a true, unconstrained 620px
     // on every device.
+    // Note: positioning the clone off-viewport (e.g. top:-9999px) is known
+    // to rasterize blank on some mobile WebKit/Chrome versions, because
+    // html-to-image serializes the node into an SVG <foreignObject> which
+    // gets clipped when its source element sits outside viewport bounds
+    // during the intermediate image decode. Keep it inside the viewport,
+    // just visually hidden instead.
     const clone = node.cloneNode(true)
     clone.style.position = 'fixed'
-    clone.style.top = '-9999px'
-    clone.style.left = '-9999px'
+    clone.style.top = '0'
+    clone.style.left = '0'
     clone.style.width = '620px'
     clone.style.minWidth = '620px'
     clone.style.maxWidth = '620px'
     clone.style.transform = 'none'
     clone.style.margin = '0'
+    clone.style.zIndex = '-1'
+    clone.style.opacity = '0.001'
+    clone.style.pointerEvents = 'none'
     document.body.appendChild(clone)
 
     // Give the browser a couple of frames to actually layout and paint the
@@ -294,6 +303,10 @@ async function downloadCardPng() {
       document.body.removeChild(clone)
     }
 
+    if (!dataUrl || dataUrl.length < 100) {
+      throw new Error(`Export produced an empty image (dataUrl length: ${dataUrl?.length ?? 0})`)
+    }
+
     const link = document.createElement('a')
     link.download = 'tranvanhuy-dev-card.png'
     link.href = dataUrl
@@ -304,6 +317,7 @@ async function downloadCardPng() {
     sound.playSuccess()
   } catch (err) {
     console.error('Error generating card image', err)
+    alert(isVi.value ? `Xuất ảnh thất bại: ${err?.message || err}` : `Export failed: ${err?.message || err}`)
   } finally {
     if (logoImg && originalLogoSrc) logoImg.src = originalLogoSrc
     isGenerating.value = false
