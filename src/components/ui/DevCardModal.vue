@@ -276,8 +276,12 @@ async function downloadCardPng() {
     clone.style.maxWidth = '620px'
     clone.style.transform = 'none'
     clone.style.margin = '0'
+    // IMPORTANT: don't use opacity/visibility to hide this clone — html-to-image
+    // bakes the node's own style into the rasterized output, so a near-zero
+    // opacity here previously made every exported PNG come out blank/white.
+    // z-index alone (behind the modal overlay, which is already opaque) is
+    // enough to keep it out of sight during the brief moment it's attached.
     clone.style.zIndex = '-1'
-    clone.style.opacity = '0.001'
     clone.style.pointerEvents = 'none'
     document.body.appendChild(clone)
 
