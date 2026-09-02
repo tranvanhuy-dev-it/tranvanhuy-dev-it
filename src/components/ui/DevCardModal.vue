@@ -86,7 +86,7 @@
                       </span>
                     </div>
                     <div>
-                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">University of Science and Technology - UD</p>
+                      <p class="text-xs font-bold text-slate-900 whitespace-nowrap leading-snug">University of Science and Technology - UDN</p>
                       <p class="text-[11px] text-slate-500 font-medium whitespace-nowrap mt-0.5">Data Science & AI</p>
                     </div>
                   </div>
@@ -255,10 +255,12 @@ async function downloadCardPng() {
       await document.fonts.ready
     }
 
-    // Card is styled with a fixed 620px width, but on narrow mobile viewports
-    // the live element is shrunk inside its scroll container, so its current
-    // offsetHeight doesn't reflect the true rendered height at 620px. Clone
-    // the node off-screen at the target width to measure it accurately.
+    // The live node sits inside an `overflow-x-auto` container in the modal,
+    // which shrinks its layout on narrow mobile viewports — the `style`
+    // option passed to toPng() doesn't reliably override this during
+    // capture. Capture from an off-screen clone appended directly to
+    // document.body instead, so it lays out at a true, unconstrained 620px
+    // on every device.
     const clone = node.cloneNode(true)
     clone.style.position = 'fixed'
     clone.style.top = '-9999px'
@@ -266,25 +268,25 @@ async function downloadCardPng() {
     clone.style.width = '620px'
     clone.style.minWidth = '620px'
     clone.style.maxWidth = '620px'
+    clone.style.transform = 'none'
+    clone.style.margin = '0'
     document.body.appendChild(clone)
-    const actualHeight = clone.offsetHeight
-    document.body.removeChild(clone)
 
-    const dataUrl = await toPng(node, {
-      pixelRatio: 2.5,
-      quality: 1.0,
-      cacheBust: false,
-      backgroundColor: '#ffffff',
-      width: 620,
-      height: actualHeight,
-      style: {
-        width: '620px',
-        minWidth: '620px',
-        maxWidth: '620px',
-        transform: 'none',
-        margin: '0',
-      }
-    })
+    let dataUrl
+    try {
+      const actualHeight = clone.offsetHeight
+
+      dataUrl = await toPng(clone, {
+        pixelRatio: 2.5,
+        quality: 1.0,
+        cacheBust: false,
+        backgroundColor: '#ffffff',
+        width: 620,
+        height: actualHeight,
+      })
+    } finally {
+      document.body.removeChild(clone)
+    }
 
     const link = document.createElement('a')
     link.download = 'tranvanhuy-dev-card.png'
