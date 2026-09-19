@@ -4,7 +4,7 @@ Các SVG trong repository ban đầu là placeholder an toàn. GitHub Actions s�
 
 ## 1. Tạo profile repository
 
-Repository phải là `tranvanhuy-dev-it/tranvanhuy-dev-it`, ở chế độ public. Chép toàn bộ file trong thư mục này vào root của repository đó.
+Repository phải là `tranvanhuy-hichan/tranvanhuy-hichan`, ở chế độ public. Chép toàn bộ file trong thư mục này vào root của repository đó.
 
 ## 2. Cho phép workflow ghi file
 

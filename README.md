@@ -150,13 +150,13 @@ Hi, I'm **Trần Văn Huy** — a 3rd-year student majoring in **Data Science & 
 <p align="center">
   <a target="_blank" href="https://www.tranvanhuy.io.vn"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/domain.png" alt="Portfolio" /></a>&nbsp;&nbsp;
   <a target="_blank" href="https://www.linkedin.com/in/huy-tran-van-5753b13b4"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/linkedin--v2.png" alt="LinkedIn" /></a>&nbsp;&nbsp;
-  <a target="_blank" href="https://github.com/tranvanhuy-dev-it"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>&nbsp;&nbsp;
+  <a target="_blank" href="https://github.com/tranvanhuy-hichan"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/github--v1.png" alt="GitHub" /></a>&nbsp;&nbsp;
   <a target="_blank" href="https://facebook.com/tranvanhuy260306"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/facebook-new.png" alt="Facebook" /></a>&nbsp;&nbsp;
   <a href="mailto:tranvanhuy064206@gmail.com"><img width="38" height="38" src="https://img.icons8.com/doodle/40/000000/gmail-new.png" alt="Email" /></a>
 </p>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-dev-it&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views" />
+  <img src="https://komarev.com/ghpvc/?username=tranvanhuy-hichan&amp;label=Profile%20views&amp;color=0891b2&amp;style=flat-square" alt="Profile views" />
 </div>
 
 <br />

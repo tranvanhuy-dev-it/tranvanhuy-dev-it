@@ -23,7 +23,7 @@ jobs:
         run: >-
           curl --fail --location --retry 3
           --output metrics-streak.svg
-          "https://streak-stats.demolab.com/?user=tranvanhuy-dev-it&theme=github-dark-blue&hide_border=true"
+          "https://streak-stats.demolab.com/?user=tranvanhuy-hichan&theme=github-dark-blue&hide_border=true"
 
       - name: Commit streak SVG
         uses: stefanzweifel/git-auto-commit-action@v5

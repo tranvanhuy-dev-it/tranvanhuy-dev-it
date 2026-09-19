@@ -11,7 +11,7 @@
       <!-- Quick links -->
       <div class="flex items-center gap-4">
         <a
-          href="https://github.com/tranvanhuy-dev-it"
+          href="https://github.com/tranvanhuy-hichan"
           target="_blank"
           rel="noopener"
           class="hover:text-cyan-400 transition-colors"
